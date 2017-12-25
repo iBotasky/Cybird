@@ -23,11 +23,30 @@ android {
 }
 
 dependencies {
+    def appDependencies = rootProject.ext.appDependencies
+    //项目依赖
+    def testDependencies = rootProject.ext.appTestDependencies
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0-beta4'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation  appDependencies.kotlin
+    implementation appDependencies.appcompact
+    implementation appDependencies.appDesign
+    implementation appDependencies.cardView
+    implementation appDependencies.recycleView
+    implementation appDependencies.palttte
+    implementation appDependencies.percent
+    implementation appDependencies.suportV4
+    implementation appDependencies.constrain
+    implementation appDependencies.retrofit
+    implementation appDependencies.retrofitAdapter
+    implementation appDependencies.rxJava
+    implementation appDependencies.rxAndroid
+    implementation appDependencies.rxLifecycle
+    implementation appDependencies.rxLifecycleComponent
+    implementation appDependencies.brvah
+    implementation appDependencies.rxPermission
+    implementation appDependencies.systembar
+
 }

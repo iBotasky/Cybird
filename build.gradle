@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.1.51'
+//    ext.kotlin_version = '1.2.10'
     repositories {
         google()
         jcenter()
@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.10"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -28,6 +28,53 @@ allprojects {
             name 'Google'
         }
     }
+}
+
+ext {
+    kotlinVersion = '1.2.10'
+    //SupportLibs
+    suppportLibVersion = '26.1.0'
+    //ConstraintLayout
+    constraintLayoutVersion = '1.1.0-beta4'
+    //BaseRecyclerViewHelper
+    baseRecyclerViewHelperVersion = '2.9.34'
+    //retrofit
+    retrofitVersion = '2.3.0'
+    //rxJava
+    rxJavaVersion = '2.1.6'
+    //rxAndroid
+    rxAndroidVersion = '2.0.1'
+    //rxlifecycle
+    rxLifecycleVersion = '2.2.1'
+    //rxPermission
+    rxPermissionVersion = '0.9.4@aar'
+    //Status bar
+    statusBarVersion = '1.0.0@aar'
+
+    appDependencies = [
+        kotlin                  :"org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
+        appcompact              :"com.android.support:appcompat-v7:${suppportLibVersion}",
+        appDesign               :"com.android.support:design:${suppportLibVersion}",
+        cardView                :"com.android.support:cardview-v7:${suppportLibVersion}",
+        recycleView             :"com.android.support:recyclerview-v7:${suppportLibVersion}",
+        palttte                 :"com.android.support:palette-v7:${suppportLibVersion}",
+        percent                 :"com.android.support:percent:${suppportLibVersion}",
+        suportV4                :"com.android.support:support-v4:${suppportLibVersion}",
+        constrain               :"com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+        retrofit                :"com.squareup.retrofit2:retrofit:${retrofitVersion}",
+        retrofitConverter       :"com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+        retrofitAdapter         :"com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
+        rxJava                  :"io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+        rxAndroid               :"io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+        rxLifecycle             :"com.trello.rxlifecycle2:rxlifecycle:${rxLifecycleVersion}",
+        rxLifecycleComponent    :"com.trello.rxlifecycle2:rxlifecycle-components:${rxLifecycleVersion}",
+        brvah                   :"com.github.CymChad:BaseRecyclerViewAdapterHelper:${baseRecyclerViewHelperVersion}",
+        rxPermission            :"com.tbruyelle.rxpermissions2:rxpermissions:${rxPermissionVersion}",
+        systembar               :"com.flyco.systembar:FlycoSystemBar_Lib:${statusBarVersion}"
+    ]
+    appTestDependencies = [
+
+    ]
 }
 
 task clean(type: Delete) {
