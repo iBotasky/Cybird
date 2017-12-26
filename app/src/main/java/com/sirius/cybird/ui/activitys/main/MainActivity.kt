@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityMainBinding
 
+/**
+ * Create by Botasky
+ */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
