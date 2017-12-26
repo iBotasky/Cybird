@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //DataBinding
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -48,5 +52,9 @@ dependencies {
     implementation appDependencies.brvah
     implementation appDependencies.rxPermission
     implementation appDependencies.systembar
+    kapt appDependencies.databindingCompiler
+}
 
+kapt {
+    generateStubs = true
 }
