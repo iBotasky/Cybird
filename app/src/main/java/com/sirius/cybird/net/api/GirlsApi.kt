@@ -1,33 +1,30 @@
 package com.sirius.cybird.net.api
 
-import com.sirius.cybird.data.SearchResultModel
+import com.sirius.cybird.net.response.GirlResopnse
 import com.sirius.cybird.net.url.Urls
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 /**
  * Description：
  * Created by Botasky on 2017/12/29.
  */
-interface WiKiApiService {
-    @GET("api.php")
-    fun hitCountCheck(@Query("action") action: String,
-                      @Query("format") format: String,
-                      @Query("list") list: String,
-                      @Query("srsearch") srsearch: String): Observable<SearchResultModel.Result>
+interface GirlsApi {
+    @GET("data/福利/20/{index}")
+    fun accessGirls(@Path("index") index: Int): Observable<GirlResopnse>
 
     companion object {
-        fun getWikiService():WiKiApiService{
+        fun getGirlsService(): GirlsApi {
             return Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(Urls.WIKI_URL)
+                    .baseUrl(Urls.GANK_GIRLS_URL_HOST)
                     .build()
-                    .create(WiKiApiService::class.java)
+                    .create(GirlsApi::class.java)
         }
     }
 }
