@@ -7,5 +7,4 @@ import com.trello.rxlifecycle2.components.RxActivity
  * Created by Botasky on 2017/12/26.
  */
 class BaseActivity : RxActivity() {
-
 }
