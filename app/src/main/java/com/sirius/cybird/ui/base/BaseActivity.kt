@@ -3,7 +3,6 @@ package com.sirius.cybird.ui.base
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.os.PersistableBundle
 import com.sirius.cybird.R
 import com.trello.rxlifecycle2.components.RxActivity
 

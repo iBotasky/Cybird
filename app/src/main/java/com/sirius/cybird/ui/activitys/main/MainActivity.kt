@@ -6,8 +6,8 @@ import android.util.Log
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityMainBinding
 import com.sirius.cybird.net.api.FilmsApi
+import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseActivity
-import com.trello.rxlifecycle2.RxLifecycle
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,6 +20,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.onCreate(savedInstanceState, persistentState)
 
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModel = MainViewModel("Botasky")
@@ -29,9 +30,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         button.setOnClickListener({
             FilmsApi.getFilmsService()
                     .getComingSoon(0, 10)
+                    .compose(bindToLifecycle())
+                    .compose(TransformScheduler.applyNewThreadScheduler())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .compose(bindToLifecycle())
                     .subscribe({ filmsData ->
                         viewModel.name = filmsData.title
                     }, { e ->
