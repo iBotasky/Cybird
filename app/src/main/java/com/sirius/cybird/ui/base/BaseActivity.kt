@@ -21,6 +21,4 @@ open class BaseActivity<M : ViewDataBinding> : RxActivity() {
     open fun getLayoutResource(): Int {
         return R.layout.activity_main
     }
-
-
 }
