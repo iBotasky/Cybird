@@ -8,8 +8,6 @@ import com.sirius.cybird.databinding.ActivityMainBinding
 import com.sirius.cybird.net.api.FilmsApi
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseActivity
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -32,8 +30,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     .getComingSoon(0, 10)
                     .compose(bindToLifecycle())
                     .compose(TransformScheduler.applyNewThreadScheduler())
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ filmsData ->
                         viewModel.name = filmsData.title
                     }, { e ->
