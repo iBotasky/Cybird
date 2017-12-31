@@ -53,6 +53,8 @@ ext {
     databindingCompilerVersion = '3.1.0-alpha06'
     //dagger
     daggerVersion = '2.8'
+    //glide
+    glideVersion = '4.4.0'
 
     appDependencies = [
             kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
@@ -76,7 +78,9 @@ ext {
             systembar           : "com.flyco.systembar:FlycoSystemBar_Lib:${statusBarVersion}",
             databindingCompiler : "com.android.databinding:compiler:${databindingCompilerVersion}",
             dagger              : "com.google.dagger:dagger:${daggerVersion}",
-            daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerVersion}"
+            daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            glide               : "com.github.bumptech.glide:glide:${glideVersion}",
+            glideComplier       : "com.github.bumptech.glide:compiler:${glideVersion}"
     ]
     appTestDependencies = [
 
