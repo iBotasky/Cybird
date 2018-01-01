@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 /**
- * Description：
+ * Description： 豆瓣API
  * Created by Botasky on 2017/12/29.
  */
 interface FilmsApi {

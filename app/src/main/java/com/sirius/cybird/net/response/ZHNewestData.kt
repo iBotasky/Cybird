@@ -3,7 +3,7 @@ import com.google.gson.annotations.SerializedName
 
 
 /**
- *
+ * 知乎最新日报的实体类
  *Create By Botasky 31/12/2017
  **/
 data class ZhiHuData(
