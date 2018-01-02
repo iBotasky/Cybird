@@ -57,6 +57,7 @@ dependencies {
     annotationProcessor appDependencies.daggerCompiler
     implementation appDependencies.glide
     annotationProcessor appDependencies.glideComplier
+    implementation appDependencies.glideOkHttp
     kapt appDependencies.databindingCompiler
 }
 

@@ -55,6 +55,8 @@ ext {
     daggerVersion = '2.8'
     //glide
     glideVersion = '4.4.0'
+    //OkhttpGlide
+    glideOkVersion = '1.5.0@aar'
 
     appDependencies = [
             kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
@@ -80,7 +82,8 @@ ext {
             dagger              : "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerVersion}",
             glide               : "com.github.bumptech.glide:glide:${glideVersion}",
-            glideComplier       : "com.github.bumptech.glide:compiler:${glideVersion}"
+            glideComplier       : "com.github.bumptech.glide:compiler:${glideVersion}",
+            glideOkHttp         : "com.github.bumptech.glide:okhttp3-integration:${glideOkVersion}"
     ]
     appTestDependencies = [
 
