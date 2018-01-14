@@ -18,7 +18,6 @@ import com.bumptech.glide.module.AppGlideModule
  **/
 @GlideModule
 class CybirdGlideModule : AppGlideModule() {
-
     override fun applyOptions(context: Context?, builder: GlideBuilder?) {
         super.applyOptions(context, builder)
         //设置内存缓存 30MB
@@ -37,7 +36,6 @@ class CybirdGlideModule : AppGlideModule() {
             //路径---->/sdcard/Android/data/<application package>/cache/imgCache
             builder?.setDiskCache(ExternalPreferredCacheDiskCacheFactory(context, CACHE_FILE_NAME, MAX_DISK_CACHE_SIZE.toLong()))
         }
-
     }
 
     override fun registerComponents(context: Context?, glide: Glide?, registry: Registry?) {
