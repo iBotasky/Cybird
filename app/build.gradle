@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'              //Kotlin
+apply plugin: 'kotlin-android-extensions'   //KotlinExtension
+apply plugin: 'io.objectbox'                //ObjectBox
 
 android {
     compileSdkVersion 26
@@ -59,6 +58,7 @@ dependencies {
     annotationProcessor appDependencies.glideComplier
     implementation appDependencies.glideOkHttp
     kapt appDependencies.databindingCompiler
+    implementation appDependencies.stetho
 }
 
 kapt {

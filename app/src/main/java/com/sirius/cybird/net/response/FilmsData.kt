@@ -11,11 +11,11 @@ data class FilmsData(
 		@SerializedName("count") val count: Int, //3
 		@SerializedName("start") val start: Int, //0
 		@SerializedName("total") val total: Int, //250
-		@SerializedName("subjects") val subjects: List<Subject>,
+		@SerializedName("subjects") val films: List<Film>,
 		@SerializedName("title") val title: String //豆瓣电影Top250
 )
 
-data class Subject(
+data class Film(
 		@SerializedName("rating") val rating: Rating,
 		@SerializedName("genres") val genres: List<String>,
 		@SerializedName("title") val title: String, //肖申克的救赎

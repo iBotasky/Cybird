@@ -5,6 +5,8 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url "http://objectbox.net/beta-repo/" }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
@@ -13,6 +15,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.0-alpha08'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.10"
+        classpath "io.objectbox:objectbox-gradle-plugin:1.4.0"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -22,6 +25,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url "http://objectbox.net/beta-repo/" }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
@@ -57,6 +62,10 @@ ext {
     glideVersion = '4.4.0'
     //OkhttpGlide
     glideOkVersion = '1.5.0@aar'
+    //stetho
+    stethoVersion = '1.5.0'
+    //objectBox
+    obVersion = '1.4.0'
 
     appDependencies = [
             kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
@@ -83,7 +92,9 @@ ext {
             daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerVersion}",
             glide               : "com.github.bumptech.glide:glide:${glideVersion}",
             glideComplier       : "com.github.bumptech.glide:compiler:${glideVersion}",
-            glideOkHttp         : "com.github.bumptech.glide:okhttp3-integration:${glideOkVersion}"
+            glideOkHttp         : "com.github.bumptech.glide:okhttp3-integration:${glideOkVersion}",
+            objectBox           : "io.objectbox:objectbox-gradle-plugin:${obVersion}",
+            stetho              : "com.facebook.stetho:stetho:${stethoVersion}"
     ]
     appTestDependencies = [
 
