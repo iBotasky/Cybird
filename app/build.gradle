@@ -41,7 +41,9 @@ dependencies {
     implementation appDependencies.palttte
     implementation appDependencies.percent
     implementation appDependencies.suportV4
+    //Constraint
     implementation appDependencies.constrain
+    //Rx+Retrofit
     implementation appDependencies.retrofit
     implementation appDependencies.retrofitConverter
     implementation appDependencies.retrofitAdapter
@@ -49,16 +51,24 @@ dependencies {
     implementation appDependencies.rxAndroid
     implementation appDependencies.rxLifecycle
     implementation appDependencies.rxLifecycleComponent
+    //BRVAH
     implementation appDependencies.brvah
+    //RxPermission
     implementation appDependencies.rxPermission
+    //SystemBar
     implementation appDependencies.systembar
+    //Dagger
     implementation appDependencies.dagger
     annotationProcessor appDependencies.daggerCompiler
+    //Glide
     implementation appDependencies.glide
     annotationProcessor appDependencies.glideComplier
     implementation appDependencies.glideOkHttp
+    //DataBinding
     kapt appDependencies.databindingCompiler
+    //Stetho
     implementation appDependencies.stetho
+    //ObjectBox
     debugImplementation appTestDependencies.obBrowser
     releaseImplementation appDependencies.obBrowser
 }

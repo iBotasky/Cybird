@@ -96,8 +96,8 @@ ext {
             obBrowser           : "io.objectbox:objectbox-android:${obVersion}"
     ]
     appTestDependencies = [
-            obBrowser           : "io.objectbox:objectbox-android-objectbrowser:${obVersion}"
             //Run: adb forward tcp:8090 tcp:8090 在浏览器访问
+            obBrowser: "io.objectbox:objectbox-android-objectbrowser:${obVersion}"
     ]
 }
 
