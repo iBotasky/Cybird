@@ -5,6 +5,7 @@ import android.content.Context
 import com.facebook.stetho.Stetho
 import com.sirius.cybird.db.MyObjectBox
 import io.objectbox.BoxStore
+import io.objectbox.android.AndroidObjectBrowser
 
 /**
  *
@@ -13,15 +14,15 @@ import io.objectbox.BoxStore
 class CybirdApplication : Application() {
     companion object {
         lateinit var mAppContext: CybirdApplication
-
+        lateinit var mBoxStore: BoxStore
         fun getContext(): Context {
             return mAppContext.applicationContext
         }
+        fun getBoxStore(): BoxStore {
+            return mBoxStore
+        }
     }
 
-
-    lateinit var mBoxStore: BoxStore
-        set
 
     override fun onCreate() {
         super.onCreate()
@@ -36,9 +37,9 @@ class CybirdApplication : Application() {
 
     fun setupObjectBox() {
         mBoxStore = MyObjectBox.builder().androidContext(this).build()
+        if (BuildConfig.DEBUG){
+            AndroidObjectBrowser(mBoxStore).start(this)
+        }
     }
 
-    fun getBoxStore(): BoxStore {
-        return this.mBoxStore
-    }
 }

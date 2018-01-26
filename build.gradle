@@ -92,10 +92,12 @@ ext {
             glideComplier       : "com.github.bumptech.glide:compiler:${glideVersion}",
             glideOkHttp         : "com.github.bumptech.glide:okhttp3-integration:${glideOkVersion}",
             objectBox           : "io.objectbox:objectbox-gradle-plugin:${obVersion}",
-            stetho              : "com.facebook.stetho:stetho:${stethoVersion}"
+            stetho              : "com.facebook.stetho:stetho:${stethoVersion}",
+            obBrowser           : "io.objectbox:objectbox-android:${obVersion}"
     ]
     appTestDependencies = [
-
+            obBrowser           : "io.objectbox:objectbox-android-objectbrowser:${obVersion}"
+            //Run: adb forward tcp:8090 tcp:8090 在浏览器访问
     ]
 }
 

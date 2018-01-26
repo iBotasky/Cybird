@@ -26,7 +26,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         val viewModel = MainViewModel("Botasky")
         mBinding?.viewModel = viewModel
         mBinding?.executePendingBindings()
-        mFilmBox = (application as CybirdApplication).mBoxStore.boxFor(FilmEntity::class.java)
+        mFilmBox = CybirdApplication.getBoxStore().boxFor(FilmEntity::class.java)
         button.setOnClickListener({
             FilmsApi.getFilmsService()
                     .getComingSoon(0, 10)
