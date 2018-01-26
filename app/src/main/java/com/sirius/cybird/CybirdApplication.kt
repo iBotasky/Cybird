@@ -12,15 +12,15 @@ import io.objectbox.BoxStore
  **/
 class CybirdApplication : Application() {
     companion object {
-        lateinit var mAppContext : CybirdApplication
+        lateinit var mAppContext: CybirdApplication
 
-        fun getContext() : Context {
+        fun getContext(): Context {
             return mAppContext.applicationContext
         }
     }
 
 
-    lateinit var mBoxStore : BoxStore
+    lateinit var mBoxStore: BoxStore
         set
 
     override fun onCreate() {
@@ -38,7 +38,7 @@ class CybirdApplication : Application() {
         mBoxStore = MyObjectBox.builder().androidContext(this).build()
     }
 
-    fun getBoxStore() : BoxStore{
+    fun getBoxStore(): BoxStore {
         return this.mBoxStore
     }
 }
