@@ -1,0 +1,42 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:7063011075758472266",
+      "lastPropertyId": "4:4251478727771262329",
+      "name": "FilmEntity",
+      "properties": [
+        {
+          "id": "1:4124335765418641232",
+          "name": "id"
+        },
+        {
+          "id": "2:5106895566539857440",
+          "name": "text"
+        },
+        {
+          "id": "3:961647826182208634",
+          "name": "comment"
+        },
+        {
+          "id": "4:4251478727771262329",
+          "name": "date"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:7063011075758472266",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
