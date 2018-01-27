@@ -2,7 +2,7 @@ package com.sirius.cybird.ui.activitys.main
 
 import android.os.Bundle
 import android.util.Log
-import com.sirius.cybird.CybirdApplication
+import com.sirius.cybird.CybirdApp
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityMainBinding
 import com.sirius.cybird.db.FilmEntity
@@ -26,7 +26,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         val viewModel = MainViewModel("Botasky")
         mBinding?.viewModel = viewModel
         mBinding?.executePendingBindings()
-        mFilmBox = (application as CybirdApplication).mBoxStore.boxFor(FilmEntity::class.java)
+        mFilmBox = (application as CybirdApp).mBoxStore.boxFor(FilmEntity::class.java)
         button.setOnClickListener({
             FilmsApi.getFilmsService()
                     .getComingSoon(0, 10)

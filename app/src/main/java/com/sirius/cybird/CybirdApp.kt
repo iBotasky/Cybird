@@ -9,8 +9,8 @@ import io.objectbox.BoxStore
  *
  *Create By Botasky 20/01/2018
  **/
-class CybirdApplication : Application() {
-    lateinit var mBoxStore : BoxStore
+class CybirdApp : Application() {
+    lateinit var mBoxStore: BoxStore
         set
 
     override fun onCreate() {
@@ -20,14 +20,17 @@ class CybirdApplication : Application() {
     }
 
     fun setupStetho() {
-        Stetho.initializeWithDefaults(this)
+        Stetho.initialize(Stetho.newInitializerBuilder(this)
+                .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                .build())
     }
 
     fun setupObjectBox() {
         mBoxStore = MyObjectBox.builder().androidContext(this).build()
     }
 
-    fun getBoxStore() : BoxStore{
+    fun getBoxStore(): BoxStore {
         return this.mBoxStore
     }
 }
