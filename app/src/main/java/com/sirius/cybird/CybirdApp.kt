@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.facebook.stetho.Stetho
 import com.sirius.cybird.db.MyObjectBox
+import com.sirius.cybird.di.singleton.SPManager
 import com.sirius.cybird.utils.SPUtils
 import io.objectbox.BoxStore
 import io.objectbox.android.AndroidObjectBrowser
@@ -25,7 +26,6 @@ class CybirdApp : Application() {
         }
     }
 
-
     override fun onCreate() {
         super.onCreate()
         mAppContext = this
@@ -38,7 +38,7 @@ class CybirdApp : Application() {
                 .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
                 .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                 .build())
-        SPUtils.setString("test", "Hello")
+
     }
 
     fun setupObjectBox() {

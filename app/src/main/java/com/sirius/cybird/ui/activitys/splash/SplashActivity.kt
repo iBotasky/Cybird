@@ -5,10 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.view.View
-import android.widget.RelativeLayout
-import android.widget.TextView
-import com.sirius.cybird.R
 import com.sirius.cybird.ui.activitys.main.MainActivity
 import java.lang.ref.WeakReference
 

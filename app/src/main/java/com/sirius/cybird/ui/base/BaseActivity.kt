@@ -19,6 +19,6 @@ open class BaseActivity<M : ViewDataBinding> : RxActivity() {
     }
 
     open fun getLayoutResource(): Int {
-        return -1
+        return 0
     }
 }

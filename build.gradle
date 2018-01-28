@@ -1,7 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-//    ext.kotlin_version = '1.2.10'
+    ext.kotlin_version = '1.2.10'
+    ext.gradle_version = '3.1.0-alpha09'
+    ext.objectbox_version = '1.4.0'
     repositories {
         google()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
@@ -12,9 +14,9 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0-alpha09'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.10"
-        classpath "io.objectbox:objectbox-gradle-plugin:1.4.0"
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "io.objectbox:objectbox-gradle-plugin:$objectbox_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
