@@ -5,13 +5,15 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
-import com.sirius.cybird.CybirdApplication;
+
+import com.sirius.cybird.CybirdApp;
 
 import java.util.Set;
 
 public class SPUtils {
     private static final String NAME = "Cybird";
-    private static final Context context = CybirdApplication.Companion.getContext();
+    private static final Context context = CybirdApp.Companion.getContext();
+
     private static SharedPreferences sp = null;
     private static SharedPreferences.Editor editor = null;
 

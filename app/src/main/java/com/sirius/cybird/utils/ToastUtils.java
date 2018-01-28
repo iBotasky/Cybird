@@ -5,7 +5,8 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import com.sirius.cybird.CybirdApplication;
+import com.sirius.cybird.CybirdApp;
+
 
 /**
  * ToastUtils,土司辅助类
@@ -30,7 +31,7 @@ public class ToastUtils {
             @Override
             public void run() {
                 if (toast == null) {
-                    toast = Toast.makeText(CybirdApplication.Companion.getContext(), s, Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(CybirdApp.Companion.getContext(), s, Toast.LENGTH_SHORT);
                     toast.show();
                     oneTime = System.currentTimeMillis();
                 } else {
@@ -61,7 +62,7 @@ public class ToastUtils {
             @Override
             public void run() {
                 if (toast == null) {
-                    toast = Toast.makeText(CybirdApplication.Companion.getContext(), s, Toast.LENGTH_LONG);
+                    toast = Toast.makeText(CybirdApp.Companion.getContext(), s, Toast.LENGTH_LONG);
                     toast.show();
                     oneTime = System.currentTimeMillis();
                 } else {

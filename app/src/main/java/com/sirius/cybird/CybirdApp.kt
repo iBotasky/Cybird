@@ -11,9 +11,8 @@ import io.objectbox.android.AndroidObjectBrowser
  *
  *Create By Botasky 20/01/2018
  **/
+
 class CybirdApp : Application() {
-    lateinit var mBoxStore: BoxStore
-        set
     companion object {
         lateinit var mAppContext: CybirdApp
         lateinit var mBoxStore: BoxStore
@@ -24,6 +23,7 @@ class CybirdApp : Application() {
             return mBoxStore
         }
     }
+
 
     override fun onCreate() {
         super.onCreate()
@@ -46,7 +46,4 @@ class CybirdApp : Application() {
         }
     }
 
-    fun getBoxStore(): BoxStore {
-        return this.mBoxStore
-    }
 }
