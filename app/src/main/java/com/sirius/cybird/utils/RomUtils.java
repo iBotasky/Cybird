@@ -75,7 +75,7 @@ public class RomUtils {
         return sVersion;
     }
 
-    public static boolean check(String rom) {
+    private static boolean check(String rom) {
         if (sName != null) {
             return sName.equals(rom);
         }

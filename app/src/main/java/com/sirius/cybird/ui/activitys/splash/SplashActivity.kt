@@ -6,8 +6,6 @@ import android.os.Handler
 import android.os.Message
 import android.view.View
 import android.view.animation.AlphaAnimation
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivitySplashBinding
 import com.sirius.cybird.ui.activitys.main.MainActivity
@@ -16,7 +14,7 @@ import java.lang.ref.WeakReference
 
 class SplashActivity : BaseActivity() {
     companion object {
-        private val SPLASH_DELAY_MILLIONS: Long = 3000
+        private val SPLASH_DELAY_MILLIONS: Long = 3500
         private val SPLASH_GO_HOME = 1000
         private val SPLASH_GO_GUIDE = 1001
 
@@ -54,10 +52,11 @@ class SplashActivity : BaseActivity() {
 
         animation(mSplashBinding.tvChinese, 1500)
         animation(mSplashBinding.tvFenlan, 1000)
-        animation(mSplashBinding.tvGerman,2000)
+        animation(mSplashBinding.tvGerman, 2000)
         animation(mSplashBinding.tvJp, 550)
-        animation(mSplashBinding.tvItalian,800)
+        animation(mSplashBinding.tvItalian, 800)
         animation(mSplashBinding.tvMongolian, 2500)
+        animation(mSplashBinding.tvEnglish, 3500)
     }
 
     override fun getLayoutResource(): Int {
@@ -65,7 +64,7 @@ class SplashActivity : BaseActivity() {
     }
 
     fun animation(view: View, duration: Long) {
-        val animation = AlphaAnimation(0.toFloat(),1.toFloat())
+        val animation = AlphaAnimation(0.toFloat(), 1.toFloat())
         animation.duration = duration
         animation.fillAfter = true
         view.startAnimation(animation)

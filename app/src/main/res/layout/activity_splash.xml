@@ -7,9 +7,17 @@
 
     <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:background="@color/color_333333"
         android:layout_height="match_parent">
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="50dp"
+            android:textColor="@color/color_ffffff"
+            android:text="CyBrid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_chinese"/>
         <TextView
             android:id="@+id/tv_english"
             android:layout_width="wrap_content"
@@ -27,9 +35,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="你好，世界"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_english"
             android:textColor="@color/color_ffffff"
             android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_english"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,14 +82,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="108dp"
             android:text="Halló heimur"
             android:textColor="@color/color_ffffff"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_jp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_chinese" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mongolian" />
 
         <TextView
             android:id="@+id/tv_mongolian"
