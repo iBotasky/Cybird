@@ -17,15 +17,17 @@ import java.util.*
 /**
  * Create by Botasky
  */
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainActivity : BaseActivity() {
     private lateinit var mFilmBox: Box<FilmEntity>
-
+    private lateinit var mMainBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModel = MainViewModel("Botasky")
-        mBinding?.viewModel = viewModel
-        mBinding?.executePendingBindings()
+
+        mMainBinding = getBaseViewBinding()
+        mMainBinding.viewModel = viewModel
+        mMainBinding.executePendingBindings()
         mFilmBox = CybirdApp.getBoxStore().boxFor(FilmEntity::class.java)
         button.setOnClickListener({
             FilmsApi.getFilmsService()

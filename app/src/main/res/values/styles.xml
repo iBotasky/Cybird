@@ -10,7 +10,7 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@color/color_333333</item>
+        <item name="android:windowBackground">@color/color_666666</item>
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>

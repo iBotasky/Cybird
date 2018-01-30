@@ -9,12 +9,16 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
  * Description：
  * Created by Botasky on 2017/12/26.
  */
-open class BaseActivity<M : ViewDataBinding> : RxAppCompatActivity() {
-    var mBinding: M? = null
+open class BaseActivity : RxAppCompatActivity() {
+    lateinit var mBinding: ViewDataBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, getLayoutResource())
+    }
+
+    fun <V : ViewDataBinding> getBaseViewBinding(): V {
+        return mBinding as V
     }
 
     open fun getLayoutResource(): Int {

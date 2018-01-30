@@ -1,21 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
+
     </data>
-    <android.support.constraint.ConstraintLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
+        android:background="@color/color_333333"
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/tv_english"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HelloWorld"
+            android:text="Hello,World"
             android:textColor="@color/color_ffffff"
-            android:textSize="20sp"
+            android:textSize="40sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_chinese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="你好，世界"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_english"
+            android:textColor="@color/color_ffffff"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_jp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="こんにちは世界"
+            android:textColor="@color/color_ffffff"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_german"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="98dp"
+            android:text="Hallo Welt"
+            android:textColor="@color/color_ffffff"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_english"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_italian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="66dp"
+            android:layout_marginTop="30dp"
+            android:text="Ciao mondo"
+            android:textColor="@color/color_ffffff"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_english" />
+
+        <TextView
+            android:id="@+id/tv_fenlan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="108dp"
+            android:text="Halló heimur"
+            android:textColor="@color/color_ffffff"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_chinese" />
+
+        <TextView
+            android:id="@+id/tv_mongolian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="66dp"
+            android:layout_marginStart="33dp"
+            android:text="Сайн уу, Дэлхий"
+            android:textColor="@color/color_ffffff"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_english" />
+
     </android.support.constraint.ConstraintLayout>
 </layout>
