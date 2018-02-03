@@ -1,5 +1,6 @@
 package com.sirius.cybird.ui.activitys.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.sirius.cybird.CybirdApp
@@ -8,6 +9,7 @@ import com.sirius.cybird.databinding.ActivityMainBinding
 import com.sirius.cybird.db.FilmEntity
 import com.sirius.cybird.net.api.FilmsApi
 import com.sirius.cybird.rx.TransformScheduler
+import com.sirius.cybird.ui.activitys.home.HomeActivity
 import com.sirius.cybird.ui.base.BaseActivity
 import io.objectbox.Box
 import io.reactivex.Observable
@@ -30,6 +32,7 @@ class MainActivity : BaseActivity() {
         mMainBinding.executePendingBindings()
         mFilmBox = CybirdApp.getBoxStore().boxFor(FilmEntity::class.java)
         button.setOnClickListener({
+            startActivity(Intent(this, HomeActivity::class.java))
             FilmsApi.getFilmsService()
                     .getComingSoon(0, 10)
                     .flatMap { filmsData -> Observable.fromIterable(filmsData.films) }

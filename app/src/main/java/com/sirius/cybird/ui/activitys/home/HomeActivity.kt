@@ -1,39 +1,23 @@
 package com.sirius.cybird.ui.activitys.home
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
 import com.sirius.cybird.R
-import com.sirius.cybird.databinding.ActivityHomeBinding
-import com.sirius.cybird.ui.base.BasePagesActivity
-import com.sirius.cybird.ui.base.IndicatorData
-import java.util.ArrayList
+import com.sirius.cybird.module.TabItemData
+import com.sirius.cybird.ui.base.BaseTabsActivity
 
-class HomeActivity:BasePagesActivity() {
-    lateinit var mHomeBinding :ActivityHomeBinding
-
+class HomeActivity: BaseTabsActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mHomeBinding = getBaseViewBinding()
-    }
 
-    fun setupPages(){
-        val adapter = FragmentPagerAdapter(supportFragmentManager)
-
-//        for (Int in mIndicatorDatas){
-//            val fragment = Fragment()
-//        }
     }
 
 
-    override fun getIndicatorDatas(): List<IndicatorData> {
-        val indicatorDatas = ArrayList<IndicatorData>()
-        indicatorDatas.add(IndicatorData(title = "电影", resouce = 0))
-        indicatorDatas.add(IndicatorData(title = "音乐", resouce = 0))
-        indicatorDatas.add(IndicatorData(title = "笑话", resouce = 0))
-        return indicatorDatas
+    override fun getIndicatorDatas(): List<TabItemData> {
+        val tabItems = ArrayList<TabItemData>()
+        tabItems.add(TabItemData(R.string.app_name, TestFragment::class.java))
+        tabItems.add(TabItemData(R.string.app_home, TestFragment::class.java))
+        return tabItems
     }
 
     override fun getLayoutResource(): Int {
