@@ -2,12 +2,13 @@
 
 buildscript {
     ext.kotlin_version = '1.2.21'
-    ext.gradle_version = '3.1.0-alpha09'
+    ext.gradle_version = '3.1.0-beta1'
     ext.objectbox_version = '1.4.0'
     repositories {
         google()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url "http://objectbox.net/beta-repo/" }
+        maven { url "https://jitpack.io" }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
@@ -27,6 +28,7 @@ allprojects {
         google()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url "http://objectbox.net/beta-repo/" }
+        maven { url "https://jitpack.io" }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
@@ -55,7 +57,7 @@ ext {
     //Status bar
     statusBarVersion = '1.0.0@aar'
     //DatabindingCompiler
-    databindingCompilerVersion = '3.1.0-alpha09'
+    databindingCompilerVersion = '3.1.0-beta1'
     //dagger
     daggerVersion = '2.8'
     //glide
@@ -66,6 +68,8 @@ ext {
     stethoVersion = '1.5.0'
     //objectBox
     obVersion = '1.4.0'
+    //magicIndicator
+    magicIndicatorVersion = '1.5.0'
 
     appDependencies = [
             kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
@@ -96,6 +100,7 @@ ext {
             objectBox           : "io.objectbox:objectbox-gradle-plugin:${obVersion}",
             stetho              : "com.facebook.stetho:stetho:${stethoVersion}",
             obBrowser           : "io.objectbox:objectbox-android:${obVersion}",
+            magicIndicator      : "com.github.hackware1993:MagicIndicator:${magicIndicatorVersion}",
     ]
     appTestDependencies = [
             //Run: adb forward tcp:8090 tcp:8090 在浏览器访问

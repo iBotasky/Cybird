@@ -71,6 +71,8 @@ dependencies {
     //ObjectBox
     debugImplementation appTestDependencies.obBrowser
     releaseImplementation appDependencies.obBrowser
+    //magicIndicator
+    implementation appDependencies.magicIndicator
 }
 apply plugin: 'io.objectbox'                //ObjectBox
 kapt {
