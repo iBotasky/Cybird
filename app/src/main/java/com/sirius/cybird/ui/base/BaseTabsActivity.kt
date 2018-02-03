@@ -34,6 +34,7 @@ open class BaseTabsActivity : BaseActivity() {
     lateinit var mIndicatorDatas: List<TabItemData>
     lateinit var mPagerAdapter: MyViewPagerAdapter
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewPager = findViewById(R.id.id_view_pager)
@@ -55,6 +56,8 @@ open class BaseTabsActivity : BaseActivity() {
 
         mMagicIndicator.navigator = getCommonNavicator()
         ViewPagerHelper.bind(mMagicIndicator, mViewPager)
+
+        setItems(getIndicatorDatas())
 
     }
 
@@ -88,6 +91,11 @@ open class BaseTabsActivity : BaseActivity() {
         return commonNavigator
     }
 
+
+    private fun setItems(list: List<TabItemData>){
+        mPagerAdapter.addItems(list)
+
+    }
 
     open fun getPageLimit(): Int {
         return 2

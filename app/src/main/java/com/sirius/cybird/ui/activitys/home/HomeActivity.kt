@@ -16,7 +16,7 @@ class HomeActivity: BaseTabsActivity() {
     override fun getIndicatorDatas(): List<TabItemData> {
         val tabItems = ArrayList<TabItemData>()
         tabItems.add(TabItemData(R.string.app_name, TestFragment::class.java))
-        tabItems.add(TabItemData(R.string.app_home, TestFragment::class.java))
+        tabItems.add(TabItemData(R.string.app_home, Test2Fragment::class.java))
         return tabItems
     }
 
