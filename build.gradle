@@ -103,7 +103,7 @@ ext {
             magicIndicator      : "com.github.hackware1993:MagicIndicator:${magicIndicatorVersion}",
     ]
     appTestDependencies = [
-            //Run: adb forward tcp:8090 tcp:8090 在浏览器访问
+            //Run: adb forward tcp:8090 tcp:8090 在浏览器访问 http://localhost:8090/index.html
             obBrowser: "io.objectbox:objectbox-android-objectbrowser:${obVersion}"
     ]
 }
