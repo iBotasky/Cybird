@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Build
 import android.os.Bundle
+import android.support.v7.widget.Toolbar
 import com.flyco.systembar.SystemBarHelper
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
@@ -14,6 +15,7 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 open abstract class BaseActivity : RxAppCompatActivity() {
 
     lateinit var mBinding: ViewDataBinding
+    var mToolbar:Toolbar? = null
 
     var mIsDark = false
 
@@ -66,8 +68,8 @@ open abstract class BaseActivity : RxAppCompatActivity() {
 
         SystemBarHelper.immersiveStatusBar(this, getImmersiveStatusBarAlpha())
 
-//        if (mToolbar != null) {
-//            SystemBarHelper.setHeightAndPadding(this, mToolbar)
-//        }
+        if (mToolbar != null) {
+            SystemBarHelper.setHeightAndPadding(this, mToolbar)
+        }
     }
 }
