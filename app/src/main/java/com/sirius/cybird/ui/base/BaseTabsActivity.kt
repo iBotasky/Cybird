@@ -1,7 +1,6 @@
 package com.sirius.cybird.ui.base
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -10,7 +9,6 @@ import android.support.v4.util.SparseArrayCompat
 import android.support.v4.view.PagerAdapter
 import android.support.v4.view.ViewPager
 import android.util.TypedValue
-import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
@@ -28,18 +26,18 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import java.lang.ref.WeakReference
 
 
-open class BaseTabsActivity : BaseActivity() {
+open abstract class BaseTabsActivity : BaseActivity() {
     lateinit var mViewPager: ViewPager
     lateinit var mMagicIndicator: MagicIndicator
     lateinit var mIndicatorDatas: List<TabItemData>
     lateinit var mPagerAdapter: MyViewPagerAdapter
 
+    abstract fun getTabItems(): List<TabItemData>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mViewPager = findViewById(R.id.id_view_pager)
         mMagicIndicator = findViewById(R.id.id_indicator)
-        mIndicatorDatas = getIndicatorDatas()
 
         mPagerAdapter = getPagerAdapter(supportFragmentManager, ArrayList<TabItemData>())
         val pageTransformer = getPageTransformer()
@@ -53,52 +51,56 @@ open class BaseTabsActivity : BaseActivity() {
         mViewPager.pageMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 getPageMargin().toFloat(), resources.displayMetrics).toInt()
 
+        setItems(getTabItems())
 
-        mMagicIndicator.navigator = getCommonNavicator()
-        ViewPagerHelper.bind(mMagicIndicator, mViewPager)
-
-        setItems(getIndicatorDatas())
-
+        if (mMagicIndicator != null) {
+            mIndicatorDatas = getTabItems()
+            mMagicIndicator.navigator = getCommonNavicator()
+            ViewPagerHelper.bind(mMagicIndicator, mViewPager)
+        }
     }
-
 
     open fun getCommonNavicator(): CommonNavigator {
         val commonNavigator = CommonNavigator(this)
+        commonNavigator.isAdjustMode = true  // 自适应模式
         commonNavigator.adapter = object : CommonNavigatorAdapter() {
-            override fun getTitleView(context: Context?, index: Int): IPagerTitleView {
+            override fun getCount(): Int {
+                return getPageCount()
+            }
+
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val simplePagerTitleView = ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.setText(mIndicatorDatas[index].titleId)
                 simplePagerTitleView.textSize = 18f
-                simplePagerTitleView.normalColor = this@BaseTabsActivity.resources.getColor(R.color.colorPrimary)
-                simplePagerTitleView.selectedColor = this@BaseTabsActivity.resources.getColor(R.color.colorAccent)
+                simplePagerTitleView.normalColor = context.resources.getColor(R.color.colorPrimary)
+                simplePagerTitleView.selectedColor = context.resources.getColor(R.color.colorPrimaryDark)
                 simplePagerTitleView.setOnClickListener { mViewPager.currentItem = index }
                 return simplePagerTitleView
             }
 
-            override fun getCount(): Int {
-                return mIndicatorDatas.size
-            }
-
-            override fun getIndicator(p0: Context?): IPagerIndicator {
-                val indicator = LinePagerIndicator(this@BaseTabsActivity)
+            override fun getIndicator(context: Context): IPagerIndicator {
+                val indicator = LinePagerIndicator(context)
                 indicator.startInterpolator = AccelerateInterpolator()
                 indicator.endInterpolator = DecelerateInterpolator(1.6f)
-                indicator.lineHeight = UIUtil.dip2px(this@BaseTabsActivity, 3.0).toFloat()
-                indicator.setColors(this@BaseTabsActivity.resources.getColor(R.color.color_333333))
+                indicator.lineHeight = UIUtil.dip2px(context, 3.0).toFloat()
+                indicator.setColors(context.resources.getColor(R.color.colorAccent))
                 return indicator
             }
         }
         return commonNavigator
     }
 
+    fun getPageCount(): Int {
+        return mPagerAdapter.count
+    }
 
-    private fun setItems(list: List<TabItemData>){
+    private fun setItems(list: List<TabItemData>) {
         mPagerAdapter.addItems(list)
 
     }
 
     open fun getPageLimit(): Int {
-        return 2
+        return 3
     }
 
     open fun getPageMargin(): Int {
@@ -109,35 +111,7 @@ open class BaseTabsActivity : BaseActivity() {
         return null
     }
 
-    open fun getIndicatorDatas(): List<TabItemData> {
-        return ArrayList<TabItemData>()
-    }
 
-
-    //    inner class MyViewPagerAdapter(private val context: Context, fm: FragmentManager, items: List<TabItemData>) : FragmentPagerAdapter(fm){
-//        private val holder: SparseArrayCompat<WeakReference<Fragment>>
-//        private val pages: ArrayList<TabItemData>
-//
-//        init {
-//            this.pages = items as ArrayList<TabItemData>
-//            this.holder = SparseArrayCompat(pages.size)
-//            addItems(items)
-//        }
-//
-//        override fun getItem(position: Int): Fragment {
-//
-//        }
-//
-//        override fun getCount(): Int {
-//            return pages.size
-//        }
-//
-//        fun addItems(items: List<TabItemData>) {
-//            this.pages.addAll(items)
-//            notifyDataSetChanged()
-//        }
-//
-//    }
     fun getPagerAdapter(fm: FragmentManager, items: List<TabItemData>): MyViewPagerAdapter {
         return MyViewPagerAdapter(this, fm, items)
     }
@@ -153,37 +127,12 @@ open class BaseTabsActivity : BaseActivity() {
             addItems(items)
         }
 
-        fun setItems(items: List<TabItemData>) {
-            this.pages.clear()
-            this.pages.addAll(items)
-            notifyDataSetChanged()
-        }
 
         fun addItems(items: List<TabItemData>) {
             this.pages.addAll(items)
             notifyDataSetChanged()
         }
 
-        fun addItem(item: TabItemData) {
-            this.pages.add(item)
-            notifyDataSetChanged()
-        }
-
-        fun addItem(item: TabItemData, position: Int) {
-            var position = position
-            if (position > pages.size) {
-                position = pages.size
-            }
-            this.pages.add(position, item)
-            notifyDataSetChanged()
-        }
-
-        fun removeItem(position: Int) {
-            if (position >= 0) {
-                this.pages.removeAt(position)
-                notifyDataSetChanged()
-            }
-        }
 
         fun getTabItem(position: Int): TabItemData {
             return pages[position]

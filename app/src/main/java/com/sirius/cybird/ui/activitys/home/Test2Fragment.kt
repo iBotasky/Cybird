@@ -14,8 +14,8 @@ import com.sirius.cybird.R
 class Test2Fragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        layoutInflater.inflate(R.layout.fragment_home2,container)
-        return super.onCreateView(inflater, container, savedInstanceState)
+        val view = inflater.inflate(R.layout.fragment_home2, container, false)//把layout布局文件转换成View对象
+        return view
 
     }
 

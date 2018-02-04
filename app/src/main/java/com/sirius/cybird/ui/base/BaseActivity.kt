@@ -9,7 +9,7 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
  * Description：
  * Created by Botasky on 2017/12/26.
  */
-open class BaseActivity : RxAppCompatActivity() {
+open abstract class BaseActivity : RxAppCompatActivity() {
 
     lateinit var mBinding: ViewDataBinding
 
@@ -22,7 +22,6 @@ open class BaseActivity : RxAppCompatActivity() {
         return mBinding as V
     }
 
-    open fun getLayoutResource(): Int {
-        return 0
-    }
+    abstract fun getLayoutResource(): Int
+
 }

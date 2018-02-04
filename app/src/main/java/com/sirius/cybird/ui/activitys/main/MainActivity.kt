@@ -33,18 +33,18 @@ class MainActivity : BaseActivity() {
         mFilmBox = CybirdApp.getBoxStore().boxFor(FilmEntity::class.java)
         button.setOnClickListener({
             startActivity(Intent(this, HomeActivity::class.java))
-            FilmsApi.getFilmsService()
-                    .getComingSoon(0, 10)
-                    .flatMap { filmsData -> Observable.fromIterable(filmsData.films) }
-                    .compose(bindToLifecycle())
-                    .compose(TransformScheduler.applyNewThreadScheduler())
-                    .subscribe({ film ->
-                        val filmEntity = FilmEntity(text = film.title, comment = film.originalTitle, date = Date())
-                        mFilmBox.put(filmEntity)
-                        Log.e("TAG", "put success " + film.id)
-                    }, { e ->
-                        Log.e("TAG", e.message)
-                    })
+//            FilmsApi.getFilmsService()
+//                    .getComingSoon(0, 10)
+//                    .flatMap { filmsData -> Observable.fromIterable(filmsData.films) }
+//                    .compose(bindToLifecycle())
+//                    .compose(TransformScheduler.applyNewThreadScheduler())
+//                    .subscribe({ film ->
+//                        val filmEntity = FilmEntity(text = film.title, comment = film.originalTitle, date = Date())
+//                        mFilmBox.put(filmEntity)
+//                        Log.e("TAG", "put success " + film.id)
+//                    }, { e ->
+//                        Log.e("TAG", e.message)
+//                    })
         })
     }
 
