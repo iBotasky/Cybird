@@ -12,6 +12,7 @@
             android:id="@id/id_indicator"
             android:layout_width="0dp"
             android:layout_height="50dp"
+            android:background="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -26,7 +27,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/id_indicator">
-
         </android.support.v4.view.ViewPager>
     </android.support.constraint.ConstraintLayout>
 </layout>

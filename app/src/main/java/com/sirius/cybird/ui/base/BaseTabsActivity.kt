@@ -28,9 +28,9 @@ import java.lang.ref.WeakReference
 
 open abstract class BaseTabsActivity : BaseActivity() {
     lateinit var mViewPager: ViewPager
-    lateinit var mMagicIndicator: MagicIndicator
-    lateinit var mIndicatorDatas: List<TabItemData>
     lateinit var mPagerAdapter: MyViewPagerAdapter
+    lateinit var mIndicatorDatas: List<TabItemData>
+    var mMagicIndicator: MagicIndicator? = null
 
     abstract fun getTabItems(): List<TabItemData>
 
@@ -55,7 +55,7 @@ open abstract class BaseTabsActivity : BaseActivity() {
 
         if (mMagicIndicator != null) {
             mIndicatorDatas = getTabItems()
-            mMagicIndicator.navigator = getCommonNavicator()
+            mMagicIndicator?.navigator = getCommonNavicator()
             ViewPagerHelper.bind(mMagicIndicator, mViewPager)
         }
     }
@@ -72,8 +72,8 @@ open abstract class BaseTabsActivity : BaseActivity() {
                 val simplePagerTitleView = ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.setText(mIndicatorDatas[index].titleId)
                 simplePagerTitleView.textSize = 18f
-                simplePagerTitleView.normalColor = context.resources.getColor(R.color.colorPrimary)
-                simplePagerTitleView.selectedColor = context.resources.getColor(R.color.colorPrimaryDark)
+                simplePagerTitleView.normalColor = context.resources.getColor(R.color.colorPrimaryLight)
+                simplePagerTitleView.selectedColor = context.resources.getColor(R.color.colorPrimaryTextColor)
                 simplePagerTitleView.setOnClickListener { mViewPager.currentItem = index }
                 return simplePagerTitleView
             }
