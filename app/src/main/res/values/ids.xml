@@ -2,6 +2,7 @@
 <resources>
     <item name="id_view_pager" type="id"/>
     <item name="id_indicator" type="id"/>
+    <item name="id_toolbar" type="id"/>
     <!--<item name="card_layout" type="id"/>-->
     <!--<item name="card_actionarea" type="id"/>-->
     <!--<item name="card_contentarea" type="id"/>-->

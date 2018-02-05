@@ -24,8 +24,9 @@ open abstract class BaseActivity : RxAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, getLayoutResource())
-        mToolbar = findViewById(R.id.toolbar)
-        setStatusBar()
+        mToolbar = findViewById(R.id.id_toolbar)
+        setupStatusBar()
+        setupToolBar()
     }
 
     fun <V : ViewDataBinding> getBaseViewBinding(): V {
@@ -57,7 +58,21 @@ open abstract class BaseActivity : RxAppCompatActivity() {
         return 0f
     }
 
-    protected fun setStatusBar() {
+    fun setupToolBar(){
+        if (mToolbar != null){
+            setSupportActionBar(mToolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(isDisplayHomeAsUpEnable())
+            supportActionBar?.setTitle("")
+        }
+    }
+
+
+    open fun isDisplayHomeAsUpEnable(): Boolean{
+        return false
+    }
+
+
+    protected fun setupStatusBar() {
         if (isDark()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 SystemBarHelper.setStatusBarDarkMode(this)
@@ -71,7 +86,6 @@ open abstract class BaseActivity : RxAppCompatActivity() {
         SystemBarHelper.immersiveStatusBar(this, getImmersiveStatusBarAlpha())
 
         if (mToolbar != null) {
-            setSupportActionBar(mToolbar)
             SystemBarHelper.setHeightAndPadding(this, mToolbar)
         }
     }

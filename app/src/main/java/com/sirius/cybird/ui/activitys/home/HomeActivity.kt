@@ -1,6 +1,7 @@
 package com.sirius.cybird.ui.activitys.home
 
 import android.os.Bundle
+import android.view.Menu
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
 import com.sirius.cybird.module.TabItemData
@@ -25,5 +26,10 @@ class HomeActivity: BaseTabsActivity() {
         tabItems.add(TabItemData(R.string.app_name, TestFragment::class.java))
         tabItems.add(TabItemData(R.string.app_home, Test2Fragment::class.java))
         return tabItems
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.sample_actions, menu)
+        return true
     }
 }
