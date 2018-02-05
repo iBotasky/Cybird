@@ -15,7 +15,7 @@ import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 open abstract class BaseActivity : RxAppCompatActivity() {
 
     lateinit var mBinding: ViewDataBinding
-    var mToolbar:Toolbar? = null
+    var mToolbar: Toolbar? = null
 
     var mIsDark = false
 
@@ -37,7 +37,7 @@ open abstract class BaseActivity : RxAppCompatActivity() {
         return mIsDark
     }
 
-    fun isImmersiveStatusBar(): Boolean {
+    open fun isImmersiveStatusBar(): Boolean {
         return false
     }
 
