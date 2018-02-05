@@ -6,7 +6,9 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
 import com.flyco.systembar.SystemBarHelper
+import com.sirius.cybird.R
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
+import kotlinx.android.synthetic.main.include_tool_bar.view.*
 
 /**
  * Description：
@@ -22,7 +24,7 @@ open abstract class BaseActivity : RxAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, getLayoutResource())
-
+        mToolbar = findViewById(R.id.toolbar)
         setStatusBar()
     }
 
@@ -69,6 +71,7 @@ open abstract class BaseActivity : RxAppCompatActivity() {
         SystemBarHelper.immersiveStatusBar(this, getImmersiveStatusBarAlpha())
 
         if (mToolbar != null) {
+            setSupportActionBar(mToolbar)
             SystemBarHelper.setHeightAndPadding(this, mToolbar)
         }
     }

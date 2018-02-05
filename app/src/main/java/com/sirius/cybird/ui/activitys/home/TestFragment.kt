@@ -2,13 +2,9 @@ package com.sirius.cybird.ui.activitys.home
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentHomeBinding
 import com.sirius.cybird.ui.base.BaseFragment
-import com.sirius.cybird.utils.ToastUtils
 
 /**
  *
@@ -21,7 +17,7 @@ class TestFragment:BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mTestBinding = getBaseViewBinding()
-        mTestBinding.button.setOnClickListener({ToastUtils.show("HELLO")})
+        mTestBinding.button.setOnClickListener({Snackbar.make(mTestBinding.root, R.string.app_home, Snackbar.LENGTH_SHORT).show()})
     }
 
     override fun getLayouResource(): Int {
