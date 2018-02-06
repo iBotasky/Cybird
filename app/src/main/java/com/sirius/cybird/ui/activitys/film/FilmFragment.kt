@@ -1,4 +1,4 @@
-package com.sirius.cybird.ui.activitys.home
+package com.sirius.cybird.ui.activitys.film
 
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentHomeBinding
+import com.sirius.cybird.ui.activitys.home.Test2Fragment
 import com.sirius.cybird.ui.base.BaseFragment
 import java.util.ArrayList
 
@@ -15,7 +16,7 @@ import java.util.ArrayList
  *
  *Create By Botasky 03/02/2018
  **/
-class TestFragment:BaseFragment() {
+class FilmFragment :BaseFragment() {
     lateinit var mTestBinding: FragmentHomeBinding
     lateinit var mViewPager: ViewPager
     lateinit var mTabBar: TabLayout
@@ -33,9 +34,9 @@ class TestFragment:BaseFragment() {
     fun findviews(){
         mViewPager = mTestBinding.root.findViewById(R.id.id_view_pager)
         val adapter = Adapter(childFragmentManager)
-        adapter.addFragment(Test2Fragment(), "Category 1")
-        adapter.addFragment(Test2Fragment(), "Category 2")
-        adapter.addFragment(Test2Fragment(), "Category 3")
+        adapter.addFragment(Test2Fragment(), "Recent")
+        adapter.addFragment(Test2Fragment(), "Rank")
+        adapter.addFragment(Test2Fragment(), "Classis")
         mViewPager.adapter = adapter
         mTabBar = mTestBinding.root.findViewById(R.id.id_tab_bar)
         mTabBar.setupWithViewPager(mViewPager)
