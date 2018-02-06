@@ -73,7 +73,7 @@ open abstract class BaseTabsActivity : BaseActivity() {
                 simplePagerTitleView.setText(mIndicatorDatas[index].titleId)
                 simplePagerTitleView.textSize = 18f
                 simplePagerTitleView.normalColor = context.resources.getColor(R.color.colorPrimaryLight)
-                simplePagerTitleView.selectedColor = context.resources.getColor(R.color.colorPrimaryTextColor)
+                simplePagerTitleView.selectedColor = context.resources.getColor(R.color.textColorPrimary)
                 simplePagerTitleView.setOnClickListener { mViewPager.currentItem = index }
                 return simplePagerTitleView
             }

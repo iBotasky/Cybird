@@ -10,6 +10,8 @@
         <android.support.design.widget.TabLayout
             android:id="@id/id_tab_bar"
             android:layout_width="0dp"
+            app:tabSelectedTextColor="@color/textColorPrimary"
+            app:tabTextColor="@color/textNormalColor"
             android:background="@color/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

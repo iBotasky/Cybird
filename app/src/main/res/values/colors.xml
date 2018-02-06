@@ -3,8 +3,10 @@
   <color name="colorPrimary">#1565c0</color>
   <color name="colorPrimaryLight">#5e92f3</color>
   <color name="colorPrimaryDark">#003c8f</color>
-  <color name="colorPrimaryTextColor">#ffffff</color>
+  <color name="textColorPrimary">#ffffff</color>
+  <color name="textNormalColor">#d0d0d0</color>
   <color name="colorAccent">#ffffff</color>
+
 
   <color name="color_333333">#333333</color>
   <color name="color_666666">#666666</color>
