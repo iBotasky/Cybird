@@ -1,10 +1,15 @@
 package com.sirius.cybird.ui.activitys.home
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
+import android.support.design.widget.TabLayout
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.view.ViewPager
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentHomeBinding
 import com.sirius.cybird.ui.base.BaseFragment
+import java.util.ArrayList
 
 /**
  *
@@ -12,16 +17,49 @@ import com.sirius.cybird.ui.base.BaseFragment
  **/
 class TestFragment:BaseFragment() {
     lateinit var mTestBinding: FragmentHomeBinding
-
+    lateinit var mViewPager: ViewPager
+    lateinit var mTabBar: TabLayout
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         mTestBinding = getBaseViewBinding()
-        mTestBinding.button.setOnClickListener({Snackbar.make(mTestBinding.root, R.string.app_home, Snackbar.LENGTH_SHORT).show()})
+        findviews()
     }
 
     override fun getLayouResource(): Int {
         return R.layout.fragment_home
     }
 
+    fun findviews(){
+        mViewPager = mTestBinding.root.findViewById(R.id.id_view_pager)
+        val adapter = Adapter(childFragmentManager)
+        adapter.addFragment(Test2Fragment(), "Category 1")
+        adapter.addFragment(Test2Fragment(), "Category 2")
+        adapter.addFragment(Test2Fragment(), "Category 3")
+        mViewPager.adapter = adapter
+        mTabBar = mTestBinding.root.findViewById(R.id.id_tab_bar)
+        mTabBar.setupWithViewPager(mViewPager)
+    }
+
+    internal class Adapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+        private val mFragments = ArrayList<Fragment>()
+        private val mFragmentTitles = ArrayList<String>()
+
+        fun addFragment(fragment: Fragment, title: String) {
+            mFragments.add(fragment)
+            mFragmentTitles.add(title)
+        }
+
+        override fun getItem(position: Int): Fragment {
+            return mFragments[position]
+        }
+
+        override fun getCount(): Int {
+            return mFragments.size
+        }
+
+        override fun getPageTitle(position: Int): CharSequence? {
+            return mFragmentTitles[position]
+        }
+    }
 }

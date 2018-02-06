@@ -18,24 +18,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/action_night"
-        android:title="@string/app_home"
+        android:title="@string/app_name"
         app:showAsAction="never">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/menu_night_mode_system"
-                    android:title="@string/app_home" />
+                    android:title="@string/tab_film" />
                 <item
                     android:id="@+id/menu_night_mode_day"
-                    android:title="@string/app_home" />
+                    android:title="@string/tab_daily" />
                 <item
                     android:id="@+id/menu_night_mode_night"
-                    android:title="@string/app_home" />
-                <item
-                    android:id="@+id/menu_night_mode_auto"
-                    android:title="@string/app_home" />
+                    android:title="@string/tab_girls" />
             </group>
         </menu>
     </item>
-
 </menu>

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Cybird</string>
-    <string name="app_home">Cybrid</string>
+
+    <!--Home-->
+    <string name="tab_film">Films</string>
+    <string name="tab_daily">Daily</string>
+    <string name="tab_girls">Picture</string>
 </resources>

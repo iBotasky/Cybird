@@ -1,4 +1,8 @@
 <resources>
-  <string name="app_name">赛博</string>
-  <string name="app_home">赛博鸟</string>
+  <string name="app_name">赛博鸟</string>
+
+  <!--Home-->
+  <string name="tab_film">电影</string>
+  <string name="tab_daily">日报</string>
+  <string name="tab_girls">美图</string>
 </resources>

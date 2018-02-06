@@ -23,13 +23,14 @@ class HomeActivity: BaseTabsActivity() {
 
     override fun getTabItems(): List<TabItemData> {
         val tabItems = ArrayList<TabItemData>()
-        tabItems.add(TabItemData(R.string.app_name, TestFragment::class.java))
-        tabItems.add(TabItemData(R.string.app_home, Test2Fragment::class.java))
+        tabItems.add(TabItemData(R.string.tab_film, TestFragment::class.java))
+        tabItems.add(TabItemData(R.string.tab_daily, Test2Fragment::class.java))
+        tabItems.add(TabItemData(R.string.tab_girls, Test2Fragment::class.java))
         return tabItems
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.sample_actions, menu)
-        return true
-    }
+//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+//        menuInflater.inflate(R.menu.sample_actions, menu)
+//        return true
+//    }
 }
