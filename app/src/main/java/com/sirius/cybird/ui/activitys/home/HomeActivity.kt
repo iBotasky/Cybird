@@ -1,13 +1,15 @@
 package com.sirius.cybird.ui.activitys.home
 
 import android.os.Bundle
+import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
-import com.sirius.cybird.module.TabItemData
-import com.sirius.cybird.ui.activitys.film.FilmFragment
-import com.sirius.cybird.ui.base.BaseTabsActivity
+import com.sirius.cybird.module.NavItemData
+import com.sirius.cybird.ui.activitys.movie.MovieFragment
+import com.sirius.cybird.ui.base.BaseNavActivity
 
-class HomeActivity: BaseTabsActivity() {
+class HomeActivity: BaseNavActivity() {
+
     lateinit var mHomeBinding: ActivityHomeBinding
 
 
@@ -21,13 +23,14 @@ class HomeActivity: BaseTabsActivity() {
         return R.layout.activity_home
     }
 
-    override fun getTabItems(): List<TabItemData> {
-        val tabItems = ArrayList<TabItemData>()
-        tabItems.add(TabItemData(R.string.tab_film, FilmFragment::class.java))
-        tabItems.add(TabItemData(R.string.tab_daily, Test2Fragment::class.java))
-        tabItems.add(TabItemData(R.string.tab_girls, Test2Fragment::class.java))
-        return tabItems
+    override fun getBottomNavDatas(): List<NavItemData> {
+        val navDatas = ArrayList<NavItemData>()
+        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_movie, R.string.tab_movie), MovieFragment::class.java))
+        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_whatshot,R.string.tab_girls), Test2Fragment::class.java))
+        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_book, R.string.tab_daily), Test2Fragment::class.java))
+        return navDatas
     }
+
 
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {
 //        menuInflater.inflate(R.menu.sample_actions, menu)

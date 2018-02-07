@@ -1,4 +1,4 @@
-package com.sirius.cybird.ui.activitys.film
+package com.sirius.cybird.ui.activitys.movie
 
 import android.os.Bundle
 import android.support.design.widget.TabLayout
@@ -16,7 +16,7 @@ import java.util.ArrayList
  *
  *Create By Botasky 03/02/2018
  **/
-class FilmFragment :BaseFragment() {
+class MovieFragment :BaseFragment() {
     lateinit var mTestBinding: FragmentHomeBinding
     lateinit var mViewPager: ViewPager
     lateinit var mTabBar: TabLayout

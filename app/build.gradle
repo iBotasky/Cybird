@@ -73,6 +73,8 @@ dependencies {
     releaseImplementation appDependencies.obBrowser
     //magicIndicator
     implementation appDependencies.magicIndicator
+    //bottomNavgationBar
+    implementation appDependencies.bottomNavBar
 }
 apply plugin: 'io.objectbox'                //ObjectBox
 kapt {

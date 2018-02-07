@@ -2,7 +2,7 @@
     <string name="app_name">Cybird</string>
 
     <!--Home-->
-    <string name="tab_film">Films</string>
+    <string name="tab_movie">Movies</string>
     <string name="tab_daily">Daily</string>
     <string name="tab_girls">Picture</string>
 </resources>
