@@ -79,7 +79,7 @@ class Test2Fragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.mBoundString = mValues[position]
-            holder.mTextView.text = mValues[position]
+            holder.mTextView.text = position.toString() + " " +  mValues[position]
 
             holder.mView.setOnClickListener { v ->
             }

@@ -8,28 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--<android.support.design.widget.CoordinatorLayout-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="0dp"-->
-            <!--app:layout_constraintBottom_toTopOf="@+id/id_bottom_nav_bar"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent">-->
-
-            <!--<android.support.design.widget.AppBarLayout-->
-                <!--android:id="@+id/app_bar"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="top"-->
-                <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">-->
-
-                <!--<include layout="@layout/include_tool_bar" />-->
-                <!---->
-            <!--</android.support.design.widget.AppBarLayout>-->
-
-
-        <!--</android.support.design.widget.CoordinatorLayout>-->
-
         <com.ashokvarma.bottomnavigation.BottomNavigationBar
             android:id="@id/id_bottom_nav_bar"
             android:layout_width="0dp"
@@ -39,14 +17,16 @@
             app:layout_constraintStart_toStartOf="parent">
 
         </com.ashokvarma.bottomnavigation.BottomNavigationBar>
+
         <android.support.v4.view.ViewPager
             android:id="@id/id_view_pager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/id_bottom_nav_bar"
             android:layout_width="0dp"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/id_bottom_nav_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
         </android.support.v4.view.ViewPager>
     </android.support.constraint.ConstraintLayout>
 </layout>

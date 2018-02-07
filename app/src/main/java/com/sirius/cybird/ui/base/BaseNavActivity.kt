@@ -50,7 +50,6 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
         mBottomNavBar.setMode(getBottomNavMode())
         mBottomNavBar.setBackgroundStyle(getBottomNavBackgroundStyle())
         mBottomNavBar.setTabSelectedListener(this)
-        if (isBottomNavHide()) mBottomNavBar.toggle()
 
         mViewPager = findViewById(R.id.id_view_pager)
         mPagerAdapter = getPagerAdapter(supportFragmentManager, ArrayList<NavItemData>())
@@ -76,7 +75,6 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
 
     //NavTabListener
     override fun onTabSelected(position: Int) {
-        Log.e("TAG", " onTabSelected ")
         mViewPager.currentItem = position
     }
 
