@@ -101,10 +101,6 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
     }
     //ViewPagerListener END
 
-    open fun isBottomNavHide():Boolean{
-        return true
-    }
-
 
     fun getPageCount(): Int {
         return mPagerAdapter.count

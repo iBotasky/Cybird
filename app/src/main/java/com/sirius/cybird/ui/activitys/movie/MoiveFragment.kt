@@ -16,7 +16,7 @@ import java.util.ArrayList
  *
  *Create By Botasky 03/02/2018
  **/
-class MovieFragment :BaseFragment() {
+class MoiveFragment :BaseFragment() {
     lateinit var mTestBinding: FragmentHomeBinding
     lateinit var mViewPager: ViewPager
     lateinit var mTabBar: TabLayout

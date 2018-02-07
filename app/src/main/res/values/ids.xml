@@ -6,10 +6,6 @@
     <item name="id_tab_bar" type="id"/>
     <item name="id_bottom_nav_bar" type="id"/>
     <item name="id_continer" type="id"/>
-    <!--<item name="card_layout" type="id"/>-->
-    <!--<item name="card_actionarea" type="id"/>-->
-    <!--<item name="card_contentarea" type="id"/>-->
-    <!--<item name="card_title" type="id"/>-->
-    <!--<item name="card_content" type="id"/>-->
-    <!--<item name="card_overlay" type="id"/>-->
+    <item name="id_recycler_view" type="id"/>
+    <item name="id_swipe_refresh" type="id"/>
 </resources>
