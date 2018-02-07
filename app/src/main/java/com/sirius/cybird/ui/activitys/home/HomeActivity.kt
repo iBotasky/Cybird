@@ -25,9 +25,9 @@ class HomeActivity: BaseNavActivity() {
 
     override fun getBottomNavDatas(): List<NavItemData> {
         val navDatas = ArrayList<NavItemData>()
-        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_movie, R.string.tab_movie), MovieFragment::class.java))
-        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_whatshot,R.string.tab_girls), Test2Fragment::class.java))
-        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_book, R.string.tab_daily), Test2Fragment::class.java))
+        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_movie, R.string.tab_movie).setActiveColorResource(R.color.color_movie), MovieFragment::class.java))
+        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_book,R.string.tab_daily).setActiveColorResource(R.color.color_daily), Test2Fragment::class.java))
+        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_whatshot, R.string.tab_girls).setActiveColorResource(R.color.color_girl), Test2Fragment::class.java))
         return navDatas
     }
 

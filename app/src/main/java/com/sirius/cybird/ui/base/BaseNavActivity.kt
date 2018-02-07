@@ -31,7 +31,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import java.lang.ref.WeakReference
 
 
-open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabSelectedListener{
+open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener{
     lateinit var mViewPager: ViewPager
     lateinit var mPagerAdapter: MyViewPagerAdapter
     lateinit var mBottomNavBar : BottomNavigationBar
@@ -62,7 +62,7 @@ open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabS
         mViewPager.adapter = mPagerAdapter
         mViewPager.pageMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 getPageMargin().toFloat(), resources.displayMetrics).toInt()
-
+        mViewPager.addOnPageChangeListener(this)
         setItems(getBottomNavDatas())
     }
 
@@ -85,6 +85,19 @@ open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabS
     }
 
     override fun onTabUnselected(position: Int) {
+
+    }
+
+    //ViewPagerListener
+    override fun onPageScrollStateChanged(state: Int) {
+
+    }
+
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+    }
+
+    override fun onPageSelected(position: Int) {
+        mBottomNavBar.selectTab(position)
 
     }
 
