@@ -25,7 +25,7 @@ open abstract class BaseActivity : RxAppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, getLayoutResource())
         mToolbar = findViewById(R.id.id_toolbar)
-        setupStatusBar()
+//        setupStatusBar()
         setupToolBar()
     }
 

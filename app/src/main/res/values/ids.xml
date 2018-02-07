@@ -5,6 +5,7 @@
     <item name="id_toolbar" type="id"/>
     <item name="id_tab_bar" type="id"/>
     <item name="id_bottom_nav_bar" type="id"/>
+    <item name="id_continer" type="id"/>
     <!--<item name="card_layout" type="id"/>-->
     <!--<item name="card_actionarea" type="id"/>-->
     <!--<item name="card_contentarea" type="id"/>-->

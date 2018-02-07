@@ -4,29 +4,39 @@
 
     <data></data>
 
-    <android.support.constraint.ConstraintLayout
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coording_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <android.support.design.widget.TabLayout
-            android:id="@id/id_tab_bar"
-            android:layout_width="0dp"
-            app:tabSelectedTextColor="@color/textColorPrimary"
-            app:tabTextColor="@color/textNormalColor"
-            android:background="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_height="wrap_content">
-        </android.support.design.widget.TabLayout>
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            <include layout="@layout/include_tool_bar" />
+            <android.support.design.widget.TabLayout
+                android:id="@id/id_tab_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tabSelectedTextColor="@color/textColorPrimary"
+                app:tabTextColor="@color/textNormalColor">
+
+            </android.support.design.widget.TabLayout>
+        </android.support.design.widget.AppBarLayout>
+
         <android.support.v4.view.ViewPager
-            android:layout_width="0dp"
-            android:layout_height="0dp"
             android:id="@id/id_view_pager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/id_tab_bar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            >
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         </android.support.v4.view.ViewPager>
-    </android.support.constraint.ConstraintLayout>
+    </android.support.design.widget.CoordinatorLayout>
 </layout>

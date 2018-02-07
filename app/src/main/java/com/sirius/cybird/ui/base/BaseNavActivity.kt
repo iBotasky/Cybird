@@ -1,6 +1,7 @@
 package com.sirius.cybird.ui.base
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -31,12 +32,12 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import java.lang.ref.WeakReference
 
 
-open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener{
+open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener {
     lateinit var mViewPager: ViewPager
     lateinit var mPagerAdapter: MyViewPagerAdapter
-    lateinit var mBottomNavBar : BottomNavigationBar
+    lateinit var mBottomNavBar: BottomNavigationBar
 
-    abstract fun getBottomNavDatas():List<NavItemData>
+    abstract fun getBottomNavDatas(): List<NavItemData>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,13 +45,12 @@ open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabS
         setupViews()
     }
 
-
-    fun setupViews(){
-
+    fun setupViews() {
         mBottomNavBar = findViewById(R.id.id_bottom_nav_bar)
         mBottomNavBar.setMode(getBottomNavMode())
         mBottomNavBar.setBackgroundStyle(getBottomNavBackgroundStyle())
         mBottomNavBar.setTabSelectedListener(this)
+        if (isBottomNavHide()) mBottomNavBar.toggle()
 
         mViewPager = findViewById(R.id.id_view_pager)
         mPagerAdapter = getPagerAdapter(supportFragmentManager, ArrayList<NavItemData>())
@@ -66,12 +66,12 @@ open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabS
         setItems(getBottomNavDatas())
     }
 
-    open fun getBottomNavMode():Int{
+    open fun getBottomNavMode(): Int {
         return BottomNavigationBar.MODE_FIXED
     }
 
-    open fun getBottomNavBackgroundStyle():Int{
-        return BottomNavigationBar.BACKGROUND_STYLE_DEFAULT
+    open fun getBottomNavBackgroundStyle(): Int {
+        if (Build.VERSION.SDK_INT >= 21) return BottomNavigationBar.BACKGROUND_STYLE_RIPPLE else return BottomNavigationBar.BACKGROUND_STYLE_DEFAULT
     }
 
     //NavTabListener
@@ -87,6 +87,7 @@ open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabS
     override fun onTabUnselected(position: Int) {
 
     }
+    //NavTabListener END
 
     //ViewPagerListener
     override fun onPageScrollStateChanged(state: Int) {
@@ -100,6 +101,12 @@ open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabS
         mBottomNavBar.selectTab(position)
 
     }
+    //ViewPagerListener END
+
+    open fun isBottomNavHide():Boolean{
+        return true
+    }
+
 
     fun getPageCount(): Int {
         return mPagerAdapter.count
@@ -108,7 +115,7 @@ open abstract class BaseNavActivity : BaseActivity() ,BottomNavigationBar.OnTabS
 
     private fun setItems(list: List<NavItemData>) {
         mPagerAdapter.addItems(list)
-        for (nav in list){
+        for (nav in list) {
             mBottomNavBar.addItem(nav.item)
         }
         mBottomNavBar.initialise()
