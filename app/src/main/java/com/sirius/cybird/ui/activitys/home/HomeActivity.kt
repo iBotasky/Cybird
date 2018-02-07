@@ -1,6 +1,7 @@
 package com.sirius.cybird.ui.activitys.home
 
 import android.os.Bundle
+import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
@@ -31,9 +32,4 @@ class HomeActivity: BaseNavActivity() {
         return navDatas
     }
 
-
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        menuInflater.inflate(R.menu.sample_actions, menu)
-//        return true
-//    }
 }
