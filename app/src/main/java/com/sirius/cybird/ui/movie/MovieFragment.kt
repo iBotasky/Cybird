@@ -18,10 +18,6 @@ import java.util.ArrayList
 class MovieFragment :BaseTabFragment() {
     lateinit var mMovieBinding: FragmentMovieBinding
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
     override fun getLayouResource(): Int {
         return R.layout.fragment_movie
     }
@@ -29,6 +25,7 @@ class MovieFragment :BaseTabFragment() {
     override fun setupViews() {
         super.setupViews()
         mMovieBinding = getBaseViewBinding()
+        setToolBarTitle(R.string.tab_movie)
     }
 
 

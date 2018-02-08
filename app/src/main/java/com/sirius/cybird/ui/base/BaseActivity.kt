@@ -66,11 +66,9 @@ open abstract class BaseActivity : RxAppCompatActivity() {
     }
 
     fun setupToolBar(){
-        if (mToolbar != null){
             setSupportActionBar(mToolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(isDisplayHomeAsUpEnable())
             supportActionBar?.setTitle("")
-        }
     }
 
 

@@ -66,7 +66,7 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
     }
 
     open fun getBottomNavBackgroundStyle(): Int {
-        if (Build.VERSION.SDK_INT >= 21) return BottomNavigationBar.BACKGROUND_STYLE_RIPPLE else return BottomNavigationBar.BACKGROUND_STYLE_DEFAULT
+        if (Build.VERSION.SDK_INT >= 21) return BottomNavigationBar.BACKGROUND_STYLE_STATIC else return BottomNavigationBar.BACKGROUND_STYLE_DEFAULT
     }
 
     //NavTabListener

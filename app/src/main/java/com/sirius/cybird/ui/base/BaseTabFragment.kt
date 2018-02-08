@@ -10,7 +10,6 @@ import android.support.v4.view.ViewPager
 import android.util.TypedValue
 import android.view.ViewGroup
 import com.sirius.cybird.R
-import com.sirius.cybird.module.NavItemData
 import com.sirius.cybird.module.TabItemData
 import java.lang.ref.WeakReference
 
