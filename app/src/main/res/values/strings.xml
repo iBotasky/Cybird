@@ -5,6 +5,7 @@
     <string name="tab_movie">电影</string>
     <string name="tab_daily">日报</string>
     <string name="tab_girls">美图</string>
+    <string name="tab_mine">我的</string>
 
     <!--Moive-->
     <string name="movie_hot">热映</string>

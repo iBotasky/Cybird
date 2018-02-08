@@ -5,6 +5,7 @@
     <string name="tab_movie">Movies</string>
     <string name="tab_daily">Daily</string>
     <string name="tab_girls">Picture</string>
+    <string name="tab_mine">Mine</string>
 
     <!--Moive-->
     <string name="movie_hot">Hot</string>

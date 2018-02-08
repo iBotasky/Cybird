@@ -28,6 +28,7 @@ class HomeActivity: BaseNavActivity() {
         navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_movie, R.string.tab_movie).setActiveColorResource(R.color.color_movie), MovieFragment::class.java))
         navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_book,R.string.tab_daily).setActiveColorResource(R.color.color_daily), Test2Fragment::class.java))
         navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_whatshot, R.string.tab_girls).setActiveColorResource(R.color.color_girl), Test2Fragment::class.java))
+        navDatas.add(NavItemData(BottomNavigationItem(R.mipmap.ic_account, R.string.tab_mine).setActiveColorResource(R.color.color_mine), Test2Fragment::class.java))
         return navDatas
     }
 
