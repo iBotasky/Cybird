@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.os.Build
 import android.os.Bundle
+import android.support.annotation.CallSuper
 import android.support.v7.widget.Toolbar
 import com.flyco.systembar.SystemBarHelper
 import com.sirius.cybird.R
@@ -27,6 +28,12 @@ open abstract class BaseActivity : RxAppCompatActivity() {
         mToolbar = findViewById(R.id.id_toolbar)
         setupStatusBar()
         setupToolBar()
+        setupViews()
+    }
+
+    @CallSuper
+    open fun setupViews(){
+
     }
 
     fun <V : ViewDataBinding> getBaseViewBinding(): V {

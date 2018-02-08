@@ -40,12 +40,8 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
     abstract fun getBottomNavDatas(): List<NavItemData>
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setupViews()
-    }
-
-    fun setupViews() {
+    override fun setupViews() {
+        super.setupViews()
         mBottomNavBar = findViewById(R.id.id_bottom_nav_bar)
         mBottomNavBar.setMode(getBottomNavMode())
         mBottomNavBar.setBackgroundStyle(getBottomNavBackgroundStyle())
@@ -57,12 +53,12 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
         if (pageTransformer != null) {
             mViewPager.setPageTransformer(false, pageTransformer)
         }
-        mViewPager.offscreenPageLimit = getPageCount()
         mViewPager.adapter = mPagerAdapter
         mViewPager.pageMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 getPageMargin().toFloat(), resources.displayMetrics).toInt()
         mViewPager.addOnPageChangeListener(this)
         setItems(getBottomNavDatas())
+        mViewPager.offscreenPageLimit = getPageCount()
     }
 
     open fun getBottomNavMode(): Int {
@@ -124,7 +120,7 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
     }
 
 
-    fun getPagerAdapter(fm: FragmentManager, items: List<NavItemData>): MyViewPagerAdapter {
+    private fun getPagerAdapter(fm: FragmentManager, items: List<NavItemData>): MyViewPagerAdapter {
         return MyViewPagerAdapter(this, fm, items)
     }
 
