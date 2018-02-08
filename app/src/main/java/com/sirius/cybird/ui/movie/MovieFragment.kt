@@ -1,45 +1,43 @@
-package com.sirius.cybird.ui.activitys.movie
+package com.sirius.cybird.ui.movie
 
 import android.os.Bundle
-import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager
 import com.sirius.cybird.R
-import com.sirius.cybird.databinding.FragmentHomeBinding
-import com.sirius.cybird.ui.activitys.home.Test2Fragment
-import com.sirius.cybird.ui.base.BaseFragment
+import com.sirius.cybird.databinding.FragmentMovieBinding
+import com.sirius.cybird.module.TabItemData
+import com.sirius.cybird.ui.home.Test2Fragment
+import com.sirius.cybird.ui.base.BaseTabFragment
 import java.util.ArrayList
 
 /**
  *
  *Create By Botasky 03/02/2018
  **/
-class MoiveFragment :BaseFragment() {
-    lateinit var mTestBinding: FragmentHomeBinding
-    lateinit var mViewPager: ViewPager
-    lateinit var mTabBar: TabLayout
+class MovieFragment :BaseTabFragment() {
+    lateinit var mMovieBinding: FragmentMovieBinding
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        mTestBinding = getBaseViewBinding()
-        findviews()
     }
 
     override fun getLayouResource(): Int {
-        return R.layout.fragment_home
+        return R.layout.fragment_movie
     }
 
-    fun findviews(){
-        mViewPager = mTestBinding.root.findViewById(R.id.id_view_pager)
-        val adapter = Adapter(childFragmentManager)
-        adapter.addFragment(Test2Fragment(), "Recent")
-        adapter.addFragment(Test2Fragment(), "Rank")
-        adapter.addFragment(Test2Fragment(), "Classis")
-        mViewPager.adapter = adapter
-        mTabBar = mTestBinding.root.findViewById(R.id.id_tab_bar)
-        mTabBar.setupWithViewPager(mViewPager)
+    override fun setupViews() {
+        super.setupViews()
+        mMovieBinding = getBaseViewBinding()
+    }
+
+
+    override fun getTabItems(): List<TabItemData> {
+        val tabItems = ArrayList<TabItemData>()
+        tabItems.add(TabItemData(R.string.movie_hot, Test2Fragment::class.java))
+        tabItems.add(TabItemData(R.string.movie_coming_soon, Test2Fragment::class.java))
+        tabItems.add(TabItemData(R.string.movie_classics, Test2Fragment::class.java))
+        return tabItems
     }
 
     internal class Adapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {

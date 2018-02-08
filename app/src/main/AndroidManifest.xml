@@ -19,7 +19,7 @@
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activitys.splash.SplashActivity"
+            android:name="com.sirius.cybird.ui.splash.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,10 +28,10 @@
         </activity>
 
         <activity
-            android:name=".ui.activitys.main.MainActivity"
+            android:name="com.sirius.cybird.ui.main.MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <activity android:name=".ui.activitys.home.HomeActivity"
+        <activity android:name="com.sirius.cybird.ui.home.HomeActivity"
             />
     </application>
 

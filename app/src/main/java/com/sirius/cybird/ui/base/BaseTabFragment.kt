@@ -14,7 +14,7 @@ import com.sirius.cybird.module.NavItemData
 import com.sirius.cybird.module.TabItemData
 import java.lang.ref.WeakReference
 
-abstract class BaseTabFragment: BaseFragment() {
+abstract class BaseTabFragment : BaseFragment() {
     lateinit var mTabLayout: TabLayout
     lateinit var mViewPager: ViewPager
     lateinit var mPagerAdapter: TabViewPagerAdapter
@@ -22,7 +22,7 @@ abstract class BaseTabFragment: BaseFragment() {
 
     override fun setupViews() {
         super.setupViews()
-        mTabLayout = mBinding.root.findViewById(R.id.id_toolbar)
+        mTabLayout = mBinding.root.findViewById(R.id.id_tab_bar)
         mViewPager = mBinding.root.findViewById(R.id.id_view_pager)
 
         mPagerAdapter = getPagerAdapter(childFragmentManager, ArrayList<TabItemData>())
@@ -32,19 +32,17 @@ abstract class BaseTabFragment: BaseFragment() {
         }
 
         mViewPager.adapter = mPagerAdapter
-        mViewPager.pageMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                getPageMargin().toFloat(), resources.displayMetrics).toInt()
+        mViewPager.pageMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, getPageMargin().toFloat(), resources.displayMetrics).toInt()
         setItems(getTabItems())
         mViewPager.offscreenPageLimit = getPageLimit()
         mTabLayout.setupWithViewPager(mViewPager)
     }
 
 
-
     abstract fun getTabItems(): List<TabItemData>
 
-    open fun getPageLimit():Int{
-        return mTabDatas.size
+    open fun getPageLimit(): Int {
+        return mPagerAdapter.count
     }
 
     private fun getPagerAdapter(fm: FragmentManager, items: List<TabItemData>): TabViewPagerAdapter {
@@ -64,13 +62,13 @@ abstract class BaseTabFragment: BaseFragment() {
     }
 
 
-    inner class TabViewPagerAdapter(val context: Context,  fm:FragmentManager, tabItems: List<TabItemData>): FragmentPagerAdapter(fm){
-        private val pages:MutableList<TabItemData>
+    inner class TabViewPagerAdapter(val context: Context, fm: FragmentManager, tabItems: List<TabItemData>) : FragmentPagerAdapter(fm) {
+        private val pages: MutableList<TabItemData>
         private val holder: SparseArrayCompat<WeakReference<Fragment>>
 
         init {
             this.pages = ArrayList<TabItemData>()
-            this.holder =SparseArrayCompat(pages.size)
+            this.holder = SparseArrayCompat(pages.size)
             addItems(tabItems)
         }
 
@@ -83,12 +81,16 @@ abstract class BaseTabFragment: BaseFragment() {
             return item
         }
 
+        override fun getPageTitle(position: Int): CharSequence? {
+            return context.getString(pages[position].titleId)
+        }
+
         fun getPage(position: Int): Fragment? {
             val weakRefItem = holder.get(position)
             return weakRefItem?.get()
         }
 
-        fun addItems(list: List<TabItemData>){
+        fun addItems(list: List<TabItemData>) {
             this.pages.addAll(list)
             notifyDataSetChanged()
         }

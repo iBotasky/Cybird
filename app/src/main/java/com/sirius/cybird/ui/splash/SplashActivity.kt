@@ -1,4 +1,4 @@
-package com.sirius.cybird.ui.activitys.splash
+package com.sirius.cybird.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.view.View
 import android.view.animation.AlphaAnimation
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivitySplashBinding
-import com.sirius.cybird.ui.activitys.main.MainActivity
+import com.sirius.cybird.ui.main.MainActivity
 import com.sirius.cybird.ui.base.BaseActivity
 import java.lang.ref.WeakReference
 

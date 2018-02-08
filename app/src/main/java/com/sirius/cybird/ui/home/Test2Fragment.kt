@@ -1,7 +1,6 @@
-package com.sirius.cybird.ui.activitys.home
+package com.sirius.cybird.ui.home
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -12,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.sirius.cybird.R
 import java.util.*
 

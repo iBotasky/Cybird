@@ -1,4 +1,4 @@
-package com.sirius.cybird.ui.activitys.main
+package com.sirius.cybird.ui.main
 
 import android.databinding.BaseObservable
 import android.databinding.Bindable
