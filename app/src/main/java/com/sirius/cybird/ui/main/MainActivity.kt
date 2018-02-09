@@ -21,7 +21,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModel = MainViewModel("Botasky")
-
+        setToolbarTitle(R.string.app_name)
         mMainBinding = getBaseViewBinding()
         mMainBinding.viewModel = viewModel
         mMainBinding.executePendingBindings()

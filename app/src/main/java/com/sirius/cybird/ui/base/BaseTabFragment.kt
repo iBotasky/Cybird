@@ -17,14 +17,14 @@ abstract class BaseTabFragment : BaseFragment() {
     lateinit var mTabLayout: TabLayout
     lateinit var mViewPager: ViewPager
     lateinit var mPagerAdapter: TabViewPagerAdapter
-    lateinit var mTabDatas: List<TabItemData>
+    lateinit var mTabDatas: MutableList<TabItemData>
 
     override fun setupViews() {
         super.setupViews()
         mTabLayout = mBinding.root.findViewById(R.id.id_tab_bar)
         mViewPager = mBinding.root.findViewById(R.id.id_view_pager)
 
-        mPagerAdapter = getPagerAdapter(childFragmentManager, ArrayList<TabItemData>())
+        mPagerAdapter = getPagerAdapter(childFragmentManager, mutableListOf())
         val pageTransformer = getPageTransformer()
         if (pageTransformer != null) {
             mViewPager.setPageTransformer(false, pageTransformer)
@@ -66,7 +66,7 @@ abstract class BaseTabFragment : BaseFragment() {
         private val holder: SparseArrayCompat<WeakReference<Fragment>>
 
         init {
-            this.pages = ArrayList<TabItemData>()
+            this.pages = mutableListOf()
             this.holder = SparseArrayCompat(pages.size)
             addItems(tabItems)
         }

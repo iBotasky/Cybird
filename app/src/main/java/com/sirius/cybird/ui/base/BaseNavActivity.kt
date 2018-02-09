@@ -48,7 +48,7 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
         mBottomNavBar.setTabSelectedListener(this)
 
         mViewPager = findViewById(R.id.id_view_pager)
-        mPagerAdapter = getPagerAdapter(supportFragmentManager, ArrayList<NavItemData>())
+        mPagerAdapter = getPagerAdapter(supportFragmentManager, mutableListOf())
         val pageTransformer = getPageTransformer()
         if (pageTransformer != null) {
             mViewPager.setPageTransformer(false, pageTransformer)
@@ -72,6 +72,7 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
     //NavTabListener
     override fun onTabSelected(position: Int) {
         mViewPager.currentItem = position
+        onNavigationChange(position)
     }
 
     override fun onTabReselected(position: Int) {
@@ -93,10 +94,14 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
 
     override fun onPageSelected(position: Int) {
         mBottomNavBar.selectTab(position)
+        onNavigationChange(position)
 
     }
     //ViewPagerListener END
 
+    open fun onNavigationChange(position: Int){
+
+    }
 
     fun getPageCount(): Int {
         return mPagerAdapter.count
@@ -129,9 +134,8 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
         private val holder: SparseArrayCompat<WeakReference<Fragment>>
 
         init {
-            this.pages = java.util.ArrayList<NavItemData>()
+            this.pages = mutableListOf()
             this.holder = SparseArrayCompat(pages.size)
-
             addItems(items)
         }
 
