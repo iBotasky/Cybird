@@ -7,8 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:gravity="center_vertical"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-    app:layout_scrollFlags="scroll|enterAlways|snap">
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
     <TextView
         android:id="@+id/tool_bar_title"
         android:textColor="@color/textColorPrimary"

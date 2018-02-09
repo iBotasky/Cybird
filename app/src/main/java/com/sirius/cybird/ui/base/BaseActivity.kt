@@ -26,8 +26,8 @@ open abstract class BaseActivity : RxAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, getLayoutResource())
-        setupStatusBar()
         setupToolBar()
+        setupStatusBar()
         setupViews()
     }
 
@@ -48,7 +48,7 @@ open abstract class BaseActivity : RxAppCompatActivity() {
     }
 
     open fun isImmersiveStatusBar(): Boolean {
-        return false
+        return true
     }
 
     fun getImmersiveStatusBarAlpha(): Float {
