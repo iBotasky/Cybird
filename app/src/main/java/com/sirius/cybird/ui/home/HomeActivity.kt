@@ -1,16 +1,17 @@
 package com.sirius.cybird.ui.home
 
 import android.os.Bundle
-import android.support.design.widget.AppBarLayout
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
 import com.sirius.cybird.module.NavItemData
-import com.sirius.cybird.ui.movie.MovieFragment
 import com.sirius.cybird.ui.base.BaseNavActivity
+import com.sirius.cybird.ui.movie.MovieFragment
+import com.sirius.cybird.utils.ToastUtils
 
 class HomeActivity : BaseNavActivity() {
-
+    private var mCurrentBackPressedTime = 0L
+    private val BACK_PRESSED_INTERVAL = 2000L
     lateinit var mHomeBinding: ActivityHomeBinding
     lateinit var mTitleResources: List<Int>
 
@@ -43,4 +44,13 @@ class HomeActivity : BaseNavActivity() {
         setToolbarTitle(mTitleResources[position])
     }
 
+
+    override fun onBackPressed() {
+        if (System.currentTimeMillis() - mCurrentBackPressedTime >= BACK_PRESSED_INTERVAL){
+            mCurrentBackPressedTime = System.currentTimeMillis()
+            ToastUtils.show(R.string.g_back_pressed_exit)
+        }else{
+            finish()
+        }
+    }
 }

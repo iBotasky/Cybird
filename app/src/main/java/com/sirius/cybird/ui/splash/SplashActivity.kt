@@ -10,6 +10,7 @@ import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivitySplashBinding
 import com.sirius.cybird.ui.main.MainActivity
 import com.sirius.cybird.ui.base.BaseActivity
+import com.sirius.cybird.ui.home.HomeActivity
 import java.lang.ref.WeakReference
 
 class SplashActivity : BaseActivity() {
@@ -71,7 +72,7 @@ class SplashActivity : BaseActivity() {
     }
 
     fun goHome() {
-        val goHomeIntent = Intent(this, MainActivity::class.java)
+        val goHomeIntent = Intent(this, HomeActivity::class.java)
         startActivity(goHomeIntent)
         mHandler.removeCallbacksAndMessages(null)
         finish()

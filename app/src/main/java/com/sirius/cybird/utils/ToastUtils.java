@@ -2,6 +2,7 @@ package com.sirius.cybird.utils;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.StringRes;
 import android.text.TextUtils;
 import android.widget.Toast;
 
@@ -20,7 +21,8 @@ public class ToastUtils {
     private static long oneTime = 0;
     private static long twoTime = 0;
 
-    public static void show(final String s) {
+    public static void show(@StringRes int resId) {
+        final String s = CybirdApp.Companion.getContext().getString(resId);
         if (TextUtils.isEmpty(s)) {
             return;
         }
@@ -38,37 +40,6 @@ public class ToastUtils {
                     twoTime = System.currentTimeMillis();
                     if (s.equals(oldMsg)) {
                         if (twoTime - oneTime > Toast.LENGTH_SHORT) {
-                            toast.show();
-                        }
-                    } else {
-                        oldMsg = s;
-                        toast.setText(s);
-                        toast.show();
-                    }
-                }
-                oneTime = twoTime;
-            }
-        });
-    }
-
-    public static void show(final String s, boolean isLong) {
-        if (TextUtils.isEmpty(s)) {
-            return;
-        }
-        if (mHandler == null) {
-            mHandler = new Handler(Looper.getMainLooper());
-        }
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (toast == null) {
-                    toast = Toast.makeText(CybirdApp.Companion.getContext(), s, Toast.LENGTH_LONG);
-                    toast.show();
-                    oneTime = System.currentTimeMillis();
-                } else {
-                    twoTime = System.currentTimeMillis();
-                    if (s.equals(oldMsg)) {
-                        if (twoTime - oneTime > Toast.LENGTH_LONG) {
                             toast.show();
                         }
                     } else {

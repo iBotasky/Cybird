@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">赛博鸟</string>
+    <!--Global-->
+    <string name="g_back_pressed_exit">再按一次返回键退出程序</string>
+
 
     <!--Home-->
     <string name="tab_movie">电影</string>
