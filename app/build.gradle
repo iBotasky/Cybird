@@ -4,12 +4,12 @@ apply plugin: 'kotlin-android-extensions'   //KotlinExtension
 
 
 android {
-    buildToolsVersion '27.0.3'
-    compileSdkVersion 27
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
     defaultConfig {
         applicationId "com.sirius.cybird"
-        minSdkVersion 19
-        targetSdkVersion 27
+        minSdkVersion rootProject.ext.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
