@@ -25,7 +25,6 @@ class MovieFragment :BaseTabFragment() {
     override fun setupViews() {
         super.setupViews()
         mMovieBinding = getBaseViewBinding()
-        setToolBarTitle(R.string.tab_movie)
     }
 
 

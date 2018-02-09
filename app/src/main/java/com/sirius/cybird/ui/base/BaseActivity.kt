@@ -5,11 +5,12 @@ import android.databinding.ViewDataBinding
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.CallSuper
+import android.support.annotation.StringRes
 import android.support.v7.widget.Toolbar
+import android.widget.TextView
 import com.flyco.systembar.SystemBarHelper
 import com.sirius.cybird.R
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
-import kotlinx.android.synthetic.main.include_tool_bar.view.*
 
 /**
  * Description：
@@ -25,14 +26,13 @@ open abstract class BaseActivity : RxAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, getLayoutResource())
-        mToolbar = findViewById(R.id.id_toolbar)
         setupStatusBar()
         setupToolBar()
         setupViews()
     }
 
     @CallSuper
-    open fun setupViews(){
+    open fun setupViews() {
 
     }
 
@@ -61,18 +61,24 @@ open abstract class BaseActivity : RxAppCompatActivity() {
                 }
             }
         }
-
         return 0f
     }
 
-    fun setupToolBar(){
-            setSupportActionBar(mToolbar)
-            supportActionBar?.setDisplayHomeAsUpEnabled(isDisplayHomeAsUpEnable())
-            supportActionBar?.setTitle("")
+    fun setupToolBar() {
+        mToolbar = findViewById(R.id.id_toolbar)
+        setSupportActionBar(mToolbar)
+        supportActionBar?.title = ""
+        supportActionBar?.setDisplayHomeAsUpEnabled(isDisplayHomeAsUpEnable())
     }
 
 
-    open fun isDisplayHomeAsUpEnable(): Boolean{
+    open fun setToolbarTitle(@StringRes res: Int) {
+        var titleView: TextView? = findViewById(R.id.tool_bar_title)
+        titleView?.setText(this.getString(res))
+    }
+
+
+    open fun isDisplayHomeAsUpEnable(): Boolean {
         return false
     }
 

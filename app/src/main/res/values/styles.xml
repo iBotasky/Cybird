@@ -31,4 +31,9 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
 
+    <!--AppBar 去掉阴影-->
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="elevation">0dp</item>
+    </style>
+
 </resources>

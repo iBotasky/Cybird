@@ -18,10 +18,15 @@ class HomeActivity: BaseNavActivity() {
         mHomeBinding = getBaseViewBinding()
     }
 
+    override fun setupViews() {
+        super.setupViews()
+        setToolbarTitle(R.string.app_name)
+    }
 
     override fun getLayoutResource(): Int {
         return R.layout.activity_home
     }
+
 
     override fun getBottomNavDatas(): List<NavItemData> {
         val navDatas = ArrayList<NavItemData>()
