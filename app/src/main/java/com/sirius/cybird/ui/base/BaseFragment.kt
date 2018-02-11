@@ -5,6 +5,7 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.annotation.LayoutRes
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,4 +36,5 @@ open abstract class BaseFragment : RxFragment() {
 
     @LayoutRes
     abstract fun getLayouResource(): Int
+
 }

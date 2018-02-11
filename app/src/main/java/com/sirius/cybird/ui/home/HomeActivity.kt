@@ -34,9 +34,9 @@ class HomeActivity : BaseNavActivity() {
         mTitleResources = listOf(R.string.tab_movie, R.string.tab_daily, R.string.tab_girls, R.string.tab_mine)
         return listOf(
                 NavItemData(BottomNavigationItem(R.mipmap.ic_movie, R.string.tab_movie).setActiveColorResource(R.color.color_movie), MovieFragment::class.java),
-                NavItemData(BottomNavigationItem(R.mipmap.ic_book, R.string.tab_daily).setActiveColorResource(R.color.color_daily), Test2Fragment::class.java),
-                NavItemData(BottomNavigationItem(R.mipmap.ic_whatshot, R.string.tab_girls).setActiveColorResource(R.color.color_girl), Test2Fragment::class.java),
-                NavItemData(BottomNavigationItem(R.mipmap.ic_account, R.string.tab_mine).setActiveColorResource(R.color.color_mine), Test2Fragment::class.java)
+                NavItemData(BottomNavigationItem(R.mipmap.ic_book, R.string.tab_daily).setActiveColorResource(R.color.color_daily), MovieHotFragment::class.java),
+                NavItemData(BottomNavigationItem(R.mipmap.ic_whatshot, R.string.tab_girls).setActiveColorResource(R.color.color_girl), MovieHotFragment::class.java),
+                NavItemData(BottomNavigationItem(R.mipmap.ic_account, R.string.tab_mine).setActiveColorResource(R.color.color_mine), MovieHotFragment::class.java)
         )
     }
 
@@ -46,10 +46,10 @@ class HomeActivity : BaseNavActivity() {
 
 
     override fun onBackPressed() {
-        if (System.currentTimeMillis() - mCurrentBackPressedTime >= BACK_PRESSED_INTERVAL){
+        if (System.currentTimeMillis() - mCurrentBackPressedTime >= BACK_PRESSED_INTERVAL) {
             mCurrentBackPressedTime = System.currentTimeMillis()
             ToastUtils.show(R.string.g_back_pressed_exit)
-        }else{
+        } else {
             finish()
         }
     }

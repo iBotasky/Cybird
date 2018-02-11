@@ -1,16 +1,10 @@
 package com.sirius.cybird.ui.movie
 
-import android.support.design.widget.TabItem
-import android.support.design.widget.TabLayout
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMovieBinding
 import com.sirius.cybird.module.TabItemData
 import com.sirius.cybird.ui.base.BaseTabFragment
-import com.sirius.cybird.ui.home.Test2Fragment
-import java.util.*
+import com.sirius.cybird.ui.home.MovieHotFragment
 
 /**
  *
@@ -31,9 +25,9 @@ class MovieFragment : BaseTabFragment() {
 
     override fun getTabItems(): List<TabItemData> {
         return listOf(
-                TabItemData(R.string.movie_hot, Test2Fragment::class.java),
-                TabItemData(R.string.movie_coming_soon, Test2Fragment::class.java),
-                TabItemData(R.string.movie_classics, Test2Fragment::class.java)
+                TabItemData(R.string.movie_hot, MovieHotFragment::class.java),
+                TabItemData(R.string.movie_coming_soon, MovieHotFragment::class.java),
+                TabItemData(R.string.movie_classics, MovieHotFragment::class.java)
         )
     }
 }
