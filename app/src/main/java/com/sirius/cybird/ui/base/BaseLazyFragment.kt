@@ -9,15 +9,14 @@ abstract class BaseLazyFragment : BaseFragment() {
     //控件是否初始化完成
     private var isViewCreated = false
 
-    //数据是否加载完成
-    private var isLoadDataCompleted = false
-
+    //第一次数据是否加载完成
+    private var isFirstLoadDataCompleted = false
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
-        if (isVisibleToUser && isViewCreated && !isLoadDataCompleted) {
+        if (isVisibleToUser && isViewCreated && !isFirstLoadDataCompleted) {
             loadData()
-            isLoadDataCompleted = true
+            isFirstLoadDataCompleted = true
         }
     }
 
@@ -34,7 +33,7 @@ abstract class BaseLazyFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
         if (userVisibleHint){
             loadData()
-            isLoadDataCompleted = true
+            isFirstLoadDataCompleted = true
         }
     }
 
