@@ -7,14 +7,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
-import com.sirius.cybird.utils.ToastUtils
 
 abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnRefreshListener {
     lateinit var mRecyclerView: RecyclerView
     lateinit var mSwipeRefresh: SwipeRefreshLayout
     lateinit var mMultiStateView: MultiStateView
     lateinit var mMultiStateErrorRetry: View
-
 
     override fun setupViews() {
         super.setupViews()
