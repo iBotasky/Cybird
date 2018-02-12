@@ -5,7 +5,7 @@
     <string name="g_multi_view_data_empty">暂无数据</string>
     <string name="g_multi_view_retry">重试</string>
     <string name="g_multi_view_error">数据加载出错</string>
-
+    <string name="g_multi_view_loading">加载中...</string>
     <!--Home-->
     <string name="tab_movie">电影</string>
     <string name="tab_daily">日报</string>

@@ -5,7 +5,7 @@
     <string name="g_multi_view_data_empty">No Result Found</string>
     <string name="g_multi_view_retry">Retry</string>
     <string name="g_multi_view_error">Load data error, please retry</string>
-
+    <string name="g_multi_view_loading">Loading...</string>
     <!--Home-->
     <string name="tab_movie">Movies</string>
     <string name="tab_daily">Daily</string>
@@ -16,5 +16,6 @@
     <string name="movie_hot">Hot</string>
     <string name="movie_coming_soon">Coming Soon</string>
     <string name="movie_classics">Top250</string>
+
 
 </resources>
