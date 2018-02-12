@@ -35,7 +35,7 @@ class MovieHotFragment : BaseRecyclerFragment() {
         Handler().postDelayed(
                 {
                     mRecyclerView.adapter = SimpleStringRecyclerViewAdapter(activity!!, getRandomSublist(sCheeseStrings, 30))
-                    mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR
+                    mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
                 }
                 , 3000)
 

@@ -4,4 +4,4 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:text="@string/g_data_is_empty" />
+    android:text="@string/g_multi_view_data_empty" />
