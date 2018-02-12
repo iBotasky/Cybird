@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="id_view_pager" type="id"/>
-    <item name="id_indicator" type="id"/>
-    <item name="id_toolbar" type="id"/>
-    <item name="id_tab_bar" type="id"/>
-    <item name="id_bottom_nav_bar" type="id"/>
-    <item name="id_continer" type="id"/>
-    <item name="id_recycler_view" type="id"/>
-    <item name="id_swipe_refresh" type="id"/>
+    <item name="id_view_pager" type="id" />
+    <item name="id_indicator" type="id" />
+    <item name="id_toolbar" type="id" />
+    <item name="id_tab_bar" type="id" />
+    <item name="id_bottom_nav_bar" type="id" />
+    <item name="id_continer" type="id" />
+    <item name="id_recycler_view" type="id" />
+    <item name="id_swipe_refresh" type="id" />
+    <item name="id_multi_state_view" type="id" />
+    <item name="id_multi_state_error_retry" type="id"/>
 </resources>
