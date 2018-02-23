@@ -5,6 +5,8 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 
@@ -49,21 +51,21 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
     }
 
     @LayoutRes
-    open fun getMultiStateViewEmpty():Int{
+    open fun getMultiStateViewEmpty(): Int {
         return R.layout.state_empty_view
     }
 
     @LayoutRes
-    open fun getMultiStateViewError():Int{
+    open fun getMultiStateViewError(): Int {
         return R.layout.state_error_view
     }
 
     @LayoutRes
-    open fun getMultiStateViewLoading():Int{
+    open fun getMultiStateViewLoading(): Int {
         return R.layout.state_loading_view
     }
 
-    open fun setOnRetry(retry:()->Unit){
+    open fun setOnRetry(retry: () -> Unit) {
         mMultiStateErrorRetry.setOnClickListener { retry() }
     }
 

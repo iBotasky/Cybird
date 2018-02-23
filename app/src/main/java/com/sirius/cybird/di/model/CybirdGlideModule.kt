@@ -13,7 +13,8 @@ import com.bumptech.glide.module.AppGlideModule
 
 
 /**
- *
+ * 这个是网上一个Glide优化教程
+ *https://segmentfault.com/a/1190000011423889
  *Create By Botasky 31/12/2017
  **/
 @GlideModule
