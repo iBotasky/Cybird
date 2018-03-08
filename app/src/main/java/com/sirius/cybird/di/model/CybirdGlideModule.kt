@@ -20,7 +20,7 @@ import com.bumptech.glide.request.RequestOptions
  *Create By Botasky 31/12/2017
  **/
 @GlideModule
-class CybirdGlideModule : AppGlideModule() {
+final class CybirdGlideModule : AppGlideModule() {
     override fun applyOptions(context: Context, builder: GlideBuilder) {
         super.applyOptions(context, builder)
         //设置内存缓存 30MB
