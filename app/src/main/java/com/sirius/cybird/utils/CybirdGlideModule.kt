@@ -1,4 +1,4 @@
-package com.sirius.cybird.di.model
+package com.sirius.cybird.utils
 
 import android.content.Context
 import android.os.Environment
