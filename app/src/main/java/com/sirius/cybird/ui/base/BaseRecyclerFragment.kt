@@ -1,18 +1,28 @@
 package com.sirius.cybird.ui.base
 
+import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
-
+//TODO 这里应该分为BaseLoad跟BaseRecycler，因为Load不止可以适用在RecyclerView的情况
 abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnRefreshListener {
     lateinit var mRecyclerView: RecyclerView
+    lateinit var mDataObserver: RecyclerView.AdapterDataObserver
     lateinit var mSwipeRefresh: SwipeRefreshLayout
     lateinit var mMultiStateView: MultiStateView
     lateinit var mMultiStateErrorRetry: View
+    lateinit var mAdapter:
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
 
     override fun setupViews() {
         super.setupViews()
@@ -29,6 +39,19 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
         mSwipeRefresh.setColorSchemeColors(*getSwipeRefreshColorSchemeRes())
 
         mRecyclerView.layoutManager = getRecyclerManager()
+        mDataObserver = object : RecyclerView.AdapterDataObserver(){
+            override fun onChanged() {
+                super.onChanged()
+            }
+
+            override fun onItemRangeChanged(positionStart: Int, itemCount: Int) {
+                super.onItemRangeChanged(positionStart, itemCount)
+            }
+
+            override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
+                super.onItemRangeRemoved(positionStart, itemCount)
+            }
+        }
     }
 
     open fun getRecyclerManager(): RecyclerView.LayoutManager {
@@ -66,5 +89,27 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
     open fun setOnRetry(retry:()->Unit){
         mMultiStateErrorRetry.setOnClickListener { retry() }
     }
+
+    open fun addItemDecoration(itemDecoration: RecyclerView.ItemDecoration){
+        mRecyclerView.addItemDecoration(itemDecoration)
+    }
+
+    fun showErrorView(){
+        mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR
+    }
+
+    fun showEmptyView(){
+        mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
+    }
+
+    fun showLoading(){
+        mMultiStateView.viewState = MultiStateView.VIEW_STATE_LOADING
+    }
+
+    fun showContent(){
+        mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
+    }
+
+
 
 }
