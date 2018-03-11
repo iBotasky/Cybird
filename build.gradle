@@ -63,7 +63,7 @@ ext {
     //Status bar
     statusBarVersion = '1.0.0@aar'
     //DatabindingCompiler
-    databindingCompilerVersion = '3.1.0-beta1'
+    databindingCompilerVersion = '3.2.0-alpha05'
     //dagger
     daggerVersion = '2.8'
     //glide
