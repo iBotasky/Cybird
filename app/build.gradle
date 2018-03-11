@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'              //Kotlin
 apply plugin: 'kotlin-android-extensions'   //KotlinExtension
+apply plugin: 'kotlin-kapt'                 //KotlinKapt
 
 
 android {
@@ -63,7 +64,8 @@ dependencies {
     annotationProcessor appDependencies.daggerCompiler
     //Glide
     implementation appDependencies.glide
-    annotationProcessor appDependencies.glideComplier
+//    implementation appDependencies.glideAnnotations
+    kapt appDependencies.glideComplier
     implementation appDependencies.glideOkHttp
     //DataBinding
     kapt appDependencies.databindingCompiler
