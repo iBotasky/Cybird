@@ -11,6 +11,8 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
+        android:indeterminateTint="@color/colorPrimary"
+        android:indeterminateTintMode="src_atop"
         android:orientation="vertical" />
     <TextView
         android:layout_width="wrap_content"
