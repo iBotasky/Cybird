@@ -4,8 +4,9 @@ import android.app.Application
 import android.content.Context
 import com.facebook.stetho.Stetho
 import com.sirius.cybird.db.MyObjectBox
-import com.sirius.cybird.di.singleton.SPManager
-import com.sirius.cybird.utils.SPUtils
+import com.sirius.cybird.di.model.ApplicationModule
+import com.sirius.cybird.repository.DaggerRepositoryComponent
+import com.sirius.cybird.repository.RepositoryComponent
 import io.objectbox.BoxStore
 import io.objectbox.android.AndroidObjectBrowser
 
@@ -18,6 +19,7 @@ class CybirdApp : Application() {
     companion object {
         lateinit var mAppContext: CybirdApp
         lateinit var mBoxStore: BoxStore
+        lateinit var mRepositoryComponent: RepositoryComponent
         fun getContext(): Context {
             return mAppContext.applicationContext
         }
@@ -31,6 +33,14 @@ class CybirdApp : Application() {
         mAppContext = this
         setupStetho()
         setupObjectBox()
+        setupComponent()
+    }
+
+
+    fun setupComponent(){
+        mRepositoryComponent = DaggerRepositoryComponent.builder()
+                .applicationModule(ApplicationModule(this))
+                .build()
     }
 
     fun setupStetho() {

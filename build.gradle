@@ -1,8 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 //apply from: "config.gradle"
 buildscript {
-    ext.kotlin_version = '1.2.21'
-    ext.gradle_version = '3.2.0-alpha08'
+    ext.kotlin_version = '1.2.31'
+    ext.gradle_version = '3.2.0-alpha09'
     ext.objectbox_version = '1.4.0'
     repositories {
         google()
@@ -43,7 +43,7 @@ ext {
     androidTargetSdkVersion = 27
     androidCompileSdkVersion = 27
 
-    kotlinVersion = '1.2.21'
+    kotlinVersion = '1.2.31'
     //SupportLibs
     suppportLibVersion = '27.0.2'
     //ConstraintLayout
@@ -63,9 +63,9 @@ ext {
     //Status bar
     statusBarVersion = '1.0.0@aar'
     //DatabindingCompiler
-    databindingCompilerVersion = '3.2.0-alpha08'
+    databindingCompilerVersion = '3.2.0-alpha09'
     //dagger
-    daggerVersion = '2.8'
+    daggerVersion = '2.12'
     //glide
     glideVersion = '4.6.1'
     //OkhttpGlide
@@ -103,6 +103,8 @@ ext {
             databindingCompiler : "com.android.databinding:compiler:${databindingCompilerVersion}",
             dagger              : "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            daggerSupport       : "com.google.dagger:dagger-android-support:${daggerVersion}",
+            daggerProcessor     : "com.google.dagger:dagger-android-processor:${daggerVersion}",
             glide               : "com.github.bumptech.glide:glide:${glideVersion}",
             glideComplier       : "com.github.bumptech.glide:compiler:${glideVersion}",
             glideAnnotations    : "com.github.bumptech.glide:annotations:${glideVersion}",

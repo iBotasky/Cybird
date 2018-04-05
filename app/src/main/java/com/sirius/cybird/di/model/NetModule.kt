@@ -1,5 +1,6 @@
 package com.sirius.cybird.di.model
 
+import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -11,6 +12,7 @@ import javax.inject.Singleton
  *
  *Create By Botasky 31/12/2017
  **/
+@Module
 class NetModule {
     @Provides
     @Singleton

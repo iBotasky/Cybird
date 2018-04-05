@@ -33,8 +33,8 @@ dependencies {
     def testDependencies = rootProject.ext.appTestDependencies
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation appDependencies.kotlin
     implementation appDependencies.appcompact
     implementation appDependencies.appDesign
@@ -61,12 +61,11 @@ dependencies {
     implementation appDependencies.systembar
     //Dagger
     implementation appDependencies.dagger
-    annotationProcessor appDependencies.daggerCompiler
+    kapt appDependencies.daggerCompiler
     //Glide
     implementation appDependencies.glide
-//    implementation appDependencies.glideAnnotations
-    kapt appDependencies.glideComplier
     implementation appDependencies.glideOkHttp
+    kapt appDependencies.glideComplier
     //DataBinding
     kapt appDependencies.databindingCompiler
     //Stetho
