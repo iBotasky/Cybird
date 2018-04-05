@@ -3,6 +3,7 @@ package com.sirius.cybird.repository
 import com.sirius.cybird.di.model.ApplicationModule
 import com.sirius.cybird.di.model.NetModule
 import com.sirius.cybird.module.TestInject
+import com.sirius.cybird.ui.home.HomePresenter
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,5 +18,6 @@ import javax.inject.Singleton
  */
 @Singleton
 @Component(modules = arrayOf(ApplicationModule::class, NetModule::class))
-interface RepositoryComponent {
+interface RepositoryComponent{
+    fun getHomePresenter():HomePresenter //对单个类进行inject
 }

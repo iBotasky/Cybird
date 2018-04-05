@@ -26,32 +26,24 @@ class HomeActivity : BaseNavActivity() {
     lateinit var mTitleResources: List<Int>
 
     @Inject
-    lateinit var mRetrofit: Retrofit
+    lateinit var name: String
 
+    @Inject
+    lateinit var presenter: HomePresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mHomeBinding = getBaseViewBinding()
-
         mActivityComponent.inject(this)
+        Log.e("TAG", " name " + name)
+
+        presenter.getTime()
     }
 
     override fun setupViews() {
         super.setupViews()
         setToolbarTitle(mTitleResources[0])
 
-        mRetrofit.create(FilmsApi::class.java)
-                .getInTheaters(Urls.DOUBAN_FILM_URL_HOST + "movie/in_theaters")
-                .flatMap { filmsData -> Observable.fromIterable(filmsData.films) }
-                .compose(bindToLifecycle())
-                .compose(TransformScheduler.applyNewThreadScheduler())
-                .subscribe({ film ->
-                    val filmEntity = FilmEntity(text = film.title, comment = film.originalTitle, date = Date())
-
-                    Log.e("TAG", "put success " + filmEntity.id)
-                }, { e ->
-                    Log.e("TAG", e.message)
-                })
     }
 
     override fun getLayoutResource(): Int {

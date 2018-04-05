@@ -69,10 +69,9 @@ class NetModule {
         return client.build()
     }
 
-
+//    @Named("http")//用以区分调用那个retrofit
     @Provides
     @Singleton
-    @Named("http")//用以区分调用那个retrofit
     fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
