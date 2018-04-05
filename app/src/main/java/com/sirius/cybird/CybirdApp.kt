@@ -5,6 +5,7 @@ import android.content.Context
 import com.facebook.stetho.Stetho
 import com.sirius.cybird.db.MyObjectBox
 import com.sirius.cybird.di.model.ApplicationModule
+import com.sirius.cybird.di.model.NetModule
 import com.sirius.cybird.repository.DaggerRepositoryComponent
 import com.sirius.cybird.repository.RepositoryComponent
 import io.objectbox.BoxStore
@@ -26,6 +27,9 @@ class CybirdApp : Application() {
         fun getBoxStore(): BoxStore {
             return mBoxStore
         }
+        fun getRepostitoryComponent(): RepositoryComponent{
+            return mRepositoryComponent
+        }
     }
 
     override fun onCreate() {
@@ -40,6 +44,7 @@ class CybirdApp : Application() {
     fun setupComponent(){
         mRepositoryComponent = DaggerRepositoryComponent.builder()
                 .applicationModule(ApplicationModule(this))
+                .netModule(NetModule("http://www.baidu.com"))
                 .build()
     }
 

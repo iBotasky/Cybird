@@ -49,6 +49,7 @@ dependencies {
     implementation appDependencies.retrofit
     implementation appDependencies.retrofitConverter
     implementation appDependencies.retrofitAdapter
+    implementation appDependencies.loggingInterceptor
     implementation appDependencies.rxJava
     implementation appDependencies.rxAndroid
     implementation appDependencies.rxLifecycle

@@ -8,14 +8,15 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.Url
 
 /**
  * Description： 豆瓣API
  * Created by Botasky on 2017/12/29.
  */
 interface FilmsApi {
-    @GET("movie/in_theaters")
-    fun getInTheaters(): Observable<FilmsData>
+    @GET
+    fun getInTheaters(@Url url: String): Observable<FilmsData>
 
     @GET("movie/coming_soon")
     fun getComingSoon(@Query("start") start: Int, @Query("count") count: Int): Observable<FilmsData> //Get用参数Query来做

@@ -1,6 +1,7 @@
 package com.sirius.cybird.repository
 
 import com.sirius.cybird.di.model.ApplicationModule
+import com.sirius.cybird.di.model.NetModule
 import com.sirius.cybird.module.TestInject
 import dagger.Component
 import javax.inject.Singleton
@@ -15,7 +16,6 @@ import javax.inject.Singleton
  * MyApplication}.
  */
 @Singleton
-@Component(modules = arrayOf(ApplicationModule::class))
-public interface RepositoryComponent {
-    fun provideTestClass(): TestInject
+@Component(modules = arrayOf(ApplicationModule::class, NetModule::class))
+interface RepositoryComponent {
 }

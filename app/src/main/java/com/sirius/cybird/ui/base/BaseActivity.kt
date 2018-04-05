@@ -9,26 +9,53 @@ import android.support.annotation.StringRes
 import android.support.v7.widget.Toolbar
 import android.widget.TextView
 import com.flyco.systembar.SystemBarHelper
+import com.sirius.cybird.CybirdApp
 import com.sirius.cybird.R
+import com.sirius.cybird.di.HasComponent
+import com.sirius.cybird.di.component.ActivityComponent
+import com.sirius.cybird.di.component.DaggerActivityComponent
+import com.sirius.cybird.di.model.ActivityModule
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
 /**
  * Description：
  * Created by Botasky on 2017/12/26.
  */
-open abstract class BaseActivity : RxAppCompatActivity() {
+open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityComponent>{
 
     lateinit var mBinding: ViewDataBinding
+    lateinit var mActivityComponent: ActivityComponent
+
     var mToolbar: Toolbar? = null
 
     var mIsDark = false
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupComponent()
         mBinding = DataBindingUtil.setContentView(this, getLayoutResource())
         setupToolBar()
         setupStatusBar()
         setupViews()
+    }
+
+
+    fun setupComponent(){
+        mActivityComponent = DaggerActivityComponent.builder()
+                .repositoryComponent(CybirdApp.getRepostitoryComponent())
+                .activityModule(getActivityModule())
+                .build()
+    }
+
+    /**
+     * Get an Activity module for dependency injection.
+     *
+     * @return [ActivityModule]
+     */
+    protected fun getActivityModule(): ActivityModule {
+        return ActivityModule(this)
     }
 
     @CallSuper
@@ -99,5 +126,9 @@ open abstract class BaseActivity : RxAppCompatActivity() {
         if (mToolbar != null) {
             SystemBarHelper.setHeightAndPadding(this, mToolbar)
         }
+    }
+
+    override fun getComponent(): ActivityComponent {
+        return mActivityComponent
     }
 }

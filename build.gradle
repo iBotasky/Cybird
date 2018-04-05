@@ -52,6 +52,7 @@ ext {
     baseRecyclerViewHelperVersion = '2.9.34'
     //retrofit
     retrofitVersion = '2.3.0'
+    loggingInterceptorLibraryVersion = '3.4.0'
     //rxJava
     rxJavaVersion = '2.1.6'
     //rxAndroid
@@ -112,6 +113,7 @@ ext {
             objectBox           : "io.objectbox:objectbox-gradle-plugin:${obVersion}",
             stetho              : "com.facebook.stetho:stetho:${stethoVersion}",
             obBrowser           : "io.objectbox:objectbox-android:${obVersion}",
+            loggingInterceptor  : "com.squareup.okhttp3:logging-interceptor:${loggingInterceptorLibraryVersion}",
             magicIndicator      : "com.github.hackware1993:MagicIndicator:${magicIndicatorVersion}",
             bottomNavBar        : "com.ashokvarma.android:bottom-navigation-bar:${bottomNavBarVersion}",
             multiStateView      : "com.github.Kennyc1012:MultiStateView:${multiStateViewVersion}",
