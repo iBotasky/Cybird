@@ -19,5 +19,5 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = arrayOf(ApplicationModule::class, NetModule::class))
 interface RepositoryComponent{
-    fun getHomePresenter():HomePresenter //对单个类进行inject
+    fun getHomePresenter():HomePresenter //对单个类进行inject,表示对此类公开可见
 }
