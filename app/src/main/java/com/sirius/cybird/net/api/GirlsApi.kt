@@ -14,7 +14,7 @@ import retrofit2.http.Path
  * Created by Botasky on 2017/12/29.
  */
 interface GirlsApi {
-    @GET("data/福利/20/{index}")
+    @GET("api/data/福利/20/{index}")
     fun accessGirls(@Path("index") index: Int): Observable<GirlResopnse>
 
     companion object {

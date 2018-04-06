@@ -44,7 +44,7 @@ class CybirdApp : Application() {
     fun setupComponent(){
         mRepositoryComponent = DaggerRepositoryComponent.builder()
                 .applicationModule(ApplicationModule(this))
-                .netModule(NetModule("http://www.baidu.com"))
+                .netModule(NetModule())
                 .build()
     }
 

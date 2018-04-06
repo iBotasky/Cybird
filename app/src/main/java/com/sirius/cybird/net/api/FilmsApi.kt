@@ -15,13 +15,13 @@ import retrofit2.http.Url
  * Created by Botasky on 2017/12/29.
  */
 interface FilmsApi {
-    @GET
-    fun getInTheaters(@Url url: String): Observable<FilmsData>
+    @GET("v2/movie/in_theaters")
+    fun getInTheaters(): Observable<FilmsData>
 
-    @GET("movie/coming_soon")
+    @GET("v2/movie/coming_soon")
     fun getComingSoon(@Query("start") start: Int, @Query("count") count: Int): Observable<FilmsData> //Get用参数Query来做
 
-    @GET("movie/top250")
+    @GET("v2/movie/top250")
     fun getTop250(@Query("start") start: Int, @Query("count") connt: Int): Observable<FilmsData>
 
     companion object {

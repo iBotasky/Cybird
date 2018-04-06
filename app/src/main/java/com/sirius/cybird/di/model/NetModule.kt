@@ -4,7 +4,10 @@ import android.app.Application
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.sirius.cybird.BuildConfig
 import com.sirius.cybird.di.qualifier.ForApplication
+import com.sirius.cybird.net.HostSelectionInterceptor
+import com.sirius.cybird.net.url.Urls
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -23,10 +26,12 @@ import javax.inject.Singleton
  **/
 @Module
 class NetModule {
-    val mBaseUrl: String
-    constructor(baseUrl: String){
-        this.mBaseUrl = baseUrl
-    }
+    //这个项目中BaseURL需要切换，改用HostSelectionInceptor
+//    val mBaseUrl: String
+//
+//    constructor(baseUrl: String) {
+//        this.mBaseUrl = baseUrl
+//    }
 
     @Provides
     @Singleton
@@ -43,23 +48,30 @@ class NetModule {
         return gsonBuilder.create()
     }
 
+
     @Provides
     @Singleton
-    internal fun provideOkhttpClient(cache: Cache): OkHttpClient {
+    internal fun provideHostSelection(): HostSelectionInterceptor {
+        return HostSelectionInterceptor()
+    }
+
+    @Provides
+    @Singleton
+    internal fun provideOkhttpClient(cache: Cache, selectionInterceptor: HostSelectionInterceptor): OkHttpClient {
         // log用拦截器
         val logging = HttpLoggingInterceptor()
 
-//        // 开发模式记录整个body，否则只记录基本信息如返回200，http协议版本等
-//        if (SystemConfig.DEBUG_MODE) {
-//            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-//        } else {
-//            logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
-//        }
-
+        // 开发模式记录整个body，否则只记录基本信息如返回200，http协议版本等
+        if (BuildConfig.DEBUG) {
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+        } else {
+            logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
+        }
 
         val client = OkHttpClient.Builder()
-//                .addInterceptor(HeadInterceptor())
+                //.addInterceptor(HeadInterceptor())//Header拦截器
                 .addInterceptor(logging)
+                //.addInterceptor(selectionInterceptor)//Host修改拦截器
                 // 连接超时时间设置
                 .connectTimeout(10, TimeUnit.SECONDS)
                 // 读取超时时间设置
@@ -69,14 +81,38 @@ class NetModule {
         return client.build()
     }
 
-//    @Named("http")//用以区分调用那个retrofit
+    //    @Named("http")//用以区分调用那个retrofit
     @Provides
     @Singleton
     fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(mBaseUrl)
+                .baseUrl(Urls.WEATHRE_URL_HOST)
+                .client(okHttpClient)
+                .build()
+    }
+
+    @Provides
+    @Singleton
+    @Named("douban")
+    fun provideDoubanRetrofit(gson: Gson, okHttpClient: OkHttpClient):Retrofit{
+        return Retrofit.Builder()
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl(Urls.DOUBAN_FILM_URL_HOST)
+                .client(okHttpClient)
+                .build()
+    }
+
+    @Provides
+    @Singleton
+    @Named("gank")
+    fun provideGankRetrofit(gson: Gson, okHttpClient: OkHttpClient):Retrofit{
+        return Retrofit.Builder()
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl(Urls.GANK_GIRLS_URL_HOST)
                 .client(okHttpClient)
                 .build()
     }
