@@ -1,22 +1,14 @@
 package com.sirius.cybird.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
-import com.sirius.cybird.db.FilmEntity
 import com.sirius.cybird.module.NavItemData
-import com.sirius.cybird.net.api.FilmsApi
-import com.sirius.cybird.net.url.Urls
-import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseNavActivity
 import com.sirius.cybird.ui.movie.MovieFragment
+import com.sirius.cybird.ui.movie.hot.MovieHotFragment
 import com.sirius.cybird.utils.ToastUtils
-import io.reactivex.Observable
-import retrofit2.Retrofit
-import java.util.*
-import javax.inject.Inject
 
 
 class HomeActivity : BaseNavActivity() {
@@ -63,5 +55,9 @@ class HomeActivity : BaseNavActivity() {
         } else {
             finish()
         }
+    }
+
+    override fun initializeInjector() {
+
     }
 }

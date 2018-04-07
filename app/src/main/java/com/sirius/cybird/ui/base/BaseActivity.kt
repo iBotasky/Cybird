@@ -30,8 +30,6 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
 
     var mIsDark = false
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupComponent()
@@ -48,6 +46,8 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
                 .activityModule(getActivityModule())
                 .build()
     }
+
+    abstract fun initializeInjector()
 
     /**
      * Get an Activity module for dependency injection.

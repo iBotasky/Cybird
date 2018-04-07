@@ -5,8 +5,6 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.chad.library.adapter.base.BaseQuickAdapter
-import com.chad.library.adapter.base.BaseViewHolder
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 
@@ -26,7 +24,12 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
         mMultiStateView.setViewForState(getMultiStateViewLoading(), MultiStateView.VIEW_STATE_LOADING)
 
         mMultiStateErrorRetry = mMultiStateView.getView(MultiStateView.VIEW_STATE_ERROR)!!.findViewById(R.id.id_multi_state_error_retry)
-        mMultiStateErrorRetry.setOnClickListener { loadData() }
+        mMultiStateErrorRetry.setOnClickListener {
+            if (mMultiStateView.viewState != MultiStateView.VIEW_STATE_LOADING) {
+                mMultiStateView.viewState = MultiStateView.VIEW_STATE_LOADING
+            }
+            loadData()
+        }
 
         mSwipeRefresh.setColorSchemeColors(*getSwipeRefreshColorSchemeRes())
 
@@ -65,6 +68,9 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
         return R.layout.state_loading_view
     }
 
+    /**
+     * 传入重试方法,自定义重试逻辑
+     */
     open fun setOnRetry(retry: () -> Unit) {
         mMultiStateErrorRetry.setOnClickListener { retry() }
     }

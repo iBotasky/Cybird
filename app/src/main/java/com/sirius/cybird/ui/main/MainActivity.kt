@@ -48,4 +48,6 @@ class MainActivity : BaseActivity() {
         return R.layout.activity_main
     }
 
+    override fun initializeInjector() {
+    }
 }

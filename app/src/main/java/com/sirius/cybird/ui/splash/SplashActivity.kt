@@ -81,4 +81,8 @@ class SplashActivity : BaseActivity() {
     fun goGuide() {
 
     }
+
+    override fun initializeInjector() {
+
+    }
 }

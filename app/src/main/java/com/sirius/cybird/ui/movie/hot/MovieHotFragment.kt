@@ -1,9 +1,7 @@
-package com.sirius.cybird.ui.home
+package com.sirius.cybird.ui.movie.hot
 
 import android.content.Context
-import android.os.Handler
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -14,19 +12,16 @@ import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMovieHotBinding
 import com.sirius.cybird.di.component.ActivityComponent
-import com.sirius.cybird.net.api.FilmsApi
+import com.sirius.cybird.net.response.Film
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseRecyclerFragment
-import com.sirius.cybird.utils.ToastUtils
-import retrofit2.Retrofit
 import java.util.*
 import javax.inject.Inject
-import javax.inject.Named
 
 class MovieHotFragment : BaseRecyclerFragment() {
 
     @Inject
-    lateinit var homePresenter: HomePresenter
+    lateinit var mPresenter: MovieHotPresenter
 
     override fun onRefresh() {
         loadData()
@@ -43,17 +38,32 @@ class MovieHotFragment : BaseRecyclerFragment() {
     }
 
     override fun loadData() {
-        homePresenter.getFilms()
-        homePresenter.getGirls()
-        Handler().postDelayed(
-                {
-                    mRecyclerView.adapter = SimpleStringRecyclerViewAdapter(activity!!, getRandomSublist(sCheeseStrings, 30))
-                    mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
-                }
-                , 3000)
-
-        setOnRetry { ToastUtils.show(R.string.tab_mine) }
+        mPresenter.getInTheaters()
+                .compose(bindToLifecycle())
+                .compose(TransformScheduler.applyNewThreadScheduler())
+                .subscribe(
+                        { films -> showResults(films) },
+                        { e -> mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR },
+                        {}
+                )
+//        Handler().postDelayed(
+//                {
+//                    mRecyclerView.adapter = SimpleStringRecyclerViewAdapter(activity!!, getRandomSublist(sCheeseStrings, 30))
+//                    mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
+//                }
+//                , 3000)
+//
     }
+
+    private fun showResults(films: List<Film>) {
+        if (films.isNotEmpty()) {
+            mRecyclerView.adapter = SimpleStringRecyclerViewAdapter(activity!!, getRandomSublist(sCheeseStrings, 30))
+            mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
+        } else {
+            mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
+        }
+    }
+
 
     val sCheeseStrings = arrayOf("Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi", "Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale", "Aisy Cendre", "Allgauer Emmentaler", "Alverca", "Ambert", "American Cheese", "Ami du Chambertin", "Anejo Enchilado", "Anneau du Vic-Bilh", "Anthoriro", "Appenzell", "Aragon", "Ardi Gasna", "Ardrahan", "Armenian String", "Aromes au Gene de Marc", "Asadero", "Asiago", "Aubisque Pyrenees", "Autun", "Avaxtskyr", "Baby Swiss", "Babybel", "Baguette Laonnaise", "Bakers", "Baladi", "Balaton", "Bandal", "Banon", "Barry's Bay Cheddar", "Basing", "Basket Cheese", "Bath Cheese", "Bavarian Bergkase", "Baylough", "Beaufort", "Beauvoorde", "Beenleigh Blue", "Beer Cheese", "Bel Paese", "Bergader", "Bergere Bleue", "Berkswell")
     private fun getRandomSublist(array: Array<String>, amount: Int): List<String> {

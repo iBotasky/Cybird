@@ -5,6 +5,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.sirius.cybird.BuildConfig
+import com.sirius.cybird.di.NameConst
 import com.sirius.cybird.di.qualifier.ForApplication
 import com.sirius.cybird.net.HostSelectionInterceptor
 import com.sirius.cybird.net.url.Urls
@@ -84,7 +85,7 @@ class NetModule {
     //    @Named("http")//用以区分调用那个retrofit
     @Provides
     @Singleton
-    @Named("juhe")
+    @Named(NameConst.JUHE)
     fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -96,7 +97,7 @@ class NetModule {
 
     @Provides
     @Singleton
-    @Named("douban")
+    @Named(NameConst.DOUBAN)
     fun provideDoubanRetrofit(gson: Gson, okHttpClient: OkHttpClient):Retrofit{
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -108,7 +109,7 @@ class NetModule {
 
     @Provides
     @Singleton
-    @Named("gank")
+    @Named(NameConst.GANK)
     fun provideGankRetrofit(gson: Gson, okHttpClient: OkHttpClient):Retrofit{
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

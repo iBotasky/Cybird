@@ -4,7 +4,7 @@ import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMovieBinding
 import com.sirius.cybird.module.TabItemData
 import com.sirius.cybird.ui.base.BaseTabFragment
-import com.sirius.cybird.ui.home.MovieHotFragment
+import com.sirius.cybird.ui.movie.hot.MovieHotFragment
 
 /**
  *
