@@ -25,31 +25,21 @@ class HomeActivity : BaseNavActivity() {
     lateinit var mHomeBinding: ActivityHomeBinding
     lateinit var mTitleResources: List<Int>
 
-    @Inject
-    lateinit var name: String
-
-    @Inject
-    lateinit var presenter: HomePresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mHomeBinding = getBaseViewBinding()
         mActivityComponent.inject(this)
-        Log.e("TAG", " name " + name)
-
-        presenter.getTime()
     }
 
     override fun setupViews() {
         super.setupViews()
         setToolbarTitle(mTitleResources[0])
-
     }
 
     override fun getLayoutResource(): Int {
         return R.layout.activity_home
     }
-
 
     override fun getBottomNavDatas(): List<NavItemData> {
         mTitleResources = listOf(R.string.tab_movie, R.string.tab_daily, R.string.tab_girls, R.string.tab_mine)

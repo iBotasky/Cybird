@@ -21,9 +21,10 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(ApplicationModule::class, NetModule::class))
 interface RepositoryComponent {
 
-    fun getRetorofit(): Retrofit                             //开放Module中Retrofit的依赖
-
     fun getHostSelectionInterceptor(): HostSelectionInterceptor //开放Module中的HostSelectionInterceptor的依赖
+
+    @Named("juhe")
+    fun getRetorofit(): Retrofit                             //开放Module中Retrofit的依赖
 
     @Named("douban")
     fun getDoubanRetrofit(): Retrofit

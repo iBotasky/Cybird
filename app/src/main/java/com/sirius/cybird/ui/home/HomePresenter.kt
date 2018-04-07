@@ -14,21 +14,21 @@ import javax.inject.Inject
 import javax.inject.Named
 
 class HomePresenter {
-    val mRetrofit: Retrofit
-    val mHost: HostSelectionInterceptor
+//    val mRetrofit: Retrofit
+//    val mHost: HostSelectionInterceptor
 
     val mDoubanRetrofit: Retrofit
     val mGankRetrofit: Retrofit
 
     @Inject
-    constructor(retrofit: Retrofit, host: HostSelectionInterceptor, @Named("douban") doubanRetrofit: Retrofit, @Named("gank") gankRetrofit: Retrofit) {
-        mRetrofit = retrofit
-        mHost = host
+    constructor(@Named("douban") doubanRetrofit: Retrofit, @Named("gank") gankRetrofit: Retrofit) {
+//        mRetrofit = retrofit
+//        mHost = host
         mDoubanRetrofit = doubanRetrofit
         mGankRetrofit = gankRetrofit
     }
 
-    fun getTime() {
+    fun getFilms() {
         /**
          * 这个写法只能同步
          */
@@ -69,12 +69,14 @@ class HomePresenter {
                         { e ->
                             Log.e("TAG", e.message)
                         })
+    }
+
+    fun getGirls(){
         mGankRetrofit.create(GirlsApi::class.java)
                 .accessGirls(1)
                 .compose(TransformScheduler.applyNewThreadScheduler())
                 .subscribe({ girl ->
                     Log.e("TAG", "size " + girl.results.size)
                 })
-
     }
 }

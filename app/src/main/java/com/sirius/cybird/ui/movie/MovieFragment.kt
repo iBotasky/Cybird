@@ -22,12 +22,15 @@ class MovieFragment : BaseTabFragment() {
         mMovieBinding = getBaseViewBinding()
     }
 
-
     override fun getTabItems(): List<TabItemData> {
         return listOf(
                 TabItemData(R.string.movie_hot, MovieHotFragment::class.java),
                 TabItemData(R.string.movie_coming_soon, MovieHotFragment::class.java),
                 TabItemData(R.string.movie_classics, MovieHotFragment::class.java)
         )
+    }
+
+    override fun initializeInjector() {
+
     }
 }

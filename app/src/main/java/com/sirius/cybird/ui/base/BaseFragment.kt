@@ -8,6 +8,7 @@ import android.support.annotation.LayoutRes
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.sirius.cybird.di.HasComponent
 import com.trello.rxlifecycle2.components.support.RxFragment
 
 open abstract class BaseFragment : RxFragment() {
@@ -24,6 +25,11 @@ open abstract class BaseFragment : RxFragment() {
     }
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        initializeInjector()
+        super.onCreate(savedInstanceState)
+    }
+
     @CallSuper
     open fun setupViews() {
     }
@@ -36,4 +42,12 @@ open abstract class BaseFragment : RxFragment() {
     @LayoutRes
     abstract fun getLayouResource(): Int
 
+    abstract fun initializeInjector()
+
+    /**
+     * Gets a component for dependency injection by its type.
+     */
+    protected fun <C> getComponent(componentType: Class<C>): C {
+        return componentType.cast((activity as HasComponent<C>).getComponent())
+    }
 }
