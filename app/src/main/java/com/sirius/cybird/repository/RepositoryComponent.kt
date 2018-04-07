@@ -1,11 +1,8 @@
 package com.sirius.cybird.repository
 
-import com.google.gson.Gson
-import com.sirius.cybird.di.model.ApplicationModule
-import com.sirius.cybird.di.model.NetModule
-import com.sirius.cybird.module.TestInject
+import com.sirius.cybird.di.module.ApplicationModule
+import com.sirius.cybird.di.module.NetModule
 import com.sirius.cybird.net.HostSelectionInterceptor
-import com.sirius.cybird.ui.home.HomePresenter
 import dagger.Component
 import retrofit2.Retrofit
 import javax.inject.Named

@@ -1,4 +1,4 @@
-package com.sirius.cybird.di.model
+package com.sirius.cybird.di.module
 
 import android.app.Application
 import com.google.gson.FieldNamingPolicy
@@ -57,7 +57,7 @@ class NetModule {
 
     @Provides
     @Singleton
-    internal fun provideOkhttpClient(cache: Cache, selectionInterceptor: HostSelectionInterceptor): OkHttpClient {
+    internal fun provideOkhttpClient(cache: Cache): OkHttpClient {
         // log用拦截器
         val logging = HttpLoggingInterceptor()
 

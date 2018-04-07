@@ -1,15 +1,10 @@
-package com.sirius.cybird.di.model
+package com.sirius.cybird.di.module
 
 import android.app.Application
 import android.content.Context
-import com.google.gson.Gson
 import com.sirius.cybird.di.qualifier.ForApplication
 import dagger.Module
 import dagger.Provides
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 

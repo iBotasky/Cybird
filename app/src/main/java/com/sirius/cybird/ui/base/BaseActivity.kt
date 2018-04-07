@@ -14,7 +14,7 @@ import com.sirius.cybird.R
 import com.sirius.cybird.di.HasComponent
 import com.sirius.cybird.di.component.ActivityComponent
 import com.sirius.cybird.di.component.DaggerActivityComponent
-import com.sirius.cybird.di.model.ActivityModule
+import com.sirius.cybird.di.module.ActivityModule
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 
 /**

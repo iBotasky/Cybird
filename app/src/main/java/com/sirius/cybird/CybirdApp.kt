@@ -4,8 +4,8 @@ import android.app.Application
 import android.content.Context
 import com.facebook.stetho.Stetho
 import com.sirius.cybird.db.MyObjectBox
-import com.sirius.cybird.di.model.ApplicationModule
-import com.sirius.cybird.di.model.NetModule
+import com.sirius.cybird.di.module.ApplicationModule
+import com.sirius.cybird.di.module.NetModule
 import com.sirius.cybird.repository.DaggerRepositoryComponent
 import com.sirius.cybird.repository.RepositoryComponent
 import io.objectbox.BoxStore
