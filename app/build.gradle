@@ -80,6 +80,8 @@ dependencies {
     implementation appDependencies.bottomNavBar
     //multiStateView
     implementation appDependencies.multiStateView
+    //ratingbar
+    implementation appDependencies.ratingBar
 }
 apply plugin: 'io.objectbox'                //ObjectBox
 kapt {

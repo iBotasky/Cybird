@@ -40,7 +40,6 @@ class CybirdApp : Application() {
         setupComponent()
     }
 
-
     fun setupComponent(){
         mRepositoryComponent = DaggerRepositoryComponent.builder()
                 .applicationModule(ApplicationModule(this))
@@ -53,7 +52,6 @@ class CybirdApp : Application() {
                 .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
                 .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                 .build())
-
     }
 
     fun setupObjectBox() {
@@ -62,5 +60,4 @@ class CybirdApp : Application() {
             AndroidObjectBrowser(mBoxStore).start(this)
         }
     }
-
 }

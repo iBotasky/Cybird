@@ -44,15 +44,8 @@ class MovieHotFragment : BaseRecyclerFragment() {
                 .subscribe(
                         { films -> showResults(films) },
                         { e -> mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR },
-                        {}
+                        { }
                 )
-//        Handler().postDelayed(
-//                {
-//                    mRecyclerView.adapter = SimpleStringRecyclerViewAdapter(activity!!, getRandomSublist(sCheeseStrings, 30))
-//                    mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
-//                }
-//                , 3000)
-//
     }
 
     private fun showResults(films: List<Film>) {
@@ -63,7 +56,6 @@ class MovieHotFragment : BaseRecyclerFragment() {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
         }
     }
-
 
     val sCheeseStrings = arrayOf("Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance", "Ackawi", "Acorn", "Adelost", "Affidelice au Chablis", "Afuega'l Pitu", "Airag", "Airedale", "Aisy Cendre", "Allgauer Emmentaler", "Alverca", "Ambert", "American Cheese", "Ami du Chambertin", "Anejo Enchilado", "Anneau du Vic-Bilh", "Anthoriro", "Appenzell", "Aragon", "Ardi Gasna", "Ardrahan", "Armenian String", "Aromes au Gene de Marc", "Asadero", "Asiago", "Aubisque Pyrenees", "Autun", "Avaxtskyr", "Baby Swiss", "Babybel", "Baguette Laonnaise", "Bakers", "Baladi", "Balaton", "Bandal", "Banon", "Barry's Bay Cheddar", "Basing", "Basket Cheese", "Bath Cheese", "Bavarian Bergkase", "Baylough", "Beaufort", "Beauvoorde", "Beenleigh Blue", "Beer Cheese", "Bel Paese", "Bergader", "Bergere Bleue", "Berkswell")
     private fun getRandomSublist(array: Array<String>, amount: Int): List<String> {
@@ -91,7 +83,7 @@ class MovieHotFragment : BaseRecyclerFragment() {
             }
 
             override fun toString(): String {
-                return super.toString() + " '" + mTextView.text
+                return super.toString() + " " + mTextView.text
             }
         }
 

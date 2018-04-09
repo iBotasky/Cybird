@@ -83,6 +83,5 @@ class SplashActivity : BaseActivity() {
     }
 
     override fun initializeInjector() {
-
     }
 }
