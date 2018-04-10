@@ -1,6 +1,8 @@
 package com.sirius.cybird.ui.movie.hot
 
 import android.content.Context
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -31,6 +33,7 @@ class MovieHotFragment : BaseRecyclerFragment() {
     override fun setupViews() {
         super.setupViews()
         mMovieHotBinding = getBaseViewBinding()
+        mRecyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
     }
 
     override fun getLayouResource(): Int {
@@ -50,7 +53,7 @@ class MovieHotFragment : BaseRecyclerFragment() {
 
     private fun showResults(films: List<Film>) {
         if (films.isNotEmpty()) {
-            mRecyclerView.adapter = SimpleStringRecyclerViewAdapter(activity!!, getRandomSublist(sCheeseStrings, 30))
+            mRecyclerView.adapter = MovieHotAdapter(films)
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
         } else {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
