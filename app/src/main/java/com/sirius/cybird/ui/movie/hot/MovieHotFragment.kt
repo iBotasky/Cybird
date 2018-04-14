@@ -2,6 +2,7 @@ package com.sirius.cybird.ui.movie.hot
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.blankj.utilcode.util.ConvertUtils
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMovieHotBinding
@@ -52,7 +53,7 @@ class MovieHotFragment : BaseRecyclerFragment() {
         if (films.isNotEmpty()) {
             mRecyclerView.adapter = MovieHotAdapter(films)
 
-            mRecyclerView.addItemDecoration(SpaceDecoration(50))
+            mRecyclerView.addItemDecoration(SpaceDecoration(ConvertUtils.dp2px(12.0f)))
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
         } else {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY

@@ -2,6 +2,7 @@ package com.sirius.cybird
 
 import android.app.Application
 import android.content.Context
+import com.blankj.utilcode.util.Utils
 import com.facebook.stetho.Stetho
 import com.sirius.cybird.db.MyObjectBox
 import com.sirius.cybird.di.module.ApplicationModule
@@ -38,6 +39,11 @@ class CybirdApp : Application() {
         setupStetho()
         setupObjectBox()
         setupComponent()
+        setupUtils()
+    }
+
+    fun setupUtils(){
+        Utils.init(this)
     }
 
     fun setupComponent(){

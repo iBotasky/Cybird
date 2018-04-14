@@ -8,7 +8,6 @@ import com.sirius.cybird.module.NavItemData
 import com.sirius.cybird.ui.base.BaseNavActivity
 import com.sirius.cybird.ui.movie.MovieFragment
 import com.sirius.cybird.ui.movie.hot.MovieHotFragment
-import com.sirius.cybird.utils.ToastUtils
 
 
 class HomeActivity : BaseNavActivity() {
@@ -51,7 +50,6 @@ class HomeActivity : BaseNavActivity() {
     override fun onBackPressed() {
         if (System.currentTimeMillis() - mCurrentBackPressedTime >= BACK_PRESSED_INTERVAL) {
             mCurrentBackPressedTime = System.currentTimeMillis()
-            ToastUtils.show(R.string.g_back_pressed_exit)
         } else {
             finish()
         }

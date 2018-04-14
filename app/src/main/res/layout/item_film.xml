@@ -49,9 +49,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginTop="8dp"
-            android:isIndicator="false"
-            android:backgroundTint="@color/color_333333"
-            android:progressTint="@color/colorPrimary"
+            android:isIndicator="true"
+            app:mrb_progressTint="@color/colorPrimary"
+            app:mrb_progressBackgroundTint="@color/color_999999"
             android:rating="5"
             app:layout_constraintTop_toBottomOf="@+id/film_name"
             tools:numStars="1" />

@@ -40,6 +40,7 @@ android {
             proguardFile 'proguard/proguard-dagger.pro'
             proguardFile 'proguard/proguard-ucrop.pro'
             proguardFile 'proguard/proguard-glide.pro'
+            proguardFile 'proguard/proguard-utilcode.pro'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -104,6 +105,8 @@ dependencies {
     implementation appDependencies.multiStateView
     //ratingbar
     implementation appDependencies.ratingBar
+    //Util
+    implementation appDependencies.util
 }
 apply plugin: 'io.objectbox'                //ObjectBox
 kapt {
