@@ -17,7 +17,29 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
+            proguardFile 'proguard/proguard-androidannotations.pro'
+            proguardFile 'proguard/proguard-growingio.pro'
+            proguardFile 'proguard/proguard-facebook-fresco.pro'
+            proguardFile 'proguard/proguard-dbflow.pro'
+            proguardFile 'proguard/proguard-gson.pro'
+            proguardFile 'proguard/proguard-retrolambda.pro'
+            proguardFile 'proguard/proguard-rx-java.pro'
+            proguardFile 'proguard/proguard-rxjava-promises.pro'
+            proguardFile 'proguard/proguard-square-okhttp3.pro'
+            proguardFile 'proguard/proguard-square-okio.pro'
+            proguardFile 'proguard/proguard-square-retrofit2.pro'
+            proguardFile 'proguard/proguard-support-v7-appcompat.pro'
+            proguardFile 'proguard/proguard-rhino.pro'
+            proguardFile 'proguard/proguard-amap.pro'
+            proguardFile 'proguard/proguard-leakcanary.pro'
+            proguardFile 'proguard/proguard-fastadapter.pro'
+            proguardFile 'proguard/proguard-gsyvideoplayer.pro'
+            proguardFile 'proguard/proguard-bugly.pro'
+            proguardFile 'proguard/proguard-dagger.pro'
+            proguardFile 'proguard/proguard-ucrop.pro'
+            proguardFile 'proguard/proguard-glide.pro'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

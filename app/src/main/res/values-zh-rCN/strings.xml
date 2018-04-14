@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">赛博鸟</string>
+    <string name="app_name">墨狼</string>
     <!--Global-->
     <string name="g_back_pressed_exit">再按一次返回键退出程序</string>
     <string name="g_multi_view_data_empty">暂无数据</string>

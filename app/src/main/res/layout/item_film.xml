@@ -38,7 +38,6 @@
             android:textColor="@color/color_000000"
             android:textSize="13sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cv_head"
             tools:text="影名" />
@@ -51,17 +50,18 @@
             android:layout_gravity="center_vertical"
             android:layout_marginTop="8dp"
             android:isIndicator="false"
+            android:backgroundTint="@color/color_333333"
             android:progressTint="@color/colorPrimary"
             android:rating="5"
             app:layout_constraintTop_toBottomOf="@+id/film_name"
-            tools:numStars="5" />
+            tools:numStars="1" />
 
         <TextView
             android:id="@+id/tv_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="10dp"
             android:textColor="@color/color_999999"
             android:textSize="13sp"
             android:textStyle="bold"
