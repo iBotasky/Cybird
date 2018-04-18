@@ -8,9 +8,11 @@ import android.view.View
 import android.view.animation.AlphaAnimation
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivitySplashBinding
+import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.main.MainActivity
 import com.sirius.cybird.ui.base.BaseActivity
 import com.sirius.cybird.ui.home.HomeActivity
+import io.reactivex.Observable
 import java.lang.ref.WeakReference
 
 class SplashActivity : BaseActivity() {
