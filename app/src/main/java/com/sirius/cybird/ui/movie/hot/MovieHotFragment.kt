@@ -2,7 +2,6 @@ package com.sirius.cybird.ui.movie.hot
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import com.blankj.utilcode.util.ConvertUtils
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMovieHotBinding
@@ -10,9 +9,6 @@ import com.sirius.cybird.di.component.ActivityComponent
 import com.sirius.cybird.net.response.Film
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseRecyclerFragment
-import com.sirius.cybird.utils.divider.HorizontalDividerItemDecoration
-import com.sirius.cybird.utils.divider.SpaceDecoration
-import com.sirius.cybird.utils.divider.VerticalDividerItemDecoration
 import javax.inject.Inject
 
 class MovieHotFragment : BaseRecyclerFragment() {
@@ -53,7 +49,8 @@ class MovieHotFragment : BaseRecyclerFragment() {
         if (films.isNotEmpty()) {
             mRecyclerView.adapter = MovieHotAdapter(films)
 
-            mRecyclerView.addItemDecoration(SpaceDecoration(ConvertUtils.dp2px(12.0f)))
+//            mRecyclerView.addItemDecoration(HorizontalSpaceDecoration(ConvertUtils.dp2px(12.0f)))
+            mRecyclerView.addItemDecoration(getHorizontalSpaceDecoration())
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
         } else {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY

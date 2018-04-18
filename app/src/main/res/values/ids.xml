@@ -10,4 +10,6 @@
     <item name="id_swipe_refresh" type="id" />
     <item name="id_multi_state_view" type="id" />
     <item name="id_multi_state_error_retry" type="id"/>
+
+    <item name="id_tag_movie" type="id"/>
 </resources>

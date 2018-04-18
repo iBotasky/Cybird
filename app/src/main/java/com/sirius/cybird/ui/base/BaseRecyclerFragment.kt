@@ -8,8 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
-import com.sirius.cybird.utils.divider.HorizontalDividerItemDecoration
-import com.sirius.cybird.utils.divider.VerticalDividerItemDecoration
+import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 
 abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnRefreshListener {
     lateinit var mRecyclerView: RecyclerView
@@ -76,69 +75,13 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
         return mRecyclerView.height
     }
 
-//    fun hasLastDivider(): Boolean {
-//        return true
-//    }
-//
-//    fun getHorizontalItemDecoration(): RecyclerView.ItemDecoration {
-//        return getHorizontalItemDecorationResId(R.dimen.divider_left_margin, R.dimen.divider_right_margin)
-//    }
-//
-//    fun getHorizontalItemDecoration(leftMargin: Int, rightMargin: Int): RecyclerView.ItemDecoration {
-//        return getHorizontalItemDecoration(leftMargin, rightMargin, resources.getDimensionPixelSize(R.dimen.divider_size))
-//    }
-//
-//    fun getHorizontalItemDecoration(leftMargin: Int, rightMargin: Int, size: Int): RecyclerView.ItemDecoration {
-//        val builder = HorizontalDividerItemDecoration.Builder(context)
-//                .colorResId(R.color.list_divider)
-//                .size(size)
-//                .margin(leftMargin, rightMargin)
-//        if (hasLastDivider()) {
-//            builder.showLastDivider()
-//        }
-//        return builder.build()
-//    }
-//
-//    fun getHorizontalItemDecorationResId(@DimenRes leftMarginId: Int, @DimenRes rightMarginId: Int): RecyclerView.ItemDecoration {
-//        return getHorizontalItemDecorationResId(leftMarginId, rightMarginId, R.dimen.divider_size)
-//    }
-//
-//    fun getHorizontalItemDecorationResId(@DimenRes leftMarginId: Int, @DimenRes rightMarginId: Int, @DimenRes sizeResId: Int): RecyclerView.ItemDecoration {
-//        val builder = HorizontalDividerItemDecoration.Builder(context)
-//                .colorResId(R.color.list_divider)
-//                .sizeResId(sizeResId)
-//                .marginResId(leftMarginId, rightMarginId)
-//        if (hasLastDivider()) {
-//            builder.showLastDivider()
-//        }
-//        return builder.build()
-//    }
-//
-//    fun getVerticalItemDecoration(): RecyclerView.ItemDecoration {
-//        return getVerticalItemDecorationResId(R.dimen.divider_top_margin, R.dimen.divider_bottom_margin)
-//    }
-//
-//    fun getVerticalItemDecoration(topMargin: Int, bottomMargin: Int): RecyclerView.ItemDecoration {
-//        val builder = VerticalDividerItemDecoration.Builder(context)
-//                .colorResId(R.color.list_divider)
-//                .sizeResId(R.dimen.divider_size)
-//                .margin(topMargin, bottomMargin)
-//        if (hasLastDivider()) {
-//            builder.showLastDivider()
-//        }
-//        return builder.build()
-//    }
-//
-//    fun getVerticalItemDecorationResId(@DimenRes topMarginId: Int, @DimenRes bottomMarginId: Int): RecyclerView.ItemDecoration {
-//        val builder = VerticalDividerItemDecoration.Builder(context)
-//                .colorResId(R.color.list_divider)
-//                .sizeResId(R.dimen.divider_size)
-//                .marginResId(topMarginId, bottomMarginId)
-//        if (hasLastDivider()) {
-//            builder.showLastDivider()
-//        }
-//        return builder.build()
-//    }
+
+    fun getHorizontalSpaceDecoration(): RecyclerView.ItemDecoration{
+        return HorizontalSpaceDecoration(R.dimen.divider_left_margin, R.dimen.divider_right_margin, R.dimen.divider_item)
+    }
+    fun getHorizontalSpaceDecoration(@DimenRes startSpace: Int, @DimenRes endSpace: Int, @DimenRes itemSpace:Int): RecyclerView.ItemDecoration{
+        return HorizontalSpaceDecoration(startSpace, endSpace, itemSpace)
+    }
 
     /**
      * 传入重试方法,自定义重试逻辑
