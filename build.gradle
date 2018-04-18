@@ -2,7 +2,7 @@
 //apply from: "config.gradle"
 buildscript {
     ext.kotlin_version = '1.2.31'
-    ext.gradle_version = '3.2.0-alpha09'
+    ext.gradle_version = '3.2.0-alpha11'
     ext.objectbox_version = '1.4.0'
     repositories {
         google()
@@ -64,7 +64,7 @@ ext {
     //Status bar
     statusBarVersion = '1.0.0@aar'
     //DatabindingCompiler
-    databindingCompilerVersion = '3.2.0-alpha09'
+    databindingCompilerVersion = '3.2.0-alpha11'
     //dagger
     daggerVersion = '2.12'
     //glide
