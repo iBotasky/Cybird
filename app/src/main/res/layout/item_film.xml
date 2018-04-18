@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="item"
-            type="com.sirius.cybird.net.response.Film"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -43,8 +40,7 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/cv_head"
             app:layout_constraintTop_toBottomOf="@+id/cv_head"
-            tools:text="影名"
-            android:text="@{item.title}"/>
+            tools:text="影名"/>
 
         <me.zhanghai.android.materialratingbar.MaterialRatingBar
             android:id="@+id/film_rating_bar"
@@ -73,7 +69,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/film_rating_bar"
             app:layout_constraintStart_toEndOf="@+id/film_rating_bar"
             app:layout_constraintTop_toTopOf="@+id/film_rating_bar"
-            tools:text="8.9"
-            android:text="@{item.rating.average}"/>
+            tools:text="8.9"/>
     </android.support.constraint.ConstraintLayout>
 </layout>
