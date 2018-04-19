@@ -105,6 +105,8 @@ dependencies {
     implementation appDependencies.ratingBar
     //Util
     implementation appDependencies.util
+    //FastAdapter
+    implementation appDependencies.fastAdapter
 }
 apply plugin: 'io.objectbox'                //ObjectBox
 kapt {

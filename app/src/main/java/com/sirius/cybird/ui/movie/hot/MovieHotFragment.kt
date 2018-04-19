@@ -3,6 +3,8 @@ package com.sirius.cybird.ui.movie.hot
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.kennyc.view.MultiStateView
+import com.mikepenz.fastadapter.FastAdapter
+import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMovieHotBinding
 import com.sirius.cybird.di.component.ActivityComponent
@@ -46,9 +48,17 @@ class MovieHotFragment : BaseRecyclerFragment() {
     }
 
     private fun showResults(films: List<Film>) {
+        val filmItems: MutableList<FilmItem> = arrayListOf()
+        for (item in films){
+            filmItems.add(FilmItem(item))
+        }
         if (films.isNotEmpty()) {
-            mRecyclerView.adapter = MovieHotAdapter(films)
+            val itemAdapter:ItemAdapter<FilmItem> = ItemAdapter()
+            val fastAdapter: FastAdapter<FilmItem> = FastAdapter.with(arrayListOf(itemAdapter))
+            mRecyclerView.adapter = fastAdapter
+            itemAdapter.add(filmItems)
 
+//            mRecyclerView.adapter = MovieHotAdapter(films)
 //            mRecyclerView.addItemDecoration(HorizontalSpaceDecoration(ConvertUtils.dp2px(12.0f)))
             mRecyclerView.addItemDecoration(getHorizontalSpaceDecoration())
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT

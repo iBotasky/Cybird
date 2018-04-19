@@ -74,7 +74,7 @@ ext {
     //stetho
     stethoVersion = '1.5.0'
     //objectBox
-    obVersion = '1.4.0'
+    obVersion = '1.5.0'
     //magicIndicator
     magicIndicatorVersion = '1.5.0'
     //bottomNavigationBar
@@ -85,6 +85,8 @@ ext {
     ratingBarVersion = '1.2.0'
     //utilcode
     utilVersion = '1.13.10'
+    //fastAdapter
+    fastAdapterVersion = '3.2.5'
     appDependencies = [
             kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
             appcompact          : "com.android.support:appcompat-v7:${suppportLibVersion}",
@@ -123,6 +125,7 @@ ext {
             multiStateView      : "com.github.Kennyc1012:MultiStateView:${multiStateViewVersion}",
             ratingBar           : "me.zhanghai.android.materialratingbar:library:${ratingBarVersion}",
             util                : "com.blankj:utilcode:${utilVersion}",
+            fastAdapter         : "com.mikepenz:fastadapter:${fastAdapterVersion}",
     ]
     appTestDependencies = [
             //Run: adb forward tcp:8090 tcp:8090 在浏览器访问 http://localhost:8090/index.html
