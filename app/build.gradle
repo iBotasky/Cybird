@@ -91,7 +91,7 @@ dependencies {
     implementation appDependencies.glideOkHttp
     kapt appDependencies.glideComplier
     //DataBinding
-    kapt appDependencies.databindingCompiler
+//    kapt appDependencies.databindingCompiler
     //Stetho
     implementation appDependencies.stetho
     //ObjectBox

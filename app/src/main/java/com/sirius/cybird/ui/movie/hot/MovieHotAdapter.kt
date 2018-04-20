@@ -1,7 +1,6 @@
 package com.sirius.cybird.ui.movie.hot
 
 
-
 import android.databinding.DataBindingUtil
 import android.support.annotation.Nullable
 import android.view.View
@@ -24,13 +23,13 @@ class MovieHotAdapter(@param:Nullable private val films: List<Film>) : BaseQuick
 
         binding.setVariable(BR.title, item.title)
         binding.setVariable(BR.rating, item.rating.average.toString())
-        binding.setVariable(BR.stars, item.rating.average)
+        binding.setVariable(BR.stars, (item.rating.average * 5.0f / item.rating.max).toFloat())
         binding.executePendingBindings()
     }
 
 
     override fun getItemView(layoutResId: Int, parent: ViewGroup): View {
-        val binding:ItemFilmBinding  = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false)
+        val binding: ItemFilmBinding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false)
         val view = binding.root
         view.setTag(R.id.BaseQuickAdapter_databinding_support, binding)
         return view
