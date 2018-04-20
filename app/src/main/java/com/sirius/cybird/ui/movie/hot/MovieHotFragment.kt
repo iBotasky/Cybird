@@ -2,15 +2,15 @@ package com.sirius.cybird.ui.movie.hot
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.blankj.utilcode.util.ConvertUtils
 import com.kennyc.view.MultiStateView
-import com.mikepenz.fastadapter.FastAdapter
-import com.mikepenz.fastadapter.adapters.ItemAdapter
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMovieHotBinding
 import com.sirius.cybird.di.component.ActivityComponent
 import com.sirius.cybird.net.response.Film
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseRecyclerFragment
+import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 import javax.inject.Inject
 
 class MovieHotFragment : BaseRecyclerFragment() {
@@ -48,18 +48,17 @@ class MovieHotFragment : BaseRecyclerFragment() {
     }
 
     private fun showResults(films: List<Film>) {
-        val filmItems: MutableList<FilmItem> = arrayListOf()
-        for (item in films){
-            filmItems.add(FilmItem(item))
-        }
+//        val filmItems: MutableList<TestItem> = arrayListOf()
+//        for (item in films){
+//            filmItems.add(TestItem(item))
+//        }
         if (films.isNotEmpty()) {
-            val itemAdapter:ItemAdapter<FilmItem> = ItemAdapter()
-            val fastAdapter: FastAdapter<FilmItem> = FastAdapter.with(arrayListOf(itemAdapter))
-            mRecyclerView.adapter = fastAdapter
-            itemAdapter.add(filmItems)
+//            val itemAdapter:ItemAdapter<TestItem> = ItemAdapter()
+//            val fastAdapter: FastAdapter<TestItem> = FastAdapter.with(arrayListOf(itemAdapter))
+//            mRecyclerView.adapter = fastAdapter
+//            itemAdapter.add(filmItems)
 
-//            mRecyclerView.adapter = MovieHotAdapter(films)
-//            mRecyclerView.addItemDecoration(HorizontalSpaceDecoration(ConvertUtils.dp2px(12.0f)))
+            mRecyclerView.adapter = MovieHotAdapter(films)
             mRecyclerView.addItemDecoration(getHorizontalSpaceDecoration())
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
         } else {

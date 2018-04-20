@@ -90,6 +90,8 @@ dependencies {
     implementation appDependencies.glide
     implementation appDependencies.glideOkHttp
     kapt appDependencies.glideComplier
+    //DataBinding
+    kapt appDependencies.databindingCompiler
     //Stetho
     implementation appDependencies.stetho
     //ObjectBox
@@ -106,7 +108,7 @@ dependencies {
     //Util
     implementation appDependencies.util
     //FastAdapter
-    implementation appDependencies.fastAdapter
+//    implementation appDependencies.fastAdapter
 }
 apply plugin: 'io.objectbox'                //ObjectBox
 kapt {

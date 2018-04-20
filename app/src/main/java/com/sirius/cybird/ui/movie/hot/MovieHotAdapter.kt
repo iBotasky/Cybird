@@ -3,7 +3,6 @@ package com.sirius.cybird.ui.movie.hot
 
 
 import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.support.annotation.Nullable
 import android.view.View
 import android.view.ViewGroup
@@ -13,13 +12,19 @@ import com.sirius.cybird.BR
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ItemFilmBinding
 import com.sirius.cybird.net.response.Film
+import com.sirius.cybird.utils.GlideApp
 
 
 class MovieHotAdapter(@param:Nullable private val films: List<Film>) : BaseQuickAdapter<Film, MovieHotAdapter.MovieViewHolder>(R.layout.item_film, films) {
     override fun convert(helper: MovieViewHolder, item: Film) {
         val binding = helper.binding
+        GlideApp.with(mContext)
+                .load(item.images.medium)
+                .into(binding.ivFilmImg)
+
         binding.setVariable(BR.title, item.title)
-        binding.setVariable(BR.rating, item.rating.average)
+        binding.setVariable(BR.rating, item.rating.average.toString())
+        binding.setVariable(BR.stars, item.rating.average)
         binding.executePendingBindings()
     }
 
