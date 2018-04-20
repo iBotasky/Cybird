@@ -14,8 +14,8 @@ import com.sirius.cybird.net.response.Film
 import com.sirius.cybird.utils.GlideApp
 
 
-class MovieHotAdapter(@param:Nullable private val films: List<Film>) : BaseQuickAdapter<Film, MovieHotAdapter.MovieViewHolder>(R.layout.item_film, films) {
-    override fun convert(helper: MovieViewHolder, item: Film) {
+class MovieHotAdapter(@param:Nullable private val films: List<Film>) : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.layout.item_film, films) {
+    override fun convert(helper: ViewHolder, item: Film) {
         val binding = helper.binding
         GlideApp.with(mContext)
                 .load(item.images.small)
@@ -38,7 +38,7 @@ class MovieHotAdapter(@param:Nullable private val films: List<Film>) : BaseQuick
         return view
     }
 
-    class MovieViewHolder(view: View) : BaseViewHolder(view) {
+    class ViewHolder(view: View) : BaseViewHolder(view) {
         val binding: ItemFilmBinding
             get() = itemView.getTag(R.id.BaseQuickAdapter_databinding_support) as ItemFilmBinding
     }
