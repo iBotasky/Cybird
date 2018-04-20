@@ -48,16 +48,7 @@ class MovieHotFragment : BaseRecyclerFragment() {
     }
 
     private fun showResults(films: List<Film>) {
-//        val filmItems: MutableList<TestItem> = arrayListOf()
-//        for (item in films){
-//            filmItems.add(TestItem(item))
-//        }
         if (films.isNotEmpty()) {
-//            val itemAdapter:ItemAdapter<TestItem> = ItemAdapter()
-//            val fastAdapter: FastAdapter<TestItem> = FastAdapter.with(arrayListOf(itemAdapter))
-//            mRecyclerView.adapter = fastAdapter
-//            itemAdapter.add(filmItems)
-
             mRecyclerView.adapter = MovieHotAdapter(films)
             mRecyclerView.addItemDecoration(getHorizontalSpaceDecoration())
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT

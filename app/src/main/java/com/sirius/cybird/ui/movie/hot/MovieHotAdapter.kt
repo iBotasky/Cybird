@@ -18,7 +18,10 @@ class MovieHotAdapter(@param:Nullable private val films: List<Film>) : BaseQuick
     override fun convert(helper: MovieViewHolder, item: Film) {
         val binding = helper.binding
         GlideApp.with(mContext)
-                .load(item.images.medium)
+                .load(item.images.small)
+                .placeholder(R.drawable.img_holder)
+                .error(R.drawable.img_err_holder)
+                .centerCrop()
                 .into(binding.ivFilmImg)
 
         binding.setVariable(BR.title, item.title)

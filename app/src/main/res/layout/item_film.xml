@@ -24,11 +24,11 @@
             android:id="@+id/cv_head"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_margin="3dp"
+            android:layout_margin="@dimen/dp_4"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             app:cardCornerRadius="4dp"
-            app:cardElevation="3dp"
+            app:cardElevation="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
