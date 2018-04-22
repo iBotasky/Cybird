@@ -11,19 +11,13 @@ import com.sirius.cybird.BR
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ItemFilmBinding
 import com.sirius.cybird.net.response.Film
-import com.sirius.cybird.utils.GlideApp
+import com.sirius.cybird.utils.GlideUtil
 
 
 class MovieHotAdapter(@param:Nullable private val films: List<Film>) : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.layout.item_film, films) {
     override fun convert(helper: ViewHolder, item: Film) {
         val binding = helper.binding
-        GlideApp.with(mContext)
-                .load(item.images.small)
-                .placeholder(R.drawable.img_holder)
-                .error(R.drawable.img_err_holder)
-                .centerCrop()
-                .into(binding.ivFilmImg)
-
+        GlideUtil.loadImage(mContext, binding.ivFilmImg, item.images.small)
         binding.setVariable(BR.title, item.title)
         binding.setVariable(BR.rating, item.rating.average.toString())
         binding.setVariable(BR.stars, (item.rating.average * 5.0f / item.rating.max).toFloat())

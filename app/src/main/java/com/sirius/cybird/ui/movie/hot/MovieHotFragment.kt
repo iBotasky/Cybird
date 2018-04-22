@@ -29,7 +29,7 @@ class MovieHotFragment : BaseRecyclerFragment() {
     }
 
     override fun getRecyclerManager(): RecyclerView.LayoutManager {
-        return LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        return LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 
     override fun getLayouResource(): Int {
@@ -50,7 +50,8 @@ class MovieHotFragment : BaseRecyclerFragment() {
     private fun showResults(films: List<Film>) {
         if (films.isNotEmpty()) {
             mRecyclerView.adapter = MovieHotAdapter(films)
-            mRecyclerView.addItemDecoration(getHorizontalSpaceDecoration())
+            mRecyclerView.addItemDecoration(getVerticalSpaceDecoration())
+
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
         } else {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY

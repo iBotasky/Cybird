@@ -1,5 +1,7 @@
 package com.sirius.cybird.net.response
+import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.google.gson.annotations.SerializedName
+import com.sirius.cybird.module.RvItemType
 
 
 /**
@@ -28,7 +30,12 @@ data class Film(
 		@SerializedName("images") val images: Images,
 		@SerializedName("alt") val alt: String, //https://movie.douban.com/subject/1292052/
 		@SerializedName("id") val id: String //1292052
-)
+):MultiItemEntity{
+	override fun getItemType(): Int {
+		return RvItemType.MOVIE_HOT
+	}
+
+}
 
 data class Images(
 		@SerializedName("small") val small: String, //https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp

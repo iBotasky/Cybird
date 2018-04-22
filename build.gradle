@@ -43,7 +43,7 @@ ext {
     androidTargetSdkVersion = 27
     androidCompileSdkVersion = 27
 
-    kotlinVersion = '1.2.31'
+    kotlinVersion = '1.2.40'
     //SupportLibs
     suppportLibVersion = '27.0.2'
     //ConstraintLayout

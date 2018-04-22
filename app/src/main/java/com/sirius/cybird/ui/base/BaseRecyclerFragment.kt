@@ -9,6 +9,7 @@ import android.view.View
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
+import com.sirius.cybird.utils.divider.VerticalSpaceDecoration
 
 abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnRefreshListener {
     lateinit var mRecyclerView: RecyclerView
@@ -77,10 +78,17 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
 
 
     fun getHorizontalSpaceDecoration(): RecyclerView.ItemDecoration{
-        return HorizontalSpaceDecoration(R.dimen.divider_left_margin, R.dimen.divider_right_margin, R.dimen.divider_item)
+        return HorizontalSpaceDecoration(R.dimen.divider_left_margin, R.dimen.divider_right_margin, R.dimen.divider_item_horizontal)
     }
     fun getHorizontalSpaceDecoration(@DimenRes startSpace: Int, @DimenRes endSpace: Int, @DimenRes itemSpace:Int): RecyclerView.ItemDecoration{
         return HorizontalSpaceDecoration(startSpace, endSpace, itemSpace)
+    }
+
+    fun getVerticalSpaceDecoration(): RecyclerView.ItemDecoration{
+        return VerticalSpaceDecoration(R.dimen.divider_left_margin, R.dimen.divider_right_margin, R.dimen.divider_item_vertical)
+    }
+    fun getVerticalSpaceDecoration(@DimenRes startSpace: Int, @DimenRes endSpace: Int, @DimenRes itemSpace:Int): RecyclerView.ItemDecoration{
+        return VerticalSpaceDecoration(startSpace, endSpace, itemSpace)
     }
 
     /**
