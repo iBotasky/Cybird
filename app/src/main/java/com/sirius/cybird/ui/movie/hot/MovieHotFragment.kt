@@ -26,6 +26,7 @@ class MovieHotFragment : BaseRecyclerFragment() {
     override fun setupViews() {
         super.setupViews()
         mMovieHotBinding = getBaseViewBinding()
+        mRecyclerView.addItemDecoration(getVerticalSpaceDecoration())
     }
 
     override fun getRecyclerManager(): RecyclerView.LayoutManager {
@@ -43,15 +44,13 @@ class MovieHotFragment : BaseRecyclerFragment() {
                 .subscribe(
                         { films -> showResults(films) },
                         { e -> mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR },
-                        { }
+                        { refreshEnd()}
                 )
     }
 
     private fun showResults(films: List<Film>) {
         if (films.isNotEmpty()) {
             mRecyclerView.adapter = MovieHotAdapter(films)
-            mRecyclerView.addItemDecoration(getVerticalSpaceDecoration())
-
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
         } else {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY

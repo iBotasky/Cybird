@@ -21,7 +21,18 @@ class MovieHotAdapter(@param:Nullable private val films: List<Film>) : BaseQuick
         binding.setVariable(BR.title, item.title)
         binding.setVariable(BR.rating, item.rating.average.toString())
         binding.setVariable(BR.stars, (item.rating.average * 5.0f / item.rating.max).toFloat())
+
+        var directors: String = ""
+        for (director in item.directors) {
+            if (item.directors.indexOf(director) != item.directors.size - 1)
+                directors += director.name + "/"
+            else
+                directors += director.name
+        }
+
+        binding.setVariable(BR.director, mContext.getString(R.string.movie_director, directors))
         binding.executePendingBindings()
+
     }
 
 

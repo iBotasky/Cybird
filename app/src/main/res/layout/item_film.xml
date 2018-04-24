@@ -18,11 +18,16 @@
         <variable
             name="stars"
             type="Float" />
+
+        <variable
+            name="director"
+            type="String"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/dp_10"
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground">
 
@@ -59,6 +64,18 @@
             app:layout_constraintTop_toTopOf="@id/cv_head"
             tools:text="影名" />
 
+        <TextView
+            android:id="@+id/film_director"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:textColor="@color/color_666666"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintStart_toStartOf="@+id/film_name"
+            app:layout_constraintTop_toBottomOf="@+id/film_name"
+            android:text="@{director}"
+            tools:text="导演" />
+
         <me.zhanghai.android.materialratingbar.MaterialRatingBar
             android:id="@+id/film_rating_bar"
             style="@style/Widget.MaterialRatingBar.RatingBar.Indicator.Small"
@@ -70,7 +87,7 @@
             android:numStars="5"
             android:rating="@{stars}"
             app:layout_constraintStart_toStartOf="@+id/film_name"
-            app:layout_constraintTop_toBottomOf="@+id/film_name"
+            app:layout_constraintTop_toBottomOf="@+id/film_director"
             app:mrb_progressBackgroundTint="@color/color_999999"
             app:mrb_progressTint="@color/colorPrimary" />
 
@@ -82,11 +99,12 @@
             android:layout_marginStart="10dp"
             android:text="@{rating}"
             android:textColor="@color/color_999999"
-            android:textSize="13sp"
+            android:textSize="@dimen/sp_13"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/film_rating_bar"
             app:layout_constraintStart_toEndOf="@+id/film_rating_bar"
             app:layout_constraintTop_toTopOf="@+id/film_rating_bar"
             tools:text="8.9" />
+
     </android.support.constraint.ConstraintLayout>
 </layout>

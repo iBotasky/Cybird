@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
@@ -16,6 +17,10 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
     lateinit var mSwipeRefresh: SwipeRefreshLayout
     lateinit var mMultiStateView: MultiStateView
     lateinit var mMultiStateErrorRetry: View
+
+
+    var mPage = 1
+    var start = 0
 
     override fun setupViews() {
         super.setupViews()
@@ -35,6 +40,10 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
         }
 
         mSwipeRefresh.setColorSchemeColors(*getSwipeRefreshColorSchemeRes())
+        mSwipeRefresh.setOnRefreshListener {
+            mPage = 1
+            loadData()
+        }
 
         mRecyclerView.layoutManager = getRecyclerManager()
     }
@@ -54,6 +63,10 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
 
     override fun onRefresh() {
         loadData()
+    }
+
+    fun refreshEnd(){
+        mSwipeRefresh?.isRefreshing = false
     }
 
     @LayoutRes
