@@ -7,16 +7,19 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
+import com.chad.library.adapter.base.loadmore.LoadMoreView
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 import com.sirius.cybird.utils.divider.VerticalSpaceDecoration
 
-abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnRefreshListener {
+abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment(), SwipeRefreshLayout.OnRefreshListener {
     lateinit var mRecyclerView: RecyclerView
     lateinit var mSwipeRefresh: SwipeRefreshLayout
     lateinit var mMultiStateView: MultiStateView
     lateinit var mMultiStateErrorRetry: View
+    lateinit var mAdapter: BaseQuickAdapter<K, H>
 
 
     var mPage = 1
@@ -42,10 +45,21 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
         mSwipeRefresh.setColorSchemeColors(*getSwipeRefreshColorSchemeRes())
         mSwipeRefresh.setOnRefreshListener {
             mPage = 1
+            start = 0
             loadData()
         }
-
         mRecyclerView.layoutManager = getRecyclerManager()
+
+        mAdapter = getAdapter()
+        mRecyclerView.adapter = mAdapter
+        mAdapter.setEnableLoadMore(isEnableLoadMore())
+        if (isEnableLoadMore()) {
+            mAdapter.setOnLoadMoreListener(object : BaseQuickAdapter.RequestLoadMoreListener {
+                override fun onLoadMoreRequested() {
+                    doLoadMore()
+                }
+            })
+        }
     }
 
     open fun getRecyclerManager(): RecyclerView.LayoutManager {
@@ -61,13 +75,24 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
         return colorArray
     }
 
+    abstract fun getAdapter(): BaseQuickAdapter<K, H>
+
+    open fun doLoadMore() {
+        mAdapter.loadMoreComplete()
+    }
+
     override fun onRefresh() {
         loadData()
     }
 
-    fun refreshEnd(){
+    fun refreshEnd() {
         mSwipeRefresh?.isRefreshing = false
     }
+
+    open fun isEnableLoadMore(): Boolean {
+        return true
+    }
+
 
     @LayoutRes
     open fun getMultiStateViewEmpty(): Int {
@@ -90,17 +115,19 @@ abstract class BaseRecyclerFragment : BaseLazyFragment(), SwipeRefreshLayout.OnR
     }
 
 
-    fun getHorizontalSpaceDecoration(): RecyclerView.ItemDecoration{
+    fun getHorizontalSpaceDecoration(): RecyclerView.ItemDecoration {
         return HorizontalSpaceDecoration(R.dimen.divider_left_margin, R.dimen.divider_right_margin, R.dimen.divider_item_horizontal)
     }
-    fun getHorizontalSpaceDecoration(@DimenRes startSpace: Int, @DimenRes endSpace: Int, @DimenRes itemSpace:Int): RecyclerView.ItemDecoration{
+
+    fun getHorizontalSpaceDecoration(@DimenRes startSpace: Int, @DimenRes endSpace: Int, @DimenRes itemSpace: Int): RecyclerView.ItemDecoration {
         return HorizontalSpaceDecoration(startSpace, endSpace, itemSpace)
     }
 
-    fun getVerticalSpaceDecoration(): RecyclerView.ItemDecoration{
+    fun getVerticalSpaceDecoration(): RecyclerView.ItemDecoration {
         return VerticalSpaceDecoration(R.dimen.divider_left_margin, R.dimen.divider_right_margin, R.dimen.divider_item_vertical)
     }
-    fun getVerticalSpaceDecoration(@DimenRes startSpace: Int, @DimenRes endSpace: Int, @DimenRes itemSpace:Int): RecyclerView.ItemDecoration{
+
+    fun getVerticalSpaceDecoration(@DimenRes startSpace: Int, @DimenRes endSpace: Int, @DimenRes itemSpace: Int): RecyclerView.ItemDecoration {
         return VerticalSpaceDecoration(startSpace, endSpace, itemSpace)
     }
 

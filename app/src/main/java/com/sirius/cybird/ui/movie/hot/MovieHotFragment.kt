@@ -2,7 +2,7 @@ package com.sirius.cybird.ui.movie.hot
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import com.blankj.utilcode.util.ConvertUtils
+import com.chad.library.adapter.base.BaseQuickAdapter
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMovieHotBinding
@@ -10,10 +10,9 @@ import com.sirius.cybird.di.component.ActivityComponent
 import com.sirius.cybird.net.response.Film
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseRecyclerFragment
-import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 import javax.inject.Inject
 
-class MovieHotFragment : BaseRecyclerFragment() {
+class MovieHotFragment : BaseRecyclerFragment<Film, MovieHotAdapter.ViewHolder>() {
 
     @Inject
     lateinit var mPresenter: MovieHotPresenter
@@ -48,15 +47,28 @@ class MovieHotFragment : BaseRecyclerFragment() {
                 )
     }
 
+    override fun getAdapter(): BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder> {
+        return MovieHotAdapter()
+    }
+
+    override fun isEnableLoadMore(): Boolean {
+        return true
+    }
+
     private fun showResults(films: List<Film>) {
         if (films.isNotEmpty()) {
-            mRecyclerView.adapter = MovieHotAdapter(films)
+            mAdapter.setNewData(films)
+            mRecyclerView.adapter = mAdapter
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
         } else {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
         }
     }
 
+    override fun doLoadMore() {
+        super.doLoadMore()
+        mAdapter.loadMoreEnd()
+    }
 
     override fun initializeInjector() {
         getComponent(ActivityComponent::class.java).inject(this)

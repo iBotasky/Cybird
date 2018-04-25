@@ -14,7 +14,7 @@ import com.sirius.cybird.net.response.Film
 import com.sirius.cybird.utils.GlideUtil
 
 
-class MovieHotAdapter(@param:Nullable private val films: List<Film>) : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.layout.item_film, films) {
+class MovieHotAdapter : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.layout.item_film) {
     override fun convert(helper: ViewHolder, item: Film) {
         val binding = helper.binding
         GlideUtil.loadImage(mContext, binding.ivFilmImg, item.images.small)

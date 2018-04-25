@@ -49,7 +49,7 @@ ext {
     //ConstraintLayout
     constraintLayoutVersion = '1.1.0-beta6'
     //BaseRecyclerViewHelper
-    baseRecyclerViewHelperVersion = '2.9.34'
+    baseRecyclerViewHelperVersion = '2.9.38'
     //retrofit
     retrofitVersion = '2.3.0'
     loggingInterceptorLibraryVersion = '3.4.0'
