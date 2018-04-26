@@ -32,19 +32,19 @@ class MovieHotAdapter : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.lay
 
         binding.setVariable(BR.director, mContext.getString(R.string.movie_director, directors))
         binding.executePendingBindings()
-
     }
 
 
     override fun getItemView(layoutResId: Int, parent: ViewGroup): View {
-        val binding: ItemFilmBinding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false)
+        //有loadmore的时候需要return super.getItemView(layoutResId, parent)
+        val binding: ItemFilmBinding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false) ?: return super.getItemView(layoutResId, parent)
         val view = binding.root
-        view.setTag(R.id.BaseQuickAdapter_databinding_support, binding)
+        view.setTag(R.id.id_tag_movie, binding)
         return view
     }
 
     class ViewHolder(view: View) : BaseViewHolder(view) {
         val binding: ItemFilmBinding
-            get() = itemView.getTag(R.id.BaseQuickAdapter_databinding_support) as ItemFilmBinding
+            get() = itemView.getTag(R.id.id_tag_movie) as ItemFilmBinding
     }
 }

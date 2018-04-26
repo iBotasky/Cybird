@@ -53,13 +53,11 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment(),
         mAdapter = getAdapter()
         mRecyclerView.adapter = mAdapter
         mAdapter.setEnableLoadMore(isEnableLoadMore())
-        if (isEnableLoadMore()) {
-            mAdapter.setOnLoadMoreListener(object : BaseQuickAdapter.RequestLoadMoreListener {
-                override fun onLoadMoreRequested() {
-                    doLoadMore()
-                }
-            })
-        }
+        mAdapter.setOnLoadMoreListener(object : BaseQuickAdapter.RequestLoadMoreListener {
+            override fun onLoadMoreRequested() {
+                doLoadMore()
+            }
+        }, mRecyclerView)
     }
 
     open fun getRecyclerManager(): RecyclerView.LayoutManager {
@@ -78,7 +76,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment(),
     abstract fun getAdapter(): BaseQuickAdapter<K, H>
 
     open fun doLoadMore() {
-        mAdapter.loadMoreComplete()
+
     }
 
     override fun onRefresh() {
