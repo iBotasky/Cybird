@@ -21,15 +21,16 @@
 
         <variable
             name="director"
-            type="String"/>
+            type="String" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="@dimen/dp_10"
         android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground">
+        android:foreground="?android:attr/selectableItemBackground"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10">
 
         <android.support.v7.widget.CardView
             android:id="@+id/cv_head"
@@ -55,7 +56,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="@dimen/dp_10"
-            android:layout_marginTop="8dp"
             android:text="@{title}"
             android:textColor="@color/color_000000"
             android:textSize="@dimen/sp_16"
@@ -69,11 +69,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
+            android:text="@{director}"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/sp_13"
             app:layout_constraintStart_toStartOf="@+id/film_name"
             app:layout_constraintTop_toBottomOf="@+id/film_name"
-            android:text="@{director}"
             tools:text="导演" />
 
         <me.zhanghai.android.materialratingbar.MaterialRatingBar
@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/dp_10"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="@{stars}"
@@ -105,6 +105,19 @@
             app:layout_constraintStart_toEndOf="@+id/film_rating_bar"
             app:layout_constraintTop_toTopOf="@+id/film_rating_bar"
             tools:text="8.9" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_cast"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dp_10"
+            app:layout_constraintBottom_toBottomOf="@id/cv_head"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/film_name"
+            app:layout_constraintTop_toBottomOf="@id/film_rating_bar">
+
+
+        </android.support.v7.widget.RecyclerView>
 
     </android.support.constraint.ConstraintLayout>
 </layout>
