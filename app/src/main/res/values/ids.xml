@@ -11,5 +11,9 @@
     <item name="id_multi_state_view" type="id" />
     <item name="id_multi_state_error_retry" type="id"/>
     <item name="id_item_title" type="id"/>
+
+
+    <!--ViewBindingTag-->
     <item name="id_tag_movie" type="id"/>
+    <item name="id_tag_movie_cast" type="id"/>
 </resources>
