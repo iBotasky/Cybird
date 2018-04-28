@@ -52,12 +52,15 @@ android {
 
 dependencies {
     def appDependencies = rootProject.ext.appDependencies
+
     //项目依赖
     def testDependencies = rootProject.ext.appTestDependencies
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    //    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+
+    //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation appDependencies.kotlin
     implementation appDependencies.appcompact
     implementation appDependencies.appDesign
@@ -66,8 +69,10 @@ dependencies {
     implementation appDependencies.palttte
     implementation appDependencies.percent
     implementation appDependencies.suportV4
+
     //Constraint
     implementation appDependencies.constrain
+
     //Rx+Retrofit
     implementation appDependencies.retrofit
     implementation appDependencies.retrofitConverter
@@ -77,38 +82,54 @@ dependencies {
     implementation appDependencies.rxAndroid
     implementation appDependencies.rxLifecycle
     implementation appDependencies.rxLifecycleComponent
+
     //BRVAH
     implementation appDependencies.brvah
+
     //RxPermission
     implementation appDependencies.rxPermission
+
     //SystemBar
     implementation appDependencies.systembar
+
     //Dagger
     implementation appDependencies.dagger
     kapt appDependencies.daggerCompiler
+
     //Glide
     implementation appDependencies.glide
     implementation appDependencies.glideOkHttp
     kapt appDependencies.glideComplier
+
     //DataBinding
-//    kapt appDependencies.databindingCompiler
+
+    //    kapt appDependencies.databindingCompiler
+
     //Stetho
     implementation appDependencies.stetho
+
     //ObjectBox
     debugImplementation appTestDependencies.obBrowser
     releaseImplementation appDependencies.obBrowser
+
     //magicIndicator
     implementation appDependencies.magicIndicator
+
     //bottomNavgationBar
     implementation appDependencies.bottomNavBar
+
     //multiStateView
     implementation appDependencies.multiStateView
+
     //ratingbar
     implementation appDependencies.ratingBar
+
     //Util
     implementation appDependencies.util
+
     //FastAdapter
-//    implementation appDependencies.fastAdapter
+
+    //    implementation appDependencies.fastAdapter
 }
 apply plugin: 'io.objectbox'                //ObjectBox
 kapt {

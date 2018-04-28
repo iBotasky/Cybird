@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.blankj.utilcode.util.Utils
 import com.facebook.stetho.Stetho
+import com.sirius.cybird.config.Config
 import com.sirius.cybird.db.MyObjectBox
 import com.sirius.cybird.di.module.ApplicationModule
 import com.sirius.cybird.di.module.NetModule
@@ -40,6 +41,10 @@ class CybirdApp : Application() {
         setupObjectBox()
         setupComponent()
         setupUtils()
+        setupAds()
+    }
+
+    fun setupAds(){
     }
 
     fun setupUtils(){

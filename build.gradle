@@ -45,7 +45,7 @@ ext {
 
     kotlinVersion = '1.2.40'
     //SupportLibs
-    suppportLibVersion = '27.0.2'
+    suppportLibVersion = '27.1.1'
     //ConstraintLayout
     constraintLayoutVersion = '1.1.0-beta6'
     //BaseRecyclerViewHelper
