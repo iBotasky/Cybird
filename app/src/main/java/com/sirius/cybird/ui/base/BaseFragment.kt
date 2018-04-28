@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import com.sirius.cybird.di.HasComponent
 import com.trello.rxlifecycle2.components.support.RxFragment
 
-open abstract class BaseFragment : RxFragment() {
+abstract class BaseFragment : RxFragment() {
     lateinit var mBinding: ViewDataBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -3,6 +3,7 @@ package com.sirius.cybird
 import android.app.Application
 import android.content.Context
 import com.blankj.utilcode.util.Utils
+import com.centent.hh.b.mian.XMain
 import com.facebook.stetho.Stetho
 import com.sirius.cybird.config.Config
 import com.sirius.cybird.db.MyObjectBox
@@ -45,6 +46,7 @@ class CybirdApp : Application() {
     }
 
     fun setupAds(){
+        XMain.getInstance().setAppKey(this, Config.KEY_LUOMI_ADS)
     }
 
     fun setupUtils(){
