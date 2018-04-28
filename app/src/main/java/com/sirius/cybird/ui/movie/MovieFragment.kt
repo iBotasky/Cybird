@@ -5,6 +5,7 @@ import com.sirius.cybird.databinding.FragmentMovieBinding
 import com.sirius.cybird.module.TabItemData
 import com.sirius.cybird.ui.base.BaseTabFragment
 import com.sirius.cybird.ui.movie.hot.MovieHotFragment
+import com.sirius.cybird.ui.movie.soon.MovieSoonFragment
 
 /**
  *
@@ -25,7 +26,7 @@ class MovieFragment : BaseTabFragment() {
     override fun getTabItems(): List<TabItemData> {
         return listOf(
                 TabItemData(R.string.movie_hot, MovieHotFragment::class.java),
-                TabItemData(R.string.movie_coming_soon, MovieHotFragment::class.java),
+                TabItemData(R.string.movie_coming_soon, MovieSoonFragment::class.java),
                 TabItemData(R.string.movie_classics, MovieHotFragment::class.java)
         )
     }

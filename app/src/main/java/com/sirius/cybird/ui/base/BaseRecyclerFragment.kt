@@ -8,13 +8,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.chad.library.adapter.base.loadmore.LoadMoreView
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 import com.sirius.cybird.utils.divider.VerticalSpaceDecoration
 
-abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment(), SwipeRefreshLayout.OnRefreshListener {
+abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() {
     lateinit var mRecyclerView: RecyclerView
     lateinit var mSwipeRefresh: SwipeRefreshLayout
     lateinit var mMultiStateView: MultiStateView
@@ -23,7 +22,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment(),
 
 
     var mPage = 1
-    var start = 0
+    var mStart = 0
 
     override fun setupViews() {
         super.setupViews()
@@ -45,14 +44,13 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment(),
         mSwipeRefresh.setColorSchemeColors(*getSwipeRefreshColorSchemeRes())
         mSwipeRefresh.setOnRefreshListener {
             mPage = 1
-            start = 0
+            mStart = 0
             loadData()
         }
         mRecyclerView.layoutManager = getRecyclerManager()
 
         mAdapter = getAdapter()
         mRecyclerView.adapter = mAdapter
-        mAdapter.setEnableLoadMore(isEnableLoadMore())
         mAdapter.setOnLoadMoreListener(object : BaseQuickAdapter.RequestLoadMoreListener {
             override fun onLoadMoreRequested() {
                 doLoadMore()
@@ -76,10 +74,6 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment(),
     abstract fun getAdapter(): BaseQuickAdapter<K, H>
 
     open fun doLoadMore() {
-
-    }
-
-    override fun onRefresh() {
         loadData()
     }
 

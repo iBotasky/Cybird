@@ -16,4 +16,5 @@
     <!--ViewBindingTag-->
     <item name="id_tag_movie" type="id"/>
     <item name="id_tag_movie_cast" type="id"/>
+    <item name="id_tag_movie_soon" type="id"/>
 </resources>

@@ -17,9 +17,6 @@ class MovieHotFragment : BaseRecyclerFragment<Film, MovieHotAdapter.ViewHolder>(
     @Inject
     lateinit var mPresenter: MovieHotPresenter
 
-    override fun onRefresh() {
-        loadData()
-    }
 
     lateinit var mMovieHotBinding: FragmentMovieHotBinding
     override fun setupViews() {
@@ -58,7 +55,7 @@ class MovieHotFragment : BaseRecyclerFragment<Film, MovieHotAdapter.ViewHolder>(
     private fun showResults(films: List<Film>) {
         if (films.isNotEmpty()) {
             mAdapter.setNewData(films)
-            mRecyclerView.adapter = mAdapter
+//            mRecyclerView.adapter = mAdapter
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
         } else {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY

@@ -1,6 +1,7 @@
 package com.sirius.cybird.ui.movie.hot
 
 import android.databinding.DataBindingUtil
+import android.text.TextUtils
 import android.view.View
 import android.view.ViewGroup
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -15,7 +16,9 @@ import org.jetbrains.annotations.NotNull
 class MovieCastAdapter(@NotNull casts: List<Cast>) : BaseQuickAdapter<Cast, MovieCastAdapter.ViewHolder>(R.layout.item_film_casts, casts) {
     override fun convert(helper: ViewHolder, item: Cast) {
         val binding = helper.binding
-        GlideUtil.loadImage(mContext, binding.ivAvatar, item.avatars.small)
+        if (item.avatars != null &&!TextUtils.isEmpty(item.avatars.small)) {
+            GlideUtil.loadImage(mContext, binding.ivAvatar, item.avatars.small)
+        }
         binding.setVariable(BR.name, item.name)
         binding.executePendingBindings()
     }

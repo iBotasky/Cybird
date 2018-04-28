@@ -21,7 +21,6 @@ class MovieHotAdapter : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.lay
         val binding = helper.binding
         GlideUtil.loadImage(mContext, binding.ivFilmImg, item.images.small)
         val rvCasts = binding.rvCast
-        LogUtils.e("cast size " + item.casts.size)
         rvCasts.layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
         rvCasts.adapter = MovieCastAdapter(item.casts)
         if (rvCasts.itemDecorationCount == 0)
