@@ -6,20 +6,25 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 import com.sirius.cybird.utils.divider.VerticalSpaceDecoration
 
-abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() {
+/**
+ *Created by Botasky on 2018/4/29
+ */
+//TODO: 不懂得如何把所有的Adapter封装成一个基类，目前只能分开封装
+abstract class BaseRecyclerMultiFragment<H : BaseViewHolder> : BaseLazyFragment() {
     lateinit var mRecyclerView: RecyclerView
     lateinit var mSwipeRefresh: SwipeRefreshLayout
     lateinit var mMultiStateView: MultiStateView
     lateinit var mMultiStateErrorRetry: View
-    lateinit var mAdapter: BaseQuickAdapter<K, H>
-
+    lateinit var mAdapter: BaseMultiItemQuickAdapter<MultiItemEntity, H>
 
 
     var mPage = 1
@@ -72,7 +77,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
         return colorArray
     }
 
-    abstract fun getAdapter(): BaseQuickAdapter<K, H>
+    abstract fun getAdapter(): BaseMultiItemQuickAdapter<MultiItemEntity, H>
 
     open fun doLoadMore() {
         loadData()
@@ -130,5 +135,4 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
     open fun setOnRetry(retry: () -> Unit) {
         mMultiStateErrorRetry.setOnClickListener { retry() }
     }
-
 }

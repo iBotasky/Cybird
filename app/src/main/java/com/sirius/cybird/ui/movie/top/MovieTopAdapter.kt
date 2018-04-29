@@ -11,7 +11,7 @@ import com.sirius.cybird.databinding.ItemFilmTopBinding
 import com.sirius.cybird.net.response.Film
 import com.sirius.cybird.utils.GlideUtil
 
-class MovieTopAdapter:BaseQuickAdapter<Film, MovieTopAdapter.ViewHolder>(R.layout.item_film_top) {
+class MovieTopAdapter : BaseQuickAdapter<Film, MovieTopAdapter.ViewHolder>(R.layout.item_film_top) {
     override fun convert(helper: ViewHolder, item: Film) {
         val binding = helper.binding
         GlideUtil.loadImage(mContext, binding.ivFilmImg, item.images.small)
@@ -24,15 +24,15 @@ class MovieTopAdapter:BaseQuickAdapter<Film, MovieTopAdapter.ViewHolder>(R.layou
                 directors += director.name
         }
         var tags = ""
-        for (tag in item.genres){
-            if (item.genres.indexOf(tag) != item.genres.size -1)
-                tags += tag+"/"
+        for (tag in item.genres) {
+            if (item.genres.indexOf(tag) != item.genres.size - 1)
+                tags += tag + "/"
             else
                 tags += tag
         }
         binding.setVariable(BR.tag, mContext.getString(R.string.movie_tag, tags))
         binding.setVariable(BR.director, mContext.getString(R.string.movie_director, directors))
-        binding.setVariable(BR.title, item.title)
+        binding.setVariable(BR.title, mContext.getString(R.string.movie_top_title, mData.indexOf(item) + 1, item.title))
         binding.setVariable(BR.rating, item.rating.average.toString())
         binding.setVariable(BR.stars, (item.rating.average * 5.0f / item.rating.max).toFloat())
         binding.executePendingBindings()

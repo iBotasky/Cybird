@@ -18,5 +18,6 @@
     <string name="movie_classics">Top250</string>
     <string name="movie_director">导演:%1$s</string>
     <string name="movie_tag">标签:%1$s</string>
+    <string name="movie_top_title">排行:%1$d %2$s</string>
 
 </resources>

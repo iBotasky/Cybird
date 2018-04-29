@@ -20,15 +20,4 @@ interface ZhiHuApi {
     @GET("/api/4/news/{id}")
     fun getNewsDetail(@Path("id") id: Int) :Observable<ZhiHuData>
 
-    companion object {
-        fun getZhiHuService(): ZhiHuApi {
-            return Retrofit.Builder()
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(Urls.ZHI_HU_DIARY_URL_HOST)
-                    .build()
-                    .create(ZhiHuApi::class.java)
-        }
-    }
-
 }
