@@ -1,5 +1,7 @@
 package com.sirius.cybird.net.response
+import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.google.gson.annotations.SerializedName
+import com.sirius.cybird.ui.daily.DailyAdapter
 
 
 /**
@@ -18,7 +20,12 @@ data class Story(
 		@SerializedName("id") val id: Int, //9662519
 		@SerializedName("ga_prefix") val gaPrefix: String, //123110
 		@SerializedName("title") val title: String //看见好朋友和别人走得近了，心里会有点不爽，对吧？
-)
+):MultiItemEntity{
+	override fun getItemType(): Int {
+		return DailyAdapter.STORY
+	}
+
+}
 
 data class TopStory(
 		@SerializedName("image") val image: String, //https://pic4.zhimg.com/v2-fdeb7b0db21cb9a8c1f6bc370ed93f47.jpg
@@ -27,3 +34,10 @@ data class TopStory(
 		@SerializedName("ga_prefix") val gaPrefix: String, //123107
 		@SerializedName("title") val title: String //孩子撞见父母「啪啪啪」怎么办？
 )
+
+data class TopStories(val topstories:List<TopStory>) : MultiItemEntity{
+	override fun getItemType(): Int {
+		return DailyAdapter.BANNER
+	}
+
+}

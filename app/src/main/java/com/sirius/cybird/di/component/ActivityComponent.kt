@@ -4,6 +4,7 @@ import android.app.Activity
 import com.sirius.cybird.di.module.ActivityModule
 import com.sirius.cybird.di.scope.ActivityScoped
 import com.sirius.cybird.repository.RepositoryComponent
+import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.home.HomeActivity
 import com.sirius.cybird.ui.movie.hot.MovieHotFragment
 import com.sirius.cybird.ui.movie.soon.MovieSoonFragment
@@ -22,4 +23,6 @@ interface ActivityComponent {
     fun inject(movieSoonFragment: MovieSoonFragment)
 
     fun inject(movieTopFragment: MovieTopFragment)
+
+    fun inject(dailyFragment: DailyFragment)
 }

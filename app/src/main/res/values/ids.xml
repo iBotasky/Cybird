@@ -18,4 +18,7 @@
     <item name="id_tag_movie_cast" type="id" />
     <item name="id_tag_movie_soon" type="id" />
     <item name="id_tag_movie_top" type="id" />
+
+    <item name="id_tag_daily_banner" type="id" />
+    <item name="id_tag_daily_story" type="id" />
 </resources>

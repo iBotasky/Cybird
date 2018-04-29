@@ -86,7 +86,7 @@ class NetModule {
     @Provides
     @Singleton
     @Named(NameConst.JUHE)
-    fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
+    fun provideJuHeRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
@@ -115,6 +115,18 @@ class NetModule {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .baseUrl(Urls.GANK_GIRLS_URL_HOST)
+                .client(okHttpClient)
+                .build()
+    }
+
+    @Provides
+    @Singleton
+    @Named(NameConst.ZHIHU)
+    fun provideZhiHuRetrofit(gson: Gson, okHttpClient: OkHttpClient):Retrofit{
+        return Retrofit.Builder()
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl(Urls.ZHI_HU_DIARY_URL_HOST)
                 .client(okHttpClient)
                 .build()
     }

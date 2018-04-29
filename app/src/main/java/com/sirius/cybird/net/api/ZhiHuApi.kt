@@ -15,9 +15,9 @@ import retrofit2.http.Path
  **/
 interface ZhiHuApi {
     @GET("/api/4/news/latest")
-    fun getLastNews()
+    fun getLastNews(): Observable<ZhiHuData>
 
     @GET("/api/4/news/{id}")
-    fun getNewsDetail(@Path("id") id: Int) :Observable<ZhiHuData>
+    fun getNewsDetail(@Path("id") id: Int): Observable<ZhiHuData>
 
 }
