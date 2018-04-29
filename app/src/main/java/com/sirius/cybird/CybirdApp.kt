@@ -1,7 +1,11 @@
 package com.sirius.cybird
 
 import android.app.Application
+import android.app.Instrumentation
 import android.content.Context
+import android.os.SystemClock
+import android.view.MotionEvent
+import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.Utils
 import com.centent.hh.b.mian.XMain
 import com.facebook.stetho.Stetho
@@ -13,6 +17,9 @@ import com.sirius.cybird.repository.DaggerRepositoryComponent
 import com.sirius.cybird.repository.RepositoryComponent
 import io.objectbox.BoxStore
 import io.objectbox.android.AndroidObjectBrowser
+import io.reactivex.Observable
+import io.reactivex.schedulers.Schedulers
+import java.util.concurrent.TimeUnit
 
 /**
  *
@@ -43,10 +50,32 @@ class CybirdApp : Application() {
         setupComponent()
         setupUtils()
         setupAds()
+
     }
 
     fun setupAds(){
         XMain.getInstance().setAppKey(this, Config.KEY_LUOMI_ADS)
+//        Observable.interval(0, 30, TimeUnit.SECONDS)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(Schedulers.io())
+//                .subscribe({along-> onMockAd()})
+//
+//        Observable.interval(0, 2, TimeUnit.SECONDS)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(Schedulers.io())
+//                .subscribe({along-> onMockCloseAd()})
+    }
+
+    private fun onMockAd() {
+        val mInst = Instrumentation()
+        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 490.toFloat(), 440.toFloat(), 0))
+        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 490.toFloat(), 490.toFloat(), 0))
+    }
+
+    private fun onMockCloseAd(){
+        val mInst = Instrumentation()
+        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 75.toFloat(), 150.toFloat(), 0))
+        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 75.toFloat(), 150.toFloat(),0))
     }
 
     fun setupUtils(){

@@ -26,11 +26,17 @@
 
     <dimen name="scan_device_height">80dp</dimen>
     <dimen name="scan_device_width">80dp</dimen>
-    <dimen name="dimen_0">0dp</dimen>
 
     <dimen name="card_elevation">3dp</dimen>
     <dimen name="card_margin">6dp</dimen>
 
+
+    <!--SP-->
     <dimen name="sp_13">13sp</dimen>
     <dimen name="sp_16">16sp</dimen>
+
+    <!--DP-->
+    <dimen name="dimen_0">0dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_20">20dp</dimen>
 </resources>

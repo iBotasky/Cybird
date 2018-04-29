@@ -1,7 +1,5 @@
 package com.sirius.cybird.ui.movie.hot
 
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
@@ -17,16 +15,13 @@ class MovieHotFragment : BaseRecyclerFragment<Film, MovieHotAdapter.ViewHolder>(
     @Inject
     lateinit var mPresenter: MovieHotPresenter
 
-
     lateinit var mMovieHotBinding: FragmentMovieHotBinding
+
+
     override fun setupViews() {
         super.setupViews()
         mMovieHotBinding = getBaseViewBinding()
         mRecyclerView.addItemDecoration(getVerticalSpaceDecoration())
-    }
-
-    override fun getRecyclerManager(): RecyclerView.LayoutManager {
-        return LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 
     override fun getLayouResource(): Int {
@@ -40,7 +35,7 @@ class MovieHotFragment : BaseRecyclerFragment<Film, MovieHotAdapter.ViewHolder>(
                 .subscribe(
                         { films -> showResults(films) },
                         { e -> mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR },
-                        { refreshEnd()}
+                        { refreshEnd() }
                 )
     }
 

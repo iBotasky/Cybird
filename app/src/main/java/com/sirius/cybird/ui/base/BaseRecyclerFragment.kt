@@ -59,7 +59,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
     }
 
     open fun getRecyclerManager(): RecyclerView.LayoutManager {
-        return LinearLayoutManager(activity)
+        return LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 
     open fun getSwipeRefreshColorSchemeRes(): IntArray {

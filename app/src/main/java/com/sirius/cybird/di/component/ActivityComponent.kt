@@ -7,6 +7,7 @@ import com.sirius.cybird.repository.RepositoryComponent
 import com.sirius.cybird.ui.home.HomeActivity
 import com.sirius.cybird.ui.movie.hot.MovieHotFragment
 import com.sirius.cybird.ui.movie.soon.MovieSoonFragment
+import com.sirius.cybird.ui.movie.top.MovieTopFragment
 import dagger.Component
 
 @ActivityScoped
@@ -19,4 +20,6 @@ interface ActivityComponent {
     fun inject(movieHotFragment: MovieHotFragment)
 
     fun inject(movieSoonFragment: MovieSoonFragment)
+
+    fun inject(movieTopFragment: MovieTopFragment)
 }

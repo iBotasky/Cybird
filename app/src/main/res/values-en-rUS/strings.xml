@@ -17,6 +17,7 @@
     <string name="movie_coming_soon">Coming Soon</string>
     <string name="movie_classics">Top250</string>
     <string name="movie_director">Director:%1$s</string>
+    <string name="movie_tag">Tags:%1$s</string>
 
 
 </resources>
