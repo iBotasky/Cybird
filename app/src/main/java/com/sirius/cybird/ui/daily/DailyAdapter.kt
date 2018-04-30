@@ -16,6 +16,9 @@ import android.util.TypedValue
 import android.view.Gravity
 import com.blankj.utilcode.util.ToastUtils.setGravity
 import android.support.v4.view.PagerAdapter
+import com.android.databinding.library.baseAdapters.BR
+import com.sirius.cybird.net.response.Story
+import com.sirius.cybird.utils.GlideUtil
 
 
 /**
@@ -60,7 +63,11 @@ class DailyAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAdapter<
             }
 
             STORY -> {
+                val story = item as Story
                 val storyBinding = helper.storyBinding
+                GlideUtil.loadImage(mContext, storyBinding.ivImg, story.images[0])
+                storyBinding.setVariable(BR.title, story.title)
+                storyBinding.executePendingBindings()
             }
         }
     }

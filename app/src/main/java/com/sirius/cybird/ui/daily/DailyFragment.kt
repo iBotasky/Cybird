@@ -15,6 +15,11 @@ class DailyFragment : BaseRecyclerMultiFragment<DailyAdapter.ViewHolder>() {
     lateinit var mPresenter: DailyPresenter
 
 
+    override fun setupViews() {
+        super.setupViews()
+        mRecyclerView.addItemDecoration(getVerticalSpaceDecoration(R.dimen.dimen_0, R.dimen.dimen_0,R.dimen.dimen_5))
+    }
+
     override fun getAdapter(): BaseMultiItemQuickAdapter<MultiItemEntity, DailyAdapter.ViewHolder> {
         return DailyAdapter(arrayListOf())
     }
@@ -23,14 +28,18 @@ class DailyFragment : BaseRecyclerMultiFragment<DailyAdapter.ViewHolder>() {
         mPresenter.getDailyStories()
                 .compose(bindToLifecycle())
                 .compose(TransformScheduler.applyNewThreadScheduler())
-                .subscribe({ multiItems -> showResult(multiItems) })
+                .subscribe(
+                        { multiItems -> showResult(multiItems) },
+                        { e -> mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR },
+                        { refreshEnd() }
+                )
     }
 
     private fun showResult(multiList: List<MultiItemEntity>) {
         if (multiList.isNotEmpty()) {
             mAdapter.setNewData(multiList)
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
-        }else{
+        } else {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
         }
     }
@@ -41,6 +50,10 @@ class DailyFragment : BaseRecyclerMultiFragment<DailyAdapter.ViewHolder>() {
 
     override fun initializeInjector() {
         getComponent(ActivityComponent::class.java).inject(this)
+    }
+
+    override fun doLoadMore() {
+        mAdapter.loadMoreEnd()
     }
 
 }
