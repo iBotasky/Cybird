@@ -7,6 +7,7 @@ import com.sirius.cybird.databinding.ActivityHomeBinding
 import com.sirius.cybird.module.NavItemData
 import com.sirius.cybird.ui.MineFragment
 import com.sirius.cybird.ui.base.BaseNavActivity
+import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.movie.MovieFragment
 import com.sirius.cybird.ui.movie.hot.MovieHotFragment
 
@@ -37,7 +38,7 @@ class HomeActivity : BaseNavActivity() {
         mTitleResources = listOf(R.string.tab_movie, R.string.tab_daily, R.string.tab_girls, R.string.tab_mine)
         return listOf(
                 NavItemData(BottomNavigationItem(R.mipmap.ic_movie, R.string.tab_movie).setActiveColorResource(R.color.color_movie), MovieFragment::class.java),
-                NavItemData(BottomNavigationItem(R.mipmap.ic_book, R.string.tab_daily).setActiveColorResource(R.color.color_daily), MovieHotFragment::class.java),
+                NavItemData(BottomNavigationItem(R.mipmap.ic_book, R.string.tab_daily).setActiveColorResource(R.color.color_daily), DailyFragment::class.java),
                 NavItemData(BottomNavigationItem(R.mipmap.ic_whatshot, R.string.tab_girls).setActiveColorResource(R.color.color_girl), MovieHotFragment::class.java),
                 NavItemData(BottomNavigationItem(R.mipmap.ic_account, R.string.tab_mine).setActiveColorResource(R.color.color_mine), MineFragment::class.java)
         )

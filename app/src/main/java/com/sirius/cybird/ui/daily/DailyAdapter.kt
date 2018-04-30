@@ -1,6 +1,7 @@
 package com.sirius.cybird.ui.daily
 
 import android.databinding.DataBindingUtil
+import android.graphics.Color
 import android.view.View
 import android.view.ViewGroup
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
@@ -9,6 +10,13 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ItemDailyBannerBinding
 import com.sirius.cybird.databinding.ItemDailyStoryBinding
+import com.sirius.cybird.net.response.TopStories
+import com.tmall.ultraviewpager.UltraViewPager
+import android.util.TypedValue
+import android.view.Gravity
+import com.blankj.utilcode.util.ToastUtils.setGravity
+import android.support.v4.view.PagerAdapter
+
 
 /**
  *Created by Botasky on 2018/4/29
@@ -27,11 +35,32 @@ class DailyAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAdapter<
     override fun convert(helper: ViewHolder, item: MultiItemEntity) {
         when (item.itemType) {
             BANNER -> {
+                val topStories = item as TopStories
+                val bannerBinding = helper.bannerBinding
+                bannerBinding.idViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL)
+                //initialize UltraPagerAdapter，and add child view to UltraViewPager
+                val adapter = UltraPagerAdapter(item.topstories)
+                bannerBinding.idViewPager.setAdapter(adapter)
 
+                bannerBinding.idViewPager.initIndicator()
+                //set style of indicators
+                bannerBinding.idViewPager.getIndicator()
+                        .setOrientation(UltraViewPager.Orientation.HORIZONTAL)
+                        .setFocusColor(Color.GRAY)
+                        .setNormalColor(Color.WHITE)
+                        .setRadius(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3f, mContext.getResources().getDisplayMetrics()).toInt())
+                bannerBinding.idViewPager.getIndicator().setGravity(Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM)
+                        .setMargin(0, 0, 0, 15)
+                //construct built-in indicator, and add it to  UltraViewPager
+                bannerBinding.idViewPager.getIndicator().build()
+                //set an infinite loop
+                bannerBinding.idViewPager.setInfiniteLoop(true)
+                //enable auto-scroll mode
+                bannerBinding.idViewPager.setAutoScroll(5000)
             }
 
             STORY -> {
-
+                val storyBinding = helper.storyBinding
             }
         }
     }
@@ -55,14 +84,6 @@ class DailyAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAdapter<
                 return super.getItemView(layoutResId, parent)
             }
         }
-
-//        val binding:ViewDataBinding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false)
-//                ?: return super.getItemView(layoutResId, parent)
-//        val view = binding.root
-//        view.setTag(R.id.id_tag_movie, binding)
-//        return view
-//        val binding:ViewDataBinding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false)
-
     }
 
     class ViewHolder(view: View) : BaseViewHolder(view) {

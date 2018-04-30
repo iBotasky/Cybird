@@ -128,7 +128,8 @@ dependencies {
     //Util
     implementation appDependencies.util
 
-    //FastAdapter
+    //阿里轮播
+    implementation appDependencies.ultraviewpager
 
     //    implementation appDependencies.fastAdapter
     implementation files('libs/hh_8.4_ok.jar')
