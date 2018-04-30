@@ -26,9 +26,9 @@
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_20"
         android:layout_marginLeft="@dimen/dimen_10"
         android:layout_marginRight="@dimen/dimen_10"
-        android:layout_marginBottom="@dimen/dimen_20"
         android:ellipsize="end"
         android:singleLine="true"
         android:textColor="@color/color_ffffff"
@@ -36,4 +36,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/iv_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
 </android.support.constraint.ConstraintLayout>

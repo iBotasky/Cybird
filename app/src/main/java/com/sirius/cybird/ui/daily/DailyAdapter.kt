@@ -2,23 +2,21 @@ package com.sirius.cybird.ui.daily
 
 import android.databinding.DataBindingUtil
 import android.graphics.Color
+import android.util.TypedValue
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import com.android.databinding.library.baseAdapters.BR
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ItemDailyBannerBinding
 import com.sirius.cybird.databinding.ItemDailyStoryBinding
-import com.sirius.cybird.net.response.TopStories
-import com.tmall.ultraviewpager.UltraViewPager
-import android.util.TypedValue
-import android.view.Gravity
-import com.blankj.utilcode.util.ToastUtils.setGravity
-import android.support.v4.view.PagerAdapter
-import com.android.databinding.library.baseAdapters.BR
 import com.sirius.cybird.net.response.Story
+import com.sirius.cybird.net.response.TopStories
 import com.sirius.cybird.utils.GlideUtil
+import com.tmall.ultraviewpager.UltraViewPager
 
 
 /**
