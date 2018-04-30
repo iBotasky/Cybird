@@ -48,7 +48,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
             mStart = 0
             loadData()
         }
-        mRecyclerView.layoutManager = getRecyclerManager()
+        mRecyclerView.layoutManager = getLayoutManager()
 
         mAdapter = getAdapter()
         mRecyclerView.adapter = mAdapter
@@ -59,7 +59,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
         }, mRecyclerView)
     }
 
-    open fun getRecyclerManager(): RecyclerView.LayoutManager {
+    open fun getLayoutManager(): RecyclerView.LayoutManager {
         return LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 

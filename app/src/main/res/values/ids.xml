@@ -21,4 +21,6 @@
 
     <item name="id_tag_daily_banner" type="id" />
     <item name="id_tag_daily_story" type="id" />
+
+    <item name="id_tag_girl" type="id"/>
 </resources>

@@ -27,7 +27,7 @@ class MovieTopFragment : BaseRecyclerFragment<Film, MovieTopAdapter.ViewHolder>(
         mRecyclerView.addItemDecoration(getVerticalSpaceDecoration())
     }
 
-    override fun getRecyclerManager(): RecyclerView.LayoutManager {
+    override fun getLayoutManager(): RecyclerView.LayoutManager {
         return LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 
