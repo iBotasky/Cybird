@@ -35,8 +35,8 @@
         android:layout_marginEnd="@dimen/dimen_20"
         android:src="@drawable/ic_action_top"
         fab:elevation="@dimen/bar_elevation"
+        fab:fab_shadow="true"
         fab:fab_colorNormal="@color/colorPrimary"
         fab:fab_colorPressed="@color/colorPrimaryDark"
-        fab:fab_colorRipple="@color/ripple"
-        fab:fab_shadow="false" />
+        fab:fab_colorRipple="@color/ripple" />
 </com.kennyc.view.MultiStateView>
