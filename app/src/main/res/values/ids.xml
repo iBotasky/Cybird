@@ -11,6 +11,7 @@
     <item name="id_multi_state_view" type="id" />
     <item name="id_multi_state_error_retry" type="id" />
     <item name="id_item_title" type="id" />
+    <item name="id_float_button" type="id"/>
 
 
     <!--ViewBindingTag-->

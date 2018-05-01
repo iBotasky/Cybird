@@ -1,5 +1,6 @@
 package com.sirius.cybird.ui.daily
 
+import android.view.View
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.kennyc.view.MultiStateView
@@ -18,6 +19,7 @@ class DailyFragment : BaseRecyclerMultiFragment<DailyAdapter.ViewHolder>() {
     override fun setupViews() {
         super.setupViews()
         mRecyclerView.addItemDecoration(getVerticalSpaceDecoration(R.dimen.dimen_0, R.dimen.dimen_0,R.dimen.dimen_5))
+        mFloatingButton?.visibility = View.GONE
     }
 
     override fun getAdapter(): BaseMultiItemQuickAdapter<MultiItemEntity, DailyAdapter.ViewHolder> {

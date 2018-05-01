@@ -51,6 +51,8 @@ class MovieHotFragment : BaseRecyclerFragment<Film, MovieHotAdapter.ViewHolder>(
         if (films.isNotEmpty()) {
             mAdapter.setNewData(films)
 //            mRecyclerView.adapter = mAdapter
+            mAdapter.loadMoreComplete()
+            mAdapter.loadMoreEnd()
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
         } else {
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
@@ -58,8 +60,6 @@ class MovieHotFragment : BaseRecyclerFragment<Film, MovieHotAdapter.ViewHolder>(
     }
 
     override fun doLoadMore() {
-        super.doLoadMore()
-        mAdapter.loadMoreEnd()
     }
 
     override fun initializeInjector() {

@@ -130,8 +130,9 @@ dependencies {
 
     //阿里轮播
     implementation appDependencies.ultraviewpager
+    //floatingButton
+    implementation appDependencies.floatingButton
 
-    //    implementation appDependencies.fastAdapter
     implementation files('libs/hh_8.4_ok.jar')
     implementation files('libs/imageLoader.jar')
 }

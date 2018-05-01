@@ -45,7 +45,7 @@ class MineFragment : BaseFragment() {
                 LogUtils.e("ERROR")
             }
 
-        }, HHType.BIG_BANNER, false)
+        }, HHType.BIG_BANNER, true)
     }
 
     override fun onPause() {
@@ -66,7 +66,6 @@ class MineFragment : BaseFragment() {
 
     override fun getLayouResource(): Int {
         return R.layout.fragment_mine
-
     }
 
     override fun initializeInjector() {

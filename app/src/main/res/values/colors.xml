@@ -6,7 +6,7 @@
     <color name="textColorPrimary">#ffffff</color>
     <color name="textNormalColor">#d0d0d0</color>
     <color name="colorAccent">#ffffff</color>
-
+    <color name="ripple">#5e92f3</color>
 
     <color name="color_movie">#008B00</color>
     <color name="color_daily">#1E90FF</color>
