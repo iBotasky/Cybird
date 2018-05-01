@@ -24,7 +24,8 @@ data class ZHNewsDetailData(
         }
          */
 
-        @SerializedName("body") val body: String,
+
+    @SerializedName("body") val body: String,
     @SerializedName("image_source") val imageSource: String,
     @SerializedName("title") val title: String,
     @SerializedName("image") val image: String,

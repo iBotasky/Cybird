@@ -57,4 +57,10 @@ class DailyDetailActivity : BaseActivity() {
     override fun getLayoutResource(): Int {
         return R.layout.actvity_daily_detail
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mDetailBinding.wvContent.removeAllViews()
+        mDetailBinding.wvContent.destroy()
+    }
 }
