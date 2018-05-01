@@ -1,6 +1,7 @@
 package com.sirius.cybird.ui.daily
 
 import com.sirius.cybird.R
+import com.sirius.cybird.databinding.ActvityDailyDetailBinding
 import com.sirius.cybird.net.response.ZHNewsDetailData
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.Navigation
@@ -18,8 +19,11 @@ class DailyDetailActivity : BaseActivity() {
     @Inject
     lateinit var mPresenter: DailyDetailPresenter
 
+    lateinit var mDetailBinding: ActvityDailyDetailBinding
+
     override fun setupViews() {
         super.setupViews()
+        mDetailBinding = getBaseViewBinding()
         loadData()
     }
 
@@ -34,17 +38,17 @@ class DailyDetailActivity : BaseActivity() {
 
     private fun loadView(data:ZHNewsDetailData){
         GlideUtil.loadImage(this, iv_read_bg, data.image)
-        collapsing_toolbar.setTitle(data.title)
-        wv_content.getSettings().setJavaScriptEnabled(true)
-
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        mDetailBinding.collapsingToolbar.title = data.title
+        mDetailBinding.wvContent.settings.javaScriptEnabled = true
         val css = "<link rel=\"stylesheet\" href=\"" + data.css[0] + "\" type=\"text/css\">"
         var html = "<html><head>" + css + "</head><body>" + data.body + "</body></html>"
         html = html.replace("<div class=\"img-place-holder\">", "")
         wv_content.loadDataWithBaseURL("x-data://base", html, "text/html", "UTF-8", null)
     }
 
+    override fun isDisplayHomeAsUpEnable(): Boolean {
+        return true
+    }
 
     override fun initializeInjector() {
         component.inject(this)

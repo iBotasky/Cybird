@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.annotation.StringRes
 import android.support.v7.widget.Toolbar
+import android.view.MenuItem
 import android.widget.TextView
 import com.flyco.systembar.SystemBarHelper
 import com.sirius.cybird.CybirdApp
@@ -96,6 +97,13 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
         setSupportActionBar(mToolbar)
         supportActionBar?.title = ""
         supportActionBar?.setDisplayHomeAsUpEnabled(isDisplayHomeAsUpEnable())
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            android.R.id.home -> onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

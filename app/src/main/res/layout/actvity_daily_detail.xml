@@ -31,14 +31,15 @@
                 <ImageView
                     android:id="@+id/iv_read_bg"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="200dp"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
                     android:transitionName="img"
                     app:layout_collapseMode="parallax" />
 
                 <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
+                    android:id="@id/id_toolbar"
+                    android:elevation="@dimen/bar_elevation"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
                     app:layout_collapseMode="pin"
