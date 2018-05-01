@@ -43,7 +43,12 @@
 
         <activity
             android:name="com.sirius.cybird.ui.home.HomeActivity"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.daily.DailyDetailActivity"
+            android:screenOrientation="portrait" />
 
 
         <!--luomi ads-->

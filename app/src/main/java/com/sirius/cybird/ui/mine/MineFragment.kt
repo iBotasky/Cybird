@@ -1,4 +1,4 @@
-package com.sirius.cybird.ui
+package com.sirius.cybird.ui.mine
 
 import android.content.Intent
 import com.blankj.utilcode.util.LogUtils

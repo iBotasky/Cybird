@@ -1,5 +1,6 @@
 package com.sirius.cybird.net.api
 
+import com.sirius.cybird.net.response.ZHNewsDetailData
 import com.sirius.cybird.net.response.ZhiHuData
 import com.sirius.cybird.net.url.Urls
 import io.reactivex.Observable
@@ -18,6 +19,6 @@ interface ZhiHuApi {
     fun getLastNews(): Observable<ZhiHuData>
 
     @GET("/api/4/news/{id}")
-    fun getNewsDetail(@Path("id") id: Int): Observable<ZhiHuData>
+    fun getNewsDetail(@Path("id") id: Int): Observable<ZHNewsDetailData>
 
 }

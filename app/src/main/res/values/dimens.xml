@@ -31,6 +31,7 @@
     <dimen name="card_margin">6dp</dimen>
     <dimen name="card_radius">4dp</dimen>
 
+    <dimen name="bar_elevation">5dp</dimen>
 
     <!--SP-->
     <dimen name="sp_13">13sp</dimen>

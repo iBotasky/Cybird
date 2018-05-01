@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.sirius.cybird.R
 import com.sirius.cybird.net.response.TopStory
+import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.utils.GlideUtil
-import org.jetbrains.annotations.NotNull
-import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.item_daily_top_banner.view.*
+import org.jetbrains.annotations.NotNull
 
 
 /**
@@ -25,8 +25,9 @@ class UltraPagerAdapter(@NotNull storyies: List<TopStory>) : PagerAdapter() {
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val item = mStories[position]
         val view = LayoutInflater.from(container.context).inflate(R.layout.item_daily_top_banner, null)
-        GlideUtil.loadImage(context =container.context, imageview = view.findViewById(R.id.iv_img), url = item.image)
+        GlideUtil.loadImage(context = container.context, imageview = view.findViewById(R.id.iv_img), url = item.image)
         view.tv_title.text = item.title
+        view.setOnClickListener({ Navigation.startDailyDetail(context = container.context, id = item.id) })
         container.addView(view)
         return view
     }

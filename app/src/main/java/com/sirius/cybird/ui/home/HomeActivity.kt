@@ -5,12 +5,11 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
 import com.sirius.cybird.module.NavItemData
-import com.sirius.cybird.ui.MineFragment
+import com.sirius.cybird.ui.mine.MineFragment
 import com.sirius.cybird.ui.base.BaseNavActivity
 import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.girls.GirlsFragment
 import com.sirius.cybird.ui.movie.MovieFragment
-import com.sirius.cybird.ui.movie.hot.MovieHotFragment
 
 
 class HomeActivity : BaseNavActivity() {

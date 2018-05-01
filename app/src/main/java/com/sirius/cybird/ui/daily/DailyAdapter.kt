@@ -15,6 +15,7 @@ import com.sirius.cybird.databinding.ItemDailyBannerBinding
 import com.sirius.cybird.databinding.ItemDailyStoryBinding
 import com.sirius.cybird.net.response.Story
 import com.sirius.cybird.net.response.TopStories
+import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.utils.GlideUtil
 import com.tmall.ultraviewpager.UltraViewPager
 
@@ -66,6 +67,9 @@ class DailyAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAdapter<
                 GlideUtil.loadImage(mContext, storyBinding.ivImg, story.images[0])
                 storyBinding.setVariable(BR.title, story.title)
                 storyBinding.executePendingBindings()
+                helper.itemView.setOnClickListener(
+                        { v -> Navigation.startDailyDetail(mContext, story.id)}
+                )
             }
         }
     }

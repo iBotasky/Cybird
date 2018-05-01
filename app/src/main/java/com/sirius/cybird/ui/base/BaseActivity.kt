@@ -33,6 +33,7 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupComponent()
+        initializeInjector()
         mBinding = DataBindingUtil.setContentView(this, getLayoutResource())
         setupToolBar()
         setupStatusBar()
@@ -60,7 +61,6 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
 
     @CallSuper
     open fun setupViews() {
-
     }
 
     fun <V : ViewDataBinding> getBaseViewBinding(): V {
