@@ -9,12 +9,14 @@ import com.sirius.cybird.ui.daily.DailyDetailActivity
  */
 object Navigation {
     val EXTRA_ID = "id"
+    val EXTRA_IMG = "img_url"
 
 
 
-    fun startDailyDetail(context: Context,id:Int){
+    fun startDailyDetail(context: Context,id:Int, url:String){
         val intent = Intent(context, DailyDetailActivity::class.java)
         intent.putExtra(EXTRA_ID, id)
+        intent.putExtra(EXTRA_IMG, url)
         context.startActivity(intent)
     }
 }

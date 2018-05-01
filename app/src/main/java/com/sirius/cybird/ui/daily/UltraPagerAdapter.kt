@@ -27,7 +27,7 @@ class UltraPagerAdapter(@NotNull storyies: List<TopStory>) : PagerAdapter() {
         val view = LayoutInflater.from(container.context).inflate(R.layout.item_daily_top_banner, null)
         GlideUtil.loadImage(context = container.context, imageview = view.findViewById(R.id.iv_img), url = item.image)
         view.tv_title.text = item.title
-        view.setOnClickListener({ Navigation.startDailyDetail(context = container.context, id = item.id) })
+        view.setOnClickListener({ Navigation.startDailyDetail(context = container.context, id = item.id, url = item.image) })
         container.addView(view)
         return view
     }

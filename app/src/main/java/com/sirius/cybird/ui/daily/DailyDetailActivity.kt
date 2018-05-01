@@ -1,13 +1,13 @@
 package com.sirius.cybird.ui.daily
 
 import com.sirius.cybird.R
-import com.sirius.cybird.databinding.ActvityDailyDetailBinding
+import com.sirius.cybird.databinding.ActivityDailyDetailBinding
 import com.sirius.cybird.net.response.ZHNewsDetailData
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.ui.base.BaseActivity
 import com.sirius.cybird.utils.GlideUtil
-import kotlinx.android.synthetic.main.actvity_daily_detail.*
+import kotlinx.android.synthetic.main.activity_daily_detail.*
 import javax.inject.Inject
 
 
@@ -19,11 +19,12 @@ class DailyDetailActivity : BaseActivity() {
     @Inject
     lateinit var mPresenter: DailyDetailPresenter
 
-    lateinit var mDetailBinding: ActvityDailyDetailBinding
+    lateinit var mDetailBinding: ActivityDailyDetailBinding
 
     override fun setupViews() {
         super.setupViews()
         mDetailBinding = getBaseViewBinding()
+        GlideUtil.loadImage(this, iv_read_bg, intent.getStringExtra(Navigation.EXTRA_IMG))
         loadData()
     }
 
@@ -37,7 +38,6 @@ class DailyDetailActivity : BaseActivity() {
     }
 
     private fun loadView(data:ZHNewsDetailData){
-        GlideUtil.loadImage(this, iv_read_bg, data.image)
         mDetailBinding.collapsingToolbar.title = data.title
         mDetailBinding.wvContent.settings.javaScriptEnabled = true
         val css = "<link rel=\"stylesheet\" href=\"" + data.css[0] + "\" type=\"text/css\">"
@@ -55,7 +55,7 @@ class DailyDetailActivity : BaseActivity() {
     }
 
     override fun getLayoutResource(): Int {
-        return R.layout.actvity_daily_detail
+        return R.layout.activity_daily_detail
     }
 
     override fun onDestroy() {
