@@ -1,6 +1,5 @@
 package com.sirius.cybird.ui.mine
 
-import android.content.Intent
 import com.blankj.utilcode.util.LogUtils
 import com.centent.hh.b.HHType
 import com.centent.hh.b.mian.CenBanner
@@ -8,7 +7,6 @@ import com.centent.hh.b.mian.CenBannerListener
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMineBinding
 import com.sirius.cybird.ui.base.BaseFragment
-import com.sirius.cybird.ui.home.HomeActivity
 
 /**
  * Created By Botasky 28/04/2018
@@ -37,8 +35,6 @@ class MineFragment : BaseFragment() {
 
             override fun onNoAd() {
                 LogUtils.e("NOAD")
-                val intent = Intent(context, HomeActivity::class.java)
-                startActivity(intent)
             }
 
             override fun onError() {
@@ -48,6 +44,7 @@ class MineFragment : BaseFragment() {
         }, HHType.BIG_BANNER, true)
     }
 
+
     override fun onPause() {
         super.onPause()
         cenBanner.onPause(context)
@@ -56,7 +53,6 @@ class MineFragment : BaseFragment() {
     override fun onResume() {
         super.onResume()
         cenBanner.onResume(context)
-
     }
 
     override fun onDestroy() {

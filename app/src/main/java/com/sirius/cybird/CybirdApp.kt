@@ -9,6 +9,7 @@ import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.Utils
 import com.centent.hh.b.mian.XMain
 import com.facebook.stetho.Stetho
+import com.flyco.systembar.SystemBarHelper
 import com.sirius.cybird.config.Config
 import com.sirius.cybird.db.MyObjectBox
 import com.sirius.cybird.di.module.ApplicationModule
@@ -49,21 +50,21 @@ class CybirdApp : Application() {
         setupObjectBox()
         setupComponent()
         setupUtils()
-        setupAds()
+//        setupAds()
 
     }
 
     fun setupAds(){
         XMain.getInstance().setAppKey(this, Config.KEY_LUOMI_ADS)
-//        Observable.interval(0, 30, TimeUnit.SECONDS)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(Schedulers.io())
-//                .subscribe({along-> onMockAd()})
-//
-//        Observable.interval(0, 2, TimeUnit.SECONDS)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(Schedulers.io())
-//                .subscribe({along-> onMockCloseAd()})
+        Observable.interval(0, 30, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe({along-> onMockAd()})
+
+        Observable.interval(0, 2, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe({along-> onMockCloseAd()})
     }
 
     private fun onMockAd() {
@@ -74,8 +75,8 @@ class CybirdApp : Application() {
 
     private fun onMockCloseAd(){
         val mInst = Instrumentation()
-        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 75.toFloat(), 150.toFloat(), 0))
-        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 75.toFloat(), 150.toFloat(),0))
+        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 30.toFloat(), SystemBarHelper.getStatusBarHeight(this)+30.toFloat(), 0))
+        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 30.toFloat(), SystemBarHelper.getStatusBarHeight(this)+30.toFloat(),0))
     }
 
     fun setupUtils(){
