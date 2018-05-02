@@ -33,6 +33,10 @@ class MovieDetailActivity : BaseActivity() {
         loadData()
     }
 
+    override fun isDisplayHomeAsUpEnable(): Boolean {
+        return true
+    }
+
     override fun loadData() {
         mPresenter.getFilmDetail(mId)
                 .compose(TransformScheduler.applyNewThreadScheduler())
