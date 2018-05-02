@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
     </data>
 
@@ -13,10 +14,10 @@
         android:layout_height="match_parent">
 
         <android.support.design.widget.AppBarLayout
-            android:elevation="@dimen/bar_elevation"
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elevation="@dimen/bar_elevation"
             android:fitsSystemWindows="false"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -24,11 +25,12 @@
                 android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:contentScrim="?attr/colorPrimary"
                 android:elevation="@dimen/bar_elevation"
+                app:contentScrim="?attr/colorPrimary"
                 app:expandedTitleMarginEnd="70dp"
                 app:expandedTitleMarginStart="50dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
                 <ImageView
                     android:id="@+id/iv_read_bg"
                     android:layout_width="match_parent"
@@ -36,41 +38,45 @@
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
                     app:layout_collapseMode="parallax" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
-                    android:background="@drawable/forguard_gradient"
-                    />
+                    android:background="@drawable/forguard_gradient" />
 
                 <android.support.v7.widget.Toolbar
                     android:id="@id/id_toolbar"
-                    android:elevation="@dimen/bar_elevation"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:elevation="@dimen/bar_elevation"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
             </android.support.design.widget.CollapsingToolbarLayout>
 
         </android.support.design.widget.AppBarLayout>
-        <android.support.v4.widget.NestedScrollView
+
+        <com.kennyc.view.MultiStateView
+            android:id="@id/id_multi_state_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-            <com.kennyc.view.MultiStateView
-                android:id="@id/id_multi_state_view"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:msv_emptyView="@layout/state_empty_view"
+            app:msv_errorView="@layout/state_error_view"
+            app:msv_loadingView="@layout/state_loading_view"
+            app:msv_viewState="loading">
+
+            <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                app:msv_emptyView="@layout/state_empty_view"
-                app:msv_errorView="@layout/state_error_view"
-                app:msv_loadingView="@layout/state_loading_view"
-                app:msv_viewState="loading">
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
                 <WebView
                     android:id="@+id/wv_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
-            </com.kennyc.view.MultiStateView>
-        </android.support.v4.widget.NestedScrollView>
+            </android.support.v4.widget.NestedScrollView>
+        </com.kennyc.view.MultiStateView>
+
     </android.support.design.widget.CoordinatorLayout>
 </layout>
