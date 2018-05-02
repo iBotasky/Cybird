@@ -13,6 +13,10 @@ import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.girls.GirlsFragment
 import com.sirius.cybird.ui.movie.MovieFragment
 import com.tbruyelle.rxpermissions2.RxPermissions
+import android.content.pm.PackageManager
+import android.support.v4.app.ActivityCompat
+
+
 
 
 class HomeActivity : BaseNavActivity() {
@@ -40,12 +44,17 @@ class HomeActivity : BaseNavActivity() {
 
 
     fun requestPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (!isGranted(Manifest.permission.READ_PHONE_STATE) || !isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE))) {
             val rxPermissions = RxPermissions(this)
             rxPermissions.request(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     .compose(bindToLifecycle())
                     .subscribe()
         }
+    }
+
+    private fun isGranted(permission: String): Boolean {
+        val checkSelfPermission = ActivityCompat.checkSelfPermission(this, permission)
+        return checkSelfPermission == PackageManager.PERMISSION_GRANTED
     }
 
 
