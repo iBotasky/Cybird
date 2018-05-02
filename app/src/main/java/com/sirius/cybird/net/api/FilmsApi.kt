@@ -1,5 +1,6 @@
 package com.sirius.cybird.net.api
 
+import com.sirius.cybird.net.response.FilmDetailData
 import com.sirius.cybird.net.response.FilmsData
 import com.sirius.cybird.net.url.Urls
 import io.reactivex.Observable
@@ -25,5 +26,5 @@ interface FilmsApi {
     fun getTop250(@Query("start") start: Int, @Query("count") connt: Int): Observable<FilmsData>
 
     @GET("v2/movie/subject/{id}")
-    fun getFilmDetail(@Path("id") id:String)
+    fun getFilmDetail(@Path("id") id:String):Observable<FilmDetailData>
 }
