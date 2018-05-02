@@ -1,5 +1,7 @@
 package com.sirius.cybird.ui.home
 
+import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.sirius.cybird.R
@@ -10,6 +12,7 @@ import com.sirius.cybird.ui.base.BaseNavActivity
 import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.girls.GirlsFragment
 import com.sirius.cybird.ui.movie.MovieFragment
+import com.tbruyelle.rxpermissions2.RxPermissions
 
 
 class HomeActivity : BaseNavActivity() {
@@ -28,11 +31,23 @@ class HomeActivity : BaseNavActivity() {
     override fun setupViews() {
         super.setupViews()
         setToolbarTitle(mTitleResources[0])
+        requestPermission()
     }
 
     override fun getLayoutResource(): Int {
         return R.layout.activity_home
     }
+
+
+    fun requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val rxPermissions = RxPermissions(this)
+            rxPermissions.request(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    .compose(bindToLifecycle())
+                    .subscribe()
+        }
+    }
+
 
     override fun getBottomNavDatas(): List<NavItemData> {
         mTitleResources = listOf(R.string.tab_movie, R.string.tab_daily, R.string.tab_girls, R.string.tab_mine)
