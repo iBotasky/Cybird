@@ -20,4 +20,8 @@
     <string name="movie_tag">标签:%1$s</string>
     <string name="movie_top_title">排行:%1$d %2$s</string>
 
+    <!--我的-->
+    <string name="mine_reward">打赏开发者:</string>
+    <string name="mine_more">后续更多功能开发中...</string>
+
 </resources>

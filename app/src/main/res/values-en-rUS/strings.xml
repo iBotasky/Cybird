@@ -20,5 +20,7 @@
     <string name="movie_tag">Tags:%1$s</string>
     <string name="movie_top_title">Rank:%1$d %2$s</string>
 
-
+    <!--我的-->
+    <string name="mine_reward">Reword Developer:</string>
+    <string name="mine_more">More feature coming soon...</string>
 </resources>

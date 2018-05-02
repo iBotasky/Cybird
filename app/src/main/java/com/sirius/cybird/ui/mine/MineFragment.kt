@@ -12,7 +12,7 @@ import com.sirius.cybird.ui.base.BaseFragment
  * Created By Botasky 28/04/2018
  */
 class MineFragment : BaseFragment() {
-    lateinit var cenBanner: CenBanner
+//    lateinit var cenBanner: CenBanner
 
     lateinit var mMineBinding: FragmentMineBinding
 
@@ -20,44 +20,44 @@ class MineFragment : BaseFragment() {
     override fun setupViews() {
         super.setupViews()
         mMineBinding = getBaseViewBinding()
-        cenBanner = CenBanner(context, mMineBinding.llBanner, object : CenBannerListener {
-            override fun onSuccess() {
-                LogUtils.e("SUCCESS")
-            }
-
-            override fun onPause() {
-                LogUtils.e("PAUSE")
-            }
-
-            override fun onClicked() {
-                LogUtils.e("CLICKED")
-            }
-
-            override fun onNoAd() {
-                LogUtils.e("NOAD")
-            }
-
-            override fun onError() {
-                LogUtils.e("ERROR")
-            }
-
-        }, HHType.BIG_BANNER, true)
+//        cenBanner = CenBanner(context, mMineBinding.llBanner, object : CenBannerListener {
+//            override fun onSuccess() {
+//                LogUtils.e("SUCCESS")
+//            }
+//
+//            override fun onPause() {
+//                LogUtils.e("PAUSE")
+//            }
+//
+//            override fun onClicked() {
+//                LogUtils.e("CLICKED")
+//            }
+//
+//            override fun onNoAd() {
+//                LogUtils.e("NOAD")
+//            }
+//
+//            override fun onError() {
+//                LogUtils.e("ERROR")
+//            }
+//
+//        }, HHType.BIG_BANNER, true)
     }
 
 
     override fun onPause() {
         super.onPause()
-        cenBanner.onPause(context)
+//        cenBanner.onPause(context)
     }
 
     override fun onResume() {
         super.onResume()
-        cenBanner.onResume(context)
+//        cenBanner.onResume(context)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        cenBanner.onDestory(context)
+//        cenBanner.onDestory(context)
     }
 
     override fun getLayouResource(): Int {

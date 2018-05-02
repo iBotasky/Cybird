@@ -50,7 +50,7 @@ class CybirdApp : Application() {
         setupObjectBox()
         setupComponent()
         setupUtils()
-        setupAds()
+//        setupAds()
 
     }
 

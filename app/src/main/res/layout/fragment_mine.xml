@@ -8,13 +8,63 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/ll_banner"
-            android:clickable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <ImageView
+            android:id="@+id/iv_wc"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/pay_wc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_ali"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/iv_ali"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/pay_ali"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_wc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_wc"
+            app:layout_constraintTop_toTopOf="@+id/iv_wc" />
+
+        <TextView
+            android:id="@+id/tv_wc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:text="微信"
+            app:layout_constraintEnd_toEndOf="@+id/iv_wc"
+            app:layout_constraintStart_toStartOf="@+id/iv_wc"
+            app:layout_constraintTop_toBottomOf="@+id/iv_wc" />
+
+        <TextView
+            android:id="@+id/tv_ali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:text="支付宝"
+            app:layout_constraintEnd_toEndOf="@+id/iv_ali"
+            app:layout_constraintStart_toStartOf="@+id/iv_ali"
+            app:layout_constraintTop_toBottomOf="@+id/iv_ali" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:text="@string/mine_reward"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/dimen_20"
+            app:layout_constraintBottom_toTopOf="@+id/iv_wc"
+            app:layout_constraintStart_toStartOf="@+id/iv_wc" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mine_more"
+            app:layout_constraintStart_toStartOf="@+id/iv_wc"
+            app:layout_constraintTop_toBottomOf="@+id/tv_wc"
+            android:layout_marginTop="@dimen/dimen_20"/>
     </android.support.constraint.ConstraintLayout>
 </layout>
