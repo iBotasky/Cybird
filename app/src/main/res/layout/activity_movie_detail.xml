@@ -57,9 +57,9 @@
         </android.support.design.widget.AppBarLayout>
 
         <include
+            layout="@layout/include_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout="@layout/include_recycler_view"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </android.support.design.widget.CoordinatorLayout>

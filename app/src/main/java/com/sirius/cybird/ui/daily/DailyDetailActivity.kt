@@ -36,7 +36,7 @@ class DailyDetailActivity : BaseActivity() {
         }
     }
 
-    fun loadData(){
+    override fun loadData(){
         mPresenter.getDailyDetail(intent.getIntExtra(Navigation.EXTRA_ID, 0))
                 .compose(TransformScheduler.applyNewThreadScheduler())
                 .compose(bindToLifecycle())

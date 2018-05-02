@@ -50,6 +50,8 @@
             android:name=".ui.daily.DailyDetailActivity"
             android:screenOrientation="portrait" />
 
+        <activity android:name=".ui.movie.detail.MovieDetailActivity"
+            android:screenOrientation="portrait"/>
 
         <!--luomi ads-->
         <activity android:name="com.centent.hh.b.HHActivity" />

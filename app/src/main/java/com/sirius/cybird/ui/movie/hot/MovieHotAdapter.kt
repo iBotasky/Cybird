@@ -11,6 +11,7 @@ import com.sirius.cybird.BR
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ItemFilmBinding
 import com.sirius.cybird.net.response.Film
+import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.utils.GlideUtil
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 
@@ -31,6 +32,8 @@ class MovieHotAdapter : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.lay
             else
                 directors += director.name
         }
+        binding.root.setOnClickListener({v -> Navigation.startFilmDetail(mContext, item.id, item.images.small) })
+
         binding.setVariable(BR.director, mContext.getString(R.string.movie_director, directors))
         binding.setVariable(BR.title, item.title)
         binding.setVariable(BR.rating, item.rating.average.toString())

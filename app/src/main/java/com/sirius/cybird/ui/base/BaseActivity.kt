@@ -113,6 +113,16 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
         mMultiStateView?.setViewForState(getMultiStateViewLoading(), MultiStateView.VIEW_STATE_LOADING)
 
         mMultiStateErrorRetry = mMultiStateView?.getView(MultiStateView.VIEW_STATE_ERROR)?.findViewById(R.id.id_multi_state_error_retry)
+        mMultiStateErrorRetry?.setOnClickListener {
+            if (mMultiStateView?.viewState != MultiStateView.VIEW_STATE_LOADING) {
+                mMultiStateView?.viewState = MultiStateView.VIEW_STATE_LOADING
+            }
+            loadData()
+        }
+    }
+
+
+    open fun loadData(){
 
     }
 

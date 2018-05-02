@@ -8,7 +8,7 @@ import com.sirius.cybird.ui.daily.DailyDetailActivity
 import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.girls.GirlsFragment
 import com.sirius.cybird.ui.home.HomeActivity
-import com.sirius.cybird.ui.movie.MovieDetailActivity
+import com.sirius.cybird.ui.movie.detail.MovieDetailActivity
 import com.sirius.cybird.ui.movie.hot.MovieHotFragment
 import com.sirius.cybird.ui.movie.soon.MovieSoonFragment
 import com.sirius.cybird.ui.movie.top.MovieTopFragment
