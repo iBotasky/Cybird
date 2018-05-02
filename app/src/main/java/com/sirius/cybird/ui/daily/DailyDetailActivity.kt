@@ -1,5 +1,6 @@
 package com.sirius.cybird.ui.daily
 
+import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityDailyDetailBinding
 import com.sirius.cybird.net.response.ZHNewsDetailData
@@ -26,6 +27,13 @@ class DailyDetailActivity : BaseActivity() {
         mDetailBinding = getBaseViewBinding()
         GlideUtil.loadImage(this, iv_read_bg, intent.getStringExtra(Navigation.EXTRA_IMG))
         loadData()
+        //设置MultiStateView的逻辑
+        setOnRetry {
+            if (mMultiStateView!!.viewState != MultiStateView.VIEW_STATE_LOADING){
+                mMultiStateView!!.viewState = MultiStateView.VIEW_STATE_LOADING
+                loadData()
+            }
+        }
     }
 
     fun loadData(){
@@ -33,11 +41,14 @@ class DailyDetailActivity : BaseActivity() {
                 .compose(TransformScheduler.applyNewThreadScheduler())
                 .compose(bindToLifecycle())
                 .subscribe(
-                        {data -> loadView(data)}
+                        {data -> loadView(data)},
+                        {e->mMultiStateView!!.viewState = MultiStateView.VIEW_STATE_ERROR},
+                        {}
                 )
     }
 
     private fun loadView(data:ZHNewsDetailData){
+        mMultiStateView!!.viewState = MultiStateView.VIEW_STATE_CONTENT
         mDetailBinding.collapsingToolbar.title = data.title
         mDetailBinding.wvContent.settings.javaScriptEnabled = true
         val css = "<link rel=\"stylesheet\" href=\"" + data.css[0] + "\" type=\"text/css\">"
