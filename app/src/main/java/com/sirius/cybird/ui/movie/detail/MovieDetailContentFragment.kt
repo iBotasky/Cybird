@@ -2,7 +2,6 @@ package com.sirius.cybird.ui.movie.detail
 
 import android.os.Bundle
 import android.text.TextUtils
-import com.blankj.utilcode.util.LogUtils
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.kennyc.view.MultiStateView
@@ -40,7 +39,6 @@ class MovieDetailContentFragment : BaseRecyclerMultiFragment<DailyAdapter.ViewHo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        LogUtils.e("OnCreate")
         super.onCreate(savedInstanceState)
         val bundle = arguments
         mId = bundle?.getString(MOVIE_ID)
