@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.annotation.LayoutRes
 import android.support.annotation.StringRes
+import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
@@ -33,6 +34,7 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
     var mToolbar: Toolbar? = null
     var mMultiStateView: MultiStateView? = null
     var mMultiStateErrorRetry: View? = null
+    var mCollapsingToolbarLayout: CollapsingToolbarLayout? = null
 
     var mIsDark = false
 

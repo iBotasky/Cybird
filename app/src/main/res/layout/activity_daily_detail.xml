@@ -26,9 +26,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/bar_elevation"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
                 app:contentScrim="?attr/colorPrimary"
-                app:expandedTitleMarginEnd="70dp"
-                app:expandedTitleMarginStart="50dp"
+                app:expandedTitleMarginEnd="30dp"
+                app:expandedTitleMarginStart="30dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <ImageView

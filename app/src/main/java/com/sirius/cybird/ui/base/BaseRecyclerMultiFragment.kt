@@ -38,6 +38,7 @@ abstract class BaseRecyclerMultiFragment<H : BaseViewHolder> : BaseLazyFragment(
         mMultiStateView = mBinding.root.findViewById(R.id.id_multi_state_view)
         mRecyclerView = mMultiStateView.findViewById(R.id.id_recycler_view)
         mSwipeRefresh = mMultiStateView.findViewById(R.id.id_swipe_refresh)
+        mSwipeRefresh.isEnabled = isEnableSwipeLayout()
         mMultiStateView.setViewForState(getMultiStateViewEmpty(), MultiStateView.VIEW_STATE_EMPTY)
         mMultiStateView.setViewForState(getMultiStateViewError(), MultiStateView.VIEW_STATE_ERROR)
         mMultiStateView.setViewForState(getMultiStateViewLoading(), MultiStateView.VIEW_STATE_LOADING)
@@ -136,6 +137,10 @@ abstract class BaseRecyclerMultiFragment<H : BaseViewHolder> : BaseLazyFragment(
 
     open fun isEnableLoadMore(): Boolean {
         return true
+    }
+
+    open fun isEnableSwipeLayout():Boolean{
+        return  true
     }
 
 
