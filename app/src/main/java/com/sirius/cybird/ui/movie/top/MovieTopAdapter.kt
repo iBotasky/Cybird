@@ -31,8 +31,9 @@ class MovieTopAdapter : BaseQuickAdapter<Film, MovieTopAdapter.ViewHolder>(R.lay
                 tags += tag
         }
         binding.setVariable(BR.tag, mContext.getString(R.string.movie_tag, tags))
+        binding.setVariable(BR.rank, mContext.getString(R.string.movie_rank, mData.indexOf(item) + 1))
         binding.setVariable(BR.director, mContext.getString(R.string.movie_director, directors))
-        binding.setVariable(BR.title, mContext.getString(R.string.movie_top_title, mData.indexOf(item) + 1, item.title))
+        binding.setVariable(BR.title, mContext.getString(R.string.movie_top_title,  item.title))
         binding.setVariable(BR.rating, item.rating.average.toString())
         binding.setVariable(BR.stars, (item.rating.average * 5.0f / item.rating.max).toFloat())
         binding.executePendingBindings()

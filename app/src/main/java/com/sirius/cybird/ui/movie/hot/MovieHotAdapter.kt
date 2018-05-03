@@ -24,7 +24,7 @@ class MovieHotAdapter : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.lay
         rvCasts.layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
         rvCasts.adapter = MovieCastAdapter(item.casts)
         if (rvCasts.itemDecorationCount == 0)
-            rvCasts.addItemDecoration(HorizontalSpaceDecoration(R.dimen.dimen_0, R.dimen.dimen_0, R.dimen.dp_10))
+            rvCasts.addItemDecoration(HorizontalSpaceDecoration(R.dimen.dimen_0, R.dimen.dimen_0, R.dimen.dimen_5))
         var directors: String = ""
         for (director in item.directors) {
             if (item.directors.indexOf(director) != item.directors.size - 1)

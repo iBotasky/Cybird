@@ -109,6 +109,7 @@
             android:id="@+id/rv_cast"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:clickable="false"
             android:layout_marginTop="@dimen/dp_10"
             app:layout_constraintBottom_toBottomOf="@id/cv_head"
             app:layout_constraintEnd_toEndOf="parent"

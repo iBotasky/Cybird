@@ -12,6 +12,10 @@
             type="String" />
 
         <variable
+            name="rank"
+            type="String"/>
+
+        <variable
             name="rating"
             type="String" />
 
@@ -25,7 +29,7 @@
 
         <variable
             name="director"
-            type="String"/>
+            type="String" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -41,7 +45,6 @@
             android:layout_width="130dp"
             android:layout_height="200dp"
             android:layout_margin="@dimen/card_margin"
-            android:clickable="true"
             app:cardCornerRadius="4dp"
             app:cardElevation="@dimen/card_elevation"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -59,25 +62,41 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/dimen_20"
+            android:layout_marginStart="@dimen/dimen_10"
             android:text="@{title}"
             android:textColor="@color/color_000000"
             android:textSize="@dimen/sp_16"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/cv_head"
-            app:layout_constraintTop_toTopOf="@id/cv_head"
+            app:layout_constraintStart_toEndOf="@+id/tv_rank"
+            app:layout_constraintTop_toTopOf="@+id/cv_head"
             tools:text="影名" />
+
+        <TextView
+            android:id="@+id/tv_rank"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:background="@drawable/bg_rank"
+            android:textColor="@color/color_rank"
+            android:textSize="@dimen/sp_13"
+            android:textStyle="bold"
+            android:text="@{rank}"
+            app:layout_constraintBottom_toBottomOf="@+id/film_name"
+            app:layout_constraintStart_toEndOf="@+id/cv_head"
+            app:layout_constraintTop_toTopOf="@+id/film_name"
+            tools:text="No.1" />
 
         <TextView
             android:id="@+id/film_tag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dimen_8"
             android:text="@{tag}"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/sp_13"
-            app:layout_constraintStart_toStartOf="@+id/film_name"
-            app:layout_constraintTop_toBottomOf="@+id/film_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_rank"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rank"
             tools:text="标签" />
 
         <me.zhanghai.android.materialratingbar.MaterialRatingBar
@@ -86,11 +105,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dimen_8"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="@{stars}"
-            app:layout_constraintStart_toStartOf="@+id/film_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_rank"
             app:layout_constraintTop_toBottomOf="@+id/film_tag"
             app:mrb_progressBackgroundTint="@color/color_999999"
             app:mrb_progressTint="@color/colorPrimary" />
@@ -111,27 +130,24 @@
             tools:text="8.9" />
 
 
-
         <TextView
             android:id="@+id/tv_director"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/sp_13"
+            android:layout_marginTop="@dimen/dimen_8"
             android:text="@{director}"
-            app:layout_constraintStart_toStartOf="@+id/film_name"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintStart_toStartOf="@+id/tv_rank"
             app:layout_constraintTop_toBottomOf="@+id/tv_score"
-            android:layout_marginTop="@dimen/dp_10"
-            tools:text="Director"
-            />
+            tools:text="Director" />
 
         <ImageView
             android:id="@+id/iv_director"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="H,16:9"
-            app:layout_constraintStart_toStartOf="@+id/film_name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_director"
             app:layout_constraintBottom_toBottomOf="@+id/cv_head"
-            />
+            app:layout_constraintDimensionRatio="H,16:11"
+            app:layout_constraintStart_toStartOf="@+id/tv_rank"
+            app:layout_constraintTop_toBottomOf="@+id/tv_director" />
     </android.support.constraint.ConstraintLayout>
 </layout>

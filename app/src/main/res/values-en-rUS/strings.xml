@@ -18,7 +18,8 @@
     <string name="movie_classics">Top250</string>
     <string name="movie_director">Director:%1$s</string>
     <string name="movie_tag">Tags:%1$s</string>
-    <string name="movie_top_title">Rank:%1$d %2$s</string>
+    <string name="movie_top_title">%1$s</string>
+    <string name="movie_rank">No.%1$d</string>
 
     <!--我的-->
     <string name="mine_reward">Reword Developer:</string>
