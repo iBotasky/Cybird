@@ -9,6 +9,7 @@ import com.sirius.cybird.BR
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ItemFilmTopBinding
 import com.sirius.cybird.net.response.Film
+import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.utils.GlideUtil
 
 class MovieTopAdapter : BaseQuickAdapter<Film, MovieTopAdapter.ViewHolder>(R.layout.item_film_top) {
@@ -37,6 +38,8 @@ class MovieTopAdapter : BaseQuickAdapter<Film, MovieTopAdapter.ViewHolder>(R.lay
         binding.setVariable(BR.rating, item.rating.average.toString())
         binding.setVariable(BR.stars, (item.rating.average * 5.0f / item.rating.max).toFloat())
         binding.executePendingBindings()
+
+        binding.root.setOnClickListener({ Navigation.startFilmDetail(mContext, item.id, item.images.small)})
     }
 
 

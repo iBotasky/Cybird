@@ -26,9 +26,9 @@ class MovieFragment : BaseTabFragment() {
 
     override fun getTabItems(): List<TabItemData> {
         return listOf(
+                TabItemData(R.string.movie_classics, MovieTopFragment::class.java),
                 TabItemData(R.string.movie_hot, MovieHotFragment::class.java),
-                TabItemData(R.string.movie_coming_soon, MovieSoonFragment::class.java),
-                TabItemData(R.string.movie_classics, MovieTopFragment::class.java)
+                TabItemData(R.string.movie_coming_soon, MovieSoonFragment::class.java)
         )
     }
 
