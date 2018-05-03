@@ -4,7 +4,6 @@ import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityMovieDetailBinding
 import com.sirius.cybird.net.response.FilmDetailData
-import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.ui.base.BaseActivity
 import com.sirius.cybird.utils.GlideUtil
@@ -19,7 +18,7 @@ class MovieDetailActivity : BaseActivity() {
     lateinit var mPresenter: MovieDetailPresenter
     lateinit var mDetailBinding: ActivityMovieDetailBinding
 
-    lateinit var  mId: String
+    lateinit var mId: String
 
     init {
 
@@ -30,27 +29,18 @@ class MovieDetailActivity : BaseActivity() {
         mId = intent.getStringExtra(Navigation.EXTRA_ID)
         mDetailBinding = getBaseViewBinding()
         GlideUtil.loadImage(this, mDetailBinding.ivFilmImg, intent.getStringExtra(Navigation.EXTRA_IMG))
-        loadData()
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(R.id.id_continer, MovieDetailContentFragment.newInstance(mId))
+        fragmentTransaction.commitAllowingStateLoss()
     }
 
     override fun isDisplayHomeAsUpEnable(): Boolean {
         return true
     }
 
-    override fun loadData() {
-        mPresenter.getFilmDetail(mId)
-                .compose(TransformScheduler.applyNewThreadScheduler())
-                .compose(bindToLifecycle())
-                .subscribe(
-                        { filmDetailData -> setDatas(filmDetailData) },
-                        { e -> mMultiStateView?.viewState = MultiStateView.VIEW_STATE_ERROR },
-                        {}
-                )
-    }
-
-    private fun setDatas(filmDetailData: FilmDetailData) {
-        mMultiStateView?.viewState = MultiStateView.VIEW_STATE_CONTENT
-    }
+//    private fun setDatas(filmDetailData: FilmDetailData) {
+//        mMultiStateView?.viewState = MultiStateView.VIEW_STATE_CONTENT
+//    }
 
 
     override fun initializeInjector() {

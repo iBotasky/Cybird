@@ -50,9 +50,8 @@
             </android.support.design.widget.CollapsingToolbarLayout>
 
         </android.support.design.widget.AppBarLayout>
-        <fragment
-            android:id="@+id/fragment2"
-            android:name="com.sirius.cybird.ui.movie.hot.MovieHotFragment"
+        <FrameLayout
+            android:id="@id/id_continer"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
