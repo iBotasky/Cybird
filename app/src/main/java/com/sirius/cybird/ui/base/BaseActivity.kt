@@ -47,6 +47,7 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
         setupStatusBar()
         setupMultiStateView()
         setupViews()
+        loadData()
     }
 
 

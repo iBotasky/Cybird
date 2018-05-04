@@ -15,8 +15,7 @@ import com.sirius.cybird.ui.movie.MovieFragment
 import com.tbruyelle.rxpermissions2.RxPermissions
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
-
-
+import com.blankj.utilcode.util.ToastUtils
 
 
 class HomeActivity : BaseNavActivity() {
@@ -76,6 +75,7 @@ class HomeActivity : BaseNavActivity() {
     override fun onBackPressed() {
         if (System.currentTimeMillis() - mCurrentBackPressedTime >= BACK_PRESSED_INTERVAL) {
             mCurrentBackPressedTime = System.currentTimeMillis()
+            ToastUtils.showShort(R.string.g_click_to_finish)
         } else {
             finish()
         }

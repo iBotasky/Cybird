@@ -86,4 +86,9 @@ class SplashActivity : BaseActivity() {
 
     override fun initializeInjector() {
     }
+
+
+    override fun onBackPressed() {
+
+    }
 }

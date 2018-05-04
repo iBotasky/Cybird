@@ -25,8 +25,7 @@ class DailyDetailActivity : BaseActivity() {
     override fun setupViews() {
         super.setupViews()
         mDetailBinding = getBaseViewBinding()
-        GlideUtil.loadImage(this, iv_read_bg, intent.getStringExtra(Navigation.EXTRA_IMG))
-        loadData()
+        GlideUtil.loadImage(this, mDetailBinding.ivReadBg, intent.getStringExtra(Navigation.EXTRA_IMG))
         //设置MultiStateView的逻辑
         setOnRetry {
             if (mMultiStateView!!.viewState != MultiStateView.VIEW_STATE_LOADING){
@@ -49,6 +48,7 @@ class DailyDetailActivity : BaseActivity() {
 
     private fun loadView(data:ZHNewsDetailData){
         mMultiStateView!!.viewState = MultiStateView.VIEW_STATE_CONTENT
+        GlideUtil.loadImage(this, mDetailBinding.ivReadBg,data.image)
         mDetailBinding.collapsingToolbar.title = data.title
         mDetailBinding.wvContent.settings.javaScriptEnabled = true
         val css = "<link rel=\"stylesheet\" href=\"" + data.css[0] + "\" type=\"text/css\">"
