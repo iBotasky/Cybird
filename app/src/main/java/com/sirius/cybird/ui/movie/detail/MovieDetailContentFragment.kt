@@ -11,14 +11,13 @@ import com.sirius.cybird.di.component.ActivityComponent
 import com.sirius.cybird.net.response.FilmDetailData
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseRecyclerMultiFragment
-import com.sirius.cybird.ui.daily.DailyAdapter
 import javax.inject.Inject
 
 
 /**
  * Created By Botasky 2018/5/3
  */
-class MovieDetailContentFragment : BaseRecyclerMultiFragment<DailyAdapter.ViewHolder>() {
+class MovieDetailContentFragment : BaseRecyclerMultiFragment<MovieDetailAdapter.ViewHolder>() {
     private var mId: String? = null
 
     @Inject
@@ -50,8 +49,8 @@ class MovieDetailContentFragment : BaseRecyclerMultiFragment<DailyAdapter.ViewHo
     }
 
 
-    override fun getAdapter(): BaseMultiItemQuickAdapter<MultiItemEntity, DailyAdapter.ViewHolder> {
-        return DailyAdapter(arrayListOf())
+    override fun getAdapter(): BaseMultiItemQuickAdapter<MultiItemEntity, MovieDetailAdapter.ViewHolder> {
+        return MovieDetailAdapter(arrayListOf())
     }
 
     override fun loadData() {

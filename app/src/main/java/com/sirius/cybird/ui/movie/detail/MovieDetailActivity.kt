@@ -38,11 +38,6 @@ class MovieDetailActivity : BaseActivity() {
         return true
     }
 
-//    private fun setDatas(filmDetailData: FilmDetailData) {
-//        mMultiStateView?.viewState = MultiStateView.VIEW_STATE_CONTENT
-//    }
-
-
     override fun initializeInjector() {
         component.inject(this)
     }
