@@ -27,7 +27,7 @@ class DailyPresenter {
                 .flatMap {zhihudata-> Observable.just(convertToMultiEntity(zhihudata))}
     }
 
-    fun convertToMultiEntity(zhiHuData: ZhiHuData):List<MultiItemEntity>{
+    private fun convertToMultiEntity(zhiHuData: ZhiHuData):List<MultiItemEntity>{
         val multiList:MutableList<MultiItemEntity> = mutableListOf()
         multiList.add(TopStories(zhiHuData.topStories))
         multiList.addAll(zhiHuData.stories)

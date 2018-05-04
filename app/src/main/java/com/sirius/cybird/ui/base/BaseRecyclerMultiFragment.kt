@@ -39,6 +39,7 @@ abstract class BaseRecyclerMultiFragment<H : BaseViewHolder> : BaseLazyFragment(
         mRecyclerView = mMultiStateView.findViewById(R.id.id_recycler_view)
         mSwipeRefresh = mMultiStateView.findViewById(R.id.id_swipe_refresh)
         mSwipeRefresh.isEnabled = isEnableSwipeLayout()
+
         mMultiStateView.setViewForState(getMultiStateViewEmpty(), MultiStateView.VIEW_STATE_EMPTY)
         mMultiStateView.setViewForState(getMultiStateViewError(), MultiStateView.VIEW_STATE_ERROR)
         mMultiStateView.setViewForState(getMultiStateViewLoading(), MultiStateView.VIEW_STATE_LOADING)
@@ -61,12 +62,16 @@ abstract class BaseRecyclerMultiFragment<H : BaseViewHolder> : BaseLazyFragment(
 
         mAdapter = getAdapter()
         mRecyclerView.adapter = mAdapter
-        mAdapter.setOnLoadMoreListener(object : BaseQuickAdapter.RequestLoadMoreListener {
-            override fun onLoadMoreRequested() {
-                doLoadMore()
-            }
-        }, mRecyclerView)
 
+        if (isEnableLoadMore()) {
+            mAdapter.setOnLoadMoreListener(object : BaseQuickAdapter.RequestLoadMoreListener {
+                override fun onLoadMoreRequested() {
+                    doLoadMore()
+                }
+            }, mRecyclerView)
+        }else{
+            mAdapter.setEnableLoadMore(false)
+        }
         mFloatingButton = mBinding.root.findViewById(R.id.id_float_button)
         mFloatingButton?.hide()
         mFloatingButton?.attachToRecyclerView(mRecyclerView, object : ScrollDirectionListener {

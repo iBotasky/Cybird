@@ -34,8 +34,10 @@
     <dimen name="bar_elevation">5dp</dimen>
 
     <!--SP-->
+    <dimen name="sp_11">11sp</dimen>
     <dimen name="sp_13">13sp</dimen>
     <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_18">18sp</dimen>
     <dimen name="sp_20">20sp</dimen>
 
     <!--DP-->

@@ -66,8 +66,9 @@ class MovieDetailContentFragment : BaseRecyclerMultiFragment<MovieDetailAdapter.
         }
     }
 
-    private fun showData(filmDetailData: FilmDetailData) {
+    private fun showData(multiList: List<MultiItemEntity>) {
         mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
+        mAdapter.setNewData(multiList)
     }
 
     override fun getLayouResource(): Int {
@@ -79,6 +80,10 @@ class MovieDetailContentFragment : BaseRecyclerMultiFragment<MovieDetailAdapter.
     }
 
     override fun isEnableSwipeLayout(): Boolean {
+        return false
+    }
+
+    override fun isEnableLoadMore(): Boolean {
         return false
     }
 }

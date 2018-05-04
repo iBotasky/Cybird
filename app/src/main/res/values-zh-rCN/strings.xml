@@ -22,6 +22,7 @@
     <string name="movie_top_title">%1$s</string>
     <string name="movie_rank">No.%1$d</string>
     <string name="movie_douban">豆瓣评分:</string>
+    <string name="movie_douban_2">豆瓣评分</string>
 
     <!--我的-->
     <string name="mine_reward">打赏开发者:</string>

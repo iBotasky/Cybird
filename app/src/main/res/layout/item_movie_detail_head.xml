@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_rating"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:layout_marginEnd="@dimen/dimen_20"
+            android:layout_marginTop="@dimen/dimen_20"
+            android:elevation="@dimen/card_elevation"
+            app:cardCornerRadius="@dimen/dimen_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_douban"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/movie_douban_2"
+                    android:textSize="@dimen/sp_11"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_score"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_000000"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_douban"
+                    app:layout_constraintBottom_toTopOf="@+id/ratingbar"
+                    tools:text="9.0" />
+
+                <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                    android:id="@+id/ratingbar"
+                    style="@style/Widget.MaterialRatingBar.RatingBar.Indicator.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_score"
+                    app:mrb_progressBackgroundTint="@color/color_999999"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_rate_count"
+                    app:mrb_progressTint="@color/color_star"
+                    tools:rating="4" />
+
+                <TextView
+                    tools:text="10000人"
+                    app:layout_constraintTop_toBottomOf="@+id/ratingbar"
+                    android:textSize="@dimen/sp_11"
+                    android:id="@+id/tv_rate_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tv_film_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_year_tags"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cv_rating"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            tools:text="狂暴巨兽" />
+
+        <TextView
+            android:id="@+id/tv_year_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_11"
+            app:layout_constraintBottom_toTopOf="@+id/tv_original_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_film_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_film_name"
+            tools:text="2018" />
+
+        <TextView
+            android:id="@+id/tv_original_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp_11"
+            app:layout_constraintBottom_toBottomOf="@+id/cv_rating"
+            app:layout_constraintStart_toStartOf="@+id/tv_film_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_year_tags"
+            tools:text="原名" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
