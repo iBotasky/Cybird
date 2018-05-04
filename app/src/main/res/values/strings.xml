@@ -5,7 +5,7 @@
     <string name="g_multi_view_data_empty">暂无数据</string>
     <string name="g_multi_view_retry">重试</string>
     <string name="g_multi_view_error">数据加载出错</string>
-    <string name="g_multi_view_loading">加载中...</string>
+    <string name="g_multi_view_loading">加载中&#8230;</string>
     <string name="g_click_to_finish">再按一次退出</string>
     <!--Home-->
     <string name="tab_movie">电影</string>
@@ -26,9 +26,10 @@
     <string name="movie_summary">简介</string>
     <string name="movie_original_title">原名:</string>
     <string name="movie_rating_pepole">%1$d人</string>
+    <string name="movie_casts">影人</string>
 
     <!--我的-->
     <string name="mine_reward">打赏开发者:</string>
-    <string name="mine_more">后续更多功能开发中...</string>
+    <string name="mine_more">后续更多功能开发中&#8230;</string>
 
 </resources>

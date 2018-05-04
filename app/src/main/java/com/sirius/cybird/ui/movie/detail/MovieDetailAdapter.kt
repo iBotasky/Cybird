@@ -21,7 +21,7 @@ class MovieDetailAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAd
 
     init {
         addItemType(HEAD, R.layout.item_movie_detail_head)
-        addItemType(CASTS, R.layout.item_movie_detail_summary)
+        addItemType(CASTS, R.layout.item_movie_detail_casts)
         addItemType(SUMMARY, R.layout.item_movie_detail_summary)
     }
 
@@ -36,7 +36,6 @@ class MovieDetailAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAd
             HEAD -> {
                 val head = item as DetailHead
                 val binding = helper.headBinding
-//                binding.ratingbar.rating =
                 binding.setVariable(BR.head, head)
                 binding.executePendingBindings()
 
@@ -69,6 +68,7 @@ class MovieDetailAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAd
                 view.setTag(R.id.tag_movie_summary, binding)
                 return view
             }
+
             else -> {
                 return super.getItemView(layoutResId, parent)
             }
