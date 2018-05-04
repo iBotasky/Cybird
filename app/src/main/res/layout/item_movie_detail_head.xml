@@ -5,10 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="head"
-            type="com.sirius.cybird.net.response.DetailHead"/>
+            type="com.sirius.cybird.net.response.DetailHead" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -22,12 +24,12 @@
             android:layout_marginBottom="@dimen/dimen_20"
             android:layout_marginEnd="@dimen/dimen_20"
             android:layout_marginTop="@dimen/dimen_20"
-            card_view:cardElevation="10dp"
-            card_view:cardMaxElevation="10dp"
             app:cardCornerRadius="@dimen/dimen_0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            card_view:cardElevation="10dp"
+            card_view:cardMaxElevation="10dp">
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
@@ -48,13 +50,14 @@
                     android:id="@+id/tv_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(head.rating.average)}"
                     android:textColor="@color/color_000000"
                     android:textSize="@dimen/sp_16"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/ratingbar"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_douban"
-                    app:layout_constraintBottom_toTopOf="@+id/ratingbar"
                     tools:text="9.0" />
 
                 <me.zhanghai.android.materialratingbar.MaterialRatingBar
@@ -65,25 +68,27 @@
                     android:layout_gravity="center_vertical"
                     android:isIndicator="true"
                     android:numStars="5"
+                    android:rating="@{(float)(head.rating.average *5.0f / head.rating.max * 1.0f)}"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_rate_count"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_score"
                     app:mrb_progressBackgroundTint="@color/color_999999"
-                    app:layout_constraintBottom_toTopOf="@+id/tv_rate_count"
                     app:mrb_progressTint="@color/color_star"
-                    tools:rating="4" />
+                    tools:rating="3.5" />
 
                 <TextView
-                    tools:text="10000人"
-                    app:layout_constraintTop_toBottomOf="@+id/ratingbar"
-                    android:textSize="@dimen/sp_11"
                     android:id="@+id/tv_rate_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@{head.ratingCount}"
+                    android:textSize="@dimen/sp_11"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ratingbar"
+                    tools:text="10000人" />
 
             </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
@@ -93,15 +98,16 @@
             android:id="@+id/tv_film_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_20"
             android:layout_marginStart="@dimen/dimen_20"
-            android:textColor="@color/color_000000"
-            android:textSize="@dimen/sp_18"
-            android:textStyle="bold"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="@{head.title}"
-            app:layout_constraintEnd_toStartOf="@+id/cv_rating"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/tv_year_tags"
+            app:layout_constraintEnd_toStartOf="@+id/cv_rating"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/cv_rating"
             app:layout_constraintVertical_chainStyle="spread_inside"
@@ -111,8 +117,8 @@
             android:id="@+id/tv_year_tags"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/sp_11"
             android:text="@{head.year}"
+            android:textSize="@dimen/sp_11"
             app:layout_constraintBottom_toTopOf="@+id/tv_original_name"
             app:layout_constraintStart_toStartOf="@+id/tv_film_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_film_name"
@@ -120,11 +126,13 @@
 
         <TextView
             android:id="@+id/tv_original_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/sp_11"
+            android:layout_marginEnd="@dimen/dimen_20"
             android:text="@{head.originalTitle}"
+            android:textSize="@dimen/sp_11"
             app:layout_constraintBottom_toBottomOf="@+id/cv_rating"
+            app:layout_constraintEnd_toStartOf="@+id/cv_rating"
             app:layout_constraintStart_toStartOf="@+id/tv_film_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_year_tags"
             tools:text="原名" />

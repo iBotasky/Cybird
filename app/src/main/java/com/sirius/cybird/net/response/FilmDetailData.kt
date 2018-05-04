@@ -78,7 +78,7 @@ data class FilmDetailData(
 data class DetailHead(val title: String,
                       val originalTitle: String,
                       val year: String,
-                      val ratingCount:Int,
+                      val ratingCount:String,
                       val rating: Rating) : MultiItemEntity {
 
     override fun getItemType(): Int {

@@ -25,6 +25,7 @@
     <string name="movie_douban_2">Douban</string>
     <string name="movie_summary">Summary</string>
     <string name="movie_original_title">Original:</string>
+    <string name="movie_rating_pepole">%1$d mark</string>
 
     <!--我的-->
     <string name="mine_reward">Reword Developer:</string>

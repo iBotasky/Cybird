@@ -36,6 +36,7 @@ class MovieDetailAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAd
             HEAD -> {
                 val head = item as DetailHead
                 val binding = helper.headBinding
+//                binding.ratingbar.rating =
                 binding.setVariable(BR.head, head)
                 binding.executePendingBindings()
 

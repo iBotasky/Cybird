@@ -21,6 +21,7 @@ import javax.inject.Named
 class MovieDetailPresenter {
     private val mRetrofit: Retrofit
     private val mContext: Context
+
     @Inject
     constructor(@Named(NameConst.DOUBAN) retrofit: Retrofit, activity: Activity) {
         mRetrofit = retrofit
@@ -35,16 +36,22 @@ class MovieDetailPresenter {
 
     private fun convertToMultiEntity(data: FilmDetailData): List<MultiItemEntity> {
         val multiList: MutableList<MultiItemEntity> = mutableListOf()
-        var yearAndTag:String = ""
-        yearAndTag += data.year +" / "
-        for (tag in data.genres){
+        var yearAndTag: String = ""
+        yearAndTag += data.year + " / "
+        for (tag in data.genres) {
             if (data.genres.indexOf(tag) != data.genres.size - 1)
                 yearAndTag += tag + " / "
             else
                 yearAndTag += tag
         }
 
-        multiList.add(DetailHead(title = data.title, originalTitle = mContext.getString(R.string.movie_original_title) + data.originalTitle, year = yearAndTag, ratingCount = data.ratingsCount, rating = data.rating))
+        multiList.add(DetailHead(
+                title = data.title,
+                originalTitle = mContext.getString(R.string.movie_original_title) + data.originalTitle,
+                year = yearAndTag,
+                ratingCount = mContext.getString(R.string.movie_rating_pepole, data.ratingsCount),
+                rating = data.rating)
+        )
         multiList.add(DetailSummary(summary = data.summary))
         multiList.add(DetailCasts(directors = data.directors, casts = data.casts))
         return multiList
