@@ -99,18 +99,28 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_rank"
             tools:text="标签" />
 
+        <TextView
+            android:id="@+id/tv_douban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/tv_rank"
+            app:layout_constraintTop_toBottomOf="@+id/film_tag"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:textSize="@dimen/sp_13"
+            android:text="@string/movie_douban"/>
+
         <me.zhanghai.android.materialratingbar.MaterialRatingBar
             android:id="@+id/film_rating_bar"
             style="@style/Widget.MaterialRatingBar.RatingBar.Indicator.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="@dimen/dimen_8"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="@{stars}"
-            app:layout_constraintStart_toStartOf="@+id/tv_rank"
-            app:layout_constraintTop_toBottomOf="@+id/film_tag"
+            app:layout_constraintStart_toEndOf="@+id/tv_douban"
+            app:layout_constraintTop_toTopOf="@+id/tv_douban"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_douban"
             app:mrb_progressBackgroundTint="@color/color_999999"
             app:mrb_progressTint="@color/colorPrimary" />
 

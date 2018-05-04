@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dimen_8"
             android:text="@{title}"
             android:textColor="@color/color_000000"
             android:textSize="@dimen/sp_16"
@@ -67,7 +67,7 @@
             android:id="@+id/film_director"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dimen_8"
             android:text="@{director}"
             android:textColor="@color/color_666666"
             android:textSize="@dimen/sp_13"
@@ -75,18 +75,28 @@
             app:layout_constraintTop_toBottomOf="@+id/film_name"
             tools:text="导演" />
 
+        <TextView
+            android:id="@+id/tv_douban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/film_name"
+            app:layout_constraintTop_toBottomOf="@+id/film_director"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:textSize="@dimen/sp_13"
+            android:text="@string/movie_douban"/>
+
         <me.zhanghai.android.materialratingbar.MaterialRatingBar
             android:id="@+id/film_rating_bar"
             style="@style/Widget.MaterialRatingBar.RatingBar.Indicator.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="@dimen/dp_10"
             android:isIndicator="true"
             android:numStars="5"
             android:rating="@{stars}"
-            app:layout_constraintStart_toStartOf="@+id/film_name"
-            app:layout_constraintTop_toBottomOf="@+id/film_director"
+            app:layout_constraintStart_toEndOf="@+id/tv_douban"
+            app:layout_constraintTop_toTopOf="@+id/tv_douban"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_douban"
             app:mrb_progressBackgroundTint="@color/color_999999"
             app:mrb_progressTint="@color/colorPrimary" />
 
@@ -110,7 +120,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:clickable="false"
-            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dimen_8"
             app:layout_constraintBottom_toBottomOf="@id/cv_head"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/film_name"
