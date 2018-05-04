@@ -80,6 +80,7 @@ data class DetailHead(val title: String,
                       val year: String,
                       val ratingCount:Int,
                       val rating: Rating) : MultiItemEntity {
+
     override fun getItemType(): Int {
         return MovieDetailAdapter.HEAD
     }

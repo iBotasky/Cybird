@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <import type="android.view.View" />
+        <variable
+            name="head"
+            type="com.sirius.cybird.net.response.DetailHead"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -19,7 +22,8 @@
             android:layout_marginBottom="@dimen/dimen_20"
             android:layout_marginEnd="@dimen/dimen_20"
             android:layout_marginTop="@dimen/dimen_20"
-            android:elevation="@dimen/card_elevation"
+            card_view:cardElevation="10dp"
+            card_view:cardMaxElevation="10dp"
             app:cardCornerRadius="@dimen/dimen_0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -87,12 +91,16 @@
 
         <TextView
             android:id="@+id/tv_film_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_20"
             android:textColor="@color/color_000000"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{head.title}"
+            app:layout_constraintEnd_toStartOf="@+id/cv_rating"
             app:layout_constraintBottom_toTopOf="@+id/tv_year_tags"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/cv_rating"
@@ -104,6 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp_11"
+            android:text="@{head.year}"
             app:layout_constraintBottom_toTopOf="@+id/tv_original_name"
             app:layout_constraintStart_toStartOf="@+id/tv_film_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_film_name"
@@ -114,6 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp_11"
+            android:text="@{head.originalTitle}"
             app:layout_constraintBottom_toBottomOf="@+id/cv_rating"
             app:layout_constraintStart_toStartOf="@+id/tv_film_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_year_tags"

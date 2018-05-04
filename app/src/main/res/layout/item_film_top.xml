@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -46,7 +47,8 @@
             android:layout_height="200dp"
             android:layout_margin="@dimen/card_margin"
             app:cardCornerRadius="4dp"
-            app:cardElevation="@dimen/card_elevation"
+            card_view:cardElevation="@dimen/card_elevation"
+            card_view:cardMaxElevation="@dimen/card_elevation"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

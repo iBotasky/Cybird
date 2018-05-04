@@ -23,6 +23,8 @@
     <string name="movie_rank">No.%1$d</string>
     <string name="movie_douban">Douban:</string>
     <string name="movie_douban_2">Douban</string>
+    <string name="movie_summary">Summary</string>
+    <string name="movie_original_title">Original:</string>
 
     <!--我的-->
     <string name="mine_reward">Reword Developer:</string>

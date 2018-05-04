@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -27,8 +28,8 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
         android:paddingLeft="@dimen/dp_10"
         android:paddingRight="@dimen/dp_10">
 
@@ -38,10 +39,11 @@
             android:layout_height="200dp"
             android:layout_margin="@dimen/card_margin"
             app:cardCornerRadius="@dimen/card_radius"
-            app:cardElevation="@dimen/card_elevation"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            card_view:cardElevation="@dimen/card_elevation"
+            card_view:cardMaxElevation="@dimen/card_elevation">
 
             <ImageView
                 android:id="@+id/iv_film_img"
@@ -79,11 +81,11 @@
             android:id="@+id/tv_douban"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/film_name"
-            app:layout_constraintTop_toBottomOf="@+id/film_director"
             android:layout_marginTop="@dimen/dimen_8"
+            android:text="@string/movie_douban"
             android:textSize="@dimen/sp_13"
-            android:text="@string/movie_douban"/>
+            app:layout_constraintStart_toStartOf="@+id/film_name"
+            app:layout_constraintTop_toBottomOf="@+id/film_director" />
 
         <me.zhanghai.android.materialratingbar.MaterialRatingBar
             android:id="@+id/film_rating_bar"
@@ -94,9 +96,9 @@
             android:isIndicator="true"
             android:numStars="5"
             android:rating="@{stars}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_douban"
             app:layout_constraintStart_toEndOf="@+id/tv_douban"
             app:layout_constraintTop_toTopOf="@+id/tv_douban"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_douban"
             app:mrb_progressBackgroundTint="@color/color_999999"
             app:mrb_progressTint="@color/colorPrimary" />
 
@@ -119,8 +121,8 @@
             android:id="@+id/rv_cast"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:clickable="false"
             android:layout_marginTop="@dimen/dimen_8"
+            android:clickable="false"
             app:layout_constraintBottom_toBottomOf="@id/cv_head"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/film_name"
