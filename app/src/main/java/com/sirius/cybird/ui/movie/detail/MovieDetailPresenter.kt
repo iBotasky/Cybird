@@ -52,8 +52,17 @@ class MovieDetailPresenter {
                 ratingCount = mContext.getString(R.string.movie_rating_pepole, data.ratingsCount),
                 rating = data.rating)
         )
+        val actors: MutableList<MovieDetailCastAdapter.MovieCasts> = mutableListOf()
+        for (director in data.directors) {
+            actors.add(MovieDetailCastAdapter.MovieCasts(director.name, director.avatars.small, mContext.getString(R.string.movie_director2)))
+        }
+
+        for (actor in data.casts) {
+            actors.add(MovieDetailCastAdapter.MovieCasts(actor.name, actor.avatars.small, ""))
+        }
+
         multiList.add(DetailSummary(summary = data.summary))
-        multiList.add(DetailCasts(directors = data.directors, casts = data.casts))
+        multiList.add(DetailCasts(actors))
         return multiList
     }
 }

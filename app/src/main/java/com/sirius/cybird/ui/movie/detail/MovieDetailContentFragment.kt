@@ -2,6 +2,7 @@ package com.sirius.cybird.ui.movie.detail
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.kennyc.view.MultiStateView
@@ -46,6 +47,8 @@ class MovieDetailContentFragment : BaseRecyclerMultiFragment<MovieDetailAdapter.
     override fun setupViews() {
         super.setupViews()
         mMovieDetailFragmentBinding = getBaseViewBinding()
+        mFloatingButton?.visibility = View.GONE
+        mFloatingButton?.isEnabled = false
     }
 
 

@@ -1,7 +1,8 @@
 package com.sirius.cybird.ui.movie.detail
 
 import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
@@ -9,10 +10,13 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.sirius.cybird.BR
 import com.sirius.cybird.R
+import com.sirius.cybird.databinding.ItemMovieDetailCastsBinding
 import com.sirius.cybird.databinding.ItemMovieDetailHeadBinding
 import com.sirius.cybird.databinding.ItemMovieDetailSummaryBinding
+import com.sirius.cybird.net.response.DetailCasts
 import com.sirius.cybird.net.response.DetailHead
 import com.sirius.cybird.net.response.DetailSummary
+import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 
 /**
  * Created By Botasky 2018/5/4
@@ -32,7 +36,7 @@ class MovieDetailAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAd
     }
 
     override fun convert(helper: ViewHolder, item: MultiItemEntity) {
-        when(item.itemType){
+        when (item.itemType) {
             HEAD -> {
                 val head = item as DetailHead
                 val binding = helper.headBinding
@@ -40,8 +44,17 @@ class MovieDetailAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAd
                 binding.executePendingBindings()
 
             }
-
-            SUMMARY ->{
+            CASTS -> {
+                val cast = item as DetailCasts
+                val binding = helper.castsBinding
+                val adapter = MovieDetailCastAdapter(cast.actors)
+                binding.rvCasts.layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL,false)
+                if (binding.rvCasts.itemDecorationCount == 0)
+                    binding.rvCasts.addItemDecoration(HorizontalSpaceDecoration(R.dimen.dimen_20, R.dimen.dimen_0, R.dimen.dimen_10))
+                binding.rvCasts.adapter = adapter
+                binding.executePendingBindings()
+            }
+            SUMMARY -> {
                 val summary = item as DetailSummary
                 val binding = helper.summaryBinding
                 binding.setVariable(BR.summary, summary.summary)
@@ -68,7 +81,12 @@ class MovieDetailAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAd
                 view.setTag(R.id.tag_movie_summary, binding)
                 return view
             }
-
+            R.layout.item_movie_detail_casts -> {
+                val binding: ItemMovieDetailCastsBinding = DataBindingUtil.inflate(mLayoutInflater, layoutResId, parent, false)
+                val view = binding.root
+                view.setTag(R.id.tag_movie_casts, binding)
+                return view
+            }
             else -> {
                 return super.getItemView(layoutResId, parent)
             }
@@ -83,5 +101,8 @@ class MovieDetailAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAd
 
         val summaryBinding: ItemMovieDetailSummaryBinding
             get() = itemView.getTag(R.id.tag_movie_summary) as ItemMovieDetailSummaryBinding
+
+        val castsBinding: ItemMovieDetailCastsBinding
+            get() = itemView.getTag(R.id.tag_movie_casts) as ItemMovieDetailCastsBinding
     }
 }

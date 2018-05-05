@@ -27,6 +27,7 @@
     <string name="movie_original_title">原名:</string>
     <string name="movie_rating_pepole">%1$d人</string>
     <string name="movie_casts">影人</string>
+    <string name="movie_director2">导演</string>
 
     <!--我的-->
     <string name="mine_reward">打赏开发者:</string>

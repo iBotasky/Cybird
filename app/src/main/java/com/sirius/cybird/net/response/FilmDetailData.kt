@@ -3,6 +3,7 @@ package com.sirius.cybird.net.response
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.google.gson.annotations.SerializedName
 import com.sirius.cybird.ui.movie.detail.MovieDetailAdapter
+import com.sirius.cybird.ui.movie.detail.MovieDetailCastAdapter
 
 /**
  * Property	Description	Type	Basic	Advance	Premium	Default
@@ -78,7 +79,7 @@ data class FilmDetailData(
 data class DetailHead(val title: String,
                       val originalTitle: String,
                       val year: String,
-                      val ratingCount:String,
+                      val ratingCount: String,
                       val rating: Rating) : MultiItemEntity {
 
     override fun getItemType(): Int {
@@ -92,8 +93,7 @@ data class DetailSummary(val summary: String) : MultiItemEntity {
     }
 }
 
-data class DetailCasts(val directors: List<Director>,
-                       val casts: List<Cast>) : MultiItemEntity {
+data class DetailCasts(val actors: List<MovieDetailCastAdapter.MovieCasts>) : MultiItemEntity {
     override fun getItemType(): Int {
         return MovieDetailAdapter.CASTS
     }

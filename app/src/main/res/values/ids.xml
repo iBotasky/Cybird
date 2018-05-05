@@ -21,6 +21,8 @@
     <item name="id_tag_movie_top" type="id" />
     <item name="tag_movie_head" type="id"/>
     <item name="tag_movie_summary" type="id"/>
+    <item name="tag_movie_casts" type="id"/>
+    <item name="tag_movie_casts_actor" type="id"/>
 
 
     <item name="id_tag_daily_banner" type="id" />
