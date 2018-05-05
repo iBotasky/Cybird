@@ -5,6 +5,15 @@ apply plugin: 'kotlin-kapt'                 //KotlinKapt
 
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'cybird'
+            keyPassword 'siriusabo0203'
+            storePassword 'siriusabo0203'
+            storeFile file('/Users/botasky/AndroidProject/Cybird/cybird')
+        }
+    }
+
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
     buildToolsVersion rootProject.ext.androidBuildToolsVersion
     defaultConfig {
@@ -130,9 +139,9 @@ dependencies {
 
     //阿里轮播
     implementation appDependencies.ultraviewpager
+
     //floatingButton
     implementation appDependencies.floatingButton
-
     implementation files('libs/hh_8.4_ok.jar')
     implementation files('libs/imageLoader.jar')
 }
