@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'                 //KotlinKapt
 
 android {
     signingConfigs {
-        config {
+        release {
             keyAlias 'cybird'
             keyPassword 'siriusabo0203'
             storePassword 'siriusabo0203'
@@ -26,6 +26,7 @@ android {
     }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFile 'proguard/proguard-androidannotations.pro'
@@ -57,6 +58,10 @@ android {
     //DataBinding
     dataBinding {
         enabled = true
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 

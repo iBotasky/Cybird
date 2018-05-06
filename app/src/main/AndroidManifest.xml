@@ -54,28 +54,28 @@
             android:screenOrientation="portrait"/>
 
         <!--luomi ads-->
-        <activity android:name="com.centent.hh.b.HHActivity" />
+        <!--<activity android:name="com.centent.hh.b.HHActivity" />-->
 
-        <service android:name="com.centent.hh.b.ContentService" />
+        <!--<service android:name="com.centent.hh.b.ContentService" />-->
 
-        <receiver android:name="com.centent.hh.b.McReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_ADDED" />
-                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+        <!--<receiver android:name="com.centent.hh.b.McReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.PACKAGE_ADDED" />-->
+                <!--<action android:name="android.intent.action.PACKAGE_REMOVED" />-->
 
-                <data android:scheme="package" />
-            </intent-filter>
-        </receiver>
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.sirius.cybird.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <!--元数据-->
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/lmc_paths" />
-        </provider>
+                <!--<data android:scheme="package" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<provider-->
+            <!--android:name="android.support.v4.content.FileProvider"-->
+            <!--android:authorities="com.sirius.cybird.fileprovider"-->
+            <!--android:exported="false"-->
+            <!--android:grantUriPermissions="true">-->
+            <!--&lt;!&ndash;元数据&ndash;&gt;-->
+            <!--<meta-data-->
+                <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+                <!--android:resource="@xml/lmc_paths" />-->
+        <!--</provider>-->
 
 
     </application>
