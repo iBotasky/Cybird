@@ -32,6 +32,4 @@ class GirlsAdapter:BaseQuickAdapter<ResultsBean,GirlsAdapter.ViewHolder>(R.layou
         val binding: ItemGrilsBinding
             get() = itemView.getTag(R.id.id_tag_girl) as ItemGrilsBinding
     }
-
-
 }
