@@ -10,7 +10,7 @@ android {
             keyAlias 'cybird'
             keyPassword 'siriusabo0203'
             storePassword 'siriusabo0203'
-            storeFile file('/Users/botasky/AndroidProject/Cybird/cybird')
+            storeFile file('/Users/apple/AndroidProject/Cybrid/cybird')
         }
     }
 
@@ -57,7 +57,7 @@ android {
 
         debug {
             signingConfig signingConfigs.release
-            minifyEnabled false
+            minifyEnabled true
             shrinkResources false
             proguardFile 'proguard/proguard-androidannotations.pro'
             proguardFile 'proguard/proguard-growingio.pro'

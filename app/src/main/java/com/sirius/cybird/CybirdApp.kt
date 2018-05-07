@@ -54,8 +54,8 @@ class CybirdApp : Application() {
 
     }
 
-    fun setupAds(){
-        XMain.getInstance().setAppKey(this, Config.KEY_LUOMI_ADS)
+//    fun setupAds(){
+//        XMain.getInstance().setAppKey(this, Config.KEY_LUOMI_ADS)
 //        Observable.interval(0, 30, TimeUnit.SECONDS)
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(Schedulers.io())
@@ -77,7 +77,7 @@ class CybirdApp : Application() {
 //        val mInst = Instrumentation()
 //        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 30.toFloat(), SystemBarHelper.getStatusBarHeight(this)+30.toFloat(), 0))
 //        mInst.sendPointerSync(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 30.toFloat(), SystemBarHelper.getStatusBarHeight(this)+30.toFloat(),0))
-    }
+//    }
 
     fun setupUtils(){
         Utils.init(this)
