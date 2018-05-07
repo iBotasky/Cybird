@@ -57,7 +57,7 @@ android {
 
         debug {
             signingConfig signingConfigs.release
-            minifyEnabled true
+            minifyEnabled false
             shrinkResources false
             proguardFile 'proguard/proguard-androidannotations.pro'
             proguardFile 'proguard/proguard-growingio.pro'
