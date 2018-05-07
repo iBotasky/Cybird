@@ -18,7 +18,7 @@ import dagger.Component
 @ActivityScoped
 @Component(dependencies = arrayOf(RepositoryComponent::class), modules = arrayOf(ActivityModule::class))
 interface ActivityComponent {
-    fun activity(): Activity
+    fun provideActivity(): Activity
 
     fun inject(activity: HomeActivity)
 
