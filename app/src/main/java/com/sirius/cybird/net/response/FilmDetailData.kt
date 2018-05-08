@@ -98,3 +98,9 @@ data class DetailCasts(val actors: List<MovieDetailCastAdapter.MovieCasts>) : Mu
         return MovieDetailAdapter.CASTS
     }
 }
+
+data class DetailComment(val count: String):MultiItemEntity{
+    override fun getItemType(): Int {
+        return MovieDetailAdapter.COMMENT
+    }
+}

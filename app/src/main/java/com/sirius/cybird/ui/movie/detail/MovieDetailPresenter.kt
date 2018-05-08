@@ -6,10 +6,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.sirius.cybird.R
 import com.sirius.cybird.di.NameConst
 import com.sirius.cybird.net.api.FilmsApi
-import com.sirius.cybird.net.response.DetailCasts
-import com.sirius.cybird.net.response.DetailHead
-import com.sirius.cybird.net.response.DetailSummary
-import com.sirius.cybird.net.response.FilmDetailData
+import com.sirius.cybird.net.response.*
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import javax.inject.Inject
@@ -63,6 +60,7 @@ class MovieDetailPresenter {
 
         multiList.add(DetailSummary(summary = data.summary))
         multiList.add(DetailCasts(actors))
+        multiList.add(DetailComment(mContext.getString(R.string.movie_review, data.reviewsCount)))
         return multiList
     }
 }

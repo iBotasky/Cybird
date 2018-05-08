@@ -28,6 +28,8 @@
     <string name="movie_rating_pepole">%1$d人</string>
     <string name="movie_casts">影人</string>
     <string name="movie_director2">导演</string>
+    <string name="movie_review">影评:%1$d条</string>
+
 
     <!--我的-->
     <string name="mine_reward">打赏开发者:</string>
