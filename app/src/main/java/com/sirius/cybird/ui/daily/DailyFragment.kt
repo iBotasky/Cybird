@@ -19,6 +19,7 @@ class DailyFragment : BaseRecyclerMultiFragment<DailyAdapter.ViewHolder>() {
     override fun setupViews() {
         super.setupViews()
         mRecyclerView.addItemDecoration(getVerticalSpaceDecoration(R.dimen.dimen_0, R.dimen.dimen_0,R.dimen.dimen_5))
+        mRecyclerView.isVerticalScrollBarEnabled = false
         mFloatingButton?.visibility = View.GONE
     }
 

@@ -47,6 +47,7 @@ class MovieDetailContentFragment : BaseRecyclerMultiFragment<MovieDetailAdapter.
     override fun setupViews() {
         super.setupViews()
         mMovieDetailFragmentBinding = getBaseViewBinding()
+        mRecyclerView.isVerticalScrollBarEnabled = false
         mFloatingButton?.visibility = View.GONE
         mFloatingButton?.isEnabled = false
     }
