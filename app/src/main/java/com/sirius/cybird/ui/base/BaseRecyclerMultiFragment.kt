@@ -148,7 +148,6 @@ abstract class BaseRecyclerMultiFragment<H : BaseViewHolder> : BaseLazyFragment(
         return  true
     }
 
-
     @LayoutRes
     open fun getMultiStateViewEmpty(): Int {
         return R.layout.state_empty_view

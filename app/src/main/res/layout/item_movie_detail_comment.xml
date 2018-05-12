@@ -5,6 +5,9 @@
 
     <data>
         <import type="android.view.View" />
+        <variable
+            name="data"
+            type="com.sirius.cybird.net.response.DetailComment"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -14,24 +17,27 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/tv_casts"
+            android:id="@+id/tv_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_20"
             android:layout_marginTop="@dimen/dimen_20"
-            android:text="@string/movie_casts"
             android:textSize="@dimen/sp_14"
+            android:text="@{data.count}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_casts"
+        <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen_20"
+            android:textColor="@color/color_000000"
+            android:textSize="@dimen/sp_14"
             android:layout_marginTop="@dimen/dimen_10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_casts" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_comment"
+            app:layout_constraintStart_toStartOf="@+id/tv_comment"
+            android:text="豆瓣未开放评论数据接口"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>
