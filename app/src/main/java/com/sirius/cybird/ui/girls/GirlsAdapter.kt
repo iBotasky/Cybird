@@ -26,6 +26,7 @@ class GirlsAdapter:BaseQuickAdapter<ResultsBean,GirlsAdapter.ViewHolder>(R.layou
         val view = binding.root
         view.setTag(R.id.id_tag_girl, binding)
         return view
+
     }
 
     class ViewHolder(view: View) : BaseViewHolder(view) {
