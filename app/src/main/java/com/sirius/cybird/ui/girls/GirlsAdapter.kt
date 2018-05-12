@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ItemGrilsBinding
 import com.sirius.cybird.net.response.ResultsBean
+import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.utils.GlideUtil
 
 /**
@@ -17,6 +18,9 @@ class GirlsAdapter:BaseQuickAdapter<ResultsBean,GirlsAdapter.ViewHolder>(R.layou
     override fun convert(helper: ViewHolder, item: ResultsBean) {
         val binding = helper.binding
         GlideUtil.loadImage(mContext, binding.ivImg, item.url)
+        binding.root.setOnClickListener({
+            Navigation.startPhotosView(mContext)
+        })
     }
 
     override fun getItemView(layoutResId: Int, parent: ViewGroup): View {
@@ -26,7 +30,6 @@ class GirlsAdapter:BaseQuickAdapter<ResultsBean,GirlsAdapter.ViewHolder>(R.layou
         val view = binding.root
         view.setTag(R.id.id_tag_girl, binding)
         return view
-
     }
 
     class ViewHolder(view: View) : BaseViewHolder(view) {

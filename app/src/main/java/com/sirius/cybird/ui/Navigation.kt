@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.sirius.cybird.ui.daily.DailyDetailActivity
 import com.sirius.cybird.ui.movie.detail.MovieDetailActivity
+import com.sirius.cybird.ui.photo.PhotoViewActivity
 
 /**
  *Created by Botasky on 2018/5/1
@@ -25,6 +26,11 @@ object Navigation {
         val intent = Intent(context, MovieDetailActivity::class.java)
         intent.putExtra(EXTRA_ID, id)
         intent.putExtra(EXTRA_IMG, poster)
+        context.startActivity(intent)
+    }
+
+    fun startPhotosView(context: Context){
+        val intent = Intent(context, PhotoViewActivity::class.java)
         context.startActivity(intent)
     }
 }

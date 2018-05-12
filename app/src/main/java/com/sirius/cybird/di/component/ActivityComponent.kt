@@ -13,6 +13,7 @@ import com.sirius.cybird.ui.movie.detail.MovieDetailContentFragment
 import com.sirius.cybird.ui.movie.hot.MovieHotFragment
 import com.sirius.cybird.ui.movie.soon.MovieSoonFragment
 import com.sirius.cybird.ui.movie.top.MovieTopFragment
+import com.sirius.cybird.ui.photo.PhotoViewActivity
 import dagger.Component
 
 @ActivityScoped
@@ -37,4 +38,6 @@ interface ActivityComponent {
     fun inject(movieDetailActivity: MovieDetailActivity)
 
     fun inject(movieDetailContentFragment: MovieDetailContentFragment)
+
+    fun inject(photoViewActivity: PhotoViewActivity)
 }
