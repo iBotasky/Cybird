@@ -141,6 +141,11 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
         titleView?.setText(this.getString(res))
     }
 
+    open fun setToolbarTitle(title: String) {
+        var titleView: TextView? = findViewById(R.id.tool_bar_title)
+        titleView?.setText(title)
+    }
+
 
     open fun isDisplayHomeAsUpEnable(): Boolean {
         return false
