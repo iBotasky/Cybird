@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import com.sirius.cybird.ui.daily.DailyDetailActivity
 import com.sirius.cybird.ui.movie.detail.MovieDetailActivity
+import com.sirius.cybird.ui.photo.PhotoViewActivity
+import java.util.ArrayList
 
 /**
  *Created by Botasky on 2018/5/1
@@ -11,6 +13,8 @@ import com.sirius.cybird.ui.movie.detail.MovieDetailActivity
 object Navigation {
     val EXTRA_ID = "id"
     val EXTRA_IMG = "img_url"
+    val EXTRA_DATA = "data"
+    val EXTRA_INDEX = "index"
 
 
 
@@ -25,6 +29,13 @@ object Navigation {
         val intent = Intent(context, MovieDetailActivity::class.java)
         intent.putExtra(EXTRA_ID, id)
         intent.putExtra(EXTRA_IMG, poster)
+        context.startActivity(intent)
+    }
+
+    fun startPhotosView(context: Context, data: ArrayList<String>, index:Int){
+        val intent = Intent(context, PhotoViewActivity::class.java)
+        intent.putStringArrayListExtra(EXTRA_DATA, data)
+        intent.putExtra(EXTRA_INDEX, index)
         context.startActivity(intent)
     }
 }

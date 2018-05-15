@@ -124,7 +124,6 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
         }
     }
 
-
     open fun loadData(){
 
     }
@@ -137,17 +136,20 @@ open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityC
         return super.onOptionsItemSelected(item)
     }
 
-
     open fun setToolbarTitle(@StringRes res: Int) {
         var titleView: TextView? = findViewById(R.id.tool_bar_title)
         titleView?.setText(this.getString(res))
+    }
+
+    open fun setToolbarTitle(title: String) {
+        var titleView: TextView? = findViewById(R.id.tool_bar_title)
+        titleView?.setText(title)
     }
 
 
     open fun isDisplayHomeAsUpEnable(): Boolean {
         return false
     }
-
 
     protected fun setupStatusBar() {
         if (isDark()) {
