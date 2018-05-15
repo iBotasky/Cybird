@@ -1,21 +1,21 @@
 package com.sirius.cybird.ui.home
 
 import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
+import com.blankj.utilcode.util.ToastUtils
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
 import com.sirius.cybird.module.NavItemData
-import com.sirius.cybird.ui.mine.MineFragment
 import com.sirius.cybird.ui.base.BaseNavActivity
 import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.girls.GirlsFragment
+import com.sirius.cybird.ui.mine.MineFragment
 import com.sirius.cybird.ui.movie.MovieFragment
 import com.tbruyelle.rxpermissions2.RxPermissions
-import android.content.pm.PackageManager
-import android.support.v4.app.ActivityCompat
-import com.blankj.utilcode.util.ToastUtils
 
 
 class HomeActivity : BaseNavActivity() {
