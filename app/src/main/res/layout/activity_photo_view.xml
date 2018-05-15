@@ -44,7 +44,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:src="@mipmap/ic_action_download" />
+                android:src="@drawable/ic_action_download" />
         </android.support.v7.widget.Toolbar>
 
         <android.support.v4.view.ViewPager
