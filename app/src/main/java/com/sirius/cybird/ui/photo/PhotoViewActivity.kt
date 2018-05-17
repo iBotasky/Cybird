@@ -30,6 +30,7 @@ class PhotoViewActivity : BaseActivity() {
 
     private fun setupViewPager(){
         mPhotoViewBinding.idViewPager.adapter = PhotoViewAdapter(mPhotos, this)
+        mPhotoViewBinding.idViewPager.currentItem = mCurrentIndex - 1
         mPhotoViewBinding.idViewPager.setOnPageChangeListener(object :ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {
             }
@@ -40,7 +41,6 @@ class PhotoViewActivity : BaseActivity() {
             override fun onPageSelected(position: Int) {
 
             }
-
         })
     }
 
