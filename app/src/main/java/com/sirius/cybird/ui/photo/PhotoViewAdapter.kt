@@ -5,8 +5,6 @@ import android.support.v4.view.PagerAdapter
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
-import com.blankj.utilcode.util.ToastUtils
 import com.github.chrisbanes.photoview.PhotoView
 import com.sirius.cybird.utils.GlideUtil
 import org.jetbrains.annotations.NotNull
@@ -15,10 +13,10 @@ import org.jetbrains.annotations.Nullable
 /**
  * Created By Botasky 2018/5/17
  */
-class PhotoViewAdapter(@NotNull urls: List<String>, @NotNull context: Context, @Nullable listener:Listener) : PagerAdapter() {
+class PhotoViewAdapter(@NotNull urls: List<String>, @NotNull context: Context, @Nullable listener: Listener) : PagerAdapter() {
     val mUrls: List<String>
     val mContext: Context
-    val mListener:Listener
+    val mListener: Listener?
 
     init {
         mUrls = urls
@@ -30,7 +28,7 @@ class PhotoViewAdapter(@NotNull urls: List<String>, @NotNull context: Context, @
         val photoView = PhotoView(mContext)
         photoView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         photoView.scaleType = ImageView.ScaleType.FIT_CENTER
-        photoView.setOnClickListener{ mListener.callback() }
+        photoView.setOnClickListener { mListener?.callback() }
         GlideUtil.loadImageNotCrop(mContext, photoView, mUrls[position])
         container.addView(photoView)
         return photoView
@@ -49,7 +47,7 @@ class PhotoViewAdapter(@NotNull urls: List<String>, @NotNull context: Context, @
         container.removeView(view)
     }
 
-    interface Listener{
+    interface Listener {
         fun callback()
     }
 }
