@@ -27,11 +27,18 @@ class PhotoViewActivity : BaseActivity() {
         mPhotoViewModel = PhotoViewModel(mCurrentIndex, mPhotos.size)
         mPhotoViewBinding.photo = mPhotoViewModel
         setupViewPager()
-
     }
 
     private fun setupViewPager() {
-        mPhotoViewBinding.idViewPager.adapter = PhotoViewAdapter(mPhotos, this)
+        mPhotoViewBinding.idViewPager.adapter = PhotoViewAdapter(mPhotos, this, object :PhotoViewAdapter.Listener{
+            override fun callback() {
+                if (mToolbar?.visibility == View.GONE){
+                    mToolbar?.visibility = View.VISIBLE
+                }else{
+                    mToolbar?.visibility = View.INVISIBLE
+                }
+            }
+        })
         mPhotoViewBinding.idViewPager.currentItem = mCurrentIndex
         mPhotoViewBinding.idViewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
