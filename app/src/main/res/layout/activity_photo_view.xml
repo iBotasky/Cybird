@@ -36,6 +36,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:text="@{photo.title}"
                 tool:text="title" />
 
