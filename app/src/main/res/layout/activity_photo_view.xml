@@ -47,7 +47,7 @@
                 android:src="@mipmap/ic_action_download" />
         </android.support.v7.widget.Toolbar>
 
-        <android.support.v4.view.ViewPager
+        <com.tmall.ultraviewpager.UltraViewPager
             android:id="@id/id_view_pager"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -56,7 +56,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/id_toolbar">
-
-        </android.support.v4.view.ViewPager>
+        </com.tmall.ultraviewpager.UltraViewPager>
     </android.support.constraint.ConstraintLayout>
 </layout>

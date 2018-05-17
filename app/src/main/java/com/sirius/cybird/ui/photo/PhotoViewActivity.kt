@@ -1,5 +1,6 @@
 package com.sirius.cybird.ui.photo
 
+import android.support.v4.view.ViewPager
 import android.view.View
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityPhotoViewBinding
@@ -28,12 +29,18 @@ class PhotoViewActivity : BaseActivity() {
     }
 
     private fun setupViewPager(){
-        mPhotoViewBinding.idViewPager.setOnClickListener({
-            if (mToolbar?.visibility == View.GONE){
-                mToolbar?.visibility = View.VISIBLE
-            }else{
-                mToolbar?.visibility = View.GONE
+        mPhotoViewBinding.idViewPager.adapter = PhotoViewAdapter(mPhotos, this)
+        mPhotoViewBinding.idViewPager.setOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+            override fun onPageScrollStateChanged(state: Int) {
             }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            }
+
+            override fun onPageSelected(position: Int) {
+
+            }
+
         })
     }
 
