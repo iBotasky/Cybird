@@ -14,4 +14,12 @@ object GlideUtil {
                 .centerCrop()
                 .into(imageview)
     }
+
+    fun loadImageNotCrop(context: Context, imageview: ImageView, url: String){
+        GlideApp.with(context)
+                .load(url)
+                .placeholder(R.drawable.img_holder)
+                .error(R.drawable.img_err_holder)
+                .into(imageview)
+    }
 }

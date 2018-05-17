@@ -23,9 +23,9 @@ class PhotoViewAdapter(@NotNull urls: List<String>, @NotNull context: Context) :
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val photoView = PhotoView(mContext)
-        photoView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        photoView.scaleType = ImageView.ScaleType.FIT_XY
-        GlideUtil.loadImage(mContext, photoView, mUrls[position])
+        photoView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        photoView.scaleType = ImageView.ScaleType.FIT_CENTER
+        GlideUtil.loadImageNotCrop(mContext, photoView, mUrls[position])
         container.addView(photoView)
         return photoView
     }
