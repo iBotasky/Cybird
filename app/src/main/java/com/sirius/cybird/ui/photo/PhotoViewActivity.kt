@@ -32,7 +32,7 @@ class PhotoViewActivity : BaseActivity() {
     private fun setupViewPager() {
         mPhotoViewBinding.idViewPager.adapter = PhotoViewAdapter(mPhotos, this, object :PhotoViewAdapter.Listener{
             override fun callback() {
-                if (mToolbar?.visibility == View.GONE){
+                if (mToolbar?.visibility == View.INVISIBLE){
                     mToolbar?.visibility = View.VISIBLE
                 }else{
                     mToolbar?.visibility = View.INVISIBLE
