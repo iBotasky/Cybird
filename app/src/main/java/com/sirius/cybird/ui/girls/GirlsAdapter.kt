@@ -26,7 +26,7 @@ class GirlsAdapter : BaseQuickAdapter<ResultsBean, GirlsAdapter.ViewHolder>(R.la
             for (bean in mData) {
                 mPhotos.add(bean.url)
             }
-            Navigation.startPhotosView(mContext, mPhotos.toList() as ArrayList<String>, helper.adapterPosition + 1)
+            Navigation.startPhotosView(mContext, mPhotos.toList() as ArrayList<String>, helper.adapterPosition)
         })
     }
 

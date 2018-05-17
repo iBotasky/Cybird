@@ -17,21 +17,23 @@ class PhotoViewActivity : BaseActivity() {
 
     var mCurrentIndex = 0
 
+    lateinit var mPhotoViewModel: PhotoViewModel
+
     override fun setupViews() {
         super.setupViews()
         mPhotoViewBinding = getBaseViewBinding()
         mPhotos = intent.getStringArrayListExtra(Navigation.EXTRA_DATA)
         mCurrentIndex = intent.getIntExtra(Navigation.EXTRA_INDEX, 0)
-        setToolbarTitle("" + mCurrentIndex + "/" + mPhotos.size)
-
+        mPhotoViewModel = PhotoViewModel(mCurrentIndex, mPhotos.size)
+        mPhotoViewBinding.photo = mPhotoViewModel
         setupViewPager()
 
     }
 
-    private fun setupViewPager(){
+    private fun setupViewPager() {
         mPhotoViewBinding.idViewPager.adapter = PhotoViewAdapter(mPhotos, this)
-        mPhotoViewBinding.idViewPager.currentItem = mCurrentIndex - 1
-        mPhotoViewBinding.idViewPager.setOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+        mPhotoViewBinding.idViewPager.currentItem = mCurrentIndex
+        mPhotoViewBinding.idViewPager.setOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
 
@@ -39,7 +41,7 @@ class PhotoViewActivity : BaseActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-
+                mPhotoViewModel.index = position
             }
         })
     }

@@ -6,6 +6,10 @@
     <data>
 
         <import type="android.view.View" />
+
+        <variable
+            name="photo"
+            type="com.sirius.cybird.ui.photo.PhotoViewModel"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -32,6 +36,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="18sp"
+                android:text="@{photo.title}"
                 tool:text="title" />
 
             <ImageView
