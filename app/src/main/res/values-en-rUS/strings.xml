@@ -30,6 +30,11 @@
     <string name="movie_director2">Director</string>
     <string name="movie_review">Comment:%1$d</string>
 
+
+    <!--Girl-->
+    <string name="girl_formate_not_allow">Formate not support</string>
+    <string name="girl_success">Save</string>
+
     <!--我的-->
     <string name="mine_reward">Reword Developer:</string>
     <string name="mine_more">More features coming soon&#8230;</string>

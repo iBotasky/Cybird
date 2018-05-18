@@ -30,6 +30,9 @@
     <string name="movie_director2">导演</string>
     <string name="movie_review">影评:%1$d条</string>
 
+    <!--Girl-->
+    <string name="girl_formate_not_allow">格式不支持</string>
+    <string name="girl_success">保存成功</string>
 
     <!--我的-->
     <string name="mine_reward">打赏开发者:</string>
