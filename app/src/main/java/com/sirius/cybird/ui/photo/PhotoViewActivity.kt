@@ -2,6 +2,8 @@ package com.sirius.cybird.ui.photo
 
 import android.support.v4.view.ViewPager
 import android.view.View
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityPhotoViewBinding
 import com.sirius.cybird.ui.Navigation
@@ -14,6 +16,9 @@ class PhotoViewActivity : BaseActivity() {
 
     lateinit var mPhotoViewBinding: ActivityPhotoViewBinding
     lateinit var mPhotos: List<String>
+
+    val mToolbarDismissAnimation: Animation = AlphaAnimation(1.0f, 0.0f)
+    val mToolbarDisplayAnimation:Animation = AlphaAnimation(0.0f, 1.0f)
 
     var mCurrentIndex = 0
 
@@ -30,12 +35,35 @@ class PhotoViewActivity : BaseActivity() {
     }
 
     private fun setupViewPager() {
+        mToolbarDisplayAnimation.duration = 100
+        mToolbarDismissAnimation.duration = 100
+
+        mToolbarDisplayAnimation.setAnimationListener(object :Animation.AnimationListener{
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+            override fun onAnimationEnd(animation: Animation?) {
+                mToolbar?.visibility = View.VISIBLE
+            }
+            override fun onAnimationStart(animation: Animation?) {
+            }
+        })
+        mToolbarDismissAnimation.setAnimationListener(object : Animation.AnimationListener{
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+            override fun onAnimationEnd(animation: Animation?) {
+                mToolbar?.visibility = View.INVISIBLE
+            }
+            override fun onAnimationStart(animation: Animation?) {
+            }
+        })
+
+
         mPhotoViewBinding.idViewPager.adapter = PhotoViewAdapter(mPhotos, this, object :PhotoViewAdapter.Listener{
             override fun callback() {
                 if (mToolbar?.visibility == View.INVISIBLE){
-                    mToolbar?.visibility = View.VISIBLE
+                    mToolbar?.startAnimation(mToolbarDisplayAnimation)
                 }else{
-                    mToolbar?.visibility = View.INVISIBLE
+                    mToolbar?.startAnimation(mToolbarDismissAnimation)
                 }
             }
         })
