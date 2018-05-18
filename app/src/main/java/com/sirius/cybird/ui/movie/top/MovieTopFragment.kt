@@ -55,7 +55,7 @@ class MovieTopFragment : BaseRecyclerFragment<Film, MovieTopAdapter.ViewHolder>(
         }
         mAdapter.loadMoreComplete()
         mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
-        mStart += filmsData.films.size + 1
+        mStart += filmsData.films.size
         mPage += 1
         if (mAdapter.data.size == 0){
             mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
