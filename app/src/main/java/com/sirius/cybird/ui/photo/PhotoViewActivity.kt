@@ -54,8 +54,8 @@ class PhotoViewActivity : BaseActivity() {
     }
 
     private fun setupViewPager() {
-        mToolbarDisplayAnimation.duration = 100
-        mToolbarDismissAnimation.duration = 100
+        mToolbarDisplayAnimation.duration = 200
+        mToolbarDismissAnimation.duration = 200
 
         mToolbarDisplayAnimation.setAnimationListener(object : Animation.AnimationListener {
             override fun onAnimationRepeat(animation: Animation?) {
