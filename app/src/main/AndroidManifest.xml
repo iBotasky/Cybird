@@ -56,6 +56,8 @@
         <activity android:name=".ui.photo.PhotoViewActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ui.TestActivity"
+            android:screenOrientation="portrait"/>
         <!--luomi ads-->
         <!--<activity android:name="com.centent.hh.b.HHActivity" />-->
 

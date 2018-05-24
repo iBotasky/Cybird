@@ -66,5 +66,12 @@
             app:layout_constraintStart_toStartOf="@+id/iv_wc"
             app:layout_constraintTop_toBottomOf="@+id/tv_wc"
             android:layout_marginTop="@dimen/dimen_20"/>
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TestConstraintSet"
+            />
     </android.support.constraint.ConstraintLayout>
 </layout>
