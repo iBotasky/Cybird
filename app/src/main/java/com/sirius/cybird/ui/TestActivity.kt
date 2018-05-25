@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.android.synthetic.main.activity_test_1.*
 
 /**
+ * 本来相拥在Splash，但是发现在onCreate写的动画是没法动的，只能通过像这样用点击事件触发。
  * Created By Botasky 2018/5/24
  */
 class TestActivity :AppCompatActivity(){
@@ -20,6 +21,7 @@ class TestActivity :AppCompatActivity(){
 
         addAnimationOperations()
     }
+
     private fun addAnimationOperations() {
         var set = false
         val constraint1 = ConstraintSet()
