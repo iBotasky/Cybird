@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.activity_test_1.*
  * 本来相拥在Splash，但是发现在onCreate写的动画是没法动的，只能通过像这样用点击事件触发。
  * Created By Botasky 2018/5/24
  */
-class TestActivity :AppCompatActivity(){
+class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_1)
@@ -29,13 +29,11 @@ class TestActivity :AppCompatActivity(){
         val constraint2 = ConstraintSet()
         constraint2.clone(this, R.layout.activity_test_2)
 
-        findViewById<TextView>(R.id.textview).setOnClickListener{
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                TransitionManager.beginDelayedTransition(this.constraint)
-                val constraint = if(set) constraint1 else constraint2
-                constraint.applyTo(this.constraint)
-                set = !set
-            }
+        findViewById<TextView>(R.id.textview).setOnClickListener {
+            TransitionManager.beginDelayedTransition(this.constraint)
+            val constraint = if (set) constraint1 else constraint2
+            constraint.applyTo(this.constraint)
+            set = !set
         }
 
     }
