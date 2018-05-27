@@ -3,6 +3,7 @@ package com.sirius.cybird.ui
 import android.os.Build
 import android.os.Bundle
 import android.support.constraint.ConstraintSet
+import android.support.transition.AutoTransition
 import android.support.transition.TransitionManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
@@ -30,7 +31,10 @@ class TestActivity : AppCompatActivity() {
         constraint2.clone(this, R.layout.activity_test_2)
 
         findViewById<TextView>(R.id.textview).setOnClickListener {
-            TransitionManager.beginDelayedTransition(this.constraint)
+
+            val transition = AutoTransition()
+            transition.duration = 2000
+            TransitionManager.beginDelayedTransition(this.constraint, transition)
             val constraint = if (set) constraint1 else constraint2
             constraint.applyTo(this.constraint)
             set = !set
