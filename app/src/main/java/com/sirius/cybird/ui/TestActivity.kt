@@ -1,6 +1,5 @@
 package com.sirius.cybird.ui
 
-import android.os.Build
 import android.os.Bundle
 import android.support.constraint.ConstraintSet
 import android.support.transition.AutoTransition
@@ -8,7 +7,6 @@ import android.support.transition.TransitionManager
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 import com.sirius.cybird.R
-import kotlinx.android.synthetic.main.activity_splash.*
 import kotlinx.android.synthetic.main.activity_test_1.*
 
 /**
