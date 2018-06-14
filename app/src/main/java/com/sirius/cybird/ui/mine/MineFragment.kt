@@ -1,11 +1,9 @@
 package com.sirius.cybird.ui.mine
 
-import android.content.Intent
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMineBinding
-import com.sirius.cybird.ui.TestActivity
+import com.sirius.cybird.di.component.ActivityComponent
 import com.sirius.cybird.ui.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_mine.view.*
 
 /**
  * Created By Botasky 28/04/2018
@@ -13,54 +11,26 @@ import kotlinx.android.synthetic.main.fragment_mine.view.*
 class MineFragment : BaseFragment() {
     lateinit var mMineBinding: FragmentMineBinding
 
-
     override fun setupViews() {
         super.setupViews()
         mMineBinding = getBaseViewBinding()
-        mMineBinding.root.btn_test.setOnClickListener({
-            val intent = Intent(activity, TestActivity::class.java)
-            startActivity(intent)
-
-        })
-
-//        cenBanner = CenBanner(context, mMineBinding.llBanner, object : CenBannerListener {
-//            override fun onSuccess() {
-//                LogUtils.e("SUCCESS")
-//            }
-//
-//            override fun onPause() {
-//                LogUtils.e("PAUSE")
-//            }
-//
-//            override fun onClicked() {
-//                LogUtils.e("CLICKED")
-//            }
-//
-//            override fun onNoAd() {
-//                LogUtils.e("NOAD")
-//            }
-//
-//            override fun onError() {
-//                LogUtils.e("ERROR")
-//            }
-//
-//        }, HHType.BIG_BANNER, true)
+        initViews()
     }
 
+    private fun initViews(){
+
+    }
 
     override fun onPause() {
         super.onPause()
-//        cenBanner.onPause(context)
     }
 
     override fun onResume() {
         super.onResume()
-//        cenBanner.onResume(context)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-//        cenBanner.onDestory(context)
     }
 
     override fun getLayouResource(): Int {
@@ -68,6 +38,6 @@ class MineFragment : BaseFragment() {
     }
 
     override fun initializeInjector() {
-
+        getComponent(ActivityComponent::class.java).inject(this)
     }
 }

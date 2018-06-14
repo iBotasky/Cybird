@@ -7,6 +7,7 @@ import com.sirius.cybird.ui.daily.DailyDetailActivity
 import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.girls.GirlsFragment
 import com.sirius.cybird.ui.home.HomeActivity
+import com.sirius.cybird.ui.mine.MineFragment
 import com.sirius.cybird.ui.movie.detail.MovieDetailActivity
 import com.sirius.cybird.ui.movie.detail.MovieDetailContentFragment
 import com.sirius.cybird.ui.movie.hot.MovieHotFragment
@@ -39,4 +40,6 @@ interface ActivityComponent {
     fun inject(movieDetailContentFragment: MovieDetailContentFragment)
 
     fun inject(photoViewActivity: PhotoViewActivity)
+
+    fun inject(mineFragment: MineFragment)
 }
