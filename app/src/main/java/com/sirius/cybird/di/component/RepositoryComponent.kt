@@ -1,4 +1,4 @@
-package com.sirius.cybird.repository
+package com.sirius.cybird.di.component
 
 import com.sirius.cybird.di.NameConst
 import com.sirius.cybird.di.module.ApplicationModule
@@ -35,4 +35,7 @@ interface RepositoryComponent {
 
     @Named(NameConst.ZHIHU)
     fun getZhiHuRetrofit(): Retrofit
+
+    @Named(NameConst.ONE)
+    fun getOneRetrofit():Retrofit
 }

@@ -130,4 +130,16 @@ class NetModule {
                 .client(okHttpClient)
                 .build()
     }
+
+    @Provides
+    @Singleton
+    @Named(NameConst.ONE)
+    fun provideOneRetrofit(gson: Gson, okHttpClient: OkHttpClient):Retrofit{
+        return Retrofit.Builder()
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl(Urls.ONE_URL_HOST)
+                .client(okHttpClient)
+                .build()
+    }
 }

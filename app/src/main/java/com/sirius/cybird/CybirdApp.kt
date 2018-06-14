@@ -1,26 +1,16 @@
 package com.sirius.cybird
 
 import android.app.Application
-import android.app.Instrumentation
 import android.content.Context
-import android.os.SystemClock
-import android.view.MotionEvent
-import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.Utils
-import com.centent.hh.b.mian.XMain
 import com.facebook.stetho.Stetho
-import com.flyco.systembar.SystemBarHelper
-import com.sirius.cybird.config.Config
 import com.sirius.cybird.db.MyObjectBox
+import com.sirius.cybird.di.component.DaggerRepositoryComponent
 import com.sirius.cybird.di.module.ApplicationModule
 import com.sirius.cybird.di.module.NetModule
-import com.sirius.cybird.repository.DaggerRepositoryComponent
-import com.sirius.cybird.repository.RepositoryComponent
+import com.sirius.cybird.di.component.RepositoryComponent
 import io.objectbox.BoxStore
 import io.objectbox.android.AndroidObjectBrowser
-import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
 
 /**
  *
@@ -38,7 +28,7 @@ class CybirdApp : Application() {
         fun getBoxStore(): BoxStore {
             return mBoxStore
         }
-        fun getRepostitoryComponent(): RepositoryComponent{
+        fun getRepostitoryComponent(): RepositoryComponent {
             return mRepositoryComponent
         }
     }

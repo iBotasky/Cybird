@@ -8,4 +8,5 @@ object NameConst {
     const val GANK = "gank"
     const val JUHE = "juhe"
     const val ZHIHU = "zhihu"
+    const val ONE = "yige"
 }

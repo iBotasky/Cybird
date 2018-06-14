@@ -1,10 +1,6 @@
 package com.sirius.cybird.ui.mine
 
 import android.content.Intent
-import com.blankj.utilcode.util.LogUtils
-import com.centent.hh.b.HHType
-import com.centent.hh.b.mian.CenBanner
-import com.centent.hh.b.mian.CenBannerListener
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMineBinding
 import com.sirius.cybird.ui.TestActivity
@@ -15,8 +11,6 @@ import kotlinx.android.synthetic.main.fragment_mine.view.*
  * Created By Botasky 28/04/2018
  */
 class MineFragment : BaseFragment() {
-//    lateinit var cenBanner: CenBanner
-
     lateinit var mMineBinding: FragmentMineBinding
 
 
