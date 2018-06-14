@@ -6,7 +6,12 @@
     <data>
 
         <import type="android.view.View" />
-
+        <variable
+            name="content"
+            type="com.sirius.cybird.net.response.OneDetailData.Data.Content"/>
+        <variable
+            name="weather"
+            type="com.sirius.cybird.net.response.OneDetailData.Data.Weather"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -44,6 +49,7 @@
             android:textColor="@color/color_ffffff"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
+            android:text="@{weather.date}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/v_bg_gradient"
             tools:text="2018.01.01" />
@@ -54,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
+            android:text="@{weather.cityName}"
             android:textColor="@color/color_ffffff"
             app:layout_constraintBottom_toBottomOf="@+id/tv_date"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +85,7 @@
             android:lineSpacingExtra="8dp"
             android:textColor="@color/color_ffffff"
             android:textSize="@dimen/sp_13"
+            android:text="@{content.forward}"
             app:layout_constraintEnd_toEndOf="@+id/tv_city_info"
             app:layout_constraintStart_toStartOf="@+id/tv_date"
             app:layout_constraintTop_toBottomOf="@+id/tv_photo_info"
@@ -90,9 +98,10 @@
             android:textColor="@color/textNormalColor"
             android:textSize="@dimen/sp_13"
             tools:text="《外婆的道歉信》"
+            android:text="@{content.wordsInfo}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tv_content"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="80dp"
             />
 
     </android.support.constraint.ConstraintLayout>

@@ -2,13 +2,15 @@ package com.sirius.cybird.ui.mine
 
 import com.sirius.cybird.di.NameConst
 import com.sirius.cybird.net.api.OneApi
+import com.sirius.cybird.net.response.OneDetailData
+import io.reactivex.Observable
 import retrofit2.Retrofit
 import javax.inject.Inject
 import javax.inject.Named
 
 class MinePresenter {
-    val mRetrofit: Retrofit
-    val mServiece: OneApi
+    private val mRetrofit: Retrofit
+    private val mServiece: OneApi
 
     @Inject
     constructor(@Named(NameConst.ONE) retrofit: Retrofit) {
@@ -16,8 +18,9 @@ class MinePresenter {
         mServiece = retrofit.create(OneApi::class.java)
     }
 
-    fun getLastDayInfo() {
-        mServiece.getOneListId()
-                .map { data -> data.data[0] }
+    fun getLastDayInfo() : Observable<OneDetailData> {
+        return mServiece.getOneListId()
+                .flatMap { data -> mServiece.getOneDetailById(data.data[0]) }
+
     }
 }

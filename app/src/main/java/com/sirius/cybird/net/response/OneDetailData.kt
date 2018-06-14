@@ -12,8 +12,7 @@ data class OneDetailData(
             @SerializedName("id") val id: String,
             @SerializedName("weather") val weather: Weather,
             @SerializedName("date") val date: String,
-            @SerializedName("content_list") val contentList: List<Content>,
-            @SerializedName("menu") val menu: Menu
+            @SerializedName("content_list") val contentList: List<Content>
     ) {
 
         data class Weather(
@@ -51,7 +50,7 @@ data class OneDetailData(
                 @SerializedName("audio_platform") val audioPlatform: Int,
                 @SerializedName("start_video") val startVideo: String,
                 @SerializedName("has_reading") val hasReading: Int,
-                @SerializedName("volume") val volume: Int,
+                @SerializedName("volume") val volume: String,
                 @SerializedName("pic_info") val picInfo: String,
                 @SerializedName("words_info") val wordsInfo: String,
                 @SerializedName("subtitle") val subtitle: String,
@@ -137,26 +136,6 @@ data class OneDetailData(
                         @SerializedName("link") val link: String,
                         @SerializedName("imgUrl") val imgUrl: String,
                         @SerializedName("audio") val audio: String
-                )
-            }
-        }
-
-
-        data class Menu(
-                @SerializedName("vol") val vol: String,
-                @SerializedName("list") val list: List<X>
-        ) {
-
-            data class X(
-                    @SerializedName("content_type") val contentType: String,
-                    @SerializedName("content_id") val contentId: String,
-                    @SerializedName("title") val title: String,
-                    @SerializedName("tag") val tag: Tag
-            ) {
-
-                data class Tag(
-                        @SerializedName("id") val id: String,
-                        @SerializedName("title") val title: String
                 )
             }
         }
