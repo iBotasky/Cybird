@@ -6,12 +6,14 @@
     <data>
 
         <import type="android.view.View" />
+
         <variable
             name="content"
-            type="com.sirius.cybird.net.response.OneDetailData.Data.Content"/>
+            type="com.sirius.cybird.net.response.OneDetailData.Data.Content" />
+
         <variable
             name="weather"
-            type="com.sirius.cybird.net.response.OneDetailData.Data.Weather"/>
+            type="com.sirius.cybird.net.response.OneDetailData.Data.Weather" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -22,7 +24,6 @@
             android:id="@+id/iv_bg"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scaleType="fitXY"
             android:src="@drawable/bg_holder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,10 +47,10 @@
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:text="@{weather.date}"
             android:textColor="@color/color_ffffff"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
-            android:text="@{weather.date}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/v_bg_gradient"
             tools:text="2018.01.01" />
@@ -60,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:text="@{weather.cityName}"
+            android:text='@{weather.cityName + "·" + weather.temperature}'
             android:textColor="@color/color_ffffff"
             app:layout_constraintBottom_toBottomOf="@+id/tv_date"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,11 +82,11 @@
             android:id="@+id/tv_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/tv_book_name"
             android:lineSpacingExtra="8dp"
+            android:text="@{content.forward}"
             android:textColor="@color/color_ffffff"
             android:textSize="@dimen/sp_13"
-            android:text="@{content.forward}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_book_name"
             app:layout_constraintEnd_toEndOf="@+id/tv_city_info"
             app:layout_constraintStart_toStartOf="@+id/tv_date"
             app:layout_constraintTop_toBottomOf="@+id/tv_photo_info"
@@ -95,14 +96,13 @@
             android:id="@+id/tv_book_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:text="@{content.wordsInfo}"
             android:textColor="@color/textNormalColor"
             android:textSize="@dimen/sp_13"
-            tools:text="《外婆的道歉信》"
-            android:text="@{content.wordsInfo}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/tv_content"
-            android:layout_marginBottom="80dp"
-            />
+            tools:text="《外婆的道歉信》" />
 
     </android.support.constraint.ConstraintLayout>
 

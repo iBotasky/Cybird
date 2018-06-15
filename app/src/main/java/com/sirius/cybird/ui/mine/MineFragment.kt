@@ -43,7 +43,7 @@ class MineFragment : BaseFragment() {
         val content = detail.contentList[0]
         GlideUtil.loadImage(activity!!, mMineBinding.ivBg, content.imgUrl)
         mMineBinding.setVariable(BR.content, content)
-        mMineBinding.setVariable(BR.weather, detail)
+        mMineBinding.setVariable(BR.weather, weather)
         mMineBinding.executePendingBindings()
     }
 
