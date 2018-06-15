@@ -18,14 +18,14 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
+
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/iv_bg"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/bg_holder"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,3:2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,8 +47,8 @@
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="@{weather.date}"
-            android:textColor="@color/color_ffffff"
+            android:text="@{content.volume}"
+            android:textColor="@color/color_999999"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +61,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
-            android:text='@{weather.cityName + "·" + weather.temperature}'
-            android:textColor="@color/color_ffffff"
+            android:text='@{weather.cityName}'
+            android:textColor="@color/color_999999"
             app:layout_constraintBottom_toBottomOf="@+id/tv_date"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="厦门阵雨" />
@@ -76,7 +76,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_date"
-            tools:text="摄影|波波" />
+            tools:text="@{@string/one_photo +content.picInfo}" />
 
         <TextView
             android:id="@+id/tv_content"

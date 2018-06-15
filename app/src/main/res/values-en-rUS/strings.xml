@@ -11,7 +11,7 @@
     <string name="tab_movie">Movies</string>
     <string name="tab_daily">Daily</string>
     <string name="tab_girls">Picture</string>
-    <string name="tab_mine">Mine</string>
+    <string name="tab_mine">One is all</string>
 
     <!--Moive-->
     <string name="movie_hot">Hot</string>
@@ -38,4 +38,5 @@
     <!--我的-->
     <string name="mine_reward">Reword Developer:</string>
     <string name="mine_more">More features coming soon&#8230;</string>
+    <string name="one_photo">Photo|</string>
 </resources>

@@ -40,7 +40,7 @@ class MineFragment : BaseFragment() {
     }
 
     private fun initView(detail:OneDetailData.Data, weather: OneDetailData.Data.Weather){
-        val content = detail.contentList[0]
+        var content = detail.contentList[0]
         GlideUtil.loadImage(activity!!, mMineBinding.ivBg, content.imgUrl)
         mMineBinding.setVariable(BR.content, content)
         mMineBinding.setVariable(BR.weather, weather)
