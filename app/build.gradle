@@ -178,8 +178,6 @@ dependencies {
     implementation appDependencies.photoView
 
     //Libs
-    implementation files('libs/hh_8.4_ok.jar')
-    implementation files('libs/imageLoader.jar')
 }
 apply plugin: 'io.objectbox'                //ObjectBox
 kapt {

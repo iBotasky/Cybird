@@ -1,7 +1,5 @@
 package com.sirius.cybird.ui.mine
 
-import com.blankj.utilcode.util.LogUtils
-import com.blankj.utilcode.util.TimeUtils
 import com.sirius.cybird.BR
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMineBinding
@@ -9,7 +7,6 @@ import com.sirius.cybird.di.component.ActivityComponent
 import com.sirius.cybird.net.response.OneDetailData
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseFragment
-import com.sirius.cybird.utils.GlideApp
 import com.sirius.cybird.utils.GlideUtil
 import javax.inject.Inject
 
