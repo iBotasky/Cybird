@@ -3,8 +3,16 @@ apply plugin: 'kotlin-android'              //Kotlin
 apply plugin: 'kotlin-android-extensions'   //KotlinExtension
 apply plugin: 'kotlin-kapt'                 //KotlinKapt
 
-
 android {
+    signingConfigs {
+        release {
+            keyAlias 'cybird'
+            keyPassword 'siriusabo0203'
+            storePassword 'siriusabo0203'
+            storeFile file("cybird")
+        }
+    }
+
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
     buildToolsVersion rootProject.ext.androidBuildToolsVersion
     defaultConfig {
@@ -12,11 +20,12 @@ android {
         minSdkVersion rootProject.ext.androidMinSdkVersion
         targetSdkVersion rootProject.ext.androidTargetSdkVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources true
             proguardFile 'proguard/proguard-androidannotations.pro'
@@ -41,6 +50,37 @@ android {
             proguardFile 'proguard/proguard-ucrop.pro'
             proguardFile 'proguard/proguard-glide.pro'
             proguardFile 'proguard/proguard-utilcode.pro'
+            proguardFile 'proguard/proguard-brvah.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+            proguardFile 'proguard/proguard-androidannotations.pro'
+            proguardFile 'proguard/proguard-growingio.pro'
+            proguardFile 'proguard/proguard-facebook-fresco.pro'
+            proguardFile 'proguard/proguard-dbflow.pro'
+            proguardFile 'proguard/proguard-gson.pro'
+            proguardFile 'proguard/proguard-retrolambda.pro'
+            proguardFile 'proguard/proguard-rx-java.pro'
+            proguardFile 'proguard/proguard-rxjava-promises.pro'
+            proguardFile 'proguard/proguard-square-okhttp3.pro'
+            proguardFile 'proguard/proguard-square-okio.pro'
+            proguardFile 'proguard/proguard-square-retrofit2.pro'
+            proguardFile 'proguard/proguard-support-v7-appcompat.pro'
+            proguardFile 'proguard/proguard-rhino.pro'
+            proguardFile 'proguard/proguard-amap.pro'
+            proguardFile 'proguard/proguard-leakcanary.pro'
+            proguardFile 'proguard/proguard-fastadapter.pro'
+            proguardFile 'proguard/proguard-gsyvideoplayer.pro'
+            proguardFile 'proguard/proguard-bugly.pro'
+            proguardFile 'proguard/proguard-dagger.pro'
+            proguardFile 'proguard/proguard-ucrop.pro'
+            proguardFile 'proguard/proguard-glide.pro'
+            proguardFile 'proguard/proguard-utilcode.pro'
+            proguardFile 'proguard/proguard-brvah.pro'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -48,6 +88,7 @@ android {
     dataBinding {
         enabled = true
     }
+
 }
 
 dependencies {
@@ -127,9 +168,16 @@ dependencies {
     //Util
     implementation appDependencies.util
 
-    //FastAdapter
+    //阿里轮播
+    implementation appDependencies.ultraviewpager
 
-    //    implementation appDependencies.fastAdapter
+    //floatingButton
+    implementation appDependencies.floatingButton
+
+    //photoView
+    implementation appDependencies.photoView
+
+    //Libs
 }
 apply plugin: 'io.objectbox'                //ObjectBox
 kapt {

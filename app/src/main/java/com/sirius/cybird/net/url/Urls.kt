@@ -9,4 +9,5 @@ object Urls {
     const val DOUBAN_FILM_URL_HOST = "https://api.douban.com/"
     const val WEATHRE_URL_HOST = "http://op.juhe.cn"
     const val ZHI_HU_DIARY_URL_HOST = "http://news-at.zhihu.com"
+    const val ONE_URL_HOST = "http://v3.wufazhuce.com:8000"
 }

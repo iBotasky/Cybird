@@ -37,35 +37,10 @@ data class Film(
 
 }
 
-data class Images(
-		@SerializedName("small") val small: String, //https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp
-		@SerializedName("large") val large: String, //https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp
-		@SerializedName("medium") val medium: String //https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.webp
-)
 
-data class Rating(
-		@SerializedName("max") val max: Int, //10
-		@SerializedName("average") val average: Double, //9.6
-		@SerializedName("stars") val stars: String, //50
-		@SerializedName("min") val min: Int //0
-)
 
-data class Cast(
-		@SerializedName("alt") val alt: String, //https://movie.douban.com/celebrity/1054521/
-		@SerializedName("avatars") val avatars: Avatars,
-		@SerializedName("name") val name: String, //蒂姆·罗宾斯
-		@SerializedName("id") val id: String //1054521
-)
 
-data class Avatars(
-		@SerializedName("small") val small: String, //https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p17525.webp
-		@SerializedName("large") val large: String, //https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p17525.webp
-		@SerializedName("medium") val medium: String //https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p17525.webp
-)
 
-data class Director(
-		@SerializedName("alt") val alt: String, //https://movie.douban.com/celebrity/1047973/
-		@SerializedName("avatars") val avatars: Avatars,
-		@SerializedName("name") val name: String, //弗兰克·德拉邦特
-		@SerializedName("id") val id: String //1047973
-)
+
+
+

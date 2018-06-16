@@ -5,13 +5,13 @@ import android.databinding.DataBindingUtil
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.view.ViewGroup
-import com.blankj.utilcode.util.LogUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.sirius.cybird.BR
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ItemFilmBinding
 import com.sirius.cybird.net.response.Film
+import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.utils.GlideUtil
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 
@@ -24,7 +24,7 @@ class MovieHotAdapter : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.lay
         rvCasts.layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
         rvCasts.adapter = MovieCastAdapter(item.casts)
         if (rvCasts.itemDecorationCount == 0)
-            rvCasts.addItemDecoration(HorizontalSpaceDecoration(R.dimen.dimen_0, R.dimen.dimen_0, R.dimen.dp_10))
+            rvCasts.addItemDecoration(HorizontalSpaceDecoration(R.dimen.dimen_0, R.dimen.dimen_0, R.dimen.dimen_5))
         var directors: String = ""
         for (director in item.directors) {
             if (item.directors.indexOf(director) != item.directors.size - 1)
@@ -32,6 +32,8 @@ class MovieHotAdapter : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.lay
             else
                 directors += director.name
         }
+        binding.root.setOnClickListener({v -> Navigation.startFilmDetail(mContext, item.id, item.images.small) })
+
         binding.setVariable(BR.director, mContext.getString(R.string.movie_director, directors))
         binding.setVariable(BR.title, item.title)
         binding.setVariable(BR.rating, item.rating.average.toString())

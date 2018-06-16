@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="content"
+            type="com.sirius.cybird.net.response.OneDetailData.Data.Content" />
+
+        <variable
+            name="weather"
+            type="com.sirius.cybird.net.response.OneDetailData.Data.Weather" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_bg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H,3:2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/v_bg_gradient"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/forguard_gradient"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@{content.volume}"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/v_bg_gradient"
+            tools:text="2018.01.01" />
+
+        <TextView
+            android:id="@+id/tv_city_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:text='@{weather.cityName + " " + weather.windDirection}'
+            android:textColor="@color/color_999999"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="厦门阵雨" />
+
+        <TextView
+            android:id="@+id/tv_photo_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/color_ffffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_date"
+            tools:text="@{@string/one_photo +content.picInfo}" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="8dp"
+            android:text="@{content.forward}"
+            android:textColor="@color/color_ffffff"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintBottom_toTopOf="@+id/tv_book_name"
+            app:layout_constraintEnd_toEndOf="@+id/tv_city_info"
+            app:layout_constraintStart_toStartOf="@+id/tv_date"
+            app:layout_constraintTop_toBottomOf="@+id/tv_photo_info"
+            tools:text="现实世界的人总说，在悲剧发生之后，悲伤、失落、心痛会“随着时间的流逝而减轻”，但这不是真的。悲伤和失落是永恒不变的，但如果一生都一直背负着它们，我们将无法承受。悲伤会让我们瘫痪。所以最后，我们只能拿袋子装起它们，扔到什么地方去。" />
+
+        <TextView
+            android:id="@+id/tv_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:text="@{content.wordsInfo}"
+            android:textColor="@color/textNormalColor"
+            android:textSize="@dimen/sp_13"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_content"
+            tools:text="《外婆的道歉信》" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <!--<android.support.constraint.ConstraintLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_wc"-->
+    <!--android:layout_width="160dp"-->
+    <!--android:layout_height="160dp"-->
+    <!--android:src="@drawable/pay_wc"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintEnd_toStartOf="@+id/iv_ali"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_ali"-->
+    <!--android:layout_width="160dp"-->
+    <!--android:layout_height="160dp"-->
+    <!--android:src="@drawable/pay_ali"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/iv_wc"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toEndOf="@+id/iv_wc"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/iv_wc" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_wc"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="@dimen/dimen_10"-->
+    <!--android:text="微信"-->
+    <!--app:layout_constraintEnd_toEndOf="@+id/iv_wc"-->
+    <!--app:layout_constraintStart_toStartOf="@+id/iv_wc"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/iv_wc" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_ali"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="@dimen/dimen_10"-->
+    <!--android:text="支付宝"-->
+    <!--app:layout_constraintEnd_toEndOf="@+id/iv_ali"-->
+    <!--app:layout_constraintStart_toStartOf="@+id/iv_ali"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/iv_ali" />-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_title"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="@dimen/dimen_20"-->
+    <!--android:text="@string/mine_reward"-->
+    <!--android:textColor="@color/color_000000"-->
+    <!--android:textSize="@dimen/dimen_20"-->
+    <!--app:layout_constraintBottom_toTopOf="@+id/iv_wc"-->
+    <!--app:layout_constraintStart_toStartOf="@+id/iv_wc" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/mine_more"-->
+    <!--app:layout_constraintStart_toStartOf="@+id/iv_wc"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/tv_wc"-->
+    <!--android:layout_marginTop="@dimen/dimen_20"/>-->
+
+    <!--<Button-->
+    <!--android:id="@+id/btn_test"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="TestConstraintSet"-->
+    <!--/>-->
+    <!--</android.support.constraint.ConstraintLayout>-->
+</layout>

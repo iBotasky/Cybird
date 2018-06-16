@@ -1,5 +1,6 @@
-package com.sirius.cybird.repository
+package com.sirius.cybird.di.component
 
+import com.sirius.cybird.di.NameConst
 import com.sirius.cybird.di.module.ApplicationModule
 import com.sirius.cybird.di.module.NetModule
 import com.sirius.cybird.net.HostSelectionInterceptor
@@ -23,12 +24,18 @@ interface RepositoryComponent {
 
     fun getHostSelectionInterceptor(): HostSelectionInterceptor //开放Module中的HostSelectionInterceptor的依赖
 
-    @Named("juhe")
-    fun getRetorofit(): Retrofit                             //开放Module中Retrofit的依赖
+    @Named(NameConst.JUHE)
+    fun getJuHeRetorofit(): Retrofit                             //开放Module中Retrofit的依赖
 
-    @Named("douban")
+    @Named(NameConst.DOUBAN)
     fun getDoubanRetrofit(): Retrofit
 
-    @Named("gank")
+    @Named(NameConst.GANK)
     fun getGankRetrofit(): Retrofit
+
+    @Named(NameConst.ZHIHU)
+    fun getZhiHuRetrofit(): Retrofit
+
+    @Named(NameConst.ONE)
+    fun getOneRetrofit():Retrofit
 }

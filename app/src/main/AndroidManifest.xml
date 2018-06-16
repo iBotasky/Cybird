@@ -13,20 +13,20 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.GET_TASKS"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 
     <application
         android:name=".CybirdApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_launcher"
-        android:supportsRtl="true"
+        android:roundIcon="@mipmap/ic_launcher"
         android:screenOrientation="portrait"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name="com.sirius.cybird.ui.splash.SplashActivity"
@@ -41,8 +41,47 @@
             android:name="com.sirius.cybird.ui.main.MainActivity"
             android:windowSoftInputMode="adjustResize" />
 
-        <activity android:name="com.sirius.cybird.ui.home.HomeActivity"
-            />
+        <activity
+            android:name="com.sirius.cybird.ui.home.HomeActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.daily.DailyDetailActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".ui.movie.detail.MovieDetailActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.photo.PhotoViewActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.TestActivity"
+            android:screenOrientation="portrait"/>
+        <!--luomi ads-->
+        <!--<activity android:name="com.centent.hh.b.HHActivity" />-->
+
+        <!--<service android:name="com.centent.hh.b.ContentService" />-->
+
+        <!--<receiver android:name="com.centent.hh.b.McReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.PACKAGE_ADDED" />-->
+                <!--<action android:name="android.intent.action.PACKAGE_REMOVED" />-->
+
+                <!--<data android:scheme="package" />-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<provider-->
+            <!--android:name="android.support.v4.content.FileProvider"-->
+            <!--android:authorities="com.sirius.cybird.fileprovider"-->
+            <!--android:exported="false"-->
+            <!--android:grantUriPermissions="true">-->
+            <!--&lt;!&ndash;元数据&ndash;&gt;-->
+            <!--<meta-data-->
+                <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+                <!--android:resource="@xml/lmc_paths" />-->
+        <!--</provider>-->
+
 
     </application>
 

@@ -6,7 +6,7 @@
     <color name="textColorPrimary">#ffffff</color>
     <color name="textNormalColor">#d0d0d0</color>
     <color name="colorAccent">#ffffff</color>
-
+    <color name="ripple">#5e92f3</color>
 
     <color name="color_movie">#008B00</color>
     <color name="color_daily">#1E90FF</color>
@@ -19,6 +19,9 @@
     <color name="color_999999">#999999</color>
     <color name="color_ffffff">#ffffff</color>
     <color name="color_000000">#000000</color>
-    
+    <color name="color_2fbb30">#2FBB30</color>
+
     <color name="color_divider">#000000</color>
+    <color name="color_rank">#A44C11</color>
+    <color name="color_star">#FFB809</color>
 </resources>

@@ -5,18 +5,38 @@
     <string name="g_multi_view_data_empty">No Result Found</string>
     <string name="g_multi_view_retry">Retry</string>
     <string name="g_multi_view_error">Load data error, please retry</string>
-    <string name="g_multi_view_loading">Loading...</string>
+    <string name="g_multi_view_loading">Loading&#8230;</string>
+    <string name="g_click_to_finish">Click again to quit</string>
     <!--Home-->
     <string name="tab_movie">Movies</string>
     <string name="tab_daily">Daily</string>
     <string name="tab_girls">Picture</string>
-    <string name="tab_mine">Mine</string>
+    <string name="tab_mine">One is all</string>
 
     <!--Moive-->
     <string name="movie_hot">Hot</string>
     <string name="movie_coming_soon">Coming Soon</string>
     <string name="movie_classics">Top250</string>
     <string name="movie_director">Director:%1$s</string>
+    <string name="movie_tag">Tags:%1$s</string>
+    <string name="movie_top_title">%1$s</string>
+    <string name="movie_rank">No.%1$d</string>
+    <string name="movie_douban">Douban:</string>
+    <string name="movie_douban_2">Douban</string>
+    <string name="movie_summary">Summary</string>
+    <string name="movie_original_title">Original:</string>
+    <string name="movie_rating_pepole">%1$d mark</string>
+    <string name="movie_casts">Casts</string>
+    <string name="movie_director2">Director</string>
+    <string name="movie_review">Comment:%1$d</string>
 
 
+    <!--Girl-->
+    <string name="girl_formate_not_allow">Formate not support</string>
+    <string name="girl_success">Save</string>
+
+    <!--我的-->
+    <string name="mine_reward">Reword Developer:</string>
+    <string name="mine_more">More features coming soon&#8230;</string>
+    <string name="one_photo">Photo By</string>
 </resources>

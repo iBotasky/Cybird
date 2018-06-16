@@ -1,5 +1,6 @@
 package com.sirius.cybird.net.api
 
+import com.sirius.cybird.net.response.ZHNewsDetailData
 import com.sirius.cybird.net.response.ZhiHuData
 import com.sirius.cybird.net.url.Urls
 import io.reactivex.Observable
@@ -15,20 +16,9 @@ import retrofit2.http.Path
  **/
 interface ZhiHuApi {
     @GET("/api/4/news/latest")
-    fun getLastNews()
+    fun getLastNews(): Observable<ZhiHuData>
 
     @GET("/api/4/news/{id}")
-    fun getNewsDetail(@Path("id") id: Int) :Observable<ZhiHuData>
-
-    companion object {
-        fun getZhiHuService(): ZhiHuApi {
-            return Retrofit.Builder()
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(Urls.ZHI_HU_DIARY_URL_HOST)
-                    .build()
-                    .create(ZhiHuApi::class.java)
-        }
-    }
+    fun getNewsDetail(@Path("id") id: Int): Observable<ZHNewsDetailData>
 
 }

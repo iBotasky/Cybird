@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/hello_tv_sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Hola, Mundo"
+        android:textColor="@color/textNormalColor"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hello_tv_world"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:alpha="1"
+        android:text="Hej, världen"
+        android:textColor="@color/textNormalColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_chinese"
+        app:layout_constraintTop_toBottomOf="@+id/tv_chinese" />
+
+
+    <TextView
+        android:id="@+id/hello_tv_russuia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:alpha="1"
+        android:text="Hei maailma"
+        android:textColor="@color/textNormalColor"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_english"
+        app:layout_constraintTop_toBottomOf="@+id/tv_english" />
+
+
+    <TextView
+        android:id="@+id/hello_tv_fenlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="35dp"
+        android:text="Saluton,mondo"
+        android:textColor="@color/textNormalColor"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_chinese"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/hello_tv_poland"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="29dp"
+        android:text="Witaj świecie"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hello_tv_alb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="21dp"
+        android:text="مرحبا بالعالم"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/hello_tv_ael"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Olá Mundo"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/hello_tv_alb"
+        app:layout_constraintStart_toStartOf="@+id/hello_tv_alb" />
+
+    <TextView
+        android:id="@+id/hello_tv_tailan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="สวัสดีชาวโลก"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/hello_tv_russuia"
+        app:layout_constraintEnd_toStartOf="@+id/hello_tv_russuia" />
+
+    <TextView
+        android:id="@+id/hello_tv_hsk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="28dp"
+        android:text="Сәлем Әлем"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_chinese"
+        app:layout_constraintStart_toStartOf="@+id/tv_chinese" />
+
+    <TextView
+        android:id="@+id/tv_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="1"
+        android:text="Laughing Man"
+        android:textColor="@color/color_ffffff"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_chinese"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="1"
+        android:text="你好，世界"
+        android:textColor="@color/color_ffffff"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_english"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_jp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:alpha="1"
+        android:text="こんにちは世界"
+        android:textColor="@color/color_ffffff"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_german"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="98dp"
+        android:text="Hallo Welt"
+        android:textColor="@color/color_ffffff"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_english"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_italian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="66dp"
+        android:layout_marginTop="30dp"
+        android:text="Ciao mondo"
+        android:textColor="@color/color_ffffff"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_english" />
+
+    <TextView
+        android:id="@+id/tv_fenlan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:text="Halló heimur"
+        android:textColor="@color/color_ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_jp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mongolian" />
+
+    <TextView
+        android:id="@+id/tv_mongolian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="66dp"
+        android:layout_marginStart="33dp"
+        android:alpha="1"
+        android:text="Сайн уу, Дэлхий"
+        android:textColor="@color/color_ffffff"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_english" />
+
+</android.support.constraint.ConstraintLayout>
