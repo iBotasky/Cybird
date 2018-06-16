@@ -34,7 +34,6 @@ class MineFragment : BaseFragment() {
                         { e -> e.printStackTrace() },
                         {}
                 )
-
     }
 
     private fun initView(detail:OneDetailData.Data, weather: OneDetailData.Data.Weather){
