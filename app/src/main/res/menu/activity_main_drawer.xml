@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_one"
             android:icon="@mipmap/ic_account"
             android:title="@string/tab_mine"/>
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_movie"
             android:icon="@mipmap/ic_movie"
-            android:title="@string/tab_movie"/>
+            android:title="@string/tab_movie" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_daily"
             android:icon="@mipmap/ic_book"
-            android:title="@string/tab_daily"/>
+            android:title="@string/tab_daily" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_girls"
             android:icon="@mipmap/ic_whatshot"
-            android:title="@string/tab_girls"/>
+            android:title="@string/tab_girls" />
     </group>
 
     <item android:title="Communicate">
@@ -25,11 +26,11 @@
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_action_top"
-                android:title="Share"/>
+                android:title="Share" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@mipmap/ic_action_download"
-                android:title="Send"/>
+                android:title="Send" />
         </menu>
     </item>
 

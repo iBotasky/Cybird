@@ -4,7 +4,10 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.support.design.internal.NavigationMenuItemView
+import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
+import android.view.MenuItem
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.blankj.utilcode.util.ToastUtils
 import com.sirius.cybird.R
@@ -27,22 +30,42 @@ class HomeActivity : BaseNavActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mHomeBinding = getBaseViewBinding()
         mActivityComponent.inject(this)
     }
 
     override fun setupViews() {
         super.setupViews()
+        mHomeBinding = getBaseViewBinding()
         setToolbarTitle(mTitleResources[0])
+        setNavigationView()
         requestPermission()
     }
+
+    private fun setNavigationView() {
+        mHomeBinding.navigation.setNavigationItemSelectedListener(object : NavigationView.OnNavigationItemSelectedListener {
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                item.isChecked = true
+                mHomeBinding.drawerLayout.closeDrawers()
+                when (item.itemId) {
+                    R.id.nav_one -> mHomeBinding.idBottomNavBar.selectTab(0)
+                    R.id.nav_movie -> mHomeBinding.idBottomNavBar.selectTab(1)
+                    R.id.nav_daily -> mHomeBinding.idBottomNavBar.selectTab(2)
+                    R.id.nav_girls -> mHomeBinding.idBottomNavBar.selectTab(3)
+                }
+
+                return false
+            }
+
+        })
+    }
+
 
     override fun getLayoutResource(): Int {
         return R.layout.activity_home
     }
 
 
-    fun requestPermission() {
+    private fun requestPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (!isGranted(Manifest.permission.READ_PHONE_STATE) || !isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE))) {
             val rxPermissions = RxPermissions(this)
             rxPermissions.request(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -58,7 +81,7 @@ class HomeActivity : BaseNavActivity() {
 
 
     override fun getBottomNavDatas(): List<NavItemData> {
-        mTitleResources = listOf(R.string.tab_mine,R.string.tab_movie, R.string.tab_daily, R.string.tab_girls)
+        mTitleResources = listOf(R.string.tab_mine, R.string.tab_movie, R.string.tab_daily, R.string.tab_girls)
         return listOf(
                 NavItemData(BottomNavigationItem(R.mipmap.ic_account, R.string.tab_mine).setActiveColorResource(R.color.color_000000), MineFragment::class.java),
                 NavItemData(BottomNavigationItem(R.mipmap.ic_movie, R.string.tab_movie).setActiveColorResource(R.color.color_movie), MovieFragment::class.java),
@@ -69,6 +92,15 @@ class HomeActivity : BaseNavActivity() {
 
     override fun onNavigationChange(position: Int) {
         setToolbarTitle(mTitleResources[position])
+        mHomeBinding.navigation.setCheckedItem(
+                when (position) {
+                    0 -> R.id.nav_one
+                    1 -> R.id.nav_movie
+                    2 -> R.id.nav_daily
+                    3 -> R.id.nav_girls
+                    else -> R.id.nav_one
+                }
+        )
     }
 
 
