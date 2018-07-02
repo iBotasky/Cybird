@@ -15,7 +15,8 @@ import com.melnykov.fab.ScrollDirectionListener
 import com.sirius.cybird.R
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 import com.sirius.cybird.utils.divider.VerticalSpaceDecoration
-
+//TODO: 1.是否可以把每个页面的数据展示也集成到一个base的方法，如GirlsFragment的showResult和其他页面的showResult放到bese封装
+//TODO: 2.这里的doLoadMore为什么直接调用loadData()方法
 abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() {
     lateinit var mRecyclerView: RecyclerView
     lateinit var mSwipeRefresh: SwipeRefreshLayout
