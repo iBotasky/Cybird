@@ -15,7 +15,8 @@ import com.melnykov.fab.ScrollDirectionListener
 import com.sirius.cybird.R
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 import com.sirius.cybird.utils.divider.VerticalSpaceDecoration
-//TODO: 1.是否可以把每个页面的数据展示也集成到一个base的方法，如GirlsFragment的showResult和其他页面的showResult放到bese封装
+
+//TODO: 1.是否可以把每个页面的数据展示也集成到一个base的方法，如GirlsFragment的showResult和其他页面的showResult放到bese封装---已解决
 //TODO: 2.这里的doLoadMore为什么直接调用loadData()方法
 abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() {
     lateinit var mRecyclerView: RecyclerView
@@ -27,6 +28,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
 
 
     var mPage = 1
+    //主要是豆瓣api需要
     var mStart = 0
 
     override fun setupViews() {
@@ -101,8 +103,8 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
             }
         })
         mFloatingButton?.setOnClickListener(
-                {
-                    v -> mRecyclerView.scrollToPosition(0)
+                { v ->
+                    mRecyclerView.scrollToPosition(0)
                     mFloatingButton?.hide()
                 }
         )
@@ -127,6 +129,23 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
         loadData()
     }
 
+    protected open fun showResults(results: List<K>) {
+        if (mPage == 1 || mStart == 0) {
+            mAdapter.setNewData(results)
+        } else {
+            mAdapter.addData(results)
+        }
+        mAdapter.loadMoreComplete()
+        mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
+        mStart += results.size
+        mPage += 1
+        if (mAdapter.data.size == 0) {
+            mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
+        } else if (results.isEmpty()) {
+            mAdapter.loadMoreEnd()
+        }
+    }
+
     fun refreshEnd() {
         mSwipeRefresh?.isRefreshing = false
     }
@@ -135,8 +154,8 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
         return true
     }
 
-    open fun isEnableSwipeLayout():Boolean{
-        return  true
+    open fun isEnableSwipeLayout(): Boolean {
+        return true
     }
 
     @LayoutRes

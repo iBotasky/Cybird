@@ -15,7 +15,7 @@ import javax.inject.Inject
 /**
  *Created by Botasky on 2018/4/30
  */
-class GirlsFragment:BaseRecyclerFragment<ResultsBean, GirlsAdapter.ViewHolder>() {
+class GirlsFragment : BaseRecyclerFragment<ResultsBean, GirlsAdapter.ViewHolder>() {
 
     @Inject
     lateinit var mPresenter: GirlsPresenter
@@ -36,29 +36,11 @@ class GirlsFragment:BaseRecyclerFragment<ResultsBean, GirlsAdapter.ViewHolder>()
                 .compose(TransformScheduler.applyNewThreadScheduler())
                 .compose(bindToLifecycle())
                 .subscribe(
-                        {results-> showResults(results)},
-                        {e -> mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR},
-                        {refreshEnd()}
+                        { results -> showResults(results) },
+                        { e -> mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR },
+                        { refreshEnd() }
                 )
     }
-
-    private fun showResults(results:List<ResultsBean>){
-        if (mPage == 1 || mStart == 0){
-            mAdapter.setNewData(results)
-        } else {
-            mAdapter.addData(results)
-        }
-        mAdapter.loadMoreComplete()
-        mMultiStateView.viewState = MultiStateView.VIEW_STATE_CONTENT
-        mStart = results.size
-        mPage += 1
-        if (mAdapter.data.size == 0){
-            mMultiStateView.viewState = MultiStateView.VIEW_STATE_EMPTY
-        }else if (results.isEmpty()){
-            mAdapter.loadMoreEnd()
-        }
-    }
-
 
     override fun getLayoutManager(): RecyclerView.LayoutManager {
         return GridLayoutManager(context, 2)

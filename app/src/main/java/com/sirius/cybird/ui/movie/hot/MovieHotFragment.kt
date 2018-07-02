@@ -47,7 +47,7 @@ class MovieHotFragment : BaseRecyclerFragment<Film, MovieHotAdapter.ViewHolder>(
         return true
     }
 
-    private fun showResults(films: List<Film>) {
+    override fun showResults(films: List<Film>) {
         if (films.isNotEmpty()) {
             mAdapter.setNewData(films)
             mAdapter.loadMoreComplete()
