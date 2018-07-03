@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.design.internal.NavigationMenuItemView
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
+import android.support.v4.widget.DrawerLayout
 import android.view.MenuItem
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.blankj.utilcode.util.ToastUtils
@@ -42,6 +43,10 @@ class HomeActivity : BaseNavActivity() {
     }
 
     private fun setNavigationView() {
+        //禁止手势滑动
+        //mHomeBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+        //打开手势滑动
+        //mHomeBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
         mHomeBinding.navigation.setNavigationItemSelectedListener(object : NavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 item.isChecked = true
