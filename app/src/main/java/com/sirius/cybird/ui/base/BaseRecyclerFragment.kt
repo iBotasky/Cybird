@@ -16,8 +16,7 @@ import com.sirius.cybird.R
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 import com.sirius.cybird.utils.divider.VerticalSpaceDecoration
 
-//TODO: 1.是否可以把每个页面的数据展示也集成到一个base的方法，如GirlsFragment的showResult和其他页面的showResult放到bese封装---已解决
-//TODO: 2.这里的doLoadMore为什么直接调用loadData()方法
+//TODO: 这里的doLoadMore为什么直接调用loadData()方法?
 abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() {
     lateinit var mRecyclerView: RecyclerView
     lateinit var mSwipeRefresh: SwipeRefreshLayout
@@ -41,13 +40,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
         mMultiStateView.setViewForState(getMultiStateViewError(), MultiStateView.VIEW_STATE_ERROR)
         mMultiStateView.setViewForState(getMultiStateViewLoading(), MultiStateView.VIEW_STATE_LOADING)
 
-        mMultiStateErrorRetry = mMultiStateView.getView(MultiStateView.VIEW_STATE_ERROR)!!.findViewById(R.id.id_multi_state_error_retry)
-        mMultiStateErrorRetry.setOnClickListener {
-            if (mMultiStateView.viewState != MultiStateView.VIEW_STATE_LOADING) {
-                mMultiStateView.viewState = MultiStateView.VIEW_STATE_LOADING
-            }
-            loadData()
-        }
+        setOnErrorRetry { loadData() }
 
         mSwipeRefresh.setColorSchemeColors(*getSwipeRefreshColorSchemeRes())
         mSwipeRefresh.setOnRefreshListener {
@@ -198,8 +191,14 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
     /**
      * 传入重试方法,自定义重试逻辑
      */
-    open fun setOnRetry(retry: () -> Unit) {
-        mMultiStateErrorRetry.setOnClickListener { retry() }
+    open fun setOnErrorRetry(retry: () -> Unit) {
+        mMultiStateErrorRetry = mMultiStateView.getView(MultiStateView.VIEW_STATE_ERROR)!!.findViewById(R.id.id_multi_state_error_retry)
+        mMultiStateErrorRetry.setOnClickListener {
+            if (mMultiStateView.viewState != MultiStateView.VIEW_STATE_LOADING) {
+                mMultiStateView.viewState = MultiStateView.VIEW_STATE_LOADING
+            }
+            retry()
+        }
     }
 
 }

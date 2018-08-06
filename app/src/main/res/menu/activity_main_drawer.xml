@@ -2,11 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/main_actions"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_one"
             android:icon="@mipmap/ic_account"
-            android:title="@string/tab_mine"/>
+            android:title="@string/tab_mine" />
         <item
             android:id="@+id/nav_movie"
             android:icon="@mipmap/ic_movie"
@@ -21,17 +23,17 @@
             android:title="@string/tab_girls" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_action_top"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@mipmap/ic_action_download"
-                android:title="Send" />
-        </menu>
-    </item>
+    <group
+        android:id="@+id/other_actions"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_action_top"
+            android:title="Share" />
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@mipmap/ic_action_download"
+            android:title="Send" />
+    </group>
 
 </menu>
