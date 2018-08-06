@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.support.design.internal.NavigationMenuItemView
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
 import android.support.v4.widget.DrawerLayout
@@ -20,14 +19,14 @@ import com.sirius.cybird.ui.girls.GirlsFragment
 import com.sirius.cybird.ui.mine.MineFragment
 import com.sirius.cybird.ui.movie.MovieFragment
 import com.tbruyelle.rxpermissions2.RxPermissions
-
-
+/**
+ *Created by Botasky on 2018/4/30
+ */
 class HomeActivity : BaseNavActivity() {
     private var mCurrentBackPressedTime = 0L
     private val BACK_PRESSED_INTERVAL = 2000L
     lateinit var mHomeBinding: ActivityHomeBinding
     lateinit var mTitleResources: List<Int>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,11 +63,9 @@ class HomeActivity : BaseNavActivity() {
         })
     }
 
-
     override fun getLayoutResource(): Int {
         return R.layout.activity_home
     }
-
 
     private fun requestPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (!isGranted(Manifest.permission.READ_PHONE_STATE) || !isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE))) {

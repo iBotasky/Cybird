@@ -38,5 +38,5 @@
     <!--我的-->
     <string name="mine_reward">Reword Developer:</string>
     <string name="mine_more">More features coming soon&#8230;</string>
-    <string name="one_photo">Photo By </string>
+    <string name="one_photo">Photo By&#160;</string>
 </resources>
