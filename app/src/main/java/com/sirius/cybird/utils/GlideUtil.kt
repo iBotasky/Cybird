@@ -59,7 +59,7 @@ object GlideUtil {
         val fileName = System.currentTimeMillis().toString() + ".jpg"
         val destFile = File(appDir, fileName)
 
-        //TODO:这里去掉了原来的blankJ的Util，因为里面代码太多导致会出现无用的方法超标，后面可以单独引入
+        //TODO:这里去掉了原来的blankJ的Util，因为里面很多Utils没有用到导致方法很多需要分包
 //        FileUtils.copyFile(file, destFile, object : FileUtils.OnReplaceListener {
 //            override fun onReplace(): Boolean {
 //                return true
