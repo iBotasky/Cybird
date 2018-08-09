@@ -2,13 +2,12 @@ package com.sirius.cybird
 
 import android.app.Application
 import android.content.Context
-import com.blankj.utilcode.util.Utils
 import com.facebook.stetho.Stetho
 import com.sirius.cybird.db.MyObjectBox
 import com.sirius.cybird.di.component.DaggerRepositoryComponent
+import com.sirius.cybird.di.component.RepositoryComponent
 import com.sirius.cybird.di.module.ApplicationModule
 import com.sirius.cybird.di.module.NetModule
-import com.sirius.cybird.di.component.RepositoryComponent
 import io.objectbox.BoxStore
 import io.objectbox.android.AndroidObjectBrowser
 
@@ -39,14 +38,14 @@ class CybirdApp : Application() {
         setupStetho()
         setupObjectBox()
         setupComponent()
-        setupUtils()
+//        setupUtils()
 
     }
     
 
-    fun setupUtils(){
-        Utils.init(this)
-    }
+//    fun setupUtils(){
+//        Utils.init(this)
+//    }
 
     fun setupComponent(){
         mRepositoryComponent = DaggerRepositoryComponent.builder()

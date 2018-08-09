@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Environment
 import android.widget.ImageView
-import com.blankj.utilcode.util.FileUtils
 import com.sirius.cybird.R
 import io.reactivex.Observable
 import java.io.File
@@ -60,11 +59,12 @@ object GlideUtil {
         val fileName = System.currentTimeMillis().toString() + ".jpg"
         val destFile = File(appDir, fileName)
 
-        FileUtils.copyFile(file, destFile, object : FileUtils.OnReplaceListener {
-            override fun onReplace(): Boolean {
-                return true
-            }
-        })
+        //TODO:这里去掉了原来的blankJ的Util，因为里面代码太多导致会出现无用的方法超标，后面可以单独引入
+//        FileUtils.copyFile(file, destFile, object : FileUtils.OnReplaceListener {
+//            override fun onReplace(): Boolean {
+//                return true
+//            }
+//        })
         // 最后通知图库更新
         context.sendBroadcast(Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(File(destFile.path))))
         return Observable.just(context.getString(R.string.girl_success))

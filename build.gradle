@@ -130,7 +130,6 @@ ext {
             bottomNavBar        : "com.ashokvarma.android:bottom-navigation-bar:${bottomNavBarVersion}",
             multiStateView      : "com.github.Kennyc1012:MultiStateView:${multiStateViewVersion}",
             ratingBar           : "me.zhanghai.android.materialratingbar:library:${ratingBarVersion}",
-            util                : "com.blankj:utilcode:${utilVersion}",
             fastAdapter         : "com.mikepenz:fastadapter:${fastAdapterVersion}",
             ultraviewpager      : "com.alibaba.android:ultraviewpager:${ultraViewPagerVersion}",
             floatingButton      : "com.melnykov:floatingactionbutton:${floatingButtonVersion}",

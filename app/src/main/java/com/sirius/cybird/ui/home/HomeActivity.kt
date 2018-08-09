@@ -6,10 +6,9 @@ import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
-import android.support.v4.widget.DrawerLayout
 import android.view.MenuItem
+import android.widget.Toast
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
-import com.blankj.utilcode.util.ToastUtils
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
 import com.sirius.cybird.module.NavItemData
@@ -19,6 +18,7 @@ import com.sirius.cybird.ui.girls.GirlsFragment
 import com.sirius.cybird.ui.mine.MineFragment
 import com.sirius.cybird.ui.movie.MovieFragment
 import com.tbruyelle.rxpermissions2.RxPermissions
+
 /**
  *Created by Botasky on 2018/4/30
  */
@@ -109,7 +109,8 @@ class HomeActivity : BaseNavActivity() {
     override fun onBackPressed() {
         if (System.currentTimeMillis() - mCurrentBackPressedTime >= BACK_PRESSED_INTERVAL) {
             mCurrentBackPressedTime = System.currentTimeMillis()
-            ToastUtils.showShort(R.string.g_click_to_finish)
+//            ToastUtils.showShort(R.string.g_click_to_finish)
+            Toast.makeText(this, R.string.g_click_to_finish, Toast.LENGTH_SHORT).show();
         } else {
             finish()
         }

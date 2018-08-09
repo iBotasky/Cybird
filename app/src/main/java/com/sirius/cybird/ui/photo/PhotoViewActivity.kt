@@ -4,7 +4,7 @@ import android.support.v4.view.ViewPager
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
-import com.blankj.utilcode.util.ToastUtils
+import android.widget.Toast
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityPhotoViewBinding
 import com.sirius.cybird.rx.TransformScheduler
@@ -46,8 +46,8 @@ class PhotoViewActivity : BaseActivity() {
                     .compose(TransformScheduler.applyNewThreadScheduler())
                     .compose(bindToLifecycle())
                     .subscribe(
-                            { s -> ToastUtils.showShort(s) },
-                            { e -> ToastUtils.showShort(e.message) },
+                            { s -> Toast.makeText(this, s, Toast.LENGTH_SHORT).show() },
+                            { e -> Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show() },
                             {}
                     )
         })

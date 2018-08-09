@@ -166,7 +166,7 @@ dependencies {
     implementation appDependencies.ratingBar
 
     //Util
-    implementation appDependencies.util
+//    implementation appDependencies.util
 
     //阿里轮播
     implementation appDependencies.ultraviewpager
