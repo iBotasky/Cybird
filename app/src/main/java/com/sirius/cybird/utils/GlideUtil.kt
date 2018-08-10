@@ -59,12 +59,11 @@ object GlideUtil {
         val fileName = System.currentTimeMillis().toString() + ".jpg"
         val destFile = File(appDir, fileName)
 
-        //TODO:这里去掉了原来的blankJ的Util，因为里面很多Utils没有用到导致方法很多需要分包
-//        FileUtils.copyFile(file, destFile, object : FileUtils.OnReplaceListener {
-//            override fun onReplace(): Boolean {
-//                return true
-//            }
-//        })
+        FileUtils.copyFile(file, destFile, object : FileUtils.OnReplaceListener {
+            override fun onReplace(): Boolean {
+                return true
+            }
+        })
         // 最后通知图库更新
         context.sendBroadcast(Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(File(destFile.path))))
         return Observable.just(context.getString(R.string.girl_success))
