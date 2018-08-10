@@ -17,17 +17,21 @@ import java.util.ArrayList
  */
 class GirlsAdapter : BaseQuickAdapter<ResultsBean, GirlsAdapter.ViewHolder>(R.layout.item_grils) {
     var mPhotos: MutableList<String> = mutableListOf()
+    var mPhotosId: MutableList<String> = mutableListOf()
 
     override fun convert(helper: ViewHolder, item: ResultsBean) {
         val binding = helper.binding
         GlideUtil.loadImage(mContext, binding.ivImg, item.url)
-        binding.root.setOnClickListener({
-            mPhotos.clear()
-            for (bean in mData) {
-                mPhotos.add(bean.url)
-            }
-            Navigation.startPhotosView(mContext, mPhotos.toList() as ArrayList<String>, helper.adapterPosition)
-        })
+        binding.root.setOnClickListener(
+                ({
+                    mPhotos.clear()
+                    for (bean in mData) {
+                        mPhotos.add(bean.url)
+                        mPhotosId.add(bean._id)
+                    }
+                    Navigation.startPhotosView(mContext, mPhotos.toList() as ArrayList<String>, mPhotosId.toList() as ArrayList<String>, helper.adapterPosition)
+                })
+        )
     }
 
     override fun getItemView(layoutResId: Int, parent: ViewGroup): View {

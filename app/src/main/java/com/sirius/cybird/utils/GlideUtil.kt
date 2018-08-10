@@ -37,7 +37,7 @@ object GlideUtil {
      * 这个方法只会下载图片，而不会对图片进行加载。当图片下载完成之后，我们可以得到图片的存储路径，以便后续进行操作。
      */
     //TODO 后缀问题
-    fun saveImage(context: Context, url: String): Observable<String> {
+    fun saveImage(context: Context, url: String, name: String): Observable<String> {
         val regex = "(http(s?):)([/|.|\\w|\\s|-])*\\.(?:jpg|png|jpeg)".toRegex()
         if (!url.matches(regex)) {
             return Observable.just(context.getString(R.string.girl_formate_not_allow))
@@ -56,7 +56,7 @@ object GlideUtil {
         if (!appDir.exists()) {
             appDir.mkdirs()
         }
-        val fileName = System.currentTimeMillis().toString() + ".jpg"
+        val fileName = name + ".jpg"
         val destFile = File(appDir, fileName)
 
         FileUtils.copyFile(file, destFile, object : FileUtils.OnReplaceListener {

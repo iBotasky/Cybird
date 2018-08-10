@@ -20,6 +20,7 @@ class PhotoViewActivity : BaseActivity() {
 
     lateinit var mPhotoViewBinding: ActivityPhotoViewBinding
     lateinit var mPhotos: List<String>
+    lateinit var mPhotosId: List<String>
 
     val mToolbarDismissAnimation: Animation = AlphaAnimation(1.0f, 0.0f)
     val mToolbarDisplayAnimation: Animation = AlphaAnimation(0.0f, 1.0f)
@@ -32,6 +33,7 @@ class PhotoViewActivity : BaseActivity() {
         super.setupViews()
         mPhotoViewBinding = getBaseViewBinding()
         mPhotos = intent.getStringArrayListExtra(Navigation.EXTRA_DATA)
+        mPhotosId = intent.getStringArrayListExtra(Navigation.EXTRA_ID)
         mCurrentIndex = intent.getIntExtra(Navigation.EXTRA_INDEX, 0)
         mPhotoViewModel = PhotoViewModel(mCurrentIndex, mPhotos.size)
         mPhotoViewBinding.photo = mPhotoViewModel
@@ -40,9 +42,9 @@ class PhotoViewActivity : BaseActivity() {
     }
 
     private fun setupDownload() {
-        mPhotoViewBinding.ivDownload.setOnClickListener({
+        mPhotoViewBinding.ivDownload.setOnClickListener(({
             Observable.just(mPhotos[mCurrentIndex])
-                    .flatMap { url -> GlideUtil.saveImage(this, url) }
+                    .flatMap { url -> GlideUtil.saveImage(this, url, mPhotosId[mCurrentIndex]) }
                     .compose(TransformScheduler.applyNewThreadScheduler())
                     .compose(bindToLifecycle())
                     .subscribe(
@@ -50,7 +52,7 @@ class PhotoViewActivity : BaseActivity() {
                             { e -> Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show() },
                             {}
                     )
-        })
+        }))
     }
 
     private fun setupViewPager() {

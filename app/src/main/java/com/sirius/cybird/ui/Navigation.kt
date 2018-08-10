@@ -17,24 +17,24 @@ object Navigation {
     val EXTRA_INDEX = "index"
 
 
-
-    fun startDailyDetail(context: Context,id:Int, url:String){
+    fun startDailyDetail(context: Context, id: Int, url: String) {
         val intent = Intent(context, DailyDetailActivity::class.java)
         intent.putExtra(EXTRA_ID, id)
         intent.putExtra(EXTRA_IMG, url)
         context.startActivity(intent)
     }
 
-    fun startFilmDetail(context: Context, id: String, poster: String){
+    fun startFilmDetail(context: Context, id: String, poster: String) {
         val intent = Intent(context, MovieDetailActivity::class.java)
         intent.putExtra(EXTRA_ID, id)
         intent.putExtra(EXTRA_IMG, poster)
         context.startActivity(intent)
     }
 
-    fun startPhotosView(context: Context, data: ArrayList<String>, index:Int){
+    fun startPhotosView(context: Context, data: ArrayList<String>, dataId: ArrayList<String>, index: Int) {
         val intent = Intent(context, PhotoViewActivity::class.java)
         intent.putStringArrayListExtra(EXTRA_DATA, data)
+        intent.putStringArrayListExtra(EXTRA_ID, dataId)
         intent.putExtra(EXTRA_INDEX, index)
         context.startActivity(intent)
     }
