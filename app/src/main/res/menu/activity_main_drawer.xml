@@ -27,9 +27,9 @@
         android:id="@+id/other_actions"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_action_top"
-            android:title="Share" />
+            android:id="@+id/nav_blog"
+            android:icon="@mipmap/ic_open_broswer"
+            android:title="@string/nav_blog" />
         <item
             android:id="@+id/nav_send"
             android:icon="@mipmap/ic_action_download"

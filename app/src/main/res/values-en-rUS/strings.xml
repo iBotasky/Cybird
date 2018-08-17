@@ -12,6 +12,9 @@
     <string name="tab_daily">Daily</string>
     <string name="tab_girls">Picture</string>
     <string name="tab_mine">One is all</string>
+    <!--Nav-->
+    <string name="nav_blog">Blog</string>
+
 
     <!--Moive-->
     <string name="movie_hot">Hot</string>

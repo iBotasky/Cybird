@@ -22,7 +22,7 @@ interface GirlsApi {
             return Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(Urls.GANK_GIRLS_URL_HOST)
+                    .baseUrl(Urls.HOST_GANK_GIRLS)
                     .build()
                     .create(GirlsApi::class.java)
         }

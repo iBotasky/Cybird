@@ -12,6 +12,8 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
 import com.sirius.cybird.module.NavItemData
+import com.sirius.cybird.net.url.Urls
+import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.ui.base.BaseNavActivity
 import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.girls.GirlsFragment
@@ -46,20 +48,28 @@ class HomeActivity : BaseNavActivity() {
         //mHomeBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
         //打开手势滑动
         //mHomeBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+        mHomeBinding.navigation.setCheckedItem(R.id.nav_one)
         mHomeBinding.navigation.setNavigationItemSelectedListener(object : NavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                item.isChecked = true
                 mHomeBinding.drawerLayout.closeDrawers()
                 when (item.itemId) {
-                    R.id.nav_one -> mHomeBinding.idBottomNavBar.selectTab(0)
-                    R.id.nav_movie -> mHomeBinding.idBottomNavBar.selectTab(1)
-                    R.id.nav_daily -> mHomeBinding.idBottomNavBar.selectTab(2)
-                    R.id.nav_girls -> mHomeBinding.idBottomNavBar.selectTab(3)
-                }
+                    R.id.nav_one, R.id.nav_movie, R.id.nav_daily, R.id.nav_girls -> {
+                        item.isChecked = true
+                        when (item.itemId) {
+                            R.id.nav_one -> mHomeBinding.idBottomNavBar.selectTab(0)
+                            R.id.nav_movie -> mHomeBinding.idBottomNavBar.selectTab(1)
+                            R.id.nav_daily -> mHomeBinding.idBottomNavBar.selectTab(2)
+                            R.id.nav_girls -> mHomeBinding.idBottomNavBar.selectTab(3)
+                        }
+                    }
+                    R.id.nav_blog -> {
+                        item.isChecked = false
+                        Navigation.startBrowser(this@HomeActivity, Urls.URL_BLOG)
 
+                    }
+                }
                 return false
             }
-
         })
     }
 

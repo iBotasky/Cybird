@@ -5,9 +5,12 @@ package com.sirius.cybird.net.url
  * Created by Botasky on 2017/12/29.
  */
 object Urls {
-    const val GANK_GIRLS_URL_HOST = "http://gank.io/"
-    const val DOUBAN_FILM_URL_HOST = "https://api.douban.com/"
-    const val WEATHRE_URL_HOST = "http://op.juhe.cn"
-    const val ZHI_HU_DIARY_URL_HOST = "http://news-at.zhihu.com"
-    const val ONE_URL_HOST = "http://v3.wufazhuce.com:8000"
+    const val HOST_GANK_GIRLS = "http://gank.io/"
+    const val HOST_DOUBAN_FILM = "https://api.douban.com/"
+    const val HOST_WEATHRE = "http://op.juhe.cn"
+    const val HOST_ZHI_HU_DIARY = "http://news-at.zhihu.com"
+    const val HOST_ONE_URL = "http://v3.wufazhuce.com:8000"
+
+
+    const val URL_BLOG = "http://botasky.coding.me/"
 }

@@ -27,7 +27,7 @@ class MainActivity : BaseActivity() {
         mMainBinding.viewModel = viewModel
         mMainBinding.executePendingBindings()
         mFilmBox = CybirdApp.getBoxStore().boxFor(FilmEntity::class.java)
-        button.setOnClickListener({
+        button.setOnClickListener(({
             startActivity(Intent(this, HomeActivity::class.java))
 //            FilmsApi.getFilmsService()
 //                    .getComingSoon(0, 10)
@@ -41,7 +41,7 @@ class MainActivity : BaseActivity() {
 //                    }, { e ->
 //                        Log.e("TAG", e.message)
 //                    })
-        })
+        }))
     }
 
     override fun getLayoutResource(): Int {

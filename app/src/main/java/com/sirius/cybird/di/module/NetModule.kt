@@ -90,7 +90,7 @@ class NetModule {
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(Urls.WEATHRE_URL_HOST)
+                .baseUrl(Urls.HOST_WEATHRE)
                 .client(okHttpClient)
                 .build()
     }
@@ -102,7 +102,7 @@ class NetModule {
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(Urls.DOUBAN_FILM_URL_HOST)
+                .baseUrl(Urls.HOST_DOUBAN_FILM)
                 .client(okHttpClient)
                 .build()
     }
@@ -114,7 +114,7 @@ class NetModule {
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(Urls.GANK_GIRLS_URL_HOST)
+                .baseUrl(Urls.HOST_GANK_GIRLS)
                 .client(okHttpClient)
                 .build()
     }
@@ -126,7 +126,7 @@ class NetModule {
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(Urls.ZHI_HU_DIARY_URL_HOST)
+                .baseUrl(Urls.HOST_ZHI_HU_DIARY)
                 .client(okHttpClient)
                 .build()
     }
@@ -138,7 +138,7 @@ class NetModule {
         return Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .baseUrl(Urls.ONE_URL_HOST)
+                .baseUrl(Urls.HOST_ONE_URL)
                 .client(okHttpClient)
                 .build()
     }
