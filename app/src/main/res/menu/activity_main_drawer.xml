@@ -30,10 +30,10 @@
             android:id="@+id/nav_blog"
             android:icon="@mipmap/ic_open_broswer"
             android:title="@string/nav_blog" />
-        <item
-            android:id="@+id/nav_send"
-            android:icon="@mipmap/ic_action_download"
-            android:title="Send" />
+        <!--<item-->
+            <!--android:id="@+id/nav_send"-->
+            <!--android:icon="@mipmap/ic_action_download"-->
+            <!--android:title="Send" />-->
     </group>
 
 </menu>
