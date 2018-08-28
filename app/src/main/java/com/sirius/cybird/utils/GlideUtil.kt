@@ -12,12 +12,13 @@ import java.io.File
 
 object GlideUtil {
 
-    fun loadImage(context: Context, imageview: ImageView, url: String) {
+    fun loadImage(context: Context, imageview: ImageView, url: String, sizeMultiplier:Float = 0.1f ) {
         GlideApp.with(context)
                 .load(url)
                 .placeholder(R.drawable.img_holder)
                 .error(R.drawable.img_err_holder)
                 .centerCrop()
+                .thumbnail(sizeMultiplier)
                 .into(imageview)
     }
 
