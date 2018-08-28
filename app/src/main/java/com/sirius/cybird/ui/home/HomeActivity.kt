@@ -9,6 +9,7 @@ import android.support.v4.app.ActivityCompat
 import android.view.MenuItem
 import android.widget.Toast
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
+import com.firebase.ui.auth.AuthUI
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
 import com.sirius.cybird.module.NavItemData
@@ -62,15 +63,27 @@ class HomeActivity : BaseNavActivity() {
                             R.id.nav_girls -> mHomeBinding.idBottomNavBar.selectTab(3)
                         }
                     }
-                    R.id.nav_blog -> {
+                    R.id.nav_blog, R.id.nav_login -> {
                         item.isChecked = false
-                        Navigation.startBrowser(this@HomeActivity, Urls.URL_BLOG)
+                        when (item.itemId) {
+                            R.id.nav_blog -> Navigation.startBrowser(this@HomeActivity, Urls.URL_BLOG)
+                            R.id.nav_login -> startActivity(AuthUI.getInstance()
+                                            .createSignInIntentBuilder()
+                                            .setAvailableProviders(arrayListOf(
+                                                    AuthUI.IdpConfig.EmailBuilder().build(),
+                                                    AuthUI.IdpConfig.PhoneBuilder().build(),
+                                                    AuthUI.IdpConfig.GoogleBuilder().build())
+                                            )
+                                            .build())
+                        }
 
                     }
                 }
                 return false
             }
         })
+
+
     }
 
     override fun getLayoutResource(): Int {

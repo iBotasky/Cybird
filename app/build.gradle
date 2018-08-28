@@ -19,6 +19,7 @@ android {
         applicationId "com.sirius.cybird"
         minSdkVersion rootProject.ext.androidMinSdkVersion
         targetSdkVersion rootProject.ext.androidTargetSdkVersion
+        multiDexEnabled true
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -177,9 +178,17 @@ dependencies {
     //photoView
     implementation appDependencies.photoView
 
+    implementation appDependencies.multiDex
+
+    //firebase
+    implementation appDependencies.firebase
+    implementation appDependencies.firebaseAuth
+    implementation appDependencies.firebaseAuthUi
+
     //Libs
 }
 apply plugin: 'io.objectbox'                //ObjectBox
+apply plugin: 'com.google.gms.google-services'
 kapt {
     generateStubs = true
 }
