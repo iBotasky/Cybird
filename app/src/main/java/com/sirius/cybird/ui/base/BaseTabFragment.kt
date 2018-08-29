@@ -33,8 +33,7 @@ abstract class BaseTabFragment : BaseLazyFragment() {
         mViewPager.adapter = mPagerAdapter
         mViewPager.pageMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, getPageMargin().toFloat(), resources.displayMetrics).toInt()
 //        setItems(getTabItems())
-        mViewPager.offscreenPageLimit = getPageLimit()
-        mTabLayout.setupWithViewPager(mViewPager)
+
     }
 
 
@@ -63,6 +62,8 @@ abstract class BaseTabFragment : BaseLazyFragment() {
     //懒加载实现
     override fun loadData() {
         setItems(getTabItems())
+        mViewPager.offscreenPageLimit = getPageLimit()
+        mTabLayout.setupWithViewPager(mViewPager)
     }
 
     inner class TabViewPagerAdapter(val context: Context, fm: FragmentManager, tabItems: List<TabItemData>) : FragmentPagerAdapter(fm) {
