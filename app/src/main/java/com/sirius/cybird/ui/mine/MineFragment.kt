@@ -44,18 +44,6 @@ class MineFragment : BaseFragment() {
         mMineBinding.executePendingBindings()
     }
 
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
     override fun getLayouResource(): Int {
         return R.layout.fragment_mine
     }

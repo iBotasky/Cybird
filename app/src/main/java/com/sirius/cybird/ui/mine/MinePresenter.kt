@@ -19,8 +19,6 @@ class MinePresenter {
     }
 
     fun getLastDayInfo() : Observable<OneDetailData> {
-        return mServiece.getOneListId()
-                .flatMap { data -> mServiece.getOneDetailById(data.data[0]) }
-
+        return mServiece.getOneDetail()
     }
 }

@@ -7,9 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface OneApi {
-    @GET("/api/onelist/idlist")
-    fun getOneListId(): Observable<OneHomeData>
 
-    @GET("/api/onelist/{id}/0")
-    fun getOneDetailById(@Path("id") id: String): Observable<OneDetailData>
+    @GET("/api/channel/one/0/0")///api/channel/one/{time 2018-08-29}/0
+    fun getOneDetail():Observable<OneDetailData>
 }
