@@ -17,7 +17,6 @@ abstract class BaseTabFragment : BaseLazyFragment() {
     lateinit var mTabLayout: TabLayout
     lateinit var mViewPager: ViewPager
     lateinit var mPagerAdapter: TabViewPagerAdapter
-    lateinit var mTabDatas: MutableList<TabItemData>
 
     override fun setupViews() {
         super.setupViews()
@@ -29,10 +28,9 @@ abstract class BaseTabFragment : BaseLazyFragment() {
         if (pageTransformer != null) {
             mViewPager.setPageTransformer(false, pageTransformer)
         }
-
+        //这边做ViewPager的初始化，Tab添加放到Lazy那边继承的loadData()去做
         mViewPager.adapter = mPagerAdapter
         mViewPager.pageMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, getPageMargin().toFloat(), resources.displayMetrics).toInt()
-//        setItems(getTabItems())
 
     }
 
