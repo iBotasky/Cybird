@@ -13,7 +13,7 @@ import com.sirius.cybird.R
 import com.sirius.cybird.module.TabItemData
 import java.lang.ref.WeakReference
 
-abstract class BaseTabFragment : BaseFragment() {
+abstract class BaseTabFragment : BaseLazyFragment() {
     lateinit var mTabLayout: TabLayout
     lateinit var mViewPager: ViewPager
     lateinit var mPagerAdapter: TabViewPagerAdapter
@@ -32,7 +32,7 @@ abstract class BaseTabFragment : BaseFragment() {
 
         mViewPager.adapter = mPagerAdapter
         mViewPager.pageMargin = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, getPageMargin().toFloat(), resources.displayMetrics).toInt()
-        setItems(getTabItems())
+//        setItems(getTabItems())
         mViewPager.offscreenPageLimit = getPageLimit()
         mTabLayout.setupWithViewPager(mViewPager)
     }
@@ -60,6 +60,10 @@ abstract class BaseTabFragment : BaseFragment() {
         mPagerAdapter.addItems(list)
     }
 
+    //懒加载实现
+    override fun loadData() {
+        setItems(getTabItems())
+    }
 
     inner class TabViewPagerAdapter(val context: Context, fm: FragmentManager, tabItems: List<TabItemData>) : FragmentPagerAdapter(fm) {
         private val pages: MutableList<TabItemData>

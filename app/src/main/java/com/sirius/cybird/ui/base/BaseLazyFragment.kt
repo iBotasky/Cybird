@@ -1,6 +1,7 @@
 package com.sirius.cybird.ui.base
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,7 @@ abstract class BaseLazyFragment : BaseFragment() {
      */
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+//        Log.e("Lazy", " onCreated fragment " + this::class.java.name + " userVisiable " + userVisibleHint)
         if (userVisibleHint){
             loadData()
             isFirstLoadDataCompleted = true
