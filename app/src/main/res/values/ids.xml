@@ -30,4 +30,5 @@
     <item name="id_tag_daily_story" type="id" />
 
     <item name="id_tag_girl" type="id"/>
+    <item name="id_tag_one_detail" type="id"/>
 </resources>
