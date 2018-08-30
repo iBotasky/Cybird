@@ -16,7 +16,11 @@ object DateUtils {
         val calendar = Calendar.getInstance()
         val format = SimpleDateFormat("yyyy-MM-dd")
         for (past in 0..6) {
-            calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - 1)
+            if (past == 0)
+                calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR))
+            else
+                calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - 1)
+
             val today = calendar.time
             list.add(format.format(today))
         }
