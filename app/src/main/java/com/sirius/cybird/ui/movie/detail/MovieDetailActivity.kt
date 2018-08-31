@@ -1,9 +1,7 @@
 package com.sirius.cybird.ui.movie.detail
 
-import com.kennyc.view.MultiStateView
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityMovieDetailBinding
-import com.sirius.cybird.net.response.FilmDetailData
 import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.ui.base.BaseActivity
 import com.sirius.cybird.utils.GlideUtil
@@ -28,7 +26,7 @@ class MovieDetailActivity : BaseActivity() {
         super.setupViews()
         mId = intent.getStringExtra(Navigation.EXTRA_ID)
         mDetailBinding = getBaseViewBinding()
-        GlideUtil.loadImage(this, mDetailBinding.ivFilmImg, intent.getStringExtra(Navigation.EXTRA_IMG))
+        GlideUtil.loadImageCenterCrop(this, mDetailBinding.ivFilmImg, intent.getStringExtra(Navigation.EXTRA_IMG))
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.id_continer, MovieDetailContentFragment.newInstance(mId))
         fragmentTransaction.commitAllowingStateLoss()

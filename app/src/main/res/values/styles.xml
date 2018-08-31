@@ -11,6 +11,18 @@
         <item name="android:windowAnimationStyle">@style/activityAnimation</item>
     </style>
 
+    <style name="LoginTheme" parent="FirebaseUI">
+        <!-- Required for sign-in flow styling -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">@color/color_999999</item>
+        <item name="android:windowBackground">@color/colorAccent</item>
+    </style>
+
     <!-- activity进入退出样式 -->
     <style name="activityAnimation" parent="@android:style/Animation">
         <!-- 新Activity 进入 -->

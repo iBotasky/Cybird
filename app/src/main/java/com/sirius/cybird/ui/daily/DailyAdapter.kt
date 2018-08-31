@@ -64,7 +64,7 @@ class DailyAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAdapter<
             STORY -> {
                 val story = item as Story
                 val storyBinding = helper.storyBinding
-                GlideUtil.loadImage(mContext, storyBinding.ivImg, story.images[0])
+                GlideUtil.loadImageCenterCrop(mContext, storyBinding.ivImg, story.images[0])
                 storyBinding.setVariable(BR.title, story.title)
                 storyBinding.executePendingBindings()
                 helper.itemView.setOnClickListener(

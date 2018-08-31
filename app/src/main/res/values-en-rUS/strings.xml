@@ -7,6 +7,7 @@
     <string name="g_multi_view_error">Load data error, please retry</string>
     <string name="g_multi_view_loading">Loading&#8230;</string>
     <string name="g_click_to_finish">Click again to quit</string>
+    <string name="g_click_to_sign_in">Click to login</string>
     <!--Home-->
     <string name="tab_movie">Movies</string>
     <string name="tab_daily">Daily</string>

@@ -7,11 +7,13 @@
     <string name="g_multi_view_error">数据加载出错</string>
     <string name="g_multi_view_loading">加载中&#8230;</string>
     <string name="g_click_to_finish">再按一次退出</string>
+    <string name="g_click_to_sign_in">点击登录</string>
     <!--Home-->
     <string name="tab_movie">电影</string>
     <string name="tab_daily">日报</string>
     <string name="tab_girls">美图</string>
     <string name="tab_mine">一个</string>
+
     <!--Nav-->
     <string name="nav_blog">博客</string>
 

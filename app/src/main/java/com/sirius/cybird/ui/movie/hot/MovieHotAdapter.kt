@@ -19,7 +19,7 @@ import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 class MovieHotAdapter : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.layout.item_film) {
     override fun convert(helper: ViewHolder, item: Film) {
         val binding = helper.binding
-        GlideUtil.loadImage(mContext, binding.ivFilmImg, item.images.small)
+        GlideUtil.loadImageCenterCrop(mContext, binding.ivFilmImg, item.images.small)
         val rvCasts = binding.rvCast
         rvCasts.layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
         rvCasts.adapter = MovieCastAdapter(item.casts)

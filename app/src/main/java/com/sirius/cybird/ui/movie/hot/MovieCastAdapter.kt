@@ -17,7 +17,7 @@ class MovieCastAdapter(@NotNull casts: List<Cast>) : BaseQuickAdapter<Cast, Movi
     override fun convert(helper: ViewHolder, item: Cast) {
         val binding = helper.binding
         if (item.avatars != null &&!TextUtils.isEmpty(item.avatars.small)) {
-            GlideUtil.loadImage(mContext, binding.ivAvatar, item.avatars.small)
+            GlideUtil.loadImageCenterCrop(mContext, binding.ivAvatar, item.avatars.small)
         }
         binding.setVariable(BR.name, item.name)
         binding.executePendingBindings()

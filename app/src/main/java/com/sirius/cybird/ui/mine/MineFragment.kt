@@ -1,6 +1,5 @@
 package com.sirius.cybird.ui.mine
 
-import android.util.Log
 import com.sirius.cybird.BR
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.FragmentMineBinding
@@ -8,10 +7,7 @@ import com.sirius.cybird.di.component.ActivityComponent
 import com.sirius.cybird.net.response.OneDetailData
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.base.BaseFragment
-import com.sirius.cybird.utils.DateUtils
 import com.sirius.cybird.utils.GlideUtil
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
@@ -42,7 +38,7 @@ class MineFragment : BaseFragment() {
 
     private fun initView(detail:OneDetailData.Data, weather: OneDetailData.Data.Weather){
         var content = detail.contentList[0]
-        GlideUtil.loadImage(activity!!, mMineBinding.ivBg, content.imgUrl)
+        GlideUtil.loadImageCenterCrop(activity!!, mMineBinding.ivBg, content.imgUrl)
         mMineBinding.setVariable(BR.content, content)
         mMineBinding.setVariable(BR.weather, weather)
         mMineBinding.executePendingBindings()

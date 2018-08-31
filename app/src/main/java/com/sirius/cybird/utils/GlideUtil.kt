@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Environment
+import android.support.annotation.DrawableRes
+import android.support.annotation.LayoutRes
 import android.widget.ImageView
 import com.sirius.cybird.R
 import io.reactivex.Observable
@@ -12,20 +14,38 @@ import java.io.File
 
 object GlideUtil {
 
-    fun loadImage(context: Context, imageview: ImageView, url: String) {
+    fun loadImageCenterCrop(context: Context, imageview: ImageView, url: String) {
         GlideApp.with(context)
                 .load(url)
                 .placeholder(R.drawable.img_holder)
                 .error(R.drawable.img_err_holder)
-                .centerCrop()
+                .optionalCenterCrop()
                 .into(imageview)
     }
+
 
     fun loadImageNotCrop(context: Context, imageview: ImageView, url: String) {
         GlideApp.with(context)
                 .load(url)
                 .placeholder(R.drawable.img_holder)
                 .error(R.drawable.img_err_holder)
+                .into(imageview)
+    }
+
+    fun loadAvatar(context: Context, imageview: ImageView, url: String){
+        GlideApp.with(context)
+                .load(url)
+                .placeholder(R.drawable.img_holder)
+                .error(R.drawable.img_err_holder)
+                .optionalCenterCrop()
+                .optionalCircleCrop()
+                .into(imageview)
+    }
+
+
+    fun loadLocalImage(context: Context, imageview: ImageView, @DrawableRes res:Int){
+        GlideApp.with(context)
+                .load(res)
                 .into(imageview)
     }
 

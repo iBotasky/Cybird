@@ -1,15 +1,20 @@
 package com.sirius.cybird.ui.home
 
 import android.Manifest
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.ActivityCompat
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityHomeBinding
 import com.sirius.cybird.module.NavItemData
@@ -18,9 +23,9 @@ import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.ui.base.BaseNavActivity
 import com.sirius.cybird.ui.daily.DailyFragment
 import com.sirius.cybird.ui.girls.GirlsFragment
-import com.sirius.cybird.ui.mine.MineFragment
 import com.sirius.cybird.ui.movie.MovieFragment
 import com.sirius.cybird.ui.one.OneFragment
+import com.sirius.cybird.utils.GlideUtil
 import com.tbruyelle.rxpermissions2.RxPermissions
 
 /**
@@ -69,13 +74,13 @@ class HomeActivity : BaseNavActivity() {
                         when (item.itemId) {
                             R.id.nav_blog -> Navigation.startBrowser(this@HomeActivity, Urls.URL_BLOG)
                             R.id.nav_login -> startActivity(AuthUI.getInstance()
-                                            .createSignInIntentBuilder()
-                                            .setAvailableProviders(arrayListOf(
-                                                    AuthUI.IdpConfig.EmailBuilder().build(),
-                                                    AuthUI.IdpConfig.PhoneBuilder().build(),
-                                                    AuthUI.IdpConfig.GoogleBuilder().build())
-                                            )
-                                            .build())
+                                    .createSignInIntentBuilder()
+                                    .setAvailableProviders(arrayListOf(
+                                            AuthUI.IdpConfig.EmailBuilder().build(),
+                                            AuthUI.IdpConfig.PhoneBuilder().build(),
+                                            AuthUI.IdpConfig.GoogleBuilder().build())
+                                    )
+                                    .build())
                         }
 
                     }
@@ -84,7 +89,41 @@ class HomeActivity : BaseNavActivity() {
             }
         })
 
+        val headView = mHomeBinding.navigation.getHeaderView(0)
+        val headBg: ImageView = headView.findViewById(R.id.iv_head_bg)
+        val headAvatar: ImageView = headView.findViewById(R.id.iv_head_avatar)
+        val headName: TextView = headView.findViewById(R.id.tv_head_username)
+        GlideUtil.loadLocalImage(this, headBg, R.drawable.bg_drawer)
+        val user = FirebaseAuth.getInstance().currentUser
+        if (user != null) {
+            headName.setText(user.displayName)
+            GlideUtil.loadAvatar(this, headAvatar, user.photoUrl.toString())
+        } else {
+            headName.setText(getString(R.string.g_click_to_sign_in))
+        }
 
+        headAvatar.setOnClickListener(({
+            if (FirebaseAuth.getInstance().currentUser != null){
+                AuthUI.getInstance().signOut(this).addOnCompleteListener(({
+                    headName.setText(getString(R.string.g_click_to_sign_in))
+                    GlideUtil.loadLocalImage(this@HomeActivity, headAvatar, R.mipmap.ic_launcher_round)
+                }))
+            }else{
+                Navigation.startLogin(this@HomeActivity, Navigation.SIGN_IN)
+            }
+        }))
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Navigation.SIGN_IN && resultCode == Activity.RESULT_OK){
+            val headView = mHomeBinding.navigation.getHeaderView(0)
+            val headAvatar: ImageView = headView.findViewById(R.id.iv_head_avatar)
+            val headName: TextView = headView.findViewById(R.id.tv_head_username)
+            headName.setText(FirebaseAuth.getInstance().currentUser?.displayName)
+            GlideUtil.loadAvatar(this, headAvatar, FirebaseAuth.getInstance().currentUser?.photoUrl.toString())
+        }
     }
 
     override fun getLayoutResource(): Int {
@@ -109,7 +148,7 @@ class HomeActivity : BaseNavActivity() {
     override fun getBottomNavDatas(): List<NavItemData> {
         mTitleResources = listOf(R.string.tab_mine, R.string.tab_movie, R.string.tab_daily, R.string.tab_girls)
         return listOf(
-                NavItemData(BottomNavigationItem(R.mipmap.ic_account, R.string.tab_mine).setActiveColorResource(R.color.color_000000), OneFragment::class.java),
+                NavItemData(BottomNavigationItem(R.mipmap.ic_smile, R.string.tab_mine).setActiveColorResource(R.color.color_000000), OneFragment::class.java),
                 NavItemData(BottomNavigationItem(R.mipmap.ic_movie, R.string.tab_movie).setActiveColorResource(R.color.color_movie), MovieFragment::class.java),
                 NavItemData(BottomNavigationItem(R.mipmap.ic_book, R.string.tab_daily).setActiveColorResource(R.color.color_daily), DailyFragment::class.java),
                 NavItemData(BottomNavigationItem(R.mipmap.ic_whatshot, R.string.tab_girls).setActiveColorResource(R.color.color_girl), GirlsFragment::class.java)

@@ -19,7 +19,7 @@ class OneAdapter: BaseQuickAdapter<OneDetailData.Data.Content, OneAdapter.ViewHo
 
     override fun convert(helper: ViewHolder, item: OneDetailData.Data.Content) {
         val binding = helper.binding
-        GlideUtil.loadImage(mContext, binding.ivImg, item.imgUrl)
+        GlideUtil.loadImageCenterCrop(mContext, binding.ivImg, item.imgUrl)
         binding.setVariable(BR.content, item)
         binding.executePendingBindings()
     }

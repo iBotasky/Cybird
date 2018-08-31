@@ -15,8 +15,8 @@ import com.sirius.cybird.utils.GlideUtil
 class MovieTopAdapter : BaseQuickAdapter<Film, MovieTopAdapter.ViewHolder>(R.layout.item_film_top) {
     override fun convert(helper: ViewHolder, item: Film) {
         val binding = helper.binding
-        GlideUtil.loadImage(mContext, binding.ivFilmImg, item.images.small)
-        GlideUtil.loadImage(mContext, binding.ivDirector, item.directors[0].avatars.small)
+        GlideUtil.loadImageCenterCrop(mContext, binding.ivFilmImg, item.images.small)
+        GlideUtil.loadImageCenterCrop(mContext, binding.ivDirector, item.directors[0].avatars.small)
         var directors: String = ""
         for (director in item.directors) {
             if (item.directors.indexOf(director) != item.directors.size - 1)

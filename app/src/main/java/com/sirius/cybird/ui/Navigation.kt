@@ -1,12 +1,16 @@
 package com.sirius.cybird.ui
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import com.firebase.ui.auth.AuthUI
+import com.sirius.cybird.R
 import com.sirius.cybird.ui.daily.DailyDetailActivity
 import com.sirius.cybird.ui.movie.detail.MovieDetailActivity
 import com.sirius.cybird.ui.photo.PhotoViewActivity
 import java.util.*
+import javax.annotation.Nullable
 
 
 /**
@@ -57,6 +61,37 @@ object Navigation {
         val uri = Uri.parse(url)
         val intent = Intent(Intent.ACTION_VIEW, uri)
         context.startActivity(intent)
+    }
+
+    /**
+     * 跳转到Firebase的登录ui
+     */
+    val SIGN_IN = 9
+    fun startLogin(context: Context, tag: Int = 0) {
+        if (tag == 0) {
+            context.startActivity(AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setIsSmartLockEnabled(false)
+                    .setAvailableProviders(arrayListOf(
+                            AuthUI.IdpConfig.EmailBuilder().build(),
+                            AuthUI.IdpConfig.PhoneBuilder().build(),
+                            AuthUI.IdpConfig.GoogleBuilder().build())
+                    )
+                    .setLogo(R.mipmap.ic_launcher_round)
+                    .build())
+        } else {
+            (context as Activity).startActivityForResult(AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setIsSmartLockEnabled(false)
+                    .setAvailableProviders(arrayListOf(
+                            AuthUI.IdpConfig.EmailBuilder().build(),
+                            AuthUI.IdpConfig.PhoneBuilder().build(),
+                            AuthUI.IdpConfig.GoogleBuilder().build())
+                    )
+                    .setTheme(R.style.LoginTheme)
+                    .setLogo(R.mipmap.ic_launcher_round)
+                    .build(), tag)
+        }
     }
 
 }
