@@ -49,7 +49,7 @@ ext {
     //SupportLibs
     suppportLibVersion = '27.1.1'
     //ConstraintLayout
-    constraintLayoutVersion = '1.1.0'
+    constraintLayoutVersion = '1.1.3'
     //BaseRecyclerViewHelper
     baseRecyclerViewHelperVersion = '2.9.38'
     //retrofit
