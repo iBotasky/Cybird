@@ -10,7 +10,7 @@
 > 
 > 项目对一些Base做了比较多得封装，尤其是RecyclerView的列表，封装的比较好，开发有一些列表界面整个界面代码不超过100行
 >
-> 项目采用的是MVVM+VP的开发模式
+> 项目采用的是MVVM+VP的开发模式，用的技术有`RxJava`，`Retrofit`， `Dagger2`,`ConstraintLayout`, `DataBinding`等等。
 >
 > 项目中用到的API有`一个`，`豆瓣`，`知乎`,`GankIO`的API
 >
