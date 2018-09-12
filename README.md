@@ -22,7 +22,6 @@
 
 <img src="http://oktzkaa8p.bkt.clouddn.com/WX20180912-094629@2x.png" style="zoom:50%" />
 
-
 ## 概览
 
 ### SplashActivity

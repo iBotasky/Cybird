@@ -3,17 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:id="@id/id_toolbar"
-    android:background="@color/colorPrimary"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
     android:gravity="center_vertical"
+    app:layout_scrollFlags="scroll|enterAlways"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+    <!--这个是给Toolbar加上滑效果-->
+    <!--app:layout_scrollFlags="scroll|enterAlways"-->
     <TextView
         android:id="@+id/tool_bar_title"
-        android:textColor="@color/textColorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textColor="@color/textColorPrimary"
         android:textSize="18sp"
-        tool:text="title"/>
+        tool:text="title" />
 </android.support.v7.widget.Toolbar>

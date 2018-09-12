@@ -70,7 +70,7 @@ ext {
     //dagger
     daggerVersion = '2.12'
     //glide
-    glideVersion = '4.7.1'
+    glideVersion = '4.8.0'
     //OkhttpGlide
     glideOkVersion = '1.5.0@aar'
     //stetho

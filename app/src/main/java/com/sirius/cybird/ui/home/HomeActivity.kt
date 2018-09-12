@@ -80,6 +80,8 @@ class HomeActivity : BaseNavActivity() {
                                             AuthUI.IdpConfig.PhoneBuilder().build(),
                                             AuthUI.IdpConfig.GoogleBuilder().build())
                                     )
+                                    .setLogo(R.mipmap.ic_launcher_round)
+                                    .setTheme(R.style.LoginTheme)
                                     .build())
                         }
 

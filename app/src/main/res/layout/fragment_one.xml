@@ -16,11 +16,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
-        <com.alexvasilkov.gestures.views.GestureImageView
-            android:id="@+id/giv_full"
-            android:layout_width="match"
-            android:layout_height="match"
-            android:visibility="invisible" />
-
     </android.support.constraint.ConstraintLayout>
 </layout>
