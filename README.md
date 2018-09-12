@@ -71,3 +71,55 @@
 <img src="http://oktzkaa8p.bkt.clouddn.com/10.jpeg" style="zoom:50%" />
 
 
+
+
+
+## Code
+
+封装完后的一个Movie的列表实现代码：
+
+```kotlin
+class MovieTopFragment : BaseRecyclerFragment<Film, MovieTopAdapter.ViewHolder>() {
+
+    @Inject
+    lateinit var mPresenter: MovieTopPresenter
+
+    lateinit var mMovieTopBinding: FragmentMovieTopBinding
+
+
+    override fun setupViews() {
+        super.setupViews()
+        mMovieTopBinding = getBaseViewBinding()
+        mRecyclerView.addItemDecoration(getVerticalSpaceDecoration())
+    }
+
+    override fun getLayoutManager(): RecyclerView.LayoutManager {
+        return LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun getAdapter(): BaseQuickAdapter<Film, MovieTopAdapter.ViewHolder> {
+        return MovieTopAdapter()
+    }
+
+    override fun loadData() {
+        mPresenter.getTopFilms(mStart)
+                .compose(bindToLifecycle())
+                .compose(TransformScheduler.applyNewThreadScheduler())
+                .subscribe(
+                        { filmData -> showResults(filmData.films) },
+                        { e -> mMultiStateView.viewState = MultiStateView.VIEW_STATE_ERROR },
+                        { refreshEnd() }
+
+                )
+    }
+
+    override fun getLayouResource(): Int {
+        return R.layout.fragment_movie_top
+    }
+
+    override fun initializeInjector() {
+        getComponent(ActivityComponent::class.java).inject(this)
+    }
+}
+```
+
