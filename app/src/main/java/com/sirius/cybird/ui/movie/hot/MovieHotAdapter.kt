@@ -32,7 +32,7 @@ class MovieHotAdapter : BaseQuickAdapter<Film, MovieHotAdapter.ViewHolder>(R.lay
             else
                 directors += director.name
         }
-        binding.root.setOnClickListener({v -> Navigation.startFilmDetail(mContext, item.id, item.images.small) })
+        binding.root.setOnClickListener(({v -> Navigation.startFilmDetail(mContext, item.id, item.images.small) }))
 
         binding.setVariable(BR.director, mContext.getString(R.string.movie_director, directors))
         binding.setVariable(BR.title, item.title)

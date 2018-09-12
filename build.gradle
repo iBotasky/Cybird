@@ -95,7 +95,9 @@ ext {
     floatingButtonVersion = '1.3.0'
     //photoView
     photoVersion = '2.1.3'
-
+    //GestureView
+    gestureViewVersion = '2.5.2'
+    //multiDex
     multiDexVer = '1.0.3'
     //firebase
     fireBaseVersion = '16.0.1'
@@ -142,6 +144,7 @@ ext {
             ultraviewpager      : "com.alibaba.android:ultraviewpager:${ultraViewPagerVersion}",
             floatingButton      : "com.melnykov:floatingactionbutton:${floatingButtonVersion}",
             photoView           : "com.github.chrisbanes:PhotoView:${photoVersion}",
+            gestureView         : "com.alexvasilkov:gesture-views:${gestureViewVersion}",
             firebase            : "com.google.firebase:firebase-core:${fireBaseVersion}",
             firebaseAuth        : "com.google.firebase:firebase-auth:${fireBaseVersion}",
             firebaseAuthUi      : "com.firebaseui:firebase-ui-auth:${fireBaseUiVersion}",

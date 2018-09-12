@@ -23,6 +23,7 @@ class OneFragment : BaseRecyclerFragment<OneDetailData.Data.Content, OneAdapter.
     override fun setupViews() {
         super.setupViews()
         mFloatingButton?.visibility = View.GONE
+
     }
 
     override fun getAdapter(): BaseQuickAdapter<OneDetailData.Data.Content, OneAdapter.ViewHolder> {
