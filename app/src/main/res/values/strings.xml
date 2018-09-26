@@ -13,7 +13,8 @@
     <string name="tab_daily">日报</string>
     <string name="tab_girls">美图</string>
     <string name="tab_mine">一个</string>
-
+    <string name="alert_title">你好</string>
+    <string name="alert_message">登录功能需要Google组件，你确认你已经上梯子了吗？</string>
     <!--Nav-->
     <string name="nav_blog">博客</string>
 

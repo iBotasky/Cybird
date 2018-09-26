@@ -110,10 +110,10 @@ abstract class BaseRecyclerMultiFragment<H : BaseViewHolder> : BaseLazyFragment(
             }
         })
         mFloatingButton?.setOnClickListener(
-                {
+                ({
                     v -> mRecyclerView.scrollToPosition(0)
                     mFloatingButton?.hide()
-                }
+                })
         )
     }
 

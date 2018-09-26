@@ -11,7 +11,6 @@ import android.support.v4.app.ActivityCompat
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
@@ -27,6 +26,10 @@ import com.sirius.cybird.ui.movie.MovieFragment
 import com.sirius.cybird.ui.one.OneFragment
 import com.sirius.cybird.utils.GlideUtil
 import com.tbruyelle.rxpermissions2.RxPermissions
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.noButton
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.yesButton
 
 /**
  *Created by Botasky on 2018/4/30
@@ -98,20 +101,24 @@ class HomeActivity : BaseNavActivity() {
         GlideUtil.loadLocalImage(this, headBg, R.drawable.bg_drawer)
         val user = FirebaseAuth.getInstance().currentUser
         if (user != null) {
-            headName.setText(user.displayName)
+            headName.text = user.displayName
             GlideUtil.loadAvatar(this, headAvatar, user.photoUrl.toString())
         } else {
-            headName.setText(getString(R.string.g_click_to_sign_in))
+            headName.text = getString(R.string.g_click_to_sign_in)
         }
 
         headAvatar.setOnClickListener(({
             if (FirebaseAuth.getInstance().currentUser != null){
                 AuthUI.getInstance().signOut(this).addOnCompleteListener(({
-                    headName.setText(getString(R.string.g_click_to_sign_in))
+                    headName.text =  getString(R.string.g_click_to_sign_in)
                     GlideUtil.loadLocalImage(this@HomeActivity, headAvatar, R.mipmap.ic_launcher_round)
                 }))
             }else{
-                Navigation.startLogin(this@HomeActivity, Navigation.SIGN_IN)
+                alert(R.string.alert_title, R.string.alert_message){
+                    yesButton { Navigation.startLogin(this@HomeActivity, Navigation.SIGN_IN) }
+                    noButton {  }
+                }.show()
+
             }
         }))
     }
@@ -123,7 +130,7 @@ class HomeActivity : BaseNavActivity() {
             val headView = mHomeBinding.navigation.getHeaderView(0)
             val headAvatar: ImageView = headView.findViewById(R.id.iv_head_avatar)
             val headName: TextView = headView.findViewById(R.id.tv_head_username)
-            headName.setText(FirebaseAuth.getInstance().currentUser?.displayName)
+            headName.text = FirebaseAuth.getInstance().currentUser?.displayName
             GlideUtil.loadAvatar(this, headAvatar, FirebaseAuth.getInstance().currentUser?.photoUrl.toString())
         }
     }
@@ -174,8 +181,7 @@ class HomeActivity : BaseNavActivity() {
     override fun onBackPressed() {
         if (System.currentTimeMillis() - mCurrentBackPressedTime >= BACK_PRESSED_INTERVAL) {
             mCurrentBackPressedTime = System.currentTimeMillis()
-//            ToastUtils.showShort(R.string.g_click_to_finish)
-            Toast.makeText(this, R.string.g_click_to_finish, Toast.LENGTH_SHORT).show();
+            toast(R.string.g_click_to_finish)
         } else {
             finish()
         }

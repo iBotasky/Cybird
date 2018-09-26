@@ -10,8 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.sirius.cybird.di.HasComponent
 import com.trello.rxlifecycle2.components.support.RxFragment
+import org.jetbrains.anko.AnkoLogger
 
-abstract class BaseFragment : RxFragment() {
+abstract class BaseFragment : RxFragment(), AnkoLogger {
     lateinit var mBinding: ViewDataBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

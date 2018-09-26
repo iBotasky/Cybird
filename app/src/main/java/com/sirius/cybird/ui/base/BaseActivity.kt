@@ -21,12 +21,13 @@ import com.sirius.cybird.di.component.ActivityComponent
 import com.sirius.cybird.di.component.DaggerActivityComponent
 import com.sirius.cybird.di.module.ActivityModule
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
+import org.jetbrains.anko.AnkoLogger
 
 /**
  * Description：
  * Created by Botasky on 2017/12/26.
  */
-open abstract class BaseActivity : RxAppCompatActivity(), HasComponent<ActivityComponent> {
+open abstract class BaseActivity : RxAppCompatActivity(), AnkoLogger, HasComponent<ActivityComponent> {
 
     lateinit var mBinding: ViewDataBinding
     lateinit var mActivityComponent: ActivityComponent

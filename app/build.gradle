@@ -104,6 +104,7 @@ dependencies {
 
     //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation appDependencies.kotlin
+    implementation appDependencies.anko
     implementation appDependencies.appcompact
     implementation appDependencies.appDesign
     implementation appDependencies.cardView

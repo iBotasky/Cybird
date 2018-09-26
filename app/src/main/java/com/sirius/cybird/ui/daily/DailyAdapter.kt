@@ -68,7 +68,7 @@ class DailyAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAdapter<
                 storyBinding.setVariable(BR.title, story.title)
                 storyBinding.executePendingBindings()
                 helper.itemView.setOnClickListener(
-                        { v -> Navigation.startDailyDetail(mContext, story.id, story.images[0])}
+                        ({ v -> Navigation.startDailyDetail(mContext, story.id, story.images[0]) })
                 )
             }
         }

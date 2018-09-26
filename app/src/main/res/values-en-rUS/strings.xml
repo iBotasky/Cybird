@@ -13,6 +13,8 @@
     <string name="tab_daily">Daily</string>
     <string name="tab_girls">Picture</string>
     <string name="tab_mine">One is all</string>
+    <string name="alert_title">Hi</string>
+    <string name="alert_message">Do you cornfim you have link to the vpn?</string>
     <!--Nav-->
     <string name="nav_blog">Blog</string>
 

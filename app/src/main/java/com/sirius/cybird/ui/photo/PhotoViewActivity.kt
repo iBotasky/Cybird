@@ -4,7 +4,6 @@ import android.support.v4.view.ViewPager
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
-import android.widget.Toast
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ActivityPhotoViewBinding
 import com.sirius.cybird.rx.TransformScheduler
@@ -12,6 +11,7 @@ import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.ui.base.BaseActivity
 import com.sirius.cybird.utils.GlideUtil
 import io.reactivex.Observable
+import org.jetbrains.anko.toast
 
 /**
  *Created by Botasky on 2018/5/12
@@ -48,8 +48,8 @@ class PhotoViewActivity : BaseActivity() {
                     .compose(TransformScheduler.applyNewThreadScheduler())
                     .compose(bindToLifecycle())
                     .subscribe(
-                            { s -> Toast.makeText(this, s, Toast.LENGTH_SHORT).show() },
-                            { e -> Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show() },
+                            { s -> toast(s) },
+                            { e -> toast(e.message!!) },
                             {}
                     )
         }))
