@@ -44,4 +44,9 @@
     <string name="mine_reward">打赏开发者:</string>
     <string name="mine_more">后续更多功能开发中&#8230;</string>
     <string name="one_photo">摄影|</string>
+
+    <!--设置-->
+    <string name="setting_update_avatar">点击修改头像</string>
+    <string name="setting_nick">昵称</string>
+    <string name="setting_sing_out">退出登录</string>
 </resources>

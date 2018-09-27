@@ -109,10 +109,13 @@ class HomeActivity : BaseNavActivity() {
 
         headAvatar.setOnClickListener(({
             if (FirebaseAuth.getInstance().currentUser != null){
-                AuthUI.getInstance().signOut(this).addOnCompleteListener(({
-                    headName.text =  getString(R.string.g_click_to_sign_in)
-                    GlideUtil.loadLocalImage(this@HomeActivity, headAvatar, R.mipmap.ic_launcher_round)
-                }))
+//                AuthUI.getInstance().signOut(this).addOnCompleteListener(({
+//                    headName.text =  getString(R.string.g_click_to_sign_in)
+//                    GlideUtil.loadLocalImage(this@HomeActivity, headAvatar, R.mipmap.ic_launcher_round)
+//                }))
+
+                Navigation.startSetting(this)
+
             }else{
                 alert(R.string.alert_title, R.string.alert_message){
                     yesButton { Navigation.startLogin(this@HomeActivity, Navigation.SIGN_IN) }

@@ -24,6 +24,13 @@ object Navigation {
     val EXTRA_URL = "url"
 
     /**
+     * 设置页面
+     */
+    fun startSetting(context: Context){
+        context.startActivity<SettingActivity>()
+    }
+
+    /**
      * 知乎日报详情页
      */
     fun startDailyDetail(context: Context, id: Int, url: String) {
@@ -50,6 +57,7 @@ object Navigation {
     fun startBrowser(context: Context, url: String) {
         context.browse(url)
     }
+
 
     /**
      * 跳转到Firebase的登录ui

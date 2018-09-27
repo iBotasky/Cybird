@@ -1,17 +1,19 @@
-package com.sirius.cybird.ui.login
+package com.sirius.cybird.ui
 
 import com.sirius.cybird.R
 import com.sirius.cybird.ui.base.BaseActivity
 
 /**
- * Created By Botasky 2018/5/7
+ *
+ *Create by Botasky 2018/9/27
  */
-class LoginActivity:BaseActivity() {
+class SettingActivity:BaseActivity() {
+
     override fun initializeInjector() {
 
     }
 
     override fun getLayoutResource(): Int {
-        return R.layout.activity_login
+        return R.layout.activity_setting
     }
 }
