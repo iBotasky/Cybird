@@ -22,6 +22,9 @@ class GirlsAdapter : BaseQuickAdapter<ResultsBean, GirlsAdapter.ViewHolder>(R.la
     override fun convert(helper: ViewHolder, item: ResultsBean) {
         val binding = helper.binding
         GlideUtil.loadImageCenterCrop(mContext, binding.ivImg, item.url)
+
+
+
         binding.root.setOnClickListener(
                 ({
                     mPhotos.clear()
