@@ -139,12 +139,12 @@ open abstract class BaseActivity : RxAppCompatActivity(), AnkoLogger, HasCompone
 
     open fun setToolbarTitle(@StringRes res: Int) {
         var titleView: TextView? = findViewById(R.id.tool_bar_title)
-        titleView?.setText(this.getString(res))
+        titleView?.text = this.getString(res)
     }
 
     open fun setToolbarTitle(title: String) {
         var titleView: TextView? = findViewById(R.id.tool_bar_title)
-        titleView?.setText(title)
+        titleView?.text = title
     }
 
 

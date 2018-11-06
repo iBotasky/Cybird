@@ -18,7 +18,7 @@ import com.sirius.cybird.ui.photo.PhotoViewActivity
 import dagger.Component
 
 @ActivityScoped
-@Component(dependencies = arrayOf(RepositoryComponent::class), modules = arrayOf(ActivityModule::class))
+@Component(dependencies = [RepositoryComponent::class], modules = [ActivityModule::class])
 interface ActivityComponent {
     fun provideActivity(): Activity
 
