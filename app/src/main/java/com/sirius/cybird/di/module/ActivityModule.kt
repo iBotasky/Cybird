@@ -9,11 +9,8 @@ import dagger.Provides
  * A module to wrap the Activity state and expose it to the graph.
  */
 @Module
-class ActivityModule {
-    private val mActivity: Activity
-    constructor(activity: Activity){
-        mActivity = activity
-    }
+class ActivityModule constructor(activity: Activity) {
+    private val mActivity: Activity = activity
 
     /**
      * Expose the activity to dependents in the graph.

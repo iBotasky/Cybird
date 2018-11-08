@@ -2,6 +2,7 @@ package com.sirius.cybird.ui.home
 
 import android.util.Log
 import com.sirius.cybird.db.FilmEntity
+import com.sirius.cybird.di.NameConst
 import com.sirius.cybird.net.HostSelectionInterceptor
 import com.sirius.cybird.net.api.FilmsApi
 import com.sirius.cybird.net.api.GirlsApi
@@ -13,20 +14,11 @@ import java.util.*
 import javax.inject.Inject
 import javax.inject.Named
 
-class HomePresenter {
-//    val mRetrofit: Retrofit
-//    val mHost: HostSelectionInterceptor
+class HomePresenter @Inject constructor(@Named(NameConst.DOUBAN) doubanRetrofit: Retrofit, @Named(NameConst.GANK) gankRetrofit: Retrofit){
 
-    val mDoubanRetrofit: Retrofit
-    val mGankRetrofit: Retrofit
+    val mDoubanRetrofit: Retrofit = doubanRetrofit
+    val mGankRetrofit: Retrofit = gankRetrofit
 
-    @Inject
-    constructor(@Named("douban") doubanRetrofit: Retrofit, @Named("gank") gankRetrofit: Retrofit) {
-//        mRetrofit = retrofit
-//        mHost = host
-        mDoubanRetrofit = doubanRetrofit
-        mGankRetrofit = gankRetrofit
-    }
 
     fun getFilms() {
         /**
@@ -75,8 +67,8 @@ class HomePresenter {
         mGankRetrofit.create(GirlsApi::class.java)
                 .accessGirls(1)
                 .compose(TransformScheduler.applyNewThreadScheduler())
-                .subscribe({ girl ->
+                .subscribe{ girl ->
                     Log.e("TAG", "size " + girl.results.size)
-                })
+                }
     }
 }

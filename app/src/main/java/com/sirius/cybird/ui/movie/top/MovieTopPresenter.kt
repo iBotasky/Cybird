@@ -8,13 +8,8 @@ import retrofit2.Retrofit
 import javax.inject.Inject
 import javax.inject.Named
 
-class MovieTopPresenter {
-    val mRetrofit: Retrofit
-
-    @Inject
-    constructor(@Named(NameConst.DOUBAN) retrofit: Retrofit) {
-        mRetrofit = retrofit
-    }
+class MovieTopPresenter @Inject constructor(@Named(NameConst.DOUBAN) retrofit: Retrofit) {
+    val mRetrofit: Retrofit = retrofit
 
     fun getTopFilms(start: Int): Observable<FilmsData> {
         return mRetrofit.create(FilmsApi::class.java)

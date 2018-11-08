@@ -13,22 +13,18 @@ import javax.inject.Named
 /**
  *Created by Botasky on 2018/4/29
  */
-class DailyPresenter {
+class DailyPresenter @Inject constructor(@Named(NameConst.ZHIHU) retrofit: Retrofit) {
 
-    val mRetrofit: Retrofit
-    @Inject
-    constructor(@Named(NameConst.ZHIHU)retrofit: Retrofit){
-        mRetrofit = retrofit
-    }
+    val mRetrofit: Retrofit = retrofit
 
     fun getDailyStories(): Observable<List<MultiItemEntity>> {
         return mRetrofit.create(ZhiHuApi::class.java)
                 .getLastNews()
-                .flatMap {zhihudata-> Observable.just(convertToMultiEntity(zhihudata))}
+                .flatMap { zhihudata -> Observable.just(convertToMultiEntity(zhihudata)) }
     }
 
-    private fun convertToMultiEntity(zhiHuData: ZhiHuData):List<MultiItemEntity>{
-        val multiList:MutableList<MultiItemEntity> = mutableListOf()
+    private fun convertToMultiEntity(zhiHuData: ZhiHuData): List<MultiItemEntity> {
+        val multiList: MutableList<MultiItemEntity> = mutableListOf()
         multiList.add(TopStories(zhiHuData.topStories))
         multiList.addAll(zhiHuData.stories)
         return multiList

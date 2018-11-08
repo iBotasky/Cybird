@@ -8,13 +8,11 @@ import retrofit2.Retrofit
 import javax.inject.Inject
 import javax.inject.Named
 
-class MinePresenter {
-    private val mRetrofit: Retrofit
+class MinePresenter @Inject constructor(@Named(NameConst.ONE) retrofit: Retrofit) {
+    private val mRetrofit: Retrofit = retrofit
     private val mServiece: OneApi
 
-    @Inject
-    constructor(@Named(NameConst.ONE) retrofit: Retrofit) {
-        mRetrofit = retrofit
+    init {
         mServiece = retrofit.create(OneApi::class.java)
     }
 

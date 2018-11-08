@@ -19,7 +19,7 @@ import javax.inject.Singleton
  * MyApplication}.
  */
 @Singleton
-@Component(modules = arrayOf(ApplicationModule::class, NetModule::class))
+@Component(modules = [ApplicationModule::class, NetModule::class])
 interface RepositoryComponent {
 
     fun getHostSelectionInterceptor(): HostSelectionInterceptor //开放Module中的HostSelectionInterceptor的依赖

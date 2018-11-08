@@ -15,15 +15,9 @@ import javax.inject.Named
 /**
  * Created By Botasky 02/05/2018
  */
-class MovieDetailPresenter {
-    private val mRetrofit: Retrofit
-    private val mContext: Context
-
-    @Inject
-    constructor(@Named(NameConst.DOUBAN) retrofit: Retrofit, activity: Activity) {
-        mRetrofit = retrofit
-        mContext = activity
-    }
+class MovieDetailPresenter @Inject constructor(@Named(NameConst.DOUBAN) retrofit: Retrofit, activity: Activity) {
+    private val mRetrofit: Retrofit = retrofit
+    private val mContext: Context = activity
 
     fun getFilmDetail(id: String): Observable<List<MultiItemEntity>> {
         return mRetrofit.create(FilmsApi::class.java)

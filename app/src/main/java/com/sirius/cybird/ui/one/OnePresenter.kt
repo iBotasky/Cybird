@@ -13,13 +13,11 @@ import javax.inject.Named
  *
  *Create by Botasky 2018/8/30
  */
-class OnePresenter {
-    private val mRetrofit: Retrofit
+class OnePresenter @Inject constructor(@Named(NameConst.ONE) retrofit: Retrofit) {
+    private val mRetrofit: Retrofit = retrofit
     private val mServiece: OneApi
 
-    @Inject
-    constructor(@Named(NameConst.ONE) retrofit: Retrofit) {
-        mRetrofit = retrofit
+    init {
         mServiece = retrofit.create(OneApi::class.java)
     }
 

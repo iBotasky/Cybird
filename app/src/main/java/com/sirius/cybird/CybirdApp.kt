@@ -47,11 +47,7 @@ class CybirdApp : Application() {
 //        setupUtils()
 
     }
-    
 
-//    fun setupUtils(){
-//        Utils.init(this)
-//    }
 
     fun setupComponent(){
         mRepositoryComponent = DaggerRepositoryComponent.builder()

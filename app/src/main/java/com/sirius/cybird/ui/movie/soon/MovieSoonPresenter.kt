@@ -11,13 +11,8 @@ import javax.inject.Named
 /**
  * Created By Botasky 28/04/2018
  */
-class MovieSoonPresenter {
-    val mRetrofit: Retrofit
-
-    @Inject
-    constructor(@Named(NameConst.DOUBAN) retrofit: Retrofit) {
-        mRetrofit = retrofit
-    }
+class MovieSoonPresenter @Inject constructor(@Named(NameConst.DOUBAN) retrofit: Retrofit) {
+    val mRetrofit: Retrofit = retrofit
 
     fun getComingSoon(start: Int): Observable<FilmsData> {
         return mRetrofit.create(FilmsApi::class.java)

@@ -11,16 +11,12 @@ import javax.inject.Named
 /**
  *Created by Botasky on 2018/4/30
  */
-class GirlsPresenter {
-    val mRetrofit:Retrofit
-    @Inject
-    constructor(@Named(NameConst.GANK) retrofit: Retrofit){
-        mRetrofit = retrofit
-    }
+class GirlsPresenter @Inject constructor(@Named(NameConst.GANK) retrofit: Retrofit) {
+    val mRetrofit: Retrofit = retrofit
 
-    fun getGirls(page:Int): Observable<List<ResultsBean>> {
+    fun getGirls(page: Int): Observable<List<ResultsBean>> {
         return mRetrofit.create(GirlsApi::class.java)
                 .accessGirls(page)
-                .flatMap { girlResopnse-> Observable.just(girlResopnse.results)}
+                .flatMap { girlResopnse -> Observable.just(girlResopnse.results) }
     }
 }

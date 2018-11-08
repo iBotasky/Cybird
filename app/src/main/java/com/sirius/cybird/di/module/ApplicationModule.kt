@@ -9,12 +9,8 @@ import javax.inject.Singleton
 
 
 @Module
-class ApplicationModule {
-    var mApplication: Application
-
-    constructor(application: Application){
-        this.mApplication = application
-    }
+class ApplicationModule constructor(application: Application) {
+    val mApplication: Application = application
 
     @ForApplication
     @Singleton
