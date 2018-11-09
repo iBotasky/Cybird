@@ -132,9 +132,8 @@ dependencies {
     //RxPermission
     implementation appDependencies.rxPermission
 
-    //SystemBar
-    implementation appDependencies.systembar
-
+    //沉浸式
+    implementation appDependencies.immersionBar
     //Dagger
     implementation appDependencies.dagger
     kapt appDependencies.daggerCompiler
@@ -145,8 +144,7 @@ dependencies {
     kapt appDependencies.glideComplier
 
     //DataBinding
-
-    //    kapt appDependencies.databindingCompiler
+    //kapt appDependencies.databindingCompiler
 
     //Stetho
     implementation appDependencies.stetho

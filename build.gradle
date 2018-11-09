@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 //apply from: "config.gradle"
 buildscript {
-    ext.kotlin_version = '1.2.71'
+    ext.kotlin_version = '1.3.0'
     ext.gradle_version = '3.2.0'
     ext.objectbox_version = '1.4.0'
     ext.google_service_version = '4.0.1'
@@ -65,8 +65,8 @@ ext {
     rxLifecycleVersion = '2.2.1'
     //rxPermission
     rxPermissionVersion = '0.9.4@aar'
-    //Status bar
-    statusBarVersion = '1.0.0@aar'
+    //immersionbar
+    immersionBarVersion = '2.3.2-beta03'
     //DatabindingCompiler
     databindingCompilerVersion = '3.2.0-alpha09'
     //dagger
@@ -125,7 +125,7 @@ ext {
             rxLifecycleComponent: "com.trello.rxlifecycle2:rxlifecycle-components:${rxLifecycleVersion}",
             brvah               : "com.github.CymChad:BaseRecyclerViewAdapterHelper:${baseRecyclerViewHelperVersion}",
             rxPermission        : "com.tbruyelle.rxpermissions2:rxpermissions:${rxPermissionVersion}",
-            systembar           : "com.flyco.systembar:FlycoSystemBar_Lib:${statusBarVersion}",
+            immersionBar        : "com.gyf.immersionbar:immersionbar:${immersionBarVersion}",
             databindingCompiler : "com.android.databinding:compiler:${databindingCompilerVersion}",
             dagger              : "com.google.dagger:dagger:${daggerVersion}",
             daggerCompiler      : "com.google.dagger:dagger-compiler:${daggerVersion}",

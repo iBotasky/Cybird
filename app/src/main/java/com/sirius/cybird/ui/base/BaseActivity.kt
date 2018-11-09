@@ -2,7 +2,6 @@ package com.sirius.cybird.ui.base
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
-import android.os.Build
 import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.annotation.LayoutRes
@@ -12,7 +11,7 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import com.flyco.systembar.SystemBarHelper
+import com.gyf.barlibrary.ImmersionBar
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.CybirdApp
 import com.sirius.cybird.R
@@ -89,18 +88,6 @@ open abstract class BaseActivity : RxAppCompatActivity(), AnkoLogger, HasCompone
         return true
     }
 
-    fun getImmersiveStatusBarAlpha(): Float {
-        if (isDark()) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                if (SystemBarHelper.isMIUI6Later() || SystemBarHelper.isFlyme4Later() || Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
-                } else {
-                    return 0.3f
-                }
-            }
-        }
-        return 0f
-    }
 
     fun setupToolBar() {
         mToolbar = findViewById(R.id.id_toolbar)
@@ -125,7 +112,7 @@ open abstract class BaseActivity : RxAppCompatActivity(), AnkoLogger, HasCompone
         }
     }
 
-    open fun loadData(){
+    open fun loadData() {
 
     }
 
@@ -153,21 +140,7 @@ open abstract class BaseActivity : RxAppCompatActivity(), AnkoLogger, HasCompone
     }
 
     protected fun setupStatusBar() {
-        if (isDark()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                SystemBarHelper.setStatusBarDarkMode(this)
-            }
-        }
-
-        if (!isImmersiveStatusBar()) {
-            return
-        }
-
-        SystemBarHelper.immersiveStatusBar(this, getImmersiveStatusBarAlpha())
-
-        if (mToolbar != null) {
-            SystemBarHelper.setHeightAndPadding(this, mToolbar)
-        }
+        ImmersionBar.with(this).init()
     }
 
     override fun getComponent(): ActivityComponent {
@@ -194,5 +167,11 @@ open abstract class BaseActivity : RxAppCompatActivity(), AnkoLogger, HasCompone
      */
     fun setOnRetry(retry: () -> Unit) {
         mMultiStateErrorRetry?.setOnClickListener { retry() }
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ImmersionBar.with(this).destroy()
     }
 }
