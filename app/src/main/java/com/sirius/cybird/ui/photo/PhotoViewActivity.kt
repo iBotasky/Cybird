@@ -107,6 +107,10 @@ class PhotoViewActivity : BaseActivity() {
         })
     }
 
+    override fun barColor(): Int {
+        return R.color.color_000000
+    }
+
     override fun isDisplayHomeAsUpEnable(): Boolean {
         return true
     }

@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import com.gyf.barlibrary.BarHide
 import com.gyf.barlibrary.ImmersionBar
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.CybirdApp
@@ -140,8 +141,20 @@ open abstract class BaseActivity : RxAppCompatActivity(), AnkoLogger, HasCompone
     }
 
     protected fun setupStatusBar() {
-        ImmersionBar.with(this).init()
+        if (isImmersiveStatusBar()) {
+            ImmersionBar.with(this)
+                    .fitsSystemWindows(true)
+                    .statusBarColor(barColor())
+                    .navigationBarColor(barColor())
+                    .init()
+        }
     }
+
+
+    open fun barColor():Int{
+        return R.color.colorPrimary
+    }
+
 
     override fun getComponent(): ActivityComponent {
         return mActivityComponent
