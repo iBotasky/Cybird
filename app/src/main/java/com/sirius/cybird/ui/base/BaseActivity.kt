@@ -141,17 +141,15 @@ open abstract class BaseActivity : RxAppCompatActivity(), AnkoLogger, HasCompone
     }
 
     protected fun setupStatusBar() {
-        if (isImmersiveStatusBar()) {
+        if (isImmersiveStatusBar().and(mToolbar != null)) {
             ImmersionBar.with(this)
-                    .fitsSystemWindows(true)
-                    .statusBarColor(barColor())
-                    .navigationBarColor(barColor())
+                    .titleBar(R.id.id_toolbar)
                     .init()
         }
     }
 
 
-    open fun barColor():Int{
+    open fun barColor(): Int {
         return R.color.colorPrimary
     }
 
