@@ -23,7 +23,7 @@ abstract class BaseTabFragment : BaseLazyFragment() {
         mTabLayout = mBinding.root.findViewById(R.id.id_tab_bar)
         mViewPager = mBinding.root.findViewById(R.id.id_view_pager)
 
-        mPagerAdapter = getPagerAdapter(childFragmentManager, mutableListOf())
+        mPagerAdapter = getPagerAdapter(childFragmentManager, getTabItems())
         val pageTransformer = getPageTransformer()
         if (pageTransformer != null) {
             mViewPager.setPageTransformer(false, pageTransformer)
@@ -59,7 +59,7 @@ abstract class BaseTabFragment : BaseLazyFragment() {
 
     //懒加载实现
     override fun loadData() {
-        setItems(getTabItems())
+//        setItems(getTabItems())
         mViewPager.offscreenPageLimit = getPageLimit()
         mTabLayout.setupWithViewPager(mViewPager)
     }
@@ -73,7 +73,6 @@ abstract class BaseTabFragment : BaseLazyFragment() {
             this.holder = SparseArrayCompat(pages.size)
             addItems(tabItems)
         }
-
 
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
             val item = super.instantiateItem(container, position)
