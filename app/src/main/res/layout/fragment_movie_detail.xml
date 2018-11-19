@@ -10,13 +10,46 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <include layout="@layout/include_recycler_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+        <com.kennyc.view.MultiStateView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:fab="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@id/id_multi_state_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:msv_emptyView="@layout/state_empty_view"
+            app:msv_errorView="@layout/state_error_view"
+            app:msv_loadingView="@layout/state_loading_view"
+            app:msv_viewState="loading">
+
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@id/id_swipe_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.sirius.cybird.widget.VerticalRecyclerView
+                    android:id="@id/id_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:cacheColorHint="@null"
+                    android:scrollbars="vertical" />
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+
+            <com.melnykov.fab.FloatingActionButton
+                android:id="@id/id_float_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="60dp"
+                android:layout_marginEnd="@dimen/dimen_20"
+                android:src="@drawable/ic_action_top"
+                fab:elevation="@dimen/bar_elevation"
+                fab:fab_shadow="true"
+                fab:fab_colorNormal="@color/colorPrimary"
+                fab:fab_colorPressed="@color/colorPrimaryDark"
+                fab:fab_colorRipple="@color/ripple" />
+        </com.kennyc.view.MultiStateView>
     </android.support.constraint.ConstraintLayout>
 </layout>
