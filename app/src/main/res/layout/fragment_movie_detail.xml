@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.sirius.cybird.widget.VerticalRecyclerView
+                <com.sirius.cybird.widget.BetterRecyclerView
                     android:id="@id/id_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

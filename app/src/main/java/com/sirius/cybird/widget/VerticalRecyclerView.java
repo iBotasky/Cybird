@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 
 /**
@@ -28,30 +29,20 @@ public class VerticalRecyclerView extends RecyclerView {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent e) {
-        boolean intercepted = false;
+        Log.e("TAG", "OnIntercept");
         int x = ((int) e.getX());
         int y = ((int) e.getY());
         switch (e.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                intercepted = false;
-                break;
+                mLastYIntercept = y;
+                mLastXIntercept = x;
+                return false;
             case MotionEvent.ACTION_MOVE:
                 int deltaX = x - mLastXIntercept;
                 int deltaY = y - mLastYIntercept;
                 //水平移动距离》垂直方向移动距离不拦截
-                if (Math.abs(deltaX) > Math.abs(deltaY)) {
-                    intercepted = false;
-                } else {
-                    intercepted = true;
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                intercepted = false;
-                break;
+                return  Math.abs(deltaX) < Math.abs(deltaY);
         }
-        mLastYIntercept = y;
-        mLastXIntercept = x;
-
-        return intercepted;
+        return super.onInterceptTouchEvent(e);
     }
 }
