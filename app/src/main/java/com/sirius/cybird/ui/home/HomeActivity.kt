@@ -160,10 +160,10 @@ class HomeActivity : BaseNavActivity() {
     override fun getBottomNavDatas(): List<NavItemData> {
         mTitleResources = listOf(R.string.tab_mine, R.string.tab_movie, R.string.tab_daily, R.string.tab_girls)
         return listOf(
-                NavItemData(BottomNavigationItem(R.mipmap.ic_smile, R.string.tab_mine).setActiveColorResource(R.color.color_000000), OneFragment::class.java),
-                NavItemData(BottomNavigationItem(R.mipmap.ic_movie, R.string.tab_movie).setActiveColorResource(R.color.color_movie), MovieFragment::class.java),
-                NavItemData(BottomNavigationItem(R.mipmap.ic_book, R.string.tab_daily).setActiveColorResource(R.color.color_daily), DailyFragment::class.java),
-                NavItemData(BottomNavigationItem(R.mipmap.ic_whatshot, R.string.tab_girls).setActiveColorResource(R.color.color_girl), GirlsFragment::class.java)
+                NavItemData(BottomNavigationItem(R.drawable.ic_account, R.string.tab_mine).setActiveColorResource(R.color.color_000000), OneFragment::class.java),
+                NavItemData(BottomNavigationItem(R.drawable.ic_movie, R.string.tab_movie).setActiveColorResource(R.color.color_movie), MovieFragment::class.java),
+                NavItemData(BottomNavigationItem(R.drawable.ic_book, R.string.tab_daily).setActiveColorResource(R.color.color_daily), DailyFragment::class.java),
+                NavItemData(BottomNavigationItem(R.drawable.ic_whatshot, R.string.tab_girls).setActiveColorResource(R.color.color_girl), GirlsFragment::class.java)
         )
     }
 

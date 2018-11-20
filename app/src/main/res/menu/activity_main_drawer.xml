@@ -7,19 +7,19 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_one"
-            android:icon="@mipmap/ic_smile"
+            android:icon="@drawable/ic_account"
             android:title="@string/tab_mine" />
         <item
             android:id="@+id/nav_movie"
-            android:icon="@mipmap/ic_movie"
+            android:icon="@drawable/ic_movie"
             android:title="@string/tab_movie" />
         <item
             android:id="@+id/nav_daily"
-            android:icon="@mipmap/ic_book"
+            android:icon="@drawable/ic_book"
             android:title="@string/tab_daily" />
         <item
             android:id="@+id/nav_girls"
-            android:icon="@mipmap/ic_whatshot"
+            android:icon="@drawable/ic_whatshot"
             android:title="@string/tab_girls" />
     </group>
 
@@ -28,11 +28,11 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/nav_blog"
-            android:icon="@mipmap/ic_open_broswer"
+            android:icon="@drawable/ic_open_broswer"
             android:title="@string/nav_blog" />
         <item
             android:id="@+id/nav_login"
-            android:icon="@mipmap/ic_action_download"
+            android:icon="@drawable/ic_action_download"
             android:title="登录" />
     </group>
 
