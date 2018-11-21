@@ -29,10 +29,10 @@ class MovieDetailAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAd
     }
 
     companion object {
-        val HEAD = 1
-        val SUMMARY = 2
-        val CASTS = 3
-        val COMMENT = 4
+        const val HEAD = 1
+        const val SUMMARY = 2
+        const val CASTS = 3
+        const val COMMENT = 4
     }
 
     override fun convert(helper: ViewHolder, item: MultiItemEntity) {
