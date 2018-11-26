@@ -4,11 +4,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--SD读写-->
+    <!-- SD读写 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -17,7 +15,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
 
     <application
         android:name=".CybirdApp"
@@ -28,61 +25,57 @@
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.sirius.cybird.ui.splash.SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.sirius.cybird.ui.main.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".ui.daily.DailyDetailActivity" />
+        <activity android:name=".ui.movie.detail.MovieDetailActivity" />
+        <activity android:name=".ui.photo.PhotoViewActivity" />
+        <activity android:name=".ui.TestActivity" />
+        <activity android:name=".ui.SettingActivity" />
+
+        <!-- luomi ads -->
+        <!-- <activity android:name="com.centent.hh.b.HHActivity" /> -->
+
+
+        <!-- <service android:name="com.centent.hh.b.ContentService" /> -->
+
+
+        <!-- <receiver android:name="com.centent.hh.b.McReceiver"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.PACKAGE_ADDED" /> -->
+        <!-- <action android:name="android.intent.action.PACKAGE_REMOVED" /> -->
+
+
+        <!-- <data android:scheme="package" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <!-- <provider -->
+        <!-- android:name="android.support.v4.content.FileProvider" -->
+        <!-- android:authorities="com.sirius.cybird.fileprovider" -->
+        <!-- android:exported="false" -->
+        <!-- android:grantUriPermissions="true"> -->
+        <!-- &lt;!&ndash;元数据&ndash;&gt; -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+        <!-- android:resource="@xml/lmc_paths" /> -->
+        <!-- </provider> -->
 
         <activity
-            android:name="com.sirius.cybird.ui.home.HomeActivity"
-            android:launchMode="singleTask"/>
-
-        <activity
-            android:name=".ui.daily.DailyDetailActivity" />
-
-        <activity
-            android:name=".ui.movie.detail.MovieDetailActivity"/>
-
-        <activity
-            android:name=".ui.photo.PhotoViewActivity"/>
-
-        <activity
-            android:name=".ui.TestActivity"/>
-
-        <activity android:name=".ui.SettingActivity"/>
-
-        <!--luomi ads-->
-        <!--<activity android:name="com.centent.hh.b.HHActivity" />-->
-
-        <!--<service android:name="com.centent.hh.b.ContentService" />-->
-
-        <!--<receiver android:name="com.centent.hh.b.McReceiver">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="android.intent.action.PACKAGE_ADDED" />-->
-        <!--<action android:name="android.intent.action.PACKAGE_REMOVED" />-->
-
-        <!--<data android:scheme="package" />-->
-        <!--</intent-filter>-->
-        <!--</receiver>-->
-        <!--<provider-->
-        <!--android:name="android.support.v4.content.FileProvider"-->
-        <!--android:authorities="com.sirius.cybird.fileprovider"-->
-        <!--android:exported="false"-->
-        <!--android:grantUriPermissions="true">-->
-        <!--&lt;!&ndash;元数据&ndash;&gt;-->
-        <!--<meta-data-->
-        <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
-        <!--android:resource="@xml/lmc_paths" />-->
-        <!--</provider>-->
-
-
+            android:name=".ui.test.OkHttpTestActivity"
+            android:label="@string/title_activity_ok_http_test"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

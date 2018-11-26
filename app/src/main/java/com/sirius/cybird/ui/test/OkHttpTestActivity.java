@@ -1,0 +1,112 @@
+package com.sirius.cybird.ui.test;
+
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+
+import com.sirius.cybird.R;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+/**
+ * OkHttp源码解析
+ */
+public class OkHttpTestActivity extends AppCompatActivity {
+    public static final String TAG = "OkHttp";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_ok_http_test);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+
+    }
+
+    //region OkHttp同步请求
+    private void syncRequest() {
+        /**
+         * 在当前线程发送同步请求后，当前线程会进入阻塞状态，直到收到响应
+         */
+
+        //1.Create OkHttpClient 通过OkHttp内部类Builder设置请求参数，再通过build方法生成Client
+        //Builder内部有一个dispatcher类，是用来做同步，异步请求的分发，分发器类，OkHttp的核心类之一
+        OkHttpClient client = new OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build();
+        //2.Create Request 同样是通过Builder设置参数和请求方法调用build生成Request
+        Request syncRequest = new Request.Builder().url("http://www.baidu.com").get().build();
+        //3.Create Call 链接Response和Request的桥梁，一个Call对应一次请求
+        //call 是一个接口，实际上在在Client.newCall的时候返回一个RealCall，RealCall集成了Call接口
+        //RealCall在创建的时候赋值了Client，request，创建了重定向拦截器，及一个事件监听
+        Call call = client.newCall(syncRequest);
+        //4.发起同步请求获取Response
+        try {
+            //excute同样是在RealCall中去实现
+            //在同步代码块中判断时候已经被执行，执行过就抛异常，未执行就标记为true
+            //在RealCall中client.dispatcher.exechte(call)中，Client的dispatcher会吧call加入到同步请求队列（runningSyncCalls）中
+            //执行完execute，会通过调用getResponseWithInterceptorChain()获取返回response
+            //finally client.dispatcher.finish去移除当前runningSyncCalls中的当前的同步call
+            Response response = call.execute();
+            Log.e(TAG, "Response " + response.body().toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    //endregion
+
+
+
+    //region OkHttp异步请求
+    private void aSyncRequest(){
+        //与同步相同前三步都是创建client，call，request
+        OkHttpClient client = new OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build();
+        Request request = new Request.Builder().url("http://www.baidu.com").get().build();
+        Call  call = client.newCall(request);
+
+        //发起异步请求, 调用enqueue会开启一个新的工作线程, callback的onFailure 和 onResponse都是在工作线程去执行，所以这边不能做一些View的更新操作
+        //同样是调用RealCall的实现方法RealCall.enqueue,
+        //传入的callback对象会被封装正一个 AsyncCall的Runnable
+        //realcall里面又调用了client.dispatcher.enqueue，传入callback
+        //如果当前正在执行的异步请求runningAsyncCalls的数量小于最大请求数&runningCallHost小于最大请求Host就把当前call加入到runningAsyncCalls， 通过线程池ExecutorService.execute去执行call
+        //否则加入到readAsyncCalls队列中
+        //executorService线程池中执行的execute(call)则是调用的AsyncCall的execute
+        //AsyncCall.execute先通过拦截器链获取Response，如果重定向重试拦截器取消，就返回onFailure，否则返回onResponse
+        //execute的finally调用了client.dispatcher.finish, remove当前call，
+        call.enqueue(new Callback() {
+            //异步请求失败或者调用call.cancel()的回调
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.e(TAG, "Request Fail");
+            }
+
+            //异步请求成功之后的回调
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Log.e(TAG, "Response " + response.body().toString());
+            }
+        });
+
+    }
+    //endregion
+
+}

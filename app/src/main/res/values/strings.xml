@@ -50,4 +50,5 @@
     <string name="setting_update_avatar">点击修改头像</string>
     <string name="setting_nick">昵称</string>
     <string name="setting_sing_out">退出登录</string>
+    <string name="title_activity_ok_http_test">OkHttpTestActivity</string>
 </resources>
