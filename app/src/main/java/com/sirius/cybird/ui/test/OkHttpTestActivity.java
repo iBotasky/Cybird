@@ -109,4 +109,35 @@ public class OkHttpTestActivity extends AppCompatActivity {
     }
     //endregion
 
+    //region okhttp任务调度dispatcher
+    private void dispatcher(){
+        //Q1.okhttp如何实现管理同步异步请求
+        //发送的同步/异步请求都会在dispatcher中管理状态
+
+        //Q2.dispatcher是什么
+        //dispatcher用于维护请求状态，并且内部维护一个线程池ExecuteService线程池，用于执行请求，相对于
+        //其他框架okhttp高效就在于dispatcher维护的异步请求的线程池。
+        //就绪请求队列 readyAsyncCalls  正在请求队列（包括未完成但被cancel的请求） runningAsyncCalls
+
+        //Q3. 异步请求为什么需要两个队列
+        //dispatcher相当于生产者，对进入的call进行调度
+        //executeService线程池相当于消费者，消费者的消费个数有上限，所以需要两个队列存放call
+        //当不满足当前消费状态就把call放到readyAsyncCalls队列中
+        //任务执行完dispatcher会调用promoteCall()手动清楚缓存区
+
+        //同步异步在finish的不同处在于client.dispatcher.finish有一个参数promoteCalls用来调度异步的call
+        //异步为true，需要调度call， 同步为false， 不需要调度
+        //调度方法为promoteCalls(), 先判断是否大于最大请求数，大于就返回，接着判断readyAsyncCalls是否为空，空则返回
+        //不为空则便利每个readyAsyncCalls去加入到runningAsyncCalls并在线程池去执行请求。
+
+    }
+    //endregion
+
+
+
+    //region拦截器
+    private void interceptor(){
+
+    }
+    //endregion
 }
