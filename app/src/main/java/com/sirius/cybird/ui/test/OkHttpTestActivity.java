@@ -137,6 +137,28 @@ public class OkHttpTestActivity extends AppCompatActivity {
 
     //region拦截器
     private void interceptor(){
+        //okhttp提供的强大机制，可以实现网络监听，请求以及响应重写，请求失败重试等功能
+        //方法RealCall.getResponseWithInterceptorChain()
+        //总结
+        //1.创建一系列拦截器，并加入到拦截器list中,包含ApplicationInterceptor&NetworkInterceptor及okHttp内部提供的拦截器
+        //2.创建拦截器链RealInterceptorChain,并执行proceed方法（proceed方法就是去创建下一个拦截器链）
+
+        //总结2
+        //1.在发起请求前 对request进行处理
+        //2.调用下一个拦截器，获取response
+        //3.对response进行处理，返回给上一个拦截器
+
+        //RetryAndFollowUpInterceptor
+        //1.创建StreamAllocation对象
+        //2.调用RealInterceptorChain.proceed进行网络请求。
+        //3.根据异常结果或者响应结果判断是否要进行重试
+        //4.调用下一个拦截器，对response进行处理
+
+        //BridgeInterceptor
+        //1.负责将用户构建的一个Request请求转化为能够进行网络访问的请求
+        //2.将这个能够访问的Request进行网络请求
+        //3.调用下层的InterceptorChain.proceed获取response
+        //3.将网络请求回来的response转化为用户可用的response，如gzip解压
 
     }
     //endregion
