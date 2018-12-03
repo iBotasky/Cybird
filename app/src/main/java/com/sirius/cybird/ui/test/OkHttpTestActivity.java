@@ -10,9 +10,11 @@ import android.view.View;
 
 import com.sirius.cybird.R;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Cache;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -75,13 +77,12 @@ public class OkHttpTestActivity extends AppCompatActivity {
     //endregion
 
 
-
     //region OkHttp异步请求
-    private void aSyncRequest(){
+    private void aSyncRequest() {
         //与同步相同前三步都是创建client，call，request
         OkHttpClient client = new OkHttpClient.Builder().readTimeout(5, TimeUnit.SECONDS).build();
         Request request = new Request.Builder().url("http://www.baidu.com").get().build();
-        Call  call = client.newCall(request);
+        Call call = client.newCall(request);
 
         //发起异步请求, 调用enqueue会开启一个新的工作线程, callback的onFailure 和 onResponse都是在工作线程去执行，所以这边不能做一些View的更新操作
         //同样是调用RealCall的实现方法RealCall.enqueue,
@@ -110,7 +111,7 @@ public class OkHttpTestActivity extends AppCompatActivity {
     //endregion
 
     //region okhttp任务调度dispatcher
-    private void dispatcher(){
+    private void dispatcher() {
         //Q1.okhttp如何实现管理同步异步请求
         //发送的同步/异步请求都会在dispatcher中管理状态
 
@@ -134,9 +135,8 @@ public class OkHttpTestActivity extends AppCompatActivity {
     //endregion
 
 
-
     //region拦截器
-    private void interceptor(){
+    private void interceptor() {
         //okhttp提供的强大机制，可以实现网络监听，请求以及响应重写，请求失败重试等功能
         //方法RealCall.getResponseWithInterceptorChain()
         //总结
@@ -160,6 +160,15 @@ public class OkHttpTestActivity extends AppCompatActivity {
         //3.调用下层的InterceptorChain.proceed获取response
         //3.将网络请求回来的response转化为用户可用的response，如gzip解压
 
+    }
+    //endregion
+
+
+    //region OkHttp缓存策略
+    private void cacheOkHttpRequest() {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .cache(new Cache(new File("cache"), 24 * 1024 * 1024))
+                .build();
     }
     //endregion
 }
