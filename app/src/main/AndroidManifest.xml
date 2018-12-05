@@ -72,10 +72,6 @@
         <!-- android:resource="@xml/lmc_paths" /> -->
         <!-- </provider> -->
 
-        <activity
-            android:name=".ui.test.OkHttpTestActivity"
-            android:label="@string/title_activity_ok_http_test"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
