@@ -42,19 +42,19 @@ class DailyAdapter(val list: List<MultiItemEntity>) : BaseMultiItemQuickAdapter<
                 bannerBinding.idViewPager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL)
                 //initialize UltraPagerAdapter，and add child view to UltraViewPager
                 val adapter = UltraPagerAdapter(item.topstories)
-                bannerBinding.idViewPager.setAdapter(adapter)
+                bannerBinding.idViewPager.adapter = adapter
 
                 bannerBinding.idViewPager.initIndicator()
                 //set style of indicators
-                bannerBinding.idViewPager.getIndicator()
+                bannerBinding.idViewPager.indicator
                         .setOrientation(UltraViewPager.Orientation.HORIZONTAL)
                         .setFocusColor(Color.GRAY)
                         .setNormalColor(Color.WHITE)
                         .setRadius(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3f, mContext.getResources().getDisplayMetrics()).toInt())
-                bannerBinding.idViewPager.getIndicator().setGravity(Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM)
+                bannerBinding.idViewPager.indicator.setGravity(Gravity.CENTER_HORIZONTAL or Gravity.BOTTOM)
                         .setMargin(0, 0, 0, 15)
                 //construct built-in indicator, and add it to  UltraViewPager
-                bannerBinding.idViewPager.getIndicator().build()
+                bannerBinding.idViewPager.indicator.build()
                 //set an infinite loop
                 bannerBinding.idViewPager.setInfiniteLoop(true)
                 //enable auto-scroll mode
