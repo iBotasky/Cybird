@@ -105,9 +105,9 @@ abstract class BaseRecyclerMultiFragment<H : BaseViewHolder> : BaseLazyFragment(
                 }
             }
 
-            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-            }
+//            override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+//                super.onScrollStateChanged(recyclerView, newState)
+//            }
         })
         mFloatingButton?.setOnClickListener(
                 ({

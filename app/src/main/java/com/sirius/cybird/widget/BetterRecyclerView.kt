@@ -21,7 +21,7 @@ open class BetterRecyclerView : RecyclerView {
 
     constructor(context: Context?) : this(context, null) {}
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0) {}
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context!!, attrs, defStyleAttr) {
         val vc = ViewConfiguration.get(context)
         touchSlop = vc.scaledTouchSlop
     }
@@ -65,10 +65,10 @@ open class BetterRecyclerView : RecyclerView {
                     val dx = x - initialTouchX
                     val dy = y - initialTouchY
                     var startScroll = false;
-                    if (layoutManager.canScrollHorizontally() && Math.abs(dx) > touchSlop && (layoutManager.canScrollVertically() || Math.abs(dx) > Math.abs(dy))) {
+                    if (layoutManager!!.canScrollHorizontally() && Math.abs(dx) > touchSlop && (layoutManager!!.canScrollVertically() || Math.abs(dx) > Math.abs(dy))) {
                         startScroll = true
                     }
-                    if (layoutManager.canScrollVertically() && Math.abs(dy) > touchSlop && (layoutManager.canScrollHorizontally() || Math.abs(dy) > Math.abs(dx))) {
+                    if (layoutManager!!.canScrollVertically() && Math.abs(dy) > touchSlop && (layoutManager!!.canScrollHorizontally() || Math.abs(dy) > Math.abs(dx))) {
                         startScroll = true
                     }
                     return startScroll && super.onInterceptTouchEvent(e)
