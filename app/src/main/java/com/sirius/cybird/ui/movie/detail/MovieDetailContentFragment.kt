@@ -24,16 +24,16 @@ class MovieDetailContentFragment : BaseRecyclerMultiFragment<MovieDetailAdapter.
     @Inject
     lateinit var mPresenter: MovieDetailPresenter
 
-    lateinit var mMovieDetailFragmentBinding: FragmentMovieDetailBinding
+    private lateinit var mMovieDetailFragmentBinding: FragmentMovieDetailBinding
 
     companion object {
-        val MOVIE_ID = "id"
+        const val MOVIE_ID = "id"
 
         fun newInstance(id: String): MovieDetailContentFragment {
             val bundle = Bundle()
             bundle.putString(MOVIE_ID, id)
             val movieDetailFragment = MovieDetailContentFragment()
-            movieDetailFragment.setArguments(bundle)
+            movieDetailFragment.arguments = bundle
             return movieDetailFragment
         }
     }
