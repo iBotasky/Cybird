@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import com.gyf.barlibrary.BarHide
 import com.gyf.barlibrary.ImmersionBar
 import com.kennyc.view.MultiStateView
 import com.sirius.cybird.CybirdApp
