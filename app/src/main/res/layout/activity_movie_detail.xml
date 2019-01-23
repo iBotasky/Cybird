@@ -23,14 +23,20 @@
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="350dp"
                 android:elevation="@dimen/bar_elevation"
                 app:contentScrim="?attr/colorPrimary"
-                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
                 app:expandedTitleGravity="right|bottom"
-                app:expandedTitleMarginEnd="30dp"
                 app:expandedTitleMarginBottom="30dp"
+                app:expandedTitleMarginEnd="30dp"
+                app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bg_detail" />
 
                 <ImageView
                     android:id="@+id/iv_film_img"
@@ -41,6 +47,7 @@
                     android:layout_marginBottom="@dimen/dimen_30"
                     android:fitsSystemWindows="true"
                     app:layout_collapseMode="parallax" />
+
                 <android.support.v7.widget.Toolbar
                     android:id="@id/id_toolbar"
                     android:layout_width="match_parent"
@@ -52,10 +59,11 @@
             </android.support.design.widget.CollapsingToolbarLayout>
 
         </android.support.design.widget.AppBarLayout>
+
         <FrameLayout
             android:id="@id/id_continer"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
     </android.support.design.widget.CoordinatorLayout>
 </layout>
