@@ -8,6 +8,7 @@
     <string name="g_multi_view_loading">Loading&#8230;</string>
     <string name="g_click_to_finish">Click again to quit</string>
     <string name="g_click_to_sign_in">Click to login</string>
+    <string name="g_permission_not_allow">Please open write and read storage permission</string>
     <!--Home-->
     <string name="tab_movie">Movies</string>
     <string name="tab_daily">Daily</string>

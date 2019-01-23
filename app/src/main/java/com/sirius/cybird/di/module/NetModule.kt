@@ -64,9 +64,9 @@ class NetModule {
 
         // 开发模式记录整个body，否则只记录基本信息如返回200，http协议版本等
         if (BuildConfig.DEBUG) {
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+            logging.level = HttpLoggingInterceptor.Level.BODY
         } else {
-            logging.setLevel(HttpLoggingInterceptor.Level.BASIC)
+            logging.level = HttpLoggingInterceptor.Level.BASIC
         }
 
         val client = OkHttpClient.Builder()

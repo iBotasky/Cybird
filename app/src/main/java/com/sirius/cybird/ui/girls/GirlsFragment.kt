@@ -32,7 +32,7 @@ class GirlsFragment : BaseRecyclerFragment<ResultsBean, GirlsAdapter.ViewHolder>
     }
 
     override fun loadData() {
-        mPresenter.getGirls(mPage)
+        val disposed = mPresenter.getGirls(mPage)
                 .compose(TransformScheduler.applyNewThreadScheduler())
                 .compose(bindToLifecycle())
                 .subscribe(

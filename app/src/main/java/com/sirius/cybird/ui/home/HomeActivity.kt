@@ -1,14 +1,8 @@
 package com.sirius.cybird.ui.home
 
-import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v4.app.ActivityCompat
-import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
@@ -25,7 +19,6 @@ import com.sirius.cybird.ui.girls.GirlsFragment
 import com.sirius.cybird.ui.movie.MovieFragment
 import com.sirius.cybird.ui.one.OneFragment
 import com.sirius.cybird.utils.GlideUtil
-import com.tbruyelle.rxpermissions2.RxPermissions
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.noButton
 import org.jetbrains.anko.toast
@@ -50,7 +43,6 @@ class HomeActivity : BaseNavActivity() {
         mHomeBinding = getBaseViewBinding()
         setToolbarTitle(mTitleResources[0])
         setNavigationView()
-        requestPermission()
     }
 
     private fun setNavigationView() {
@@ -59,40 +51,38 @@ class HomeActivity : BaseNavActivity() {
         //打开手势滑动
         //mHomeBinding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
         mHomeBinding.navigation.setCheckedItem(R.id.nav_one)
-        mHomeBinding.navigation.setNavigationItemSelectedListener(object : NavigationView.OnNavigationItemSelectedListener {
-            override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                mHomeBinding.drawerLayout.closeDrawers()
-                when (item.itemId) {
-                    R.id.nav_one, R.id.nav_movie, R.id.nav_daily, R.id.nav_girls -> {
-                        item.isChecked = true
-                        when (item.itemId) {
-                            R.id.nav_one -> mHomeBinding.idBottomNavBar.selectTab(0)
-                            R.id.nav_movie -> mHomeBinding.idBottomNavBar.selectTab(1)
-                            R.id.nav_daily -> mHomeBinding.idBottomNavBar.selectTab(2)
-                            R.id.nav_girls -> mHomeBinding.idBottomNavBar.selectTab(3)
-                        }
-                    }
-                    R.id.nav_blog, R.id.nav_login -> {
-                        item.isChecked = false
-                        when (item.itemId) {
-                            R.id.nav_blog -> Navigation.startBrowser(this@HomeActivity, Urls.URL_BLOG)
-                            R.id.nav_login -> startActivity(AuthUI.getInstance()
-                                    .createSignInIntentBuilder()
-                                    .setAvailableProviders(arrayListOf(
-                                            AuthUI.IdpConfig.EmailBuilder().build(),
-                                            AuthUI.IdpConfig.PhoneBuilder().build(),
-                                            AuthUI.IdpConfig.GoogleBuilder().build())
-                                    )
-                                    .setLogo(R.mipmap.ic_launcher_round)
-                                    .setTheme(R.style.LoginTheme)
-                                    .build())
-                        }
-
+        mHomeBinding.navigation.setNavigationItemSelectedListener {
+            mHomeBinding.drawerLayout.closeDrawers()
+            when (it.itemId) {
+                R.id.nav_one, R.id.nav_movie, R.id.nav_daily, R.id.nav_girls -> {
+                    it.isChecked = true
+                    when (it.itemId) {
+                        R.id.nav_one -> mHomeBinding.idBottomNavBar.selectTab(0)
+                        R.id.nav_movie -> mHomeBinding.idBottomNavBar.selectTab(1)
+                        R.id.nav_daily -> mHomeBinding.idBottomNavBar.selectTab(2)
+                        R.id.nav_girls -> mHomeBinding.idBottomNavBar.selectTab(3)
                     }
                 }
-                return false
+                R.id.nav_blog, R.id.nav_login -> {
+                    it.isChecked = false
+                    when (it.itemId) {
+                        R.id.nav_blog -> Navigation.startBrowser(this@HomeActivity, Urls.URL_BLOG)
+                        R.id.nav_login -> startActivity(AuthUI.getInstance()
+                                .createSignInIntentBuilder()
+                                .setAvailableProviders(arrayListOf(
+                                        AuthUI.IdpConfig.EmailBuilder().build(),
+                                        AuthUI.IdpConfig.PhoneBuilder().build(),
+                                        AuthUI.IdpConfig.GoogleBuilder().build())
+                                )
+                                .setLogo(R.mipmap.ic_launcher_round)
+                                .setTheme(R.style.LoginTheme)
+                                .build())
+                    }
+
+                }
             }
-        })
+            false
+        }
 
         val headView = mHomeBinding.navigation.getHeaderView(0)
         val headBg: ImageView = headView.findViewById(R.id.iv_head_bg)
@@ -108,7 +98,7 @@ class HomeActivity : BaseNavActivity() {
         }
 
         headAvatar.setOnClickListener(({
-            if (FirebaseAuth.getInstance().currentUser != null){
+            if (FirebaseAuth.getInstance().currentUser != null) {
 //                AuthUI.getInstance().signOut(this).addOnCompleteListener(({
 //                    headName.text =  getString(R.string.g_click_to_sign_in)
 //                    GlideUtil.loadLocalImage(this@HomeActivity, headAvatar, R.mipmap.ic_launcher_round)
@@ -116,10 +106,10 @@ class HomeActivity : BaseNavActivity() {
 
                 Navigation.startSetting(this)
 
-            }else{
-                alert(R.string.alert_title, R.string.alert_message){
+            } else {
+                alert(R.string.alert_title, R.string.alert_message) {
                     yesButton { Navigation.startLogin(this@HomeActivity, Navigation.SIGN_IN) }
-                    noButton {  }
+                    noButton { }
                 }.show()
 
             }
@@ -129,7 +119,7 @@ class HomeActivity : BaseNavActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Navigation.SIGN_IN && resultCode == Activity.RESULT_OK){
+        if (requestCode == Navigation.SIGN_IN && resultCode == Activity.RESULT_OK) {
             val headView = mHomeBinding.navigation.getHeaderView(0)
             val headAvatar: ImageView = headView.findViewById(R.id.iv_head_avatar)
             val headName: TextView = headView.findViewById(R.id.tv_head_username)
@@ -141,21 +131,6 @@ class HomeActivity : BaseNavActivity() {
     override fun getLayoutResource(): Int {
         return R.layout.activity_home
     }
-
-    private fun requestPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (!isGranted(Manifest.permission.READ_PHONE_STATE) || !isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE))) {
-            val rxPermissions = RxPermissions(this)
-            rxPermissions.request(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    .compose(bindToLifecycle())
-                    .subscribe()
-        }
-    }
-
-    private fun isGranted(permission: String): Boolean {
-        val checkSelfPermission = ActivityCompat.checkSelfPermission(this, permission)
-        return checkSelfPermission == PackageManager.PERMISSION_GRANTED
-    }
-
 
     override fun getBottomNavDatas(): List<NavItemData> {
         mTitleResources = listOf(R.string.tab_mine, R.string.tab_movie, R.string.tab_daily, R.string.tab_girls)

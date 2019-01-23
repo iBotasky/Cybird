@@ -15,7 +15,7 @@ import com.sirius.cybird.module.NavItemData
 import java.lang.ref.WeakReference
 
 
-open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener {
+abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener, ViewPager.OnPageChangeListener {
     lateinit var mViewPager: ViewPager
     lateinit var mPagerAdapter: MyViewPagerAdapter
     lateinit var mBottomNavBar: BottomNavigationBar
@@ -48,6 +48,9 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
         return BottomNavigationBar.MODE_FIXED
     }
 
+    /**
+     * 返回值设置底部导航栏样式
+     */
     open fun getBottomNavBackgroundStyle(): Int {
         return BottomNavigationBar.BACKGROUND_STYLE_STATIC
     }
@@ -82,7 +85,7 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
     }
     //ViewPagerListener END
 
-    open fun onNavigationChange(position: Int){
+    open fun onNavigationChange(position: Int) {
 
     }
 
@@ -113,11 +116,10 @@ open abstract class BaseNavActivity : BaseActivity(), BottomNavigationBar.OnTabS
     }
 
     inner class MyViewPagerAdapter(private val context: Context, fm: FragmentManager, items: List<NavItemData>) : FragmentPagerAdapter(fm) {
-        private val pages: MutableList<NavItemData>
+        private val pages: MutableList<NavItemData> = mutableListOf()
         private val holder: SparseArrayCompat<WeakReference<Fragment>>
 
         init {
-            this.pages = mutableListOf()
             this.holder = SparseArrayCompat(pages.size)
             addItems(items)
         }

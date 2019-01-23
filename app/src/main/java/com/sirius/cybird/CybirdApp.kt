@@ -44,7 +44,6 @@ class CybirdApp : Application() {
         setupStetho()
         setupObjectBox()
         setupComponent()
-//        setupUtils()
 
     }
 

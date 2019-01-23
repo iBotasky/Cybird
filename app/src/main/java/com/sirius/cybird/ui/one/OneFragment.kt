@@ -31,7 +31,7 @@ class OneFragment : BaseRecyclerFragment<OneDetailData.Data.Content, OneAdapter.
     }
 
     override fun loadData() {
-        mPresenter.getLast7DayDetail()
+        val disposed = mPresenter.getLast7DayDetail()
                 .compose(bindToLifecycle())
                 .compose(TransformScheduler.applyNewThreadScheduler())
                 .subscribe(
