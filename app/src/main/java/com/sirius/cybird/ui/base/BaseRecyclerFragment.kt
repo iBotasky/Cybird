@@ -95,12 +95,10 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
 //                super.onScrollStateChanged(recyclerView, newState)
 //            }
         })
-        mFloatingButton?.setOnClickListener(
-                { v ->
-                    mRecyclerView.scrollToPosition(0)
-                    mFloatingButton?.hide()
-                }
-        )
+        mFloatingButton?.setOnClickListener { v ->
+            mRecyclerView.scrollToPosition(0)
+            mFloatingButton?.hide()
+        }
     }
 
     open fun getLayoutManager(): RecyclerView.LayoutManager {

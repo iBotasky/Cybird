@@ -23,11 +23,10 @@ class OneFragment : BaseRecyclerFragment<OneDetailData.Data.Content, OneAdapter.
     override fun setupViews() {
         super.setupViews()
         mFloatingButton?.visibility = View.GONE
-        mSwipeRefresh.setOnRefreshListener {
-            mPresenter.refresh()
-            loadData()
-        }
+    }
 
+    override fun isEnableSwipeLayout(): Boolean {
+        return false
     }
 
     override fun getAdapter(): BaseQuickAdapter<OneDetailData.Data.Content, OneAdapter.ViewHolder> {
