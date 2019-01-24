@@ -1,30 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <import type="android.view.View" />
-
-        <variable
-            name="content"
-            type="com.sirius.cybird.net.response.OneDetailData.Data.Content" />
-
-    </data>
-
-    <android.support.constraint.ConstraintLayout
+    <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/color_000000">
+
+        <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@id/id_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <ImageView
+                android:id="@+id/iv_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|end"
+                android:layout_marginEnd="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_action_download" />
+        </android.support.v7.widget.Toolbar>
 
         <ImageView
             android:id="@+id/iv_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="H,1.618:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:src="@drawable/bg_detail"
+            tools:scaleType="centerCrop"
+            app:layout_constraintTop_toBottomOf="@+id/id_toolbar" />
 
         <View
             android:layout_width="0dp"
@@ -35,19 +53,6 @@
             app:layout_constraintStart_toStartOf="@+id/iv_img"
             app:layout_constraintTop_toTopOf="@+id/iv_img" />
 
-        <TextView
-            android:id="@+id/tv_vol"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_20"
-            android:layout_marginTop="@dimen/dimen_20"
-            android:text="@{content.volume}"
-            android:textColor="#8AFFFFFF"
-            android:textSize="@dimen/sp_16"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Vol201" />
 
         <TextView
             android:id="@+id/tv_author"
@@ -57,22 +62,10 @@
             android:text="@{content.wordsInfo}"
             android:textColor="@color/color_ffffff"
             android:textSize="@dimen/sp_13"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_img"
             app:layout_constraintEnd_toEndOf="@+id/tv_content"
             tools:text="作者" />
 
-
-        <TextView
-            android:id="@+id/tv_photo_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_20"
-            android:text="@{@string/one_photo +content.picInfo}"
-            android:textColor="@color/color_ffffff"
-            android:textSize="@dimen/sp_13"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/tv_content"
-            tools:text="摄影" />
 
         <TextView
             android:id="@+id/tv_content"
@@ -85,11 +78,11 @@
             android:text="@{content.forward}"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/sp_13"
-            app:layout_constraintBottom_toTopOf="@+id/tv_author"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_img"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_vol"
+            app:layout_constraintTop_toTopOf="@+id/iv_img"
             tools:text="HHHHHLlskdfmksdfkkskdmfllsdf" />
-    </android.support.constraint.ConstraintLayout>
 
+    </android.support.constraint.ConstraintLayout>
 </layout>

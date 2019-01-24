@@ -4,8 +4,10 @@ import android.app.Activity
 import android.content.Context
 import com.firebase.ui.auth.AuthUI
 import com.sirius.cybird.R
+import com.sirius.cybird.net.response.OneDetailData
 import com.sirius.cybird.ui.daily.DailyDetailActivity
 import com.sirius.cybird.ui.movie.detail.MovieDetailActivity
+import com.sirius.cybird.ui.one.OneDetailActivity
 import com.sirius.cybird.ui.photo.PhotoViewActivity
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.startActivity
@@ -51,6 +53,10 @@ object Navigation {
         context.startActivity<PhotoViewActivity>(EXTRA_DATA to data, EXTRA_ID to dataId, EXTRA_INDEX to index)
     }
 
+
+    fun startOneDetail(context: Context, data:OneDetailData.Data.Content){
+        context.startActivity<OneDetailActivity>(EXTRA_DATA to  data)
+    }
     /**
      * 调起系统浏览器打开网址
      */
