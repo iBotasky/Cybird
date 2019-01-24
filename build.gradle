@@ -51,7 +51,7 @@ ext {
     //SupportLibs
     suppportLibVersion = '28.0.0'
     //ConstraintLayout
-    constraintLayoutVersion = '1.1.3'
+    constraintLayoutVersion = '2.0.0-alpha3'
     //BaseRecyclerViewHelper
     baseRecyclerViewHelperVersion = '2.9.38'
     //retrofit
@@ -115,7 +115,7 @@ ext {
             palttte             : "com.android.support:palette-v7:${suppportLibVersion}",
             percent             : "com.android.support:percent:${suppportLibVersion}",
             suportV4            : "com.android.support:support-v4:${suppportLibVersion}",
-            constrain           : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            constraint           : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
             retrofit            : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
             retrofitConverter   : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
             retrofitAdapter     : "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}",
