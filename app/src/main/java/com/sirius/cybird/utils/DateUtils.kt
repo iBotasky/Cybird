@@ -26,4 +26,35 @@ object DateUtils {
         }
         return list.toList()
     }
+
+
+    fun getLast7DaysDate(date: Date): List<String> {
+        val list = mutableListOf<String>()
+        val calendar = dateToCalendar(date)
+        val format = SimpleDateFormat("yyyy-MM-dd")
+        for (past in 0..6){
+            if (past != 0){
+                calendar.set(Calendar.DAY_OF_YEAR, calendar.get(Calendar.DAY_OF_YEAR) - 1)
+            }
+            list.add(format.format(calendar.time))
+        }
+        return list.toList()
+    }
+
+
+    fun dateToCalendar(date: Date): Calendar {
+        return with(date) {
+            val calendar = Calendar.getInstance()
+            calendar.time = date
+            calendar
+        }
+    }
+
+    fun calendareToDate(year:Int, month:Int, day:Int):Date{
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month -1 , day)
+        return with(calendar){
+            time
+        }
+    }
 }

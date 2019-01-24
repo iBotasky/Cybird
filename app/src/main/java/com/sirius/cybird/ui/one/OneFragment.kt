@@ -23,6 +23,10 @@ class OneFragment : BaseRecyclerFragment<OneDetailData.Data.Content, OneAdapter.
     override fun setupViews() {
         super.setupViews()
         mFloatingButton?.visibility = View.GONE
+        mSwipeRefresh.setOnRefreshListener {
+            mPresenter.refresh()
+            loadData()
+        }
 
     }
 
@@ -41,10 +45,6 @@ class OneFragment : BaseRecyclerFragment<OneDetailData.Data.Content, OneAdapter.
                 )
     }
 
-    override fun showResults(results: List<OneDetailData.Data.Content>) {
-        super.showResults(results)
-        mAdapter.loadMoreEnd()
-    }
 
     override fun getLayouResource(): Int {
         return R.layout.fragment_one
