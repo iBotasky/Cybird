@@ -4,7 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="content"
+            type="com.sirius.cybird.net.response.OneDetailData.Data.Content" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_000000">
@@ -32,57 +41,66 @@
                 android:src="@drawable/ic_action_download" />
         </android.support.v7.widget.Toolbar>
 
-        <ImageView
-            android:id="@+id/iv_img"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:id="@+id/container"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="H,1.618:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:src="@drawable/bg_detail"
-            tools:scaleType="centerCrop"
-            app:layout_constraintTop_toBottomOf="@+id/id_toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/id_toolbar">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/forguard_gradient"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_img"
-            app:layout_constraintEnd_toEndOf="@+id/iv_img"
-            app:layout_constraintStart_toStartOf="@+id/iv_img"
-            app:layout_constraintTop_toTopOf="@+id/iv_img" />
+            <ImageView
+                android:id="@+id/iv_img"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H,1.618:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:scaleType="centerCrop"
+                tools:src="@drawable/bg_detail" />
 
-
-        <TextView
-            android:id="@+id/tv_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen_20"
-            android:text="@{content.wordsInfo}"
-            android:textColor="@color/color_ffffff"
-            android:textSize="@dimen/sp_13"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_img"
-            app:layout_constraintEnd_toEndOf="@+id/tv_content"
-            tools:text="作者" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/forguard_gradient"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_img"
+                app:layout_constraintEnd_toEndOf="@+id/iv_img"
+                app:layout_constraintStart_toStartOf="@+id/iv_img"
+                app:layout_constraintTop_toTopOf="@+id/iv_img" />
 
 
-        <TextView
-            android:id="@+id/tv_content"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimen_20"
-            android:layout_marginTop="@dimen/dimen_20"
-            android:layout_marginRight="@dimen/dimen_20"
-            android:layout_marginBottom="@dimen/dimen_20"
-            android:text="@{content.forward}"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/sp_13"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_img"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/iv_img"
-            tools:text="HHHHHLlskdfmksdfkkskdmfllsdf" />
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:text="@{content.wordsInfo}"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/sp_13"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_img"
+                app:layout_constraintEnd_toEndOf="@+id/tv_content"
+                tools:text="作者" />
 
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginTop="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:text="@{content.forward}"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/sp_13"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/iv_img"
+                tools:text="HHHHHLlskdfmksdfkkskdmfllsdf" />
+
+        </android.support.constraint.ConstraintLayout>
     </android.support.constraint.ConstraintLayout>
 </layout>

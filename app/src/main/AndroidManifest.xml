@@ -44,6 +44,7 @@
         <activity android:name=".ui.photo.PhotoViewActivity" />
         <activity android:name=".ui.TestActivity" />
         <activity android:name=".ui.SettingActivity" />
+        <activity android:name=".ui.one.OneDetailActivity" />
 
         <!-- luomi ads -->
         <!-- <activity android:name="com.centent.hh.b.HHActivity" /> -->

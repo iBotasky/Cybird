@@ -9,6 +9,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.sirius.cybird.R
 import com.sirius.cybird.databinding.ItemOneDetailBinding
 import com.sirius.cybird.net.response.OneDetailData
+import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.utils.GlideUtil
 
 /**
@@ -20,6 +21,9 @@ class OneAdapter: BaseQuickAdapter<OneDetailData.Data.Content, OneAdapter.ViewHo
     override fun convert(helper: ViewHolder, item: OneDetailData.Data.Content) {
         val binding = helper.binding
         GlideUtil.loadImageCenterCrop(mContext, binding.ivImg, item.imgUrl)
+        binding.root.setOnClickListener {
+            Navigation.startOneDetail(mContext, item)
+        }
         binding.setVariable(BR.content, item)
         binding.executePendingBindings()
     }

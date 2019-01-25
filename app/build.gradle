@@ -2,7 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'              //Kotlin
 apply plugin: 'kotlin-android-extensions'   //KotlinExtension
 apply plugin: 'kotlin-kapt'                 //KotlinKapt
-
+androidExtensions{
+    experimental = true
+}
 android {
     signingConfigs {
         release {

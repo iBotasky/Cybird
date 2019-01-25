@@ -1,6 +1,8 @@
 package com.sirius.cybird.net.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 
 data class OneDetailData(
@@ -32,7 +34,7 @@ data class OneDetailData(
             )
         }
 
-
+        @Parcelize
         data class Content(
                 @SerializedName("id") val id: String,
                 @SerializedName("display_category") val displayCategory: String,
@@ -45,6 +47,7 @@ data class OneDetailData(
                 @SerializedName("volume") val volume: String,
                 @SerializedName("pic_info") val picInfo: String,
                 @SerializedName("words_info") val wordsInfo: String
-        )
+        ) : Parcelable
+
     }
 }
