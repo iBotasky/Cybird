@@ -83,6 +83,7 @@
             android:layout_marginRight="@dimen/dimen_20"
             android:layout_marginBottom="@dimen/dimen_20"
             android:text="@{content.forward}"
+            android:lineSpacingExtra="5dp"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toTopOf="@+id/tv_author"
