@@ -55,7 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="w,1:1.6"
+                app:layout_constraintDimensionRatio="w,1:1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:scaleType="centerCrop"
@@ -71,17 +71,19 @@
                 app:layout_constraintTop_toTopOf="@+id/iv_img" />
 
 
-            <TextView
-                android:id="@+id/tv_author"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimen_20"
-                android:text="@{content.wordsInfo}"
-                android:textColor="@color/color_ffffff"
-                android:textSize="@dimen/sp_13"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_img"
-                app:layout_constraintEnd_toEndOf="@+id/tv_content"
-                tools:text="作者" />
+            <!--<TextView-->
+                <!--android:id="@+id/tv_author"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginBottom="@dimen/dimen_20"-->
+                <!--android:text="@{content.wordsInfo}"-->
+                <!--android:textColor="@color/color_ffffff"-->
+                <!--android:textSize="@dimen/sp_16"-->
+                <!--android:textStyle="bold"-->
+                <!--android:visibility="gone"-->
+                <!--app:layout_constraintBottom_toBottomOf="@+id/iv_img"-->
+                <!--app:layout_constraintEnd_toEndOf="@+id/tv_content"-->
+                <!--tools:text="作者" />-->
 
 
             <TextView
@@ -93,10 +95,11 @@
                 android:lineSpacingExtra="5dp"
                 android:text="@{content.forward}"
                 android:textColor="@color/colorAccent"
-                android:textSize="@dimen/sp_13"
-                app:layout_constraintBottom_toTopOf="@+id/tv_author"
-                app:layout_constraintTop_toTopOf="@+id/iv_img"
+                android:textSize="@dimen/sp_16"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="HHHHHLlskdfmksdfkkskdmfllsdf" />
 
