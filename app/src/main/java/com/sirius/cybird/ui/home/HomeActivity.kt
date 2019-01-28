@@ -29,7 +29,7 @@ import org.jetbrains.anko.yesButton
  */
 class HomeActivity : BaseNavActivity() {
     private var mCurrentBackPressedTime = 0L
-    private val BACK_PRESSED_INTERVAL = 2000L
+    private val mBackPressedInterval = 2000L
     lateinit var mHomeBinding: ActivityHomeBinding
     lateinit var mTitleResources: List<Int>
 
@@ -157,7 +157,7 @@ class HomeActivity : BaseNavActivity() {
 
 
     override fun onBackPressed() {
-        if (System.currentTimeMillis() - mCurrentBackPressedTime >= BACK_PRESSED_INTERVAL) {
+        if (System.currentTimeMillis() - mCurrentBackPressedTime >= mBackPressedInterval) {
             mCurrentBackPressedTime = System.currentTimeMillis()
             toast(R.string.g_click_to_finish)
         } else {

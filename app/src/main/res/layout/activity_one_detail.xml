@@ -42,12 +42,12 @@
         </android.support.v7.widget.Toolbar>
 
         <android.support.constraint.ConstraintLayout
-            android:layout_width="0dp"
             android:id="@+id/container"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/id_toolbar">
 
             <ImageView
@@ -55,7 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="H,1.618:1"
+                app:layout_constraintDimensionRatio="w,1:1.6"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:scaleType="centerCrop"
@@ -88,18 +88,16 @@
                 android:id="@+id/tv_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_20"
-                android:layout_marginTop="@dimen/dimen_20"
-                android:layout_marginRight="@dimen/dimen_20"
-                android:layout_marginBottom="@dimen/dimen_20"
+                android:layout_marginLeft="@dimen/dimen_40"
+                android:layout_marginRight="@dimen/dimen_40"
+                android:lineSpacingExtra="5dp"
                 android:text="@{content.forward}"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/sp_13"
-                android:lineSpacingExtra="5dp"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_img"
+                app:layout_constraintBottom_toTopOf="@+id/tv_author"
+                app:layout_constraintTop_toTopOf="@+id/iv_img"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/iv_img"
                 tools:text="HHHHHLlskdfmksdfkkskdmfllsdf" />
 
         </android.support.constraint.ConstraintLayout>
