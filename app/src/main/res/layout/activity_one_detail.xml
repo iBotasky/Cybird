@@ -71,19 +71,17 @@
                 app:layout_constraintTop_toTopOf="@+id/iv_img" />
 
 
-            <!--<TextView-->
-                <!--android:id="@+id/tv_author"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginBottom="@dimen/dimen_20"-->
-                <!--android:text="@{content.wordsInfo}"-->
-                <!--android:textColor="@color/color_ffffff"-->
-                <!--android:textSize="@dimen/sp_16"-->
-                <!--android:textStyle="bold"-->
-                <!--android:visibility="gone"-->
-                <!--app:layout_constraintBottom_toBottomOf="@+id/iv_img"-->
-                <!--app:layout_constraintEnd_toEndOf="@+id/tv_content"-->
-                <!--tools:text="作者" />-->
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:text="@{content.wordsInfo}"
+                android:textColor="@color/color_ffffff"
+                android:textSize="@dimen/sp_13"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_img"
+                app:layout_constraintEnd_toEndOf="@+id/tv_content"
+                tools:text="作者" />
 
 
             <TextView

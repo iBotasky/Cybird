@@ -8,7 +8,6 @@ import com.sirius.cybird.net.response.OneDetailData
 import com.sirius.cybird.rx.TransformScheduler
 import com.sirius.cybird.ui.Navigation
 import com.sirius.cybird.ui.base.BaseActivity
-import com.sirius.cybird.utils.FileUtils
 import com.sirius.cybird.utils.GlideUtil
 import io.reactivex.Observable
 import org.jetbrains.anko.error
