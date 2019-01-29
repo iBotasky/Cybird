@@ -16,6 +16,11 @@ import com.sirius.cybird.R
 import com.sirius.cybird.utils.divider.HorizontalSpaceDecoration
 import com.sirius.cybird.utils.divider.VerticalSpaceDecoration
 
+enum class LoadState() {
+    REFRESH,
+    LOAD_MORE
+}
+
 //TODO: 这里的doLoadMore为什么直接调用loadData()方法?
 abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() {
     lateinit var mRecyclerView: RecyclerView
@@ -29,6 +34,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
     var mPage = 1
     //主要是豆瓣api需要
     var mStart = 0
+
 
     override fun setupViews() {
         super.setupViews()
@@ -52,11 +58,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
 
         mAdapter = getAdapter()
         mRecyclerView.adapter = mAdapter
-        mAdapter.setOnLoadMoreListener(object : BaseQuickAdapter.RequestLoadMoreListener {
-            override fun onLoadMoreRequested() {
-                doLoadMore()
-            }
-        }, mRecyclerView)
+        mAdapter.setOnLoadMoreListener({ doLoadMore() }, mRecyclerView)
 
         mFloatingButton = mBinding.root.findViewById(R.id.id_float_button)
         mFloatingButton?.hide()
@@ -107,9 +109,9 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
 
     open fun getSwipeRefreshColorSchemeRes(): IntArray {
         val colorArray = IntArray(4)
-        colorArray.set(0, activity!!.resources.getColor(R.color.color_movie))
-        colorArray.set(1, activity!!.resources.getColor(R.color.color_daily))
-        colorArray.set(2, activity!!.resources.getColor(R.color.color_girl))
+        colorArray[0] = activity!!.resources.getColor(R.color.color_movie)
+        colorArray[1] = activity!!.resources.getColor(R.color.color_daily)
+        colorArray[2] = activity!!.resources.getColor(R.color.color_girl)
         colorArray.set(3, activity!!.resources.getColor(R.color.color_mine))
         return colorArray
     }

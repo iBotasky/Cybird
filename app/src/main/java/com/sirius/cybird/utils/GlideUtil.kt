@@ -6,7 +6,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Environment
 import android.support.annotation.DrawableRes
-import android.support.annotation.LayoutRes
 import android.widget.ImageView
 import com.sirius.cybird.R
 import io.reactivex.Observable
@@ -79,7 +78,7 @@ object GlideUtil {
         if (!appDir.exists()) {
             appDir.mkdirs()
         }
-        val fileName = name + ".jpg"
+        val fileName = "$name.jpg"
         val destFile = File(appDir, fileName)
 
         FileUtils.copyFile(file, destFile, object : FileUtils.OnReplaceListener {
