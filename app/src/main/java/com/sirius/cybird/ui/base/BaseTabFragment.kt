@@ -65,11 +65,10 @@ abstract class BaseTabFragment : BaseLazyFragment() {
     }
 
     inner class TabViewPagerAdapter(val context: Context, fm: FragmentManager, tabItems: List<TabItemData>) : FragmentPagerAdapter(fm) {
-        private val pages: MutableList<TabItemData>
+        private val pages: MutableList<TabItemData> = mutableListOf()
         private val holder: SparseArrayCompat<WeakReference<Fragment>>
 
         init {
-            this.pages = mutableListOf()
             this.holder = SparseArrayCompat(pages.size)
             addItems(tabItems)
         }
