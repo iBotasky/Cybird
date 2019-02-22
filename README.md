@@ -20,12 +20,12 @@
 
 下载地址：
 
-<img src="http://oktzkaa8p.bkt.clouddn.com/WX20180912-094629@2x.png" style="zoom:50%" />
+<img src="https://github.com/iBotasky/Cybird/blob/master/images/1.png" width="426px"/>
 
 ## 概览
 
 ### SplashActivity
-<img src="http://oktzkaa8p.bkt.clouddn.com/01.jpeg" style="zoom:50%" />
+<img src="https://github.com/iBotasky/Cybird/blob/master/images/01.jpeg" width="426px"/>
 
 ### OneFragment
 
