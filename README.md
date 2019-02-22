@@ -25,13 +25,13 @@
 ## 概览
 
 ### SplashActivity
-<img src="https://github.com/iBotasky/Cybird/blob/master/images/01.jpeg" width="426px"/>
+<img src="https://github.com/iBotasky/Cybird/blob/master/images/1.jpeg" width="426px"/>
 
 ### OneFragment
 
 接入一个App的每天首页的接口，获取最近7天首页的数据并展示，因为接口不是分页，所以通过获取当前日期去计算过去7天的日期，再通过接口分别去获取7天的首页数据封装成一个List做展示。
 
-<img src="http://oktzkaa8p.bkt.clouddn.com/02.jpeg" style="zoom:50%" />
+<img src="https://github.com/iBotasky/Cybird/blob/master/images/2.jpeg" style="zoom:50%" />
 
 
 
@@ -39,7 +39,7 @@
 
 接入豆瓣电影的API，分为三个Tab，豆瓣250， 最近热门和即将上映。
 
-<img src="http://oktzkaa8p.bkt.clouddn.com/03.jpeg" style="zoom:50%" />
+<img src="https://github.com/iBotasky/Cybird/blob/master/images/3.jpeg" style="zoom:50%" />
 
 
 
@@ -47,7 +47,7 @@
 
 获取一部电影的数据并做展示，豆瓣并不开放评论数据，所以在评论上没做处理。
 
-<img src="http://oktzkaa8p.bkt.clouddn.com/04.jpeg" style="zoom:50%" />
+<img src="https://github.com/iBotasky/Cybird/blob/master/images/4.jpeg" style="zoom:50%" />
 
 
 
@@ -55,7 +55,7 @@
 
 调用的知乎日报的API去获取当天的数据，同样不是分页，所以只展示了今天的日报数据。
 
-<img src="http://oktzkaa8p.bkt.clouddn.com/05.jpeg" style="zoom:50%" />
+<img src="https://github.com/iBotasky/Cybird/blob/master/images/5.jpeg" style="zoom:50%" />
 
 
 
@@ -63,7 +63,7 @@
 
 知乎日报的详情页，下面的内容是用WebView做展示，通过获取官方的html、css模板在填充数据进去，功能跟知乎日报的内容页相似
 
-<img src="http://oktzkaa8p.bkt.clouddn.com/06.jpeg" style="zoom:50%" />
+<img src="https://github.com/iBotasky/Cybird/blob/master/images/6.jpeg" style="zoom:50%" />
 
 
 
