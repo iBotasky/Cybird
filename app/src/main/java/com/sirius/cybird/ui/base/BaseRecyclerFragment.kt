@@ -112,7 +112,7 @@ abstract class BaseRecyclerFragment<K, H : BaseViewHolder> : BaseLazyFragment() 
         colorArray[0] = activity!!.resources.getColor(R.color.color_movie)
         colorArray[1] = activity!!.resources.getColor(R.color.color_daily)
         colorArray[2] = activity!!.resources.getColor(R.color.color_girl)
-        colorArray.set(3, activity!!.resources.getColor(R.color.color_mine))
+        colorArray[3] = activity!!.resources.getColor(R.color.color_mine)
         return colorArray
     }
 
