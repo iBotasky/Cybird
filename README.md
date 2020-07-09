@@ -17,10 +17,12 @@
 > 准备集成Firebase，目前集成了FirebaseAuth，手机翻墙才能做登录
 
 
+（因为目前豆瓣API已经关闭开放，所以电影栏数据是出不来的）
 
-下载地址：
 
-<img src="https://github.com/iBotasky/Cybird/blob/master/images/1.png" width="426px"/>
+下载地址：[下载链接](http://d.firim.vip/cybird)
+
+<img src="https://github.com/iBotasky/Cybird/blob/master/images/download.png" width="426px"/>
 
 ## 概览
 
